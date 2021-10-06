@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: page
 title: Hello World
 ---
 
