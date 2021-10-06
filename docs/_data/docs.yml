@@ -1,4 +1,8 @@
-- title: My Group Title
+- title: Willkommen
   docs:
     - home
-    - my-page
+
+- title: Evaluationen
+  docs:
+    - amazon-alexa
+    - google-assistant
