@@ -6,3 +6,9 @@
   docs:
     - amazon-alexa
     - google-assistant
+    - home-assistant
+    - fazit
+
+- title: Client
+  docs:
+    - rhasspy

@@ -1,2 +1,4 @@
 .idea
 notes
+src/client/node_modules
+src/client/dotenv
