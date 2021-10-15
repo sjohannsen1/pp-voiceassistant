@@ -16,7 +16,7 @@ Diese werden dann unter ``<Pfad des Profils>/intents/<Intentname>`` gespeichert.
 Dazu werden folgende Daten an obigen Endpoint gepostet:
 ````json
 {
-  "intents/<Name des Intents>.ini" : "[<Name des Intents>]\n<Sätze mit '\n' separiert>"
+  "intents/<Name des Intents>.ini" : "[<Name des Intents>]\n<Sätze jeweils mit '\n' separiert>"
 }
 ````
 
@@ -30,7 +30,7 @@ Dazu werden folgende Daten an obigen Endpoint gepostet:
     "<Alternative 2>",
     "<Alternative 3>",
     
-    "Alternative n"
+    "<Alternative n>"
   ]
 }
 ````

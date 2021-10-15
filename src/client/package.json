@@ -2,7 +2,7 @@
   "name": "client",
   "version": "1.0.0",
   "description": "",
-  "main": "networking.js",
+  "main": "rhasspy.js",
   "scripts": {
     "start": "node index.js",
     "dev": "node -r dotenv/config.js index.js dotenv_config_path=./dotenv/.env",

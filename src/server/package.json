@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node -r ../client/dotenv/config.js index.js dotenv_config_path=./dotenv/.env",
+    "devmon": "nodemon -r ../client/dotenv/config.js index.js dotenv_config_path=./dotenv/.env"
+  },
+  "author": "Finn Wehn",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.13",
+    "dotenv": "^10.0.0"
+  }
+}

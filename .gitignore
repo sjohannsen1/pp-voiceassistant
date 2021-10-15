@@ -2,3 +2,5 @@
 notes
 src/client/node_modules
 src/client/dotenv
+src/server/node_modules
+src/server/dotenv
