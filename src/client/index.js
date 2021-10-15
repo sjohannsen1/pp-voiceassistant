@@ -1,9 +1,12 @@
 const rhasspy = require("./rhasspy.js");
 const skillManager = require("./skillManager.js");
+const customSdk = require("@fwehn/custom_sdk");
 
-// rhasspy.postSlots("Test", ["Slot"], true).then(res => {
-//     console.log(res.data);
-//     rhasspy.trainRhasspy().then(res => console.log(res.data));
-// }).catch(console.error);
+customSdk.config({
+    mqtt: process.env.MQTT
+});
 
-skillManager.downloadSkill();
+
+customSdk.say("something")
+
+// skillManager.downloadSkill();

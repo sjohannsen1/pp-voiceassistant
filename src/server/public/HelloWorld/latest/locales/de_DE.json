@@ -1,0 +1,14 @@
+{
+  "invocation": "Hallo Welt",
+  "utterances": [
+    {
+      "utterance": "sag ($slots/hello){hello} ($slots/world){world}",
+      "function": "helloWorld",
+      "args": ["hello", "world"]
+    }
+  ],
+  "slots": {
+    "hello": ["Hallo", "Guten Tag"],
+    "world": ["Welt", "Erde"]
+  }
+}
