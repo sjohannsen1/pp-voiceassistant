@@ -1,6 +1,9 @@
-const networking = require("./rhasspy.js");
+const rhasspy = require("./rhasspy.js");
+const skillManager = require("./skillManager.js");
 
-networking.postSlots("Test", ["Slot"], true).then(res => {
-    console.log(res.data);
-    networking.trainRhasspy().then(res => console.log(res.data));
-}).catch(console.error);
+// rhasspy.postSlots("Test", ["Slot"], true).then(res => {
+//     console.log(res.data);
+//     rhasspy.trainRhasspy().then(res => console.log(res.data));
+// }).catch(console.error);
+
+skillManager.downloadSkill();

@@ -5,13 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "node -r ../client/dotenv/config.js index.js dotenv_config_path=./dotenv/.env",
-    "devmon": "nodemon -r ../client/dotenv/config.js index.js dotenv_config_path=./dotenv/.env"
+    "dev": "node -r dotenv/config.js index.js dotenv_config_path=./dotenv/.env",
+    "devmon": "nodemon -r dotenv/config.js index.js dotenv_config_path=./dotenv/.env"
   },
   "author": "Finn Wehn",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.13",
     "dotenv": "^10.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-easy-zip": "^1.1.5",
+    "express-zip": "^3.0.0"
   }
 }
