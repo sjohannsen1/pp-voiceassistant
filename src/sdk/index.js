@@ -1,5 +1,9 @@
+const mqtt = require("mqtt");
+let client;
+
 let configObject = {
-    mqtt: 'localhost:1883'
+    mqtt: 'localhost',
+    intentHandler: (topic, message) => {}
 }
 
 function config(options = {}){
@@ -10,11 +14,40 @@ function config(options = {}){
     }
 }
 
+async function init() {
+    client = await mqtt.connect(`mqtt://${configObject.mqtt}`);
+
+    client.on("connect", function () {
+        client.subscribe('hermes/intent/#');
+
+        client.on('message', configObject.intentHandler);
+    });
+}
+
 function say(text = ""){
-    console.log(configObject)
-    console.log(text);
+    sendTTSSay(text)
+}
+
+function sendTTSSay(text){
+
+    let message = {
+        text: text,
+        siteId: getSiteId()
+    };
+    // sessionId: getSessionId()
+
+    client.publish('hermes/tts/say', JSON.stringify(message));
+}
+
+function getSiteId() {
+    //TODO return real siteId
+    return "satellite";
+}
+
+function getSessionId(){
+    //TODO return real sessionId
 }
 
 module.exports = {
-    config, say
+    config, init, say
 }

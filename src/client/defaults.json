@@ -1,4 +1,8 @@
 {
-  "de_DE": ["öffne", "benutze", "starte"],
-  "en_US": ["open", "use", "start"]
+  "de_DE": {
+    "launch": ["öffne", "benutze", "starte"]
+  },
+  "en_US": {
+    "launch": ["open", "use", "start"]
+  }
 }

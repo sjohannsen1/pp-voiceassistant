@@ -39,7 +39,7 @@ async function registerSkills(locale = "de_DE"){
     let skillNames = skillManager.getInstalledSkills(locale);
 
     let defaults = JSON.parse(fs.readFileSync(`${__dirname}\\defaults.json`).toString());
-    await postSlots("launch", defaults[locale],true).then(res => console.log(res.data + " - launch"));
+    await postSlots("launch", defaults[locale]["launch"],true).then(res => console.log(res.data + " - launch"));
 
     for (let i in skillNames){
         let raw = fs.readFileSync(`${__dirname}\\skills\\${skillNames[i]}\\latest\\locales\\${locale}.json`).toString();

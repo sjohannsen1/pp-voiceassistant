@@ -4,5 +4,8 @@
   "description": "",
   "main": "index.js",
   "author": "Finn Wehn",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mqtt": "^4.2.8"
+  }
 }

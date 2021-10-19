@@ -1,5 +1,13 @@
 const customSdk = require("@fwehn/custom_sdk");
 
-export function helloWorld(hello, world){
-    customSdk.say(`${hello} ${world}`);
+function helloWorld(hello, world){
+    console.log(hello + world)
+}
+
+function hello(hello){
+    console.log(hello)
+}
+
+module.exports = {
+    helloWorld, hello
 }

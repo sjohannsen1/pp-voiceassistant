@@ -5,3 +5,4 @@ src/client/dotenv
 src/client/skills
 src/server/node_modules
 src/server/dotenv
+src/sdk/node_modules
