@@ -3,8 +3,13 @@ let client;
 
 let configObject = {
     mqtt: 'localhost',
-    intentHandler: (topic, message) => {}
+    intentHandler: () => {}
 }
+
+let sessionData = {
+    siteId: "default",
+    sessionId: ""
+};
 
 function config(options = {}){
     for (let i in options){
@@ -20,32 +25,24 @@ async function init() {
     client.on("connect", function () {
         client.subscribe('hermes/intent/#');
 
-        client.on('message', configObject.intentHandler);
+        client.on('message', (topic, message) => {
+            let formatted = JSON.parse(message);
+            sessionData["siteId"] = formatted.siteId;
+            sessionData["sessionId"] = formatted.sessionId;
+
+            configObject.intentHandler(topic, message);
+        });
     });
 }
 
 function say(text = ""){
-    sendTTSSay(text)
-}
-
-function sendTTSSay(text){
-
     let message = {
         text: text,
-        siteId: getSiteId()
+        siteId: sessionData["siteId"],
+        sessionId: sessionData["sessionId"]
     };
-    // sessionId: getSessionId()
 
     client.publish('hermes/tts/say', JSON.stringify(message));
-}
-
-function getSiteId() {
-    //TODO return real siteId
-    return "satellite";
-}
-
-function getSessionId(){
-    //TODO return real sessionId
 }
 
 module.exports = {
