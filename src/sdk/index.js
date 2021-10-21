@@ -1,4 +1,5 @@
 const mqtt = require("mqtt");
+// const fs = require("fs");
 let client;
 
 let configObject = {
@@ -8,7 +9,8 @@ let configObject = {
 
 let sessionData = {
     siteId: "default",
-    sessionId: ""
+    sessionId: "",
+    answer: ""
 };
 
 function config(options = {}){
@@ -45,6 +47,19 @@ function say(text = ""){
     client.publish('hermes/tts/say', JSON.stringify(message));
 }
 
+function setAnswer(answer){
+    sessionData.answer = answer;
+}
+
+function generateAnswer(vars = [""], separator = "#"){
+    let parts = sessionData.answer.split(separator);
+    let answer = parts[0];
+    for (let i = 1; i < parts.length; i++){
+        answer = answer + vars[i-1] + parts[i];
+    }
+    return answer;
+}
+
 module.exports = {
-    config, init, say
+    config, init, say, generateAnswer, setAnswer
 }

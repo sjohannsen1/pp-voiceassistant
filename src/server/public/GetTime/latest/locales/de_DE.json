@@ -1,0 +1,12 @@
+{
+  "invocation": "GetTime",
+  "utterances": [
+    {
+      "utterance": "wie spät ist es",
+      "function": "getTime",
+      "args": [],
+      "answer":  "Es ist # Uhr #"
+    }
+  ],
+  "slots": {}
+}

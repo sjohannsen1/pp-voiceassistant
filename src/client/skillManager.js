@@ -1,5 +1,6 @@
 const unzipper = require("unzipper");
 const http = require("http");
+const axios = require('axios');
 const fs = require("fs");
 
 function loadSkills(){
@@ -12,10 +13,21 @@ function loadSkills(){
     return skills;
 }
 
-function downloadSkill(name = "HelloWorld"){
-    http.get(`http://${process.env.SERVER}/download/${name}`, function (res) {
-        res.pipe(unzipper.Extract({ path: `${__dirname}\\skills\\${name}` }))
+function downloadSkill(name = "HelloWorld") {
+    http.get(`http://${process.env.SERVER}/download/${name}`, (res) => {
+        res.pipe(unzipper.Extract({path: `${__dirname}\\skills\\${name}`}));
     })
+}
+
+async function getRemoteSkills() {
+    let skills = [];
+    await axios.get(`http://${process.env.SERVER}/skills`).then(res => {
+        for (let i in res.data) {
+            skills.push(i);
+        }
+
+    });
+    return skills;
 }
 
 function getInstalledSkills(locale = "de_DE"){
@@ -41,7 +53,10 @@ function getFunctionsOfSkill(skillName, locale = "de_DE"){
 
     for (let i in utterances){
         let functionName = utterances[i]["function"];
-        functions[functionName] = utterances[i].args;
+        functions[functionName] = {
+            args: utterances[i].args,
+            answer: utterances[i].answer
+        }
     }
     return functions;
 }
@@ -53,11 +68,12 @@ function getFunctionMatchingSlots(skillName, slots, locale = "de_DE"){
 
     let functions = getFunctionsOfSkill(skillName, locale);
     for (let i in functions){
-        if (functions[i].length === Object.keys(slots).length && compareSlotsWithParams(slots, functions[i])){
-            functions[i].forEach(param => params.push(slots[param]));
+        if (functions[i].args.length === Object.keys(slots).length && compareSlotsWithParams(slots, functions[i].args)){
+            functions[i].args.forEach(param => params.push(slots[param]));
 
-            fun["name"] = i
+            fun["name"] = i;
             fun["params"] = params;
+            fun["answer"] = functions[i].answer;
             return fun;
         }
     }
@@ -78,5 +94,5 @@ function compareSlotsWithParams(slots, params){
 //TODO get available updates based on locales/{name}.json
 
 module.exports = {
-    loadSkills, downloadSkill, getInstalledSkills, getFunctionMatchingSlots
+    loadSkills, downloadSkill, getRemoteSkills, getInstalledSkills, getFunctionMatchingSlots
 }

@@ -4,12 +4,14 @@
     {
       "utterance": "sag ($slots/hello){hello} ($slots/world){world}",
       "function": "helloWorld",
-      "args": ["hello", "world"]
+      "args": ["hello", "world"],
+      "answer": ""
     },
     {
       "utterance": "sag ($slots/hello){hello}",
       "function": "hello",
-      "args": ["hello"]
+      "args": ["hello"],
+      "answer": ""
     }
   ],
   "slots": {
