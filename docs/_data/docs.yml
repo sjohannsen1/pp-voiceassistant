@@ -12,3 +12,10 @@
 - title: Client
   docs:
     - rhasspy
+    - skillmanager
+
+- title: Skills
+  docs:
+    - structure
+    - locales
+    - sdk

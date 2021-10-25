@@ -20,14 +20,19 @@ function startCLI(){
             case "skills":
                 switch (args[1]){
                     case "remote":
-                        let remoteSkills = await skillManager.getRemoteSkills();
-                        remoteSkills.forEach(skill => {
-                            console.log(skill);
-                        });
+                        try {
+                            let remoteSkills = await skillManager.getRemoteSkills();
+                            remoteSkills.forEach(skill => {
+                                console.log(skill);
+                            });
+                        }catch (e) {
+                            console.error(e);
+                        }
                         break;
 
+
                     case "local":
-                        let localSkills = skillManager.getInstalledSkills();
+                        let localSkills = skillManager.getInstalledSkills(process.env.LOCALE);
                         localSkills.forEach(skill => {
                             console.log(skill);
                         });
