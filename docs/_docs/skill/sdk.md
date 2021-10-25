@@ -6,9 +6,9 @@ permalink: /docs/sdk/
 Ich habe, für die Entwicklung neuer Skills, ein eigenes SDK (**S**oftware **D**evelopment **K**it) erstellt.  
 Dieses kümmert sich, in Zusammenarbeit mit dem [Skillmanager](./../client/skillmanager.md), um nützliche Funktionen wie zum Beispiel die Sprachausgabe, oder aber den Umgang mit den [Antwortsätzen](./locales.md#Antwortsätze).  
 
-# Konfiguration und Initialisierung
+## Konfiguration und Initialisierung
 
-## Config
+### Config
 
 Im ``configObject`` werden einige Konfigurationen gespeichert.
 
@@ -37,7 +37,7 @@ function config(options = {}){
 
 Bei dieser Funktion handelt es sich im Grunde um eine einfache Setter Funktion, welche jedoch darauf achtet, dass nur im ``configObject`` deklarierte Felder gesetzt werden.
 
-## Init
+### Init
 
 Mit der ``init``-Funktion verbindet sich der [Skillmanager](./../client/skillmanager.md) mit dem MQTT-Broker und abonniert das Topic ``hermes/intent/#``, wodurch alle Intents entgegengenommen werden.
 
@@ -62,7 +62,7 @@ async function init() {
 
 Nachdem ein Intent erkannt wird, werden sofort einige Informationen im JavaScript-Objekt ``sessionData`` gespeichert und die Nachricht an den im ``configObject`` gespeicherten ``intentHandler`` weitergegeben.  
 
-# Sitzungsdaten
+## Sitzungsdaten
 
 Damit ein Skill-Entwickler sich nicht darum kümmern muss, über welchen Satelliten die Sprache ausgegeben wird, und auch in welcher Sitzung man sich derzeit befindet, gibt es die sog. ``sessionData``.
 
@@ -81,7 +81,7 @@ Diese werden unter anderem von der [``say``](#Sprachausgabe) Funktion genutzt, d
 Aber auch Informationen eines Skills werden hier gespeichert.  
 So wird zum Beispiel basierend auf der ausgewählten Sprache, der Antwortsatz aus den jeweiligen JSON-Dateien ausgelesen.  
 
-# Sprachausgabe
+## Sprachausgabe
 
 Die Funktion ``say`` kann genutzt werden, um einen Satz von Rhasspy sprechen zu lassen.
 
@@ -102,7 +102,7 @@ Der Funktion wird lediglich ein String übergeben.
 Die restlichen Informationen bezieht sie über das ``sessionData``-Objekt.  
 Zum Schluss werden die Daten als String auf das Topic ``hermes/tts/say`` veröffentlicht.   
 
-## Beispiel
+### Beispiel
 
 ````javascript
 const customSdk = require("@fwehn/custom_sdk");
@@ -115,7 +115,7 @@ function helloWorld(hello, world){
 
 Bei diesem Beispiel werden die beiden Strings ``hello`` und ``world`` aneinander gehangen und ausgegeben.
 
-# Antwort generieren
+## Antwort generieren
 
 Skill-Entwickler können [Antwortsätze]() in verschiedenen Sprachen definieren.  
 Damit diese jedoch mit einigen Werten erweitert werden können, muss ein solcher Satz generiert werden.  
@@ -138,7 +138,7 @@ Möchte der Entwickler das Zeichen ``#`` selbst benutzen kann er einen eigenen S
 Der jeweilige Satz wird vom [Skillmanager](./../client/skillmanager.md) in der jeweiligen Sprache geladen und mit der einfachen Setter-Funktion ``setAnswer`` im Objekt ``sessionData`` gespeichert.  
 Von dort wird die Antwort ausgelesen.  
 
-## Beispiel
+### Beispiel
 
 ````javascript
 const customSdk = require("@fwehn/custom_sdk");
