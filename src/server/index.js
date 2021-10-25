@@ -10,6 +10,7 @@ app.get('/skills', (req, res) => {
     let dirs = fs.readdirSync(`${__dirname}\\public\\`);
     let body = {}
     for (let i in dirs){
+        if (dirs[i].startsWith("_")) continue;
         body[dirs[i]] = JSON.parse(fs.readFileSync(`${__dirname}\\public\\${dirs[i]}\\latest\\manifest.json`).toString()).version;
     }
     res.json(body);
@@ -17,7 +18,7 @@ app.get('/skills', (req, res) => {
 
 // Returns details about skill version
 app.get('/skill/:skillName/:versionTag', (req, res) => {
-    if (!fs.readdirSync(`${__dirname}\\public`).includes(req.params.skillName) || !fs.readdirSync(`${__dirname}\\public\\${req.params.skillName}`).includes(req.params.versionTag)){
+    if (req.params.skillName.startsWith("_") || !fs.readdirSync(`${__dirname}\\public`).includes(req.params.skillName) || !fs.readdirSync(`${__dirname}\\public\\${req.params.skillName}`).includes(req.params.versionTag)){
         res.json({"error": "Skill/Version not found!"});
         return;
     }
