@@ -21,6 +21,8 @@ async function postSentences(intentName, sentences){
     for (let i in sentences){
         sentencesString = `${sentencesString}\n${sentences[i]}`;
     }
+
+    if (sentences.length === 0) sentencesString = "";
     data[fileName] = sentencesString;
 
     return await postToRhasspy("/api/sentences",  data);
@@ -59,6 +61,11 @@ async function registerSkills(locale = "de_DE"){
     await trainRhasspy().then(res => console.log(res.data));
 }
 
+async function unregisterSkill(skillName){
+    await postSentences(skillName, []).then(res => console.log(res.data));
+    await trainRhasspy().then(res => console.log(res.data));
+}
+
 module.exports = {
-    trainRhasspy, postSentences, postSlots, registerSkills
+    trainRhasspy, postSentences, postSlots, registerSkills, unregisterSkill
 }

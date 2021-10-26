@@ -21,7 +21,7 @@ function startCLI(){
                 switch (args[1]){
                     case "remote":
                         try {
-                            let remoteSkills = await skillManager.getRemoteSkills();
+                            let remoteSkills = await skillManager.getRemoteSkills(process.env.LOCALE);
                             remoteSkills.forEach(skill => {
                                 console.log(skill);
                             });
@@ -80,6 +80,8 @@ function startCLI(){
                 break;
 
             case "delete":
+                //TODO delete Local files
+                await rhasspy.unregisterSkill(args[1]).catch(console.error);
                 console.log(separator);
                 break;
 

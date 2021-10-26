@@ -22,9 +22,9 @@ function downloadSkill(name = "HelloWorld") {
 }
 
 //Get a list of Skills on Server
-async function getRemoteSkills() {
+async function getRemoteSkills(locale = "de_DE") {
     let skills = [];
-    await axios.get(`http://${process.env.SERVER}/skills`).then(res => {
+    await axios.get(`http://${process.env.SERVER}/skills/${locale}`).then(res => {
         for (let i in res.data) {
             skills.push(i);
         }
@@ -54,7 +54,7 @@ async function getUpdates(locale = "de_DE"){
 
     for (let i in installed){
         let version = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${installed[i]}\\latest\\manifest.json`).toString()).version;
-        await axios.get(`http://${process.env.SERVER}/update/${installed[i]}/${version}`).then(res => {
+        await axios.get(`http://${process.env.SERVER}/update/${locale}/${installed[i]}/${version}`).then(res => {
             if (res.data.update){
                 availableUpdates[installed[i]] = res.data.version;
             }

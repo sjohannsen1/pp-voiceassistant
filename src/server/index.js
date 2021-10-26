@@ -6,12 +6,18 @@ const port = process.env.PORT;
 app.use(zip());
 
 // Returns a list of available Skills with their last version tag
-app.get('/skills', (req, res) => {
+app.get('/skills/:locale', (req, res) => {
     let dirs = fs.readdirSync(`${__dirname}\\public\\`);
     let body = {}
     for (let i in dirs){
+        // Filters Dummies
         if (dirs[i].startsWith("_")) continue;
-        body[dirs[i]] = JSON.parse(fs.readFileSync(`${__dirname}\\public\\${dirs[i]}\\latest\\manifest.json`).toString()).version;
+
+        // Filters by locale
+        let path = `${__dirname}\\public\\${dirs[i]}\\latest`;
+        if (!fs.readdirSync(`${path}\\locales`).includes(`${req.params.locale}.json`)) continue;
+
+        body[dirs[i]] = JSON.parse(fs.readFileSync(`${path}\\manifest.json`).toString()).version;
     }
     res.json(body);
 });
@@ -33,9 +39,10 @@ app.get('/skill/:skillName/:versionTag', (req, res) => {
 });
 
 // Checks if the latest Version has same tag as requested
-app.get('/update/:skillName/:version', (req, res) => {
+app.get('/update/:locale/:skillName/:version', (req, res) => {
     let tag = "latest";
-    let manifest = JSON.parse(fs.readFileSync(`${__dirname}\\public\\${req.params.skillName}\\${tag}\\manifest.json`).toString());
+    let path = `${__dirname}\\public\\${req.params.skillName}\\${tag}`;
+    let manifest = JSON.parse(fs.readFileSync(`${path}\\manifest.json`).toString());
     let version = req.params.version;
 
     let body = {
@@ -43,7 +50,7 @@ app.get('/update/:skillName/:version', (req, res) => {
         version: version
     }
 
-    if (manifest.version !== version){
+    if (fs.readdirSync(`${path}\\locales`).includes(`${req.params.locale}.json`) && manifest.version !== version){
         body.update = true;
         body.version = manifest.version;
     }
