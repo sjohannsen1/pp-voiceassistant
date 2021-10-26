@@ -13,23 +13,26 @@ function loadSkills(){
     return skills;
 }
 
+//Downloads the latest version of a Skill as zip and unzips it
+//TODO find a workaround to change http to axios
 function downloadSkill(name = "HelloWorld") {
     http.get(`http://${process.env.SERVER}/download/${name}`, (res) => {
         res.pipe(unzipper.Extract({path: `${__dirname}\\skills\\${name}`}));
     })
 }
 
+//Get a list of Skills on Server
 async function getRemoteSkills() {
     let skills = [];
     await axios.get(`http://${process.env.SERVER}/skills`).then(res => {
         for (let i in res.data) {
             skills.push(i);
         }
-
     });
     return skills;
 }
 
+//Get a list of locally installed skills
 function getInstalledSkills(locale = "de_DE"){
     let path = `${__dirname}\\skills\\`;
     let skills = [];
@@ -41,8 +44,24 @@ function getInstalledSkills(locale = "de_DE"){
             }
         })
     });
-
     return skills;
+}
+
+// Get Available Updates based on version in <SkillName>/latest/manifest.json
+async function getUpdates(locale = "de_DE"){
+    let installed = getInstalledSkills(locale);
+    let availableUpdates = {};
+
+    for (let i in installed){
+        let version = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${installed[i]}\\latest\\manifest.json`).toString()).version;
+        await axios.get(`http://${process.env.SERVER}/update/${installed[i]}/${version}`).then(res => {
+            if (res.data.update){
+                availableUpdates[installed[i]] = res.data.version;
+            }
+        })
+    }
+
+    return availableUpdates;
 }
 
 // Get all functions of intent
@@ -94,5 +113,5 @@ function compareSlotsWithParams(slots, params){
 //TODO get available updates based on locales/{name}.json
 
 module.exports = {
-    loadSkills, downloadSkill, getRemoteSkills, getInstalledSkills, getFunctionMatchingSlots
+    loadSkills, downloadSkill, getRemoteSkills, getInstalledSkills, getUpdates, getFunctionMatchingSlots
 }

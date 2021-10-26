@@ -44,6 +44,24 @@ function startCLI(){
                 console.log(separator);
                 break;
 
+            case "updates":
+                console.log("Searching for Updates...");
+                let availableUpdates = await skillManager.getUpdates(process.env.LOCALE);
+
+                if (Object.keys(availableUpdates).length > 0){
+                    console.log("Updates Available!\n");
+                    for (let i in availableUpdates){
+                        console.log(`${i} Vers. ${availableUpdates[i]}`);
+                    }
+                }else{
+                    console.log("No Updates available!");
+                }
+
+
+
+                console.log(separator);
+                break;
+
             case "download":
                 try{
                     console.log("Downloading in Background...");
@@ -58,6 +76,10 @@ function startCLI(){
                 console.log("Registering...\n");
                 await rhasspy.registerSkills(process.env.LOCALE).catch(console.error);
                 //TODO call reload of skill files
+                console.log(separator);
+                break;
+
+            case "delete":
                 console.log(separator);
                 break;
 

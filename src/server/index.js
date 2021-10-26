@@ -32,6 +32,25 @@ app.get('/skill/:skillName/:versionTag', (req, res) => {
     res.json(details);
 });
 
+// Checks if the latest Version has same tag as requested
+app.get('/update/:skillName/:version', (req, res) => {
+    let tag = "latest";
+    let manifest = JSON.parse(fs.readFileSync(`${__dirname}\\public\\${req.params.skillName}\\${tag}\\manifest.json`).toString());
+    let version = req.params.version;
+
+    let body = {
+        update: false,
+        version: version
+    }
+
+    if (manifest.version !== version){
+        body.update = true;
+        body.version = manifest.version;
+    }
+
+    res.json(body);
+});
+
 // Zips up requested skill and returns it
 app.get('/download/:skillName', async (req, res) => {
     let tag = "latest";

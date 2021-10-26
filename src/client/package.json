@@ -11,12 +11,13 @@
   "author": "Finn Wehn",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.13",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.13"
   },
   "dependencies": {
     "@fwehn/custom_sdk": "file:../sdk",
     "axios": "^0.23.0",
-    "unzipper": "^0.10.11"
+    "unzipper": "^0.10.11",
+    "weather-js": "^2.0.0"
   }
 }

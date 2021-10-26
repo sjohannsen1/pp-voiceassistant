@@ -60,6 +60,12 @@ function generateAnswer(vars = [""], separator = "#"){
     return answer;
 }
 
+//TODO System überlegen
+//TODO Dokumentieren
+function fail(){
+    say("Tut, mir leid mit diesem Befehl gibt es derzeit Probleme");
+}
+
 module.exports = {
-    config, init, say, generateAnswer, setAnswer
+    config, init, say, generateAnswer, setAnswer, fail
 }
