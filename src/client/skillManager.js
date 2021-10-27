@@ -21,7 +21,7 @@ function downloadSkill(name = "HelloWorld") {
     })
 }
 
-//
+//Deletes the Local Skill-Files
 function deleteLocalSkillFiles(name = "HelloWorld"){
     let installed = getInstalledSkills();
 

@@ -61,6 +61,7 @@ async function registerSkills(locale = "de_DE"){
     await trainRhasspy().then(res => console.log(res.data));
 }
 
+// Unregistering Skill and his Slots in Rhasspy
 async function unregisterSkill(skillName, locale = "de_DE"){
     let skill = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${skillName}\\latest\\locales\\${locale}.json`).toString());
 

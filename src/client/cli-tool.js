@@ -57,8 +57,6 @@ function startCLI(){
                     console.log("No Updates available!");
                 }
 
-
-
                 console.log(separator);
                 break;
 
@@ -80,6 +78,7 @@ function startCLI(){
                 break;
 
             case "delete":
+                //TODO reload/unload skill files
                 await rhasspy.unregisterSkill(args[1], process.env.LOCALE).then(() => {
                     console.log(skillManager.deleteLocalSkillFiles(args[1]));
                 }).catch(console.error);
