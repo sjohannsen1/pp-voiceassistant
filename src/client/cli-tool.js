@@ -80,8 +80,9 @@ function startCLI(){
                 break;
 
             case "delete":
-                //TODO delete Local files
-                await rhasspy.unregisterSkill(args[1]).catch(console.error);
+                await rhasspy.unregisterSkill(args[1], process.env.LOCALE).then(() => {
+                    console.log(skillManager.deleteLocalSkillFiles(args[1]));
+                }).catch(console.error);
                 console.log(separator);
                 break;
 

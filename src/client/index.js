@@ -4,6 +4,8 @@ const skillManager = require("./skillManager.js");
 const skills = skillManager.loadSkills();
 const cli = require("./cli-tool.js");
 
+skillManager.getAllSlotNamesOfSkill();
+
 customSdk.config({
     mqtt: "192.168.178.121",
     intentHandler: customIntentHandler

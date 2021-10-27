@@ -61,10 +61,18 @@ async function registerSkills(locale = "de_DE"){
     await trainRhasspy().then(res => console.log(res.data));
 }
 
-async function unregisterSkill(skillName){
+async function unregisterSkill(skillName, locale = "de_DE"){
+    let skill = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${skillName}\\latest\\locales\\${locale}.json`).toString());
+
+    for (let slot in skill.slots){
+        await postSlots(slot, [], true).then(res => console.log(res.data + " - " + slot));
+    }
+
     await postSentences(skillName, []).then(res => console.log(res.data));
     await trainRhasspy().then(res => console.log(res.data));
 }
+
+
 
 module.exports = {
     trainRhasspy, postSentences, postSlots, registerSkills, unregisterSkill

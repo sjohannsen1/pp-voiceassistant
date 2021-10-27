@@ -21,6 +21,16 @@ function downloadSkill(name = "HelloWorld") {
     })
 }
 
+//
+function deleteLocalSkillFiles(name = "HelloWorld"){
+    let installed = getInstalledSkills();
+
+    if (!installed.includes(name)) return `Skill not found!`;
+
+    fs.rmSync(`${__dirname}\\skills\\${name}`, { recursive: true, force: true });
+    return `Skill deleted!`;
+}
+
 //Get a list of Skills on Server
 async function getRemoteSkills(locale = "de_DE") {
     let skills = [];
@@ -34,11 +44,11 @@ async function getRemoteSkills(locale = "de_DE") {
 
 //Get a list of locally installed skills
 function getInstalledSkills(locale = "de_DE"){
-    let path = `${__dirname}\\skills\\`;
+    let path = `${__dirname}\\skills`;
     let skills = [];
 
     fs.readdirSync(path).forEach(skill => {
-        fs.readdirSync(path + skill.toString() + "\\latest\\locales").forEach(file => {
+        fs.readdirSync(`${path}\\${skill.toString()}\\latest\\locales`).forEach(file => {
             if (file.startsWith(locale)){
                 skills.push(skill);
             }
@@ -67,6 +77,8 @@ async function getUpdates(locale = "de_DE"){
 // Get all functions of intent
 function getFunctionsOfSkill(skillName, locale = "de_DE"){
     let functions = {}
+
+
 
     let utterances = JSON.parse(fs.readFileSync(`./skills/${skillName}/latest/locales/${locale}.json`).toString()).utterances;
 
@@ -110,8 +122,7 @@ function compareSlotsWithParams(slots, params){
     return true;
 }
 
-//TODO get available updates based on locales/{name}.json
 
 module.exports = {
-    loadSkills, downloadSkill, getRemoteSkills, getInstalledSkills, getUpdates, getFunctionMatchingSlots
+    loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getUpdates, getFunctionMatchingSlots
 }
