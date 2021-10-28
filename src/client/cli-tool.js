@@ -30,7 +30,6 @@ function startCLI(){
                         }
                         break;
 
-
                     case "local":
                         let localSkills = skillManager.getInstalledSkills(process.env.LOCALE);
                         localSkills.forEach(skill => {
@@ -73,14 +72,14 @@ function startCLI(){
             case "register":
                 console.log("Registering...\n");
                 await rhasspy.registerSkills(process.env.LOCALE).catch(console.error);
-                //TODO call reload of skill files
+                skillManager.loadSkills();
                 console.log(separator);
                 break;
 
             case "delete":
-                //TODO reload/unload skill files
                 await rhasspy.unregisterSkill(args[1], process.env.LOCALE).then(() => {
                     console.log(skillManager.deleteLocalSkillFiles(args[1]));
+                    skillManager.loadSkills();
                 }).catch(console.error);
                 console.log(separator);
                 break;

@@ -2,15 +2,23 @@ const unzipper = require("unzipper");
 const http = require("http");
 const axios = require('axios');
 const fs = require("fs");
+const customSdk = require("@fwehn/custom_sdk");
 
+// Currently loaded Skills
+let skills = {};
+// Getter for Skills
+function getSkills(){
+    return skills;
+}
+// File-Loader for newly downloaded Skills
 function loadSkills(){
-    let skills = {};
+    //TODO delete the require.cache
+    let skillsLocal = {};
     fs.readdirSync(`${__dirname}/skills`).forEach(function(skillName) {
         let path = "./skills/" + skillName + "/latest/src"
-        skills[skillName] = require(path);
+        skillsLocal[skillName] = require(path);
     });
-
-    return skills;
+    skills = skillsLocal;
 }
 
 //Downloads the latest version of a Skill as zip and unzips it
@@ -122,7 +130,29 @@ function compareSlotsWithParams(slots, params){
     return true;
 }
 
+// Custom Intent Handler to call functions based on Intent and Slots
+function customIntentHandler(topic, message){
+    let slots = {};
+    let formatted = JSON.parse(message.toString())
+    for (let i in formatted.slots){
+        let currentSlot = formatted.slots[i];
+
+        if (currentSlot.slotName !== "launch"){
+            //TODO make launch slot accessible to skills
+            slots[currentSlot.slotName] = currentSlot.value.value;
+        }
+    }
+
+    let fun = getFunctionMatchingSlots(formatted.intent.intentName, slots, process.env.LOCALE)
+
+    if (fun.hasOwnProperty("name") && fun.hasOwnProperty("params") && fun.hasOwnProperty("answer")){
+        customSdk.setAnswer(fun["answer"]);
+
+        getSkills()[formatted.intent.intentName][fun["name"]].apply(this, fun["params"]);
+    }
+
+}
 
 module.exports = {
-    loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getUpdates, getFunctionMatchingSlots
+    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getUpdates, getFunctionMatchingSlots, customIntentHandler
 }
