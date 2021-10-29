@@ -1,17 +1,17 @@
 {
-  "invocation": "[den:] Wetterfrosch",
+  "invocation": "[den] Wetterfrosch",
   "utterances": [
     {
-      "utterance": "wie [ist:] das Wetter heute [ist:]",
+      "utterance": "wie [ist] das Wetter (aktuell | gerade | jetzt) [ist]",
       "function": "getCurrentWeather",
       "args": [],
-      "answer": "Heute werden es Temperaturen von rund # Grad Celsius."
+      "answer": "In # ist es aktuell # bei Temperaturen von # Grad Celsius."
     },
     {
-      "utterance": "wie [wird:] das Wetter in (1..4){days} Tagen [wird:]",
+      "utterance": "wie [wird] das Wetter in (1..4){day} Tagen [wird]",
       "function": "getForecast",
-      "args": ["days"],
-      "answer": "Das Wetter wird #"
+      "args": ["day"],
+      "answer": "# bei Temperaturen von # bis # Grad Celsius."
     }
   ],
   "slots": {
