@@ -38,5 +38,17 @@ HelloWorld
 
 Jede Version eines Skills wird durch einen Ordner dargestellt.  
 In jedem diese Ordner gibt es eine ``manifest.json`` und die beiden Unterordner ``src`` und ``locales``.  
-In der ``manifest.json`` werden für den Skill wichtige Angaben gespeichert, wie z.B. verschiedene [npm-dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies), die für den Skill benötigt werden.  
+In der ``manifest.json`` werden für den Skill wichtige Angaben gespeichert, wie z.B. verschiedene [npm-dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies), die für den Skill benötigt werden.
+
+
+Im Unterordner ``locales`` befinden sich die Dateien, welche den Aufbau eines Befehls definieren. Dabei handelt es sich bei jeder Datei um eine jeweilige Sprache bzw. Lokalisierung. 
+
+``de_DE.json`` -> deutscher Befehl  
+``en_US.json`` -> amerikanisches Englisch  
+
+Die Dateien sind im JSON Format geschrieben.  
+Den Aufbau einer solchen Datei findet man [hier](./locales.md).
+
+Im Unterordner ``src`` befindet sich der gesamte Code des Befehls.  
+
 
