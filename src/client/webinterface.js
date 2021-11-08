@@ -9,7 +9,12 @@ app.set('views', `${__dirname}\\www\\views`);
 app.set('view engine', 'jade');
 
 app.get("/", (req, res) => {
-    res.render('index', { data : {skills: skillManager.getInstalledSkills(locale)}})
+    res.render('index', { data : {skills: skillManager.getInstalledSkills(locale)}});
+});
+
+app.get("/details/:skillName", (req, res) => {
+    //TODO get information and safe in "data"
+    res.render('details', { data : skillManager.getSkillDetails(req.params.skillName, locale)});
 });
 
 function startUI(loc = "de_DE", port = 3000){

@@ -65,6 +65,29 @@ function getInstalledSkills(locale = "de_DE"){
     return skills;
 }
 
+//Get some Detailed Information of a Skill based on locale
+function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
+    //TODO fill in Data
+    let installed = getInstalledSkills(locale)
+    if (!installed.includes(name)) return {};
+
+    let pathToSkill = `${__dirname}\\skills\\${name}\\latest`;
+    let localeFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\locales\\${locale}.json`).toString());
+    let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\manifest.json`).toString());
+
+    let sentences = [];
+    for (let i in localeFile.utterances){
+        sentences.push(localeFile.utterances[i].utterance);
+    }
+
+    return {
+        name: name,
+        version: manifestFile.version,
+        description: localeFile.description,
+        sentences: sentences
+    }
+}
+
 // Get Available Updates based on version in <SkillName>/latest/manifest.json
 async function getUpdates(locale = "de_DE"){
     let installed = getInstalledSkills(locale);
@@ -154,5 +177,5 @@ function customIntentHandler(topic, message){
 }
 
 module.exports = {
-    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getUpdates, getFunctionMatchingSlots, customIntentHandler
+    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillDetails, getUpdates, getFunctionMatchingSlots, customIntentHandler
 }

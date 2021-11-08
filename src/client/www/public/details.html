@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="TTitle">{{ skillName}}</title>
+</head>
+<body>
+
+<div id="DivMain">
+    <h1>{{name}}</h1>
+    <h3>{{version}}</h3>
+    <p>{{description}}</p>
+
+    <ul>
+        <li v-for="sentence in sentences">{{sentence}}</li>
+    </ul>
+</div>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                skillName: data.name
+            }
+        }
+    }).mount('#TTitle');
+
+    Vue.createApp({
+        data() {
+            return {
+                name: data.name,
+                version: data.version,
+                description: data.description,
+                sentences: data.sentences
+            };
+        }
+    }).mount("#DivMain");
+</script>
+</body>
+</html>

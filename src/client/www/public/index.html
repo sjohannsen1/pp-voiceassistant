@@ -8,7 +8,7 @@
 <h1>Das sind die installierten Skills:</h1>
 <ul id="UlInstalledSkills">
     <li v-for="skill in skills">
-        <button>{{ skill }}</button>
+        <a :href="'/details/' + skill">{{ skill }}</a>
     </li>
 </ul>
 
@@ -17,7 +17,7 @@
     Vue.createApp({
         data() {
             return {
-                skills: skills
+                skills: data.skills
             }
         }
     }).mount('#UlInstalledSkills');
