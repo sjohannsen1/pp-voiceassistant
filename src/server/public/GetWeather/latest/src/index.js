@@ -1,7 +1,7 @@
 const customSdk = require("@fwehn/custom_sdk");
 const axios = require('axios');
 
-// TODO export this to config interface
+// TODO export this to config interfaceg
 let apiKey = "1fa4297da7ecdb8dbb7ca9b7bcaf4fa7";
 let city = 51789;
 let country = 'DE';

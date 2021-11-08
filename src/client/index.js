@@ -1,7 +1,7 @@
 // const rhasspy = require("./rhasspy.js");
 const customSdk = require("@fwehn/custom_sdk");
 const skillManager = require("./skillManager.js");
-// const skills =
+const webinterface = require("./webinterface.js");
 const cli = require("./cli-tool.js");
 
 
@@ -11,4 +11,5 @@ customSdk.config({
     intentHandler: skillManager.customIntentHandler
 });
 customSdk.init().catch(console.error);
+webinterface.startUI(process.env.LOCALE, process.env.PORT);
 cli.startCLI();

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Skills</title>
+</head>
+<body>
+<h1>Das sind die installierten Skills:</h1>
+<ul id="UlInstalledSkills">
+    <li v-for="skill in skills">
+        <button>{{ skill }}</button>
+    </li>
+</ul>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                skills: skills
+            }
+        }
+    }).mount('#UlInstalledSkills');
+</script>
+</body>
+</html>
