@@ -1,16 +1,25 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Skills</title>
-</head>
 <body>
 <h1>Das sind die installierten Skills:</h1>
-<ul id="UlInstalledSkills">
-    <li v-for="skill in skills">
-        <a :href="'/details/' + skill">{{ skill }}</a>
-    </li>
-</ul>
+<table id="UlInstalledSkills">
+    <tr>
+        <th>Name</th>
+        <th>Beschreibung</th>
+        <th>Version</th>
+    </tr>
+    <tr v-for="skill in skills">
+        <td>
+            <a :href="'/details/' + skill.name">{{ skill.name }}</a>
+        </td>
+        <td>
+            {{ skill.description }}
+        </td>
+        <td>
+            {{ skill.version }}
+        </td>
+    </tr>
+
+
+</table>
 
 <script src="https://unpkg.com/vue@next"></script>
 <script>
@@ -23,4 +32,3 @@
     }).mount('#UlInstalledSkills');
 </script>
 </body>
-</html>

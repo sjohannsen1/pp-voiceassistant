@@ -1,5 +1,9 @@
 doctype html 5
-script(type='text/javascript').
-    const data = !{JSON.stringify(data)}
+html
+    head
+        title !{data.name}
+    head/
+    include head
+    include navbar
+    include ../public/details.html
 
-include ../public/details.html
