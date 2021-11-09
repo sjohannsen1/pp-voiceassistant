@@ -6,7 +6,7 @@ permalink: /docs/locales/
 ````json
 {
   "invocation": "Hallo Welt",
-  "utterances": [
+  "subcommands": [
     {
       "utterance": "sag ($slots/hello){hello} ($slots/world){world}",
       "function": "helloWorld",
@@ -32,7 +32,7 @@ permalink: /docs/locales/
 Dieser Punkt bezeichnet den Namen des Befehls, unter dem man den Befehl ansprechen kann.
 
 
-## Utterances
+## Subcommands
 Unter diesem Punkt sind alle Unterbefehle aufgeführt.
 Jeder Befehl wird durch die folgenden Unterpunkte definiert:
 

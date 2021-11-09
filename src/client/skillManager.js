@@ -94,8 +94,8 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\manifest.json`).toString());
 
     let sentences = [];
-    for (let i in localeFile.utterances){
-        sentences.push(localeFile.utterances[i].utterance);
+    for (let i in localeFile.subcommands){
+        sentences.push(localeFile.subcommands[i].utterance);
     }
 
     return {
@@ -129,13 +129,13 @@ function getFunctionsOfSkill(skillName, locale = "de_DE"){
 
 
 
-    let utterances = JSON.parse(fs.readFileSync(`./skills/${skillName}/latest/locales/${locale}.json`).toString()).utterances;
+    let subcommands = JSON.parse(fs.readFileSync(`./skills/${skillName}/latest/locales/${locale}.json`).toString()).subcommands;
 
-    for (let i in utterances){
-        let functionName = utterances[i]["function"];
+    for (let i in subcommands){
+        let functionName = subcommands[i]["function"];
         functions[functionName] = {
-            args: utterances[i].args,
-            answer: utterances[i].answer
+            args: subcommands[i].args,
+            answer: subcommands[i].answer
         }
     }
     return functions;

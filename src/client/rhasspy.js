@@ -52,8 +52,8 @@ async function registerSkills(locale = "de_DE"){
         }
 
         let sentences = [];
-        for (let i in skill.utterances){
-            sentences.push(`($slots/launch){launch} ${skill.invocation} ${skill.utterances[i].utterance}`);
+        for (let i in skill.subcommands){
+            sentences.push(`($slots/launch){launch} ${skill.invocation} ${skill.subcommands[i].utterance}`);
         }
 
         await postSentences(skillNames[i], sentences).then(res => console.log(res.data));

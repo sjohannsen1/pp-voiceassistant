@@ -13,6 +13,7 @@
   docs:
     - rhasspy
     - skillmanager
+    - webinterface
 
 - title: Skills
   docs:

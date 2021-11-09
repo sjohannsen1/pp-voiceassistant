@@ -1,6 +1,6 @@
 {
   "invocation": "Hello World",
-  "utterances": [
+  "subcommands": [
     {
       "utterance": "say ($slots/hello){hello} ($slots/world){world}",
       "function": "helloWorld",

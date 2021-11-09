@@ -1,6 +1,6 @@
 {
   "invocation": "GetTime",
-  "utterances": [
+  "subcommands": [
     {
       "utterance": "wie spät ist es",
       "function": "getTime",
