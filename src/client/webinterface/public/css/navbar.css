@@ -1,0 +1,6 @@
+#NavMainNavbar{
+    display: flex;
+    justify-content: space-around;
+    padding: .5rem;
+    background: var(--col-bg-secondary);
+}
