@@ -17,11 +17,11 @@
   "dependencies": {
     "@cicciosgamino/openweather-apis": "^5.0.1",
     "@fwehn/custom_sdk": "file:../sdk",
+    "adm-zip": "^0.5.9",
     "axios": "^0.23.0",
-    "openweather-apis": "^4.4.2",
-    "unzipper": "^0.10.11",
-    "weather-js": "^2.0.0",
     "express": "^4.17.1",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "openweather-apis": "^4.4.2",
+    "weather-js": "^2.0.0"
   }
 }

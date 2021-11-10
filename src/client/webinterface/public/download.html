@@ -1,6 +1,9 @@
 <body>
 <div id="DivDownload">
-    <p> {{placeholder}}</p>
+    <div v-for="skill in skills" class="DivSkillCard">
+        <p>{{skill.name}}</p>
+        <button v-on:click="download(skill.name)">Herunterladen</button>
+    </div>
 </div>
 
 <script src="https://unpkg.com/vue@next"></script>
@@ -8,7 +11,16 @@
     Vue.createApp({
         data() {
             return {
-                placeholder: data.placeholder
+                skills: data.skills
+            }
+        },
+        methods: {
+            download: function (skillName){
+                fetch(`${window.location.origin}/download/${skillName}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        alert(data.message);
+                    }).catch(console.error);
             }
         }
     }).mount('#DivDownload');

@@ -1,6 +1,5 @@
-const unzipper = require("unzipper");
-const http = require("http");
 const axios = require('axios');
+const admZip = require('adm-zip')
 const fs = require("fs");
 const customSdk = require("@fwehn/custom_sdk");
 
@@ -22,10 +21,16 @@ function loadSkills(){
 }
 
 //Downloads the latest version of a Skill as zip and unzips it
-//TODO find a workaround to change http to axios
+//TODO register downloaded skill automatically
 function downloadSkill(name = "HelloWorld") {
-    http.get(`http://${process.env.SERVER}/download/${name}`, (res) => {
-        res.pipe(unzipper.Extract({path: `${__dirname}\\skills\\${name}`}));
+    return new Promise((resolve, reject) => {
+        axios.get(`http://${process.env.SERVER}/download/${name}`, {
+            responseType: "arraybuffer"
+        }).then(res => {
+            let zip = new admZip(res.data);
+            zip.extractAllTo(`${__dirname}\\skills\\${name}`,true);
+            resolve("Done!");
+        }).catch(reject);
     })
 }
 
@@ -40,14 +45,21 @@ function deleteLocalSkillFiles(name = "HelloWorld"){
 }
 
 //Get a list of Skills on Server
-async function getRemoteSkills(locale = "de_DE") {
-    let skills = [];
-    await axios.get(`http://${process.env.SERVER}/skills/${locale}`).then(res => {
-        for (let i in res.data) {
-            skills.push(i);
-        }
+function getRemoteSkills(locale = "de_DE") {
+    return new Promise((resolve, reject) => {
+        axios.get(`http://${process.env.SERVER}/skills/${locale}`).then(res => {
+            let skills = [];
+            for (let i in res.data) {
+                //TODO check if skill is installed
+                skills.push({
+                    name: i,
+                    version: res.data[i],
+                    installed: false
+                });
+            }
+            resolve(skills);
+        }).catch(reject);
     });
-    return skills;
 }
 
 //Get a list of locally installed skills
@@ -65,6 +77,7 @@ function getInstalledSkills(locale = "de_DE"){
     return skills;
 }
 
+//Shows Overview of local Skill files
 function getSkillsOverview(locale = "de_DE"){
     let res = [];
     let skills = getInstalledSkills(locale)
@@ -107,20 +120,22 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
 }
 
 // Get Available Updates based on version in <SkillName>/latest/manifest.json
-async function getUpdates(locale = "de_DE"){
-    let installed = getInstalledSkills(locale);
-    let availableUpdates = {};
+function getUpdates(locale = "de_DE"){
+    return new Promise(async (resolve, reject) => {
+        let installed = getInstalledSkills(locale);
+        let availableUpdates = {};
 
-    for (let i in installed){
-        let version = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${installed[i]}\\latest\\manifest.json`).toString()).version;
-        await axios.get(`http://${process.env.SERVER}/update/${locale}/${installed[i]}/${version}`).then(res => {
-            if (res.data.update){
-                availableUpdates[installed[i]] = res.data.version;
-            }
-        })
-    }
+        for (let i in installed) {
+            let version = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${installed[i]}\\latest\\manifest.json`).toString()).version;
+            await axios.get(`http://${process.env.SERVER}/update/${locale}/${installed[i]}/${version}`).then(res => {
+                if (res.data.update) {
+                    availableUpdates[installed[i]] = res.data.version;
+                }
+            }).catch(reject);
+        }
 
-    return availableUpdates;
+        resolve(availableUpdates);
+    });
 }
 
 // Get all functions of intent

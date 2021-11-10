@@ -20,14 +20,15 @@ function startCLI(){
             case "skills":
                 switch (args[1]){
                     case "remote":
-                        try {
-                            let remoteSkills = await skillManager.getRemoteSkills(process.env.LOCALE);
-                            remoteSkills.forEach(skill => {
-                                console.log(skill);
+                        skillManager.getRemoteSkills(process.env.LOCALE).then(skills => {
+                            skills.forEach(skill => {
+                                console.log(skill.name);
                             });
-                        }catch (e) {
-                            console.error(e);
-                        }
+                            console.log(separator);
+                        }).catch(err => {
+                            console.error(err);
+                            console.log(separator);
+                        });
                         break;
 
                     case "local":
@@ -35,38 +36,45 @@ function startCLI(){
                         localSkills.forEach(skill => {
                             console.log(skill);
                         });
+                        console.log(separator);
                         break;
 
                     default:
                         console.log("Command not found!")
+                        console.log(separator);
                 }
-                console.log(separator);
                 break;
 
             case "updates":
                 console.log("Searching for Updates...");
-                let availableUpdates = await skillManager.getUpdates(process.env.LOCALE);
+                let availableUpdates;
 
-                if (Object.keys(availableUpdates).length > 0){
-                    console.log("Updates Available!\n");
-                    for (let i in availableUpdates){
-                        console.log(`${i} Vers. ${availableUpdates[i]}`);
+                skillManager.getUpdates(process.env.LOCALE).then(res => {
+                    availableUpdates = res
+
+                    if (Object.keys(availableUpdates).length > 0){
+                        console.log("Updates Available!\n");
+                        for (let i in availableUpdates){
+                            console.log(`${i} Vers. ${availableUpdates[i]}`);
+                        }
+                    }else{
+                        console.log("No Updates available!");
                     }
-                }else{
-                    console.log("No Updates available!");
-                }
-
-                console.log(separator);
+                    console.log(separator);
+                }).catch(err => {
+                    console.error(err);
+                    console.log(separator);
+                });
                 break;
 
             case "download":
-                try{
-                    console.log("Downloading in Background...");
-                    skillManager.downloadSkill(args[1]);
-                }catch (err){
+                skillManager.downloadSkill(args[1]).then(msg => {
+                    console.log(msg);
+                    console.log(separator);
+                }).catch(err => {
                     console.error(err);
-                }
-                console.log(separator);
+                    console.log(separator);
+                });
                 break;
 
             case "register":

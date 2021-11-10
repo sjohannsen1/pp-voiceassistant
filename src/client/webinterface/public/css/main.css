@@ -2,6 +2,7 @@
 @import url("navbar.css");
 @import url("overview.css");
 @import url("details.css");
+@import url("download.css");
 
 html {
     font-size:100%;

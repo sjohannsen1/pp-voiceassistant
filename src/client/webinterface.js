@@ -16,9 +16,34 @@ app.get("/details/:skillName", (req, res) => {
     res.render('details', { data : skillManager.getSkillDetails(req.params.skillName, locale)});
 });
 
-app.get("/download", (req, res) => {
-    res.render('download', {data : {placeholder: "Platzhalter"}});
+app.get("/download", async (req, res) => {
+    skillManager.getRemoteSkills(locale)
+        .then(skills => res.render('download', {data: {skills: skills}}))
+        .catch(() => res.render('download', {data: {skills: [{ name: "No connection to Server!", version: "0", installed: true }]}}))
 });
+
+app.get("/download/:skillName", (req, res) => {
+    //TODO register skills after download
+
+    skillManager.downloadSkill(req.params.skillName).then(() => {
+        res.json({
+            skill: req.params.skillName,
+            success: true,
+            message: `Successfully downloaded ${req.params.skillName}`
+        });
+    }).catch(err => {
+        res.json({
+            skill: req.params.skillName,
+            success: false,
+            message: err.toString()
+        });
+    });
+
+});
+
+// app.get("/delete/:skillName", (req, res) => {
+//   
+// });
 
 function startUI(loc = "de_DE", port = 3000){
     locale = loc;
