@@ -1,0 +1,34 @@
+#DivDetails {
+    display: flex;
+    flex-direction: column;
+    justify-self: stretch;
+    justify-content: center;
+    align-items: center;
+    color: var(--col-text-light);
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+#DivDetails span {
+    justify-self: start;
+    align-self: start;
+    margin-left: 2rem;
+}
+
+#DivDetails h1 {
+    font-size: 2.7rem;
+    margin-bottom: 1rem;
+}
+
+#DivDetails h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+#DivDetails a{
+    color: var(--col-text-light);
+}
+
+#DivDetails a:link:active, #DivDetails a:visited:active {
+    color: var(--col-text-light);
+}

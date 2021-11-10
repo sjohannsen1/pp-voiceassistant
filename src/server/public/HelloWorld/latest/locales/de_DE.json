@@ -1,5 +1,6 @@
 {
   "invocation": "Hallo Welt",
+  "description": "Das ist ein ganz klassisches HelloWorld-Programm.\nBenutzte einen der unteren Sätze um es auszuprobieren.",
   "subcommands": [
     {
       "utterance": "sag ($slots/hello){hello} ($slots/world){world}",

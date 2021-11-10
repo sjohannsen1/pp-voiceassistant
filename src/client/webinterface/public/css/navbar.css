@@ -3,4 +3,13 @@
     justify-content: space-around;
     padding: .5rem;
     background: var(--col-bg-secondary);
+    color: var(--col-text-light);
+}
+
+#NavMainNavbar a{
+    color: var(--col-text-light);
+}
+
+#NavMainNavbar a:link:active, #NavMainNavbar a:visited:active {
+    color: var(--col-text-light);
 }

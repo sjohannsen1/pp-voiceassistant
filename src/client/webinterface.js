@@ -16,6 +16,10 @@ app.get("/details/:skillName", (req, res) => {
     res.render('details', { data : skillManager.getSkillDetails(req.params.skillName, locale)});
 });
 
+app.get("/download", (req, res) => {
+    res.render('download', {data : {placeholder: "Platzhalter"}});
+});
+
 function startUI(loc = "de_DE", port = 3000){
     locale = loc;
     app.use(express.static(`${__dirname}\\webinterface\\public`));

@@ -13,8 +13,19 @@
     color: var(--col-text-light);
     margin: 0 2rem;
     padding: .5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border: 1px solid var(--col-bg-secondary);
     border-radius: .5rem;
 }
 
+#DivOverview th {
+    font-size: 1.5rem;
+}
+
+#DivOverview a{
+    color: var(--col-text-light);
+}
+
+#DivOverview a:link:active, #DivOverview a:visited:active {
+    color: var(--col-text-light);
+}

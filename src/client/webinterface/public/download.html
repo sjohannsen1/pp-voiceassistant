@@ -1,0 +1,16 @@
+<body>
+<div id="DivDownload">
+    <p> {{placeholder}}</p>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                placeholder: data.placeholder
+            }
+        }
+    }).mount('#DivDownload');
+</script>
+</body>
