@@ -37,6 +37,7 @@ async function postSlots(slotName, alternatives, overwrite = false){
 }
 
 // Register Skills in Rhasspy
+// TODO set active flag at skillConfigs.json
 async function registerSkills(locale = "de_DE"){
     let skillNames = skillManager.getInstalledSkills(locale);
 

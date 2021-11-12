@@ -40,6 +40,11 @@ function deleteLocalSkillFiles(name = "HelloWorld"){
     return new Promise((resolve, reject) => {
         let installed = getInstalledSkills();
         if (!installed.includes(name)) reject('Skill not found!');
+        let configsFile = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString());
+        if (configsFile.hasOwnProperty(name)){
+            delete configsFile[name];
+        }
+        fs.writeFileSync(`.\\skillConfigs.json`, JSON.stringify(configsFile));
 
         fs.rmSync(`${__dirname}\\skills\\${name}`, { recursive: true, force: true });
         resolve('Skill deleted!');
@@ -129,6 +134,7 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     }
 }
 
+// Generates a list of all options, set in the skillConfigs.json or default values from manifest.json
 function getFormattedOptionsList(skillOptions, skillConfig = {}){
     let res = [];
 
@@ -151,6 +157,7 @@ function getFormattedOptionsList(skillOptions, skillConfig = {}){
     return res;
 }
 
+// Saves/Overwrites the options of a skill in skillConfigs.json
 function saveConfig(skill, values){
     return new Promise((resolve, reject) => {
         try {
@@ -181,7 +188,24 @@ function saveConfig(skill, values){
             fs.writeFileSync(`.\\skillConfigs.json`, JSON.stringify(configsFile));
             resolve("Options Saved");
         }catch (e) {
-            reject(e.toString());
+            reject(e);
+        }
+    });
+}
+
+//Sets the "active" Flag in skillConfigs.json
+function setActivateFlag(skill, state){
+    return new Promise((resolve, reject) => {
+        try{
+            let configsFile = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString());
+            if (!configsFile[skill]) configsFile[skill] = {};
+
+            configsFile[skill].active = state;
+
+            fs.writeFileSync(`.\\skillConfigs.json`, JSON.stringify(configsFile));
+            resolve("Skill Activated!");
+        }catch (e) {
+            reject(e);
         }
     });
 }
@@ -277,5 +301,5 @@ function customIntentHandler(topic, message){
 }
 
 module.exports = {
-    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, getUpdates, getFunctionMatchingSlots, customIntentHandler
+    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, getUpdates, getFunctionMatchingSlots, customIntentHandler
 }

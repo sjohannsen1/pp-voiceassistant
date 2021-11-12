@@ -32,10 +32,12 @@ app.get("/download", async (req, res) => {
 app.get("/download/:skillName", (req, res) => {
     //TODO register skills after download
     skillManager.downloadSkill(req.params.skillName).then(() => {
-        res.json({
-            skill: req.params.skillName,
-            success: true,
-            message: `Successfully downloaded ${req.params.skillName}`
+        skillManager.setActivateFlag(req.params.skillName, false).then(()=> {
+            res.json({
+                skill: req.params.skillName,
+                success: true,
+                message: `Successfully downloaded ${req.params.skillName}`
+            });
         });
     }).catch(err => {
         res.json({
@@ -55,11 +57,11 @@ app.get("/delete/:skillName", (req, res) => {
            success: true,
            message: msg
        });
-   }).catch(msg => {
+   }).catch(err => {
        res.json({
            skill: req.params.skillName,
            success: false,
-           message: msg
+           message: err.toString()
        });
    });
 });
@@ -72,11 +74,11 @@ app.post("/edit/:skillName", (req, res) => {
                 success: true,
                 message: msg
             });
-        }).catch(msg => {
+        }).catch(err => {
             res.json({
                 skill: req.params.skillName,
                 success: false,
-                message: msg
+                message: err.toString()
             });
         });
 });
