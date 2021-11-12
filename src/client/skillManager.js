@@ -111,7 +111,7 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     let localeFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\locales\\${locale}.json`).toString());
     let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\manifest.json`).toString());
     let skillOptions = manifestFile["options"];
-    let configs = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString())[name];
+    let configs = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString())[name] || {};
 
     //TODO make the sentences readable
     let sentences = [];
@@ -125,11 +125,11 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
         version: manifestFile.version,
         description: localeFile.description,
         sentences: sentences,
-        options: getFormattedOptionsList(skillOptions, configs.options)
+        options: getFormattedOptionsList(skillOptions, configs.options || [])
     }
 }
 
-function getFormattedOptionsList(skillOptions, skillConfig){
+function getFormattedOptionsList(skillOptions, skillConfig = {}){
     let res = [];
 
     for (let i in skillOptions){
@@ -151,14 +151,14 @@ function getFormattedOptionsList(skillOptions, skillConfig){
     return res;
 }
 
-
 function saveConfig(skill, values){
     return new Promise((resolve, reject) => {
         try {
             let configsFile = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString());
-            let skillOptions = configsFile[skill].options || {}.options;
+            if (!configsFile[skill]) configsFile[skill] = {};
 
-            if (!skillOptions) skillOptions = {};
+            let skillOptions = configsFile[skill].options;
+            if (!skillOptions) skillOptions = [];
 
             for (let key in values){
                 let option = {}
@@ -181,7 +181,7 @@ function saveConfig(skill, values){
             fs.writeFileSync(`.\\skillConfigs.json`, JSON.stringify(configsFile));
             resolve("Options Saved");
         }catch (e) {
-            reject(e);
+            reject(e.toString());
         }
     });
 }
