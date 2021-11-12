@@ -8,6 +8,15 @@
     <ul>
         <li v-for="sentence in sentences">{{sentence}}</li>
     </ul>
+
+        <div v-for="option in options">
+            <label :for="'I'+option.name">{{option.name}}: </label>
+            <input :id="'I'+option.name" v-model="reqBody[option.name]" :placeholder="option.value" />
+        </div>
+
+        <button v-if="options.length > 0" v-on:click="send(name)">Absenden</button>
+
+
 </div>
 
 <script src="https://unpkg.com/vue@next"></script>
@@ -18,8 +27,26 @@
                 name: data.name,
                 version: data.version,
                 description: data.description,
-                sentences: data.sentences
+                sentences: data.sentences,
+                options: data.options,
+                reqBody: []
             };
+        },
+        methods: {
+            send: function (skillName){
+                fetch(`${window.location.origin}/edit/${skillName}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(Object.assign({}, this.reqBody))
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        console.log(JSON.stringify(this.reqBody))
+                    }).catch(console.error);
+            }
         }
     }).mount("#DivDetails");
 </script>

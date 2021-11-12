@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 
 const skillManager = require("./skillManager.js");
 
@@ -7,6 +8,12 @@ let locale;
 
 app.set('views', `${__dirname}\\webinterface\\views`);
 app.set('view engine', 'jade');
+
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(bodyParser.json())
+
 
 app.get("/", (req, res) => {
     res.render('index', { data : { skills: skillManager.getSkillsOverview(locale) }});
@@ -24,7 +31,6 @@ app.get("/download", async (req, res) => {
 
 app.get("/download/:skillName", (req, res) => {
     //TODO register skills after download
-
     skillManager.downloadSkill(req.params.skillName).then(() => {
         res.json({
             skill: req.params.skillName,
@@ -41,9 +47,32 @@ app.get("/download/:skillName", (req, res) => {
 
 });
 
-// app.get("/delete/:skillName", (req, res) => {
-//   
-// });
+app.get("/delete/:skillName", (req, res) => {
+    //TODO remove skill
+
+   skillManager.deleteLocalSkillFiles(req.params.skillName).then(msg => {
+       res.json({
+           skill: req.params.skillName,
+           success: true,
+           message: msg
+       });
+   }).catch(msg => {
+       res.json({
+           skill: req.params.skillName,
+           success: false,
+           message: msg
+       });
+   });
+});
+
+app.post("/edit/:skillName", (req, res) => {
+
+    //TODO check types
+    //TODO save data to skillConfig.json
+
+    console.log(req.params.skillName);
+    console.log(req.body);
+});
 
 function startUI(loc = "de_DE", port = 3000){
     locale = loc;

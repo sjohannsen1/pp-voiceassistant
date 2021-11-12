@@ -6,6 +6,7 @@
             <th>Name</th>
             <th>Beschreibung</th>
             <th>Version</th>
+            <th></th>
         </tr>
         <tr v-for="skill in skills">
             <td>
@@ -17,6 +18,9 @@
             <td>
                 {{ skill.version }}
             </td>
+            <td>
+                <button v-on:click="removeSkill(skill.name)" class="fas fa-trash"></button>
+            </td>
         </tr>
     </table>
 </div>
@@ -27,6 +31,16 @@
         data() {
             return {
                 skills: data.skills
+            }
+        },
+        methods: {
+            removeSkill: function (skillName){
+                fetch(`${window.location.origin}/delete/${skillName}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        alert(data.message);
+                        location.reload();
+                    }).catch(console.error);
             }
         }
     }).mount('#DivOverview');

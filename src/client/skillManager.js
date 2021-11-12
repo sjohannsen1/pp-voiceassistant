@@ -35,13 +35,16 @@ function downloadSkill(name = "HelloWorld") {
 }
 
 //Deletes the Local Skill-Files
+//TODO delete skillConfigs
 function deleteLocalSkillFiles(name = "HelloWorld"){
-    let installed = getInstalledSkills();
+    return new Promise((resolve, reject) => {
+        let installed = getInstalledSkills();
+        if (!installed.includes(name)) reject('Skill not found!');
 
-    if (!installed.includes(name)) return `Skill not found!`;
+        fs.rmSync(`${__dirname}\\skills\\${name}`, { recursive: true, force: true });
+        resolve('Skill deleted!');
+    })
 
-    fs.rmSync(`${__dirname}\\skills\\${name}`, { recursive: true, force: true });
-    return `Skill deleted!`;
 }
 
 //Get a list of Skills on Server
@@ -87,7 +90,9 @@ function getSkillsOverview(locale = "de_DE"){
         let localeFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\locales\\${locale}.json`).toString());
         let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\manifest.json`).toString());
 
+        //TODO check if skill is activated
         res.push({
+            active: true,
             name: skills[i],
             description: localeFile.description || "-",
             version: manifestFile.version
@@ -105,18 +110,45 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     let pathToSkill = `${__dirname}\\skills\\${name}\\latest`;
     let localeFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\locales\\${locale}.json`).toString());
     let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\manifest.json`).toString());
+    let skillOptions = manifestFile["options"];
+    let configs = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString())[name];
 
+    //TODO make the sentences readable
     let sentences = [];
     for (let i in localeFile.subcommands){
         sentences.push(localeFile.subcommands[i].utterance);
     }
 
     return {
+        active: configs.active || false,
         name: name,
         version: manifestFile.version,
         description: localeFile.description,
-        sentences: sentences
+        sentences: sentences,
+        options: getFormattedOptionsList(skillOptions, configs.options)
     }
+}
+
+function getFormattedOptionsList(skillOptions, skillConfig){
+    let res = [];
+
+    for (let i in skillOptions){
+        let currentOption = skillOptions[i];
+        let currentConfig = skillConfig.find(conf => {
+            return conf.name === currentOption.name;
+        }) || {};
+
+
+        //TODO convert option type to html-input-type, e.g. String -> text
+        res.push({
+            name: currentOption.name,
+            value: currentConfig.value || currentOption.default,
+            type: currentOption.type,
+            choices: currentOption.choices || []
+        })
+    }
+
+    return res;
 }
 
 // Get Available Updates based on version in <SkillName>/latest/manifest.json

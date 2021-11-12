@@ -1,3 +1,17 @@
 {
-
+  "HelloWorld": {
+    "active": true
+  },
+  "GetTime": {
+    "active": false
+  },
+  "GetWeather": {
+    "active": false,
+    "options": [
+      {
+        "name": "APIKey",
+        "value": "abcdsdgfh"
+      }
+    ]
+  }
 }
