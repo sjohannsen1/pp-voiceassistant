@@ -43,9 +43,12 @@
                     })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
-                        console.log(JSON.stringify(this.reqBody))
-                    }).catch(console.error);
+                        alert(data.message);
+                        location.reload();
+                    }).catch(data => {
+                        alert(data.message);
+                        location.reload();
+                    });
             }
         }
     }).mount("#DivDetails");

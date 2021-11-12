@@ -151,6 +151,41 @@ function getFormattedOptionsList(skillOptions, skillConfig){
     return res;
 }
 
+
+function saveConfig(skill, values){
+    return new Promise((resolve, reject) => {
+        try {
+            let configsFile = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString());
+            let skillOptions = configsFile[skill].options || {}.options;
+
+            if (!skillOptions) skillOptions = {};
+
+            for (let key in values){
+                let option = {}
+                option["name"] = key;
+                option["value"] = values[key];
+
+                let optionToReplace = skillOptions.find(option => {
+                    return option.name === key;
+                });
+
+                if (!optionToReplace) {
+                    skillOptions.push(option);
+                }else{
+                    let index = skillOptions.indexOf(optionToReplace);
+                    skillOptions[index] = option;
+                }
+            }
+
+            configsFile[skill].options = skillOptions;
+            fs.writeFileSync(`.\\skillConfigs.json`, JSON.stringify(configsFile));
+            resolve("Options Saved");
+        }catch (e) {
+            reject(e);
+        }
+    });
+}
+
 // Get Available Updates based on version in <SkillName>/latest/manifest.json
 function getUpdates(locale = "de_DE"){
     return new Promise(async (resolve, reject) => {
@@ -242,5 +277,5 @@ function customIntentHandler(topic, message){
 }
 
 module.exports = {
-    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, getUpdates, getFunctionMatchingSlots, customIntentHandler
+    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, getUpdates, getFunctionMatchingSlots, customIntentHandler
 }

@@ -48,8 +48,7 @@ app.get("/download/:skillName", (req, res) => {
 });
 
 app.get("/delete/:skillName", (req, res) => {
-    //TODO remove skill
-
+    //TODO deactivate skill
    skillManager.deleteLocalSkillFiles(req.params.skillName).then(msg => {
        res.json({
            skill: req.params.skillName,
@@ -66,12 +65,20 @@ app.get("/delete/:skillName", (req, res) => {
 });
 
 app.post("/edit/:skillName", (req, res) => {
-
-    //TODO check types
-    //TODO save data to skillConfig.json
-
-    console.log(req.params.skillName);
-    console.log(req.body);
+    skillManager.saveConfig(req.params.skillName, req.body)
+        .then(msg => {
+            res.json({
+                skill: req.params.skillName,
+                success: true,
+                message: msg
+            });
+        }).catch(msg => {
+            res.json({
+                skill: req.params.skillName,
+                success: false,
+                message: msg
+            });
+        });
 });
 
 function startUI(loc = "de_DE", port = 3000){

@@ -1,17 +1,1 @@
-{
-  "HelloWorld": {
-    "active": true
-  },
-  "GetTime": {
-    "active": false
-  },
-  "GetWeather": {
-    "active": false,
-    "options": [
-      {
-        "name": "APIKey",
-        "value": "abcdsdgfh"
-      }
-    ]
-  }
-}
+{"HelloWorld":{"active":true},"GetTime":{"active":false},"GetWeather":{"active":false,"options":[{"name":"APIKey","value":"1fa4297da7ecdb8dbb7ca9b7bcaf4fa7"},{"name":"city","value":"51789"},{"name":"units","value":"metric"}]}}
