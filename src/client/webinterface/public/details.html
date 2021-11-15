@@ -5,6 +5,9 @@
     <h3>{{version}}</h3>
     <p>{{description}}</p>
 
+    <button v-if="!active" v-on:click="setActive(name, true)">Aktivieren</button>
+    <button v-if="active" v-on:click="setActive(name, false)">Deaktivieren</button>
+
     <ul>
         <li v-for="sentence in sentences">{{sentence}}</li>
     </ul>
@@ -27,6 +30,7 @@
                 name: data.name,
                 version: data.version,
                 description: data.description,
+                active: data.active,
                 sentences: data.sentences,
                 options: data.options,
                 reqBody: []
@@ -41,6 +45,17 @@
                         },
                         body: JSON.stringify(Object.assign({}, this.reqBody))
                     })
+                    .then(res => res.json())
+                    .then(data => {
+                        alert(data.message);
+                        location.reload();
+                    }).catch(data => {
+                        alert(data.message);
+                        location.reload();
+                    });
+            },
+            setActive: function (skillName, state){
+                fetch(`${window.location.origin}/setActive/${skillName}/${state}`)
                     .then(res => res.json())
                     .then(data => {
                         alert(data.message);

@@ -62,20 +62,42 @@ async function registerSkills(locale = "de_DE"){
     await trainRhasspy().then(res => console.log(res.data));
 }
 
-// Unregistering Skill and his Slots in Rhasspy
+function registerSkill(skillName, locale = "de_DE"){
+    return new Promise(async (resolve, reject) => {
+        let skill = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${skillName}\\latest\\locales\\${locale}.json`).toString());
+
+        for (let slot in skill.slots) {
+            await postSlots(slot, skill.slots[slot], true).catch(reject);
+        }
+
+        let sentences = [];
+        for (let i in skill.subcommands){
+            sentences.push(`($slots/launch){launch} ${skill.invocation} ${skill.subcommands[i].utterance}`);
+        }
+
+        postSentences(skillName, sentences).then(() => {
+            trainRhasspy().then(resolve);
+        }).catch(reject);
+    });
+}
+
+// Unregistering Skill and its Slots in Rhasspy
 async function unregisterSkill(skillName, locale = "de_DE"){
-    let skill = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${skillName}\\latest\\locales\\${locale}.json`).toString());
+    return new Promise(async (resolve, reject) => {
+        let skill = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${skillName}\\latest\\locales\\${locale}.json`).toString());
 
-    for (let slot in skill.slots){
-        await postSlots(slot, [], true).then(res => console.log(res.data + " - " + slot));
-    }
+        for (let slot in skill.slots) {
+            await postSlots(slot, [], true).catch(reject);
+        }
 
-    await postSentences(skillName, []).then(res => console.log(res.data));
-    await trainRhasspy().then(res => console.log(res.data));
+        postSentences(skillName, []).then(() => {
+            trainRhasspy().then(resolve);
+        }).catch(reject);
+    });
 }
 
 
 
 module.exports = {
-    trainRhasspy, postSentences, postSlots, registerSkills, unregisterSkill
+    trainRhasspy, postSentences, postSlots, registerSkills, registerSkill, unregisterSkill
 }

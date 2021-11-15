@@ -2,6 +2,7 @@ const axios = require('axios');
 const admZip = require('adm-zip')
 const fs = require("fs");
 const customSdk = require("@fwehn/custom_sdk");
+const rhasspy = require("./rhasspy.js");
 
 // Currently loaded Skills
 let skills = {};
@@ -49,7 +50,6 @@ function deleteLocalSkillFiles(name = "HelloWorld"){
         fs.rmSync(`${__dirname}\\skills\\${name}`, { recursive: true, force: true });
         resolve('Skill deleted!');
     })
-
 }
 
 //Get a list of Skills on Server
@@ -203,11 +203,33 @@ function setActivateFlag(skill, state){
             configsFile[skill].active = state;
 
             fs.writeFileSync(`.\\skillConfigs.json`, JSON.stringify(configsFile));
-            resolve("Skill Activated!");
+            resolve("Changes Saved!");
         }catch (e) {
             reject(e);
         }
     });
+}
+
+function activateSkill(skill, locale = "de_DE"){
+    return new Promise((resolve, reject) => {
+        let installed = getInstalledSkills(locale);
+        if (!installed.includes(skill)) reject("Skill not installed or do not support that language!");
+
+        rhasspy.registerSkill(skill, locale).then(() => {
+            setActivateFlag(skill, true).then(() => resolve("Skill activated!"));
+        }).catch(reject);
+    })
+}
+
+function deactivateSkill(skill, locale = "de_DE"){
+    return new Promise((resolve, reject) => {
+        let installed = getInstalledSkills(locale);
+        if (!installed.includes(skill)) reject("Skill not installed or do not support that language!");
+
+        rhasspy.unregisterSkill(skill, locale).then(() => {
+            setActivateFlag(skill, false).then(() => resolve("Skill deactivated!"));
+        }).catch(reject);
+    })
 }
 
 // Get Available Updates based on version in <SkillName>/latest/manifest.json
@@ -301,5 +323,5 @@ function customIntentHandler(topic, message){
 }
 
 module.exports = {
-    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, getUpdates, getFunctionMatchingSlots, customIntentHandler
+    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, activateSkill, deactivateSkill,getUpdates, getFunctionMatchingSlots, customIntentHandler
 }

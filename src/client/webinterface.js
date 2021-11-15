@@ -66,6 +66,51 @@ app.get("/delete/:skillName", (req, res) => {
    });
 });
 
+app.get("/setActive/:skillName/:state", (req, res) => {
+    switch (req.params.state){
+        case "true":
+            skillManager.activateSkill(req.params.skillName, locale)
+                .then(msg => {
+                    res.json({
+                        skill: req.params.skillName,
+                        success: true,
+                        message: msg
+                    });
+                })
+                .catch(err => {
+                    res.json({
+                        skill: req.params.skillName,
+                        success: false,
+                        message: err.toString()
+                    });
+                });
+            break;
+        case "false":
+            skillManager.deactivateSkill(req.params.skillName, locale)
+                .then(msg => {
+                    res.json({
+                        skill: req.params.skillName,
+                        success: true,
+                        message: msg
+                    });
+                })
+                .catch(err => {
+                    res.json({
+                        skill: req.params.skillName,
+                        success: false,
+                        message: err.toString()
+                    });
+                });
+            break;
+        default:
+            res.json({
+                skill: req.params.skillName,
+                success: false,
+                message: "Bad!"
+            });
+    }
+});
+
 app.post("/edit/:skillName", (req, res) => {
     skillManager.saveConfig(req.params.skillName, req.body)
         .then(msg => {
