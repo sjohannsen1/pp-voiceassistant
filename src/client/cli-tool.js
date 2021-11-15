@@ -77,12 +77,12 @@ function startCLI(){
                 });
                 break;
 
-            case "register":
-                console.log("Registering...\n");
-                await rhasspy.registerSkills(process.env.LOCALE).catch(console.error);
-                skillManager.loadSkills();
-                console.log(separator);
-                break;
+            // case "register":
+            //     console.log("Registering...\n");
+            //     await rhasspy.registerSkills(process.env.LOCALE).catch(console.error);
+            //     skillManager.loadSkills();
+            //     console.log(separator);
+            //     break;
 
             case "delete":
                 await rhasspy.unregisterSkill(args[1], process.env.LOCALE).then(() => {

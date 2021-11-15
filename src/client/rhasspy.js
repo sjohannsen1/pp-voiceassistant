@@ -1,5 +1,4 @@
 const axios = require('axios');
-const skillManager = require("./skillManager.js");
 const fs = require("fs");
 
 // The Main Function to Communicate with Rhasspy
@@ -36,32 +35,7 @@ async function postSlots(slotName, alternatives, overwrite = false){
     return await postToRhasspy(`/api/slots?overwrite_all=${overwrite}`, data);
 }
 
-// Register Skills in Rhasspy
-// TODO set active flag at skillConfigs.json
-async function registerSkills(locale = "de_DE"){
-    let skillNames = skillManager.getInstalledSkills(locale);
-
-    let defaults = JSON.parse(fs.readFileSync(`${__dirname}\\defaults.json`).toString());
-    await postSlots("launch", defaults[locale]["launch"],true).then(res => console.log(res.data + " - launch"));
-
-    for (let i in skillNames){
-        let raw = fs.readFileSync(`${__dirname}\\skills\\${skillNames[i]}\\latest\\locales\\${locale}.json`).toString();
-        let skill = JSON.parse(raw);
-
-        for (let slot in skill.slots){
-            await postSlots(slot, skill.slots[slot], true).then(res => console.log(res.data + " - " + slot));
-        }
-
-        let sentences = [];
-        for (let i in skill.subcommands){
-            sentences.push(`($slots/launch){launch} ${skill.invocation} ${skill.subcommands[i].utterance}`);
-        }
-
-        await postSentences(skillNames[i], sentences).then(res => console.log(res.data));
-    }
-    await trainRhasspy().then(res => console.log(res.data));
-}
-
+// Registering Skill and its Slots in Rhasspy
 function registerSkill(skillName, locale = "de_DE"){
     return new Promise(async (resolve, reject) => {
         let skill = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${skillName}\\latest\\locales\\${locale}.json`).toString());
@@ -99,5 +73,5 @@ async function unregisterSkill(skillName, locale = "de_DE"){
 
 
 module.exports = {
-    trainRhasspy, postSentences, postSlots, registerSkills, registerSkill, unregisterSkill
+    trainRhasspy, postSentences, postSlots, registerSkill, unregisterSkill
 }

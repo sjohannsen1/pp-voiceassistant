@@ -30,7 +30,6 @@ app.get("/download", async (req, res) => {
 });
 
 app.get("/download/:skillName", (req, res) => {
-    //TODO register skills after download
     skillManager.downloadSkill(req.params.skillName).then(() => {
         skillManager.setActivateFlag(req.params.skillName, false).then(()=> {
             res.json({

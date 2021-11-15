@@ -22,7 +22,6 @@ function loadSkills(){
 }
 
 //Downloads the latest version of a Skill as zip and unzips it
-//TODO register downloaded skill automatically
 function downloadSkill(name = "HelloWorld") {
     return new Promise((resolve, reject) => {
         axios.get(`http://${process.env.SERVER}/download/${name}`, {
@@ -36,7 +35,6 @@ function downloadSkill(name = "HelloWorld") {
 }
 
 //Deletes the Local Skill-Files
-//TODO delete skillConfigs
 function deleteLocalSkillFiles(name = "HelloWorld"){
     return new Promise((resolve, reject) => {
         let installed = getInstalledSkills();
