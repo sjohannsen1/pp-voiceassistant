@@ -116,11 +116,17 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\manifest.json`).toString());
     let skillOptions = manifestFile["options"];
     let configs = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString())[name] || {};
+    let defaults = JSON.parse(fs.readFileSync(`.\\defaults.json`).toString())[locale];
 
-    //TODO make the sentences readable
+    //TODO convert ranges to virtual slot: "(1..4){days}" -> "{days}" & slots: {"days": [1, 2, 3, 4]}
+    let slots = localeFile.slots;
+    slots = {launch: defaults["launch"], ...slots};
+
     let sentences = [];
     for (let i in localeFile.subcommands){
-        sentences.push(localeFile.subcommands[i].utterance);
+        let utterance = localeFile.subcommands[i].utterance.replaceAll(/\(\$slots\/[a-zA-Z]+\)/g, "");
+        let sentence = `... {launch} ${localeFile.invocation} ${utterance}`;
+        sentences.push(sentence);
     }
 
     return {
@@ -129,6 +135,7 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
         version: manifestFile.version,
         description: localeFile.description,
         sentences: sentences,
+        slots: slots,
         options: getFormattedOptionsList(skillOptions, configs.options || [])
     }
 }

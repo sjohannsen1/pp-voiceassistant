@@ -32,3 +32,41 @@
 #DivDetails a:link:active, #DivDetails a:visited:active {
     color: var(--col-text-light);
 }
+
+#DivSentences {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#DivSentences h3 {
+    margin-top: 1rem;
+}
+#DivSentences span {
+    margin: 0;
+    margin-right: .5rem;
+    border: 1px solid var(--col-text-light);
+    border-radius: .3rem;
+    padding: 2px;
+    font-size: small;
+}
+
+#DivSlots {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#DivSlots div {
+    background: var(--col-bg-secondary);
+    width: 150px;
+    margin: 1rem;
+    padding: 1rem;
+    overflow-x: hidden;
+    border: 1px solid var(--col-bg-secondary);
+    border-radius: .5rem;
+}
+
+#DivSlots h4 {
+    margin: 0;
+}

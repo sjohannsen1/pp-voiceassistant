@@ -3,23 +3,35 @@
     <span><a href="/">Back</a></span>
     <h1>{{name}}</h1>
     <h3>{{version}}</h3>
-    <p>{{description}}</p>
+    <p v-if="description">{{description}}</p>
+    <p v-if="!description">-</p>
+
+    <div id="DivSentences">
+        <h3>Sätze</h3>
+        <p>Teste folgende Sätze: </p>
+        <ul>
+            <li v-for="sentence in sentences" v-html="sentence"></li>
+        </ul>
+
+        <div id="DivSlots">
+            <div v-for="(slot, name) in slots">
+                <h4>{{name}}</h4>
+                <ul>
+                    <li v-for="alt in slot">{{alt}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div v-for="option in options">
+        <label :for="'I'+option.name">{{option.name}}: </label>
+        <input :id="'I'+option.name" :type="typeMap[option.type]" v-model="reqBody[option.name]" :placeholder="option.value"/>
+    </div>
+
+    <button v-if="options.length > 0" v-on:click="send(name)">Absenden</button>
 
     <button v-if="!active" v-on:click="setActive(name, true)">Aktivieren</button>
     <button v-if="active" v-on:click="setActive(name, false)">Deaktivieren</button>
-
-    <ul>
-        <li v-for="sentence in sentences">{{sentence}}</li>
-    </ul>
-
-        <div v-for="option in options">
-            <label :for="'I'+option.name">{{option.name}}: </label>
-            <input :id="'I'+option.name" :type="typeMap[option.type]" v-model="reqBody[option.name]" :placeholder="option.value"/>
-        </div>
-
-        <button v-if="options.length > 0" v-on:click="send(name)">Absenden</button>
-
-
 </div>
 
 <script src="https://unpkg.com/vue@next"></script>
@@ -32,12 +44,32 @@
                 "Boolean": "checkbox"
             };
 
+            let slots = data.slots;
+            let sentences = [];
+
+            for (let i in data.sentences){
+                let sentence = data.sentences[i];
+
+                let matches = sentence.match(/{[a-zA-Z]+}/g);
+                for (let i in matches){
+                    let slotName = matches[i].substr(1, matches[i].length - 2);
+                    let slot = slots[slotName] || [];
+                    let example = slot[Math.floor(Math.random()*slot.length)] || "";
+
+                    sentence = sentence.replace(matches[i], `<strong>${example}</strong> <span>${slotName}</span>`);
+
+                }
+
+                sentences.push(sentence)
+            }
+
             return {
                 name: data.name,
                 version: data.version,
                 description: data.description,
                 active: data.active,
-                sentences: data.sentences,
+                sentences: sentences,
+                slots: slots,
                 options: data.options,
                 typeMap: typeMap,
                 reqBody: []
