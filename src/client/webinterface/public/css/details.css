@@ -23,6 +23,8 @@
 #DivDetails h3 {
     font-size: 1.5rem;
     margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 #DivDetails a{
@@ -33,15 +35,33 @@
     color: var(--col-text-light);
 }
 
-#DivSentences {
+#PDescription {
+    width: 40%;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+
+.detailsSection {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 40%;
+    border-top: 1px solid var(--col-bg-secondary);
+    padding-top: 2rem;
+    align-items: center;
 }
 
-#DivSentences h3 {
+#DivSentences p {
+    text-align: center;
     margin-top: 1rem;
 }
+
+#DivSentences ul {
+    justify-self: center;
+}
+
 #DivSentences span {
     margin: 0;
     margin-right: .5rem;
@@ -54,7 +74,8 @@
 #DivSlots {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 #DivSlots div {
@@ -69,4 +90,14 @@
 
 #DivSlots h4 {
     margin: 0;
+}
+
+#DivOptions div{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+#DivOptions button {
+    margin: 1rem;
 }

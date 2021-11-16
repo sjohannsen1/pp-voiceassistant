@@ -3,10 +3,10 @@
     <span><a href="/">Back</a></span>
     <h1>{{name}}</h1>
     <h3>{{version}}</h3>
-    <p v-if="description">{{description}}</p>
+    <p id="PDescription" v-if="description" v-html="description"></p>
     <p v-if="!description">-</p>
 
-    <div id="DivSentences">
+    <div id="DivSentences" class="detailsSection">
         <h3>Sätze</h3>
         <p>Teste folgende Sätze: </p>
         <ul>
@@ -23,21 +23,29 @@
         </div>
     </div>
 
-    <div v-for="option in options">
-        <label :for="'I'+option.name">{{option.name}}: </label>
-        <input :id="'I'+option.name" :type="typeMap[option.type]" v-model="reqBody[option.name]" :placeholder="option.value"/>
+    <div v-if="options.length > 0" id="DivOptions" class="detailsSection">
+        <h3>Optionen</h3>
+        <div v-for="option in options">
+            <label :for="'I'+option.name">{{option.name}}: </label>
+            <input :id="'I'+option.name" :type="typeMap[option.type]" v-model="reqBody[option.name]" :placeholder="option.value"/>
+        </div>
+
+        <button v-on:click="send(name)">Absenden</button>
     </div>
 
-    <button v-if="options.length > 0" v-on:click="send(name)">Absenden</button>
-
-    <button v-if="!active" v-on:click="setActive(name, true)">Aktivieren</button>
-    <button v-if="active" v-on:click="setActive(name, false)">Deaktivieren</button>
+    <div class="detailsSection">
+        <button v-if="!active" v-on:click="setActive(name, true)">Aktivieren</button>
+        <button v-if="active" v-on:click="setActive(name, false)">Deaktivieren</button>
+    </div>
 </div>
 
 <script src="https://unpkg.com/vue@next"></script>
 <script>
     Vue.createApp({
         data() {
+            let description = data.description || "";
+            description = description.replaceAll(/[\r\n]/g, `<br>`);
+
             let typeMap = {
                 "String": "text",
                 "Number": "number",
@@ -59,14 +67,13 @@
                     sentence = sentence.replace(matches[i], `<strong>${example}</strong> <span>${slotName}</span>`);
 
                 }
-
                 sentences.push(sentence)
             }
 
             return {
                 name: data.name,
                 version: data.version,
-                description: data.description,
+                description: description,
                 active: data.active,
                 sentences: sentences,
                 slots: slots,
