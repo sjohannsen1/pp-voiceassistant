@@ -118,13 +118,36 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     let configs = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString())[name] || {};
     let defaults = JSON.parse(fs.readFileSync(`.\\defaults.json`).toString())[locale];
 
-    //TODO convert ranges to virtual slot: "(1..4){days}" -> "{days}" & slots: {"days": [1, 2, 3, 4]}
     let slots = localeFile.slots;
     slots = {launch: defaults["launch"], ...slots};
 
     let sentences = [];
     for (let i in localeFile.subcommands){
         let utterance = localeFile.subcommands[i].utterance.replaceAll(/\(\$slots\/[a-zA-Z]+\)/g, "");
+        let numberMatches = utterance.match(/\(\d+..\d+\){[a-zA-Z]+}/g);
+
+        if (numberMatches && numberMatches.length > 0) {
+            for (let i in numberMatches){
+                let parts = numberMatches[i].split("{");
+                let key = parts[1].substr(0, parts[1].length-1);
+                let values = parts[0].substr(1, parts[0].length-2).split("..").map(val => parseInt(val, 10));
+                let startValue = values[0];
+                let endValue = values[1];
+                let diff = endValue - startValue;
+
+                if (diff > 4){
+                    let randomValuesInRange = Array.from({length: 3}, (_, index) => Math.floor(Math.random() * (diff) + startValue)).sort((a, b) => a-b);
+                    values = [...new Set([startValue, ...randomValuesInRange, endValue])];
+                }else{
+                    values = Array.from({length: diff+1}, (_,index) => startValue+index);
+                }
+
+                slots[key] = values;
+            }
+
+            utterance = utterance.replaceAll(/\(\d+..\d+\)/g, "");
+        }
+
         let sentence = `... {launch} ${localeFile.invocation} ${utterance}`;
         sentences.push(sentence);
     }
