@@ -14,7 +14,7 @@
 
         <div v-for="option in options">
             <label :for="'I'+option.name">{{option.name}}: </label>
-            <input :id="'I'+option.name" v-model="reqBody[option.name]" :placeholder="option.value" />
+            <input :id="'I'+option.name" :type="typeMap[option.type]" v-model="reqBody[option.name]" :placeholder="option.value"/>
         </div>
 
         <button v-if="options.length > 0" v-on:click="send(name)">Absenden</button>
@@ -26,6 +26,12 @@
 <script>
     Vue.createApp({
         data() {
+            let typeMap = {
+                "String": "text",
+                "Number": "number",
+                "Boolean": "checkbox"
+            };
+
             return {
                 name: data.name,
                 version: data.version,
@@ -33,6 +39,7 @@
                 active: data.active,
                 sentences: data.sentences,
                 options: data.options,
+                typeMap: typeMap,
                 reqBody: []
             };
         },

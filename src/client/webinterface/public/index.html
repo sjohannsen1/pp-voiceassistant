@@ -6,6 +6,7 @@
             <th>Name</th>
             <th>Beschreibung</th>
             <th>Version</th>
+            <th>Aktiviert</th>
             <th></th>
         </tr>
         <tr v-for="skill in skills">
@@ -17,6 +18,9 @@
             </td>
             <td>
                 {{ skill.version }}
+            </td>
+            <td>
+                {{ skill.active }}
             </td>
             <td>
                 <button v-on:click="removeSkill(skill.name)" class="fas fa-trash"></button>

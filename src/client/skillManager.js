@@ -55,12 +55,12 @@ function getRemoteSkills(locale = "de_DE") {
     return new Promise((resolve, reject) => {
         axios.get(`http://${process.env.SERVER}/skills/${locale}`).then(res => {
             let skills = [];
+            let installed = getInstalledSkills();
             for (let i in res.data) {
-                //TODO check if skill is installed
                 skills.push({
                     name: i,
                     version: res.data[i],
-                    installed: false
+                    installed: installed.includes(i)
                 });
             }
             resolve(skills);
@@ -87,15 +87,16 @@ function getInstalledSkills(locale = "de_DE"){
 function getSkillsOverview(locale = "de_DE"){
     let res = [];
     let skills = getInstalledSkills(locale)
+    let configs = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString());
 
     for (let i in skills){
         let pathToSkill = `${__dirname}\\skills\\${skills[i]}\\latest`;
         let localeFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\locales\\${locale}.json`).toString());
         let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\manifest.json`).toString());
+        let skillConfig = configs[skills[i]] || {};
 
-        //TODO check if skill is activated
         res.push({
-            active: true,
+            active: skillConfig.active || false,
             name: skills[i],
             description: localeFile.description || "-",
             version: manifestFile.version
@@ -142,8 +143,6 @@ function getFormattedOptionsList(skillOptions, skillConfig = {}){
             return conf.name === currentOption.name;
         }) || {};
 
-
-        //TODO convert option type to html-input-type, e.g. String -> text
         res.push({
             name: currentOption.name,
             value: currentConfig.value || currentOption.default,
@@ -214,6 +213,7 @@ function activateSkill(skill, locale = "de_DE"){
         if (!installed.includes(skill)) reject("Skill not installed or do not support that language!");
 
         rhasspy.registerSkill(skill, locale).then(() => {
+            loadSkills();
             setActivateFlag(skill, true).then(() => resolve("Skill activated!"));
         }).catch(reject);
     })
@@ -225,6 +225,7 @@ function deactivateSkill(skill, locale = "de_DE"){
         if (!installed.includes(skill)) reject("Skill not installed or do not support that language!");
 
         rhasspy.unregisterSkill(skill, locale).then(() => {
+            loadSkills();
             setActivateFlag(skill, false).then(() => resolve("Skill deactivated!"));
         }).catch(reject);
     })

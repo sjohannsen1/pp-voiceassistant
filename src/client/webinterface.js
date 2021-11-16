@@ -49,20 +49,21 @@ app.get("/download/:skillName", (req, res) => {
 });
 
 app.get("/delete/:skillName", (req, res) => {
-    //TODO deactivate skill
-   skillManager.deleteLocalSkillFiles(req.params.skillName).then(msg => {
-       res.json({
-           skill: req.params.skillName,
-           success: true,
-           message: msg
-       });
-   }).catch(err => {
-       res.json({
-           skill: req.params.skillName,
-           success: false,
-           message: err.toString()
-       });
-   });
+    skillManager.deactivateSkill(req.params.skillName, locale).then(() => {
+            skillManager.deleteLocalSkillFiles(req.params.skillName).then(msg => {
+                res.json({
+                    skill: req.params.skillName,
+                    success: true,
+                    message: msg
+                });
+            })
+        }).catch(err => {
+           res.json({
+               skill: req.params.skillName,
+               success: false,
+               message: err.toString()
+           });
+        });
 });
 
 app.get("/setActive/:skillName/:state", (req, res) => {

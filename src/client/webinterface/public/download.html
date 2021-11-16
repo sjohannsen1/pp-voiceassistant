@@ -2,7 +2,7 @@
 <div id="DivDownload">
     <div v-for="skill in skills" class="DivSkillCard">
         <p>{{skill.name}}</p>
-        <button v-on:click="download(skill.name)">Herunterladen</button>
+        <button v-if="!skill.installed" v-on:click="download(skill.name)">Herunterladen</button>
     </div>
 </div>
 
