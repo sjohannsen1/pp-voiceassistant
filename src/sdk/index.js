@@ -4,12 +4,14 @@ let client;
 
 let configObject = {
     mqtt: 'localhost',
-    intentHandler: () => {}
+    intentHandler: () => {},
+    variables: {}
 }
 
 let sessionData = {
     siteId: "default",
     sessionId: "",
+    skill: "",
     answer: ""
 };
 
@@ -31,6 +33,7 @@ async function init() {
             let formatted = JSON.parse(message);
             sessionData["siteId"] = formatted.siteId;
             sessionData["sessionId"] = formatted.sessionId;
+            sessionData["skill"] = formatted.intent.intentName;
 
             configObject.intentHandler(topic, message);
         });
@@ -44,6 +47,7 @@ function say(text = ""){
         sessionId: sessionData["sessionId"]
     };
 
+    console.log(text)
     client.publish('hermes/tts/say', JSON.stringify(message));
 }
 
@@ -60,6 +64,38 @@ function generateAnswer(vars = [""], separator = "#"){
     return answer;
 }
 
+function getVariable(variableName){
+    return new Promise((resolve, reject) => {
+        try{
+            let variables = configObject.variables[sessionData["skill"]];
+
+            if (variables && variables[variableName]){
+                resolve(variables[variableName])
+            }else{
+                reject("Variable undefined!");
+            }
+        }catch (e) {
+            reject(e);
+        }
+    });
+}
+
+function getAllVariables(){
+    return new Promise((resolve, reject) => {
+        try{
+            let variables = configObject.variables[sessionData["skill"]];
+
+            if (variables){
+                resolve(variables);
+            }else{
+                reject("Variable undefined!");
+            }
+        }catch (e) {
+            reject(e);
+        }
+    });
+}
+
 //TODO System überlegen
 //TODO Dokumentieren
 function fail(){
@@ -67,5 +103,5 @@ function fail(){
 }
 
 module.exports = {
-    config, init, say, generateAnswer, setAnswer, fail
+    config, init, say, generateAnswer, setAnswer, getVariable, getAllVariables, fail
 }

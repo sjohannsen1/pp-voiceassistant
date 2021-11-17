@@ -11,11 +11,12 @@ function getSkills(){
     return skills;
 }
 // File-Loader for newly downloaded Skills
-function loadSkills(){
+function loadSkills(locale = "de_DE"){
     //TODO delete the require.cache
+    customSdk.config({variables: getAllConfigVariables(locale)});
     let skillsLocal = {};
     fs.readdirSync(`${__dirname}/skills`).forEach(function(skillName) {
-        let path = "./skills/" + skillName + "/latest/src"
+        let path = "./skills/" + skillName + "/latest/src";
         skillsLocal[skillName] = require(path);
     });
     skills = skillsLocal;
@@ -136,7 +137,7 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
                 let diff = endValue - startValue;
 
                 if (diff > 4){
-                    let randomValuesInRange = Array.from({length: 3}, (_, index) => Math.floor(Math.random() * (diff) + startValue)).sort((a, b) => a-b);
+                    let randomValuesInRange = Array.from({length: 3}, () => Math.floor(Math.random() * (diff) + startValue)).sort((a, b) => a-b);
                     values = [...new Set([startValue, ...randomValuesInRange, endValue])];
                 }else{
                     values = Array.from({length: diff+1}, (_,index) => startValue+index);
@@ -185,7 +186,7 @@ function getFormattedOptionsList(skillOptions, skillConfig = {}){
 }
 
 // Saves/Overwrites the options of a skill in skillConfigs.json
-function saveConfig(skill, values){
+function saveConfig(skill, values, locale){
     return new Promise((resolve, reject) => {
         try {
             let configsFile = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString());
@@ -213,11 +214,35 @@ function saveConfig(skill, values){
 
             configsFile[skill].options = skillOptions;
             fs.writeFileSync(`.\\skillConfigs.json`, JSON.stringify(configsFile));
+            customSdk.config({variables: getAllConfigVariables(locale)});
             resolve("Options Saved");
         }catch (e) {
             reject(e);
         }
     });
+}
+
+function getAllConfigVariables(locale = "de_DE"){
+    let res = {};
+    let installed = getInstalledSkills(locale);
+
+    for (let i in installed){
+        let name = installed[i];
+        let pathToSkill = `${__dirname}\\skills\\${name}\\latest`;
+        let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}\\manifest.json`).toString());
+        let skillOptions = manifestFile["options"];
+        let configs = JSON.parse(fs.readFileSync(`.\\skillConfigs.json`).toString())[name] || {};
+
+        let options = getFormattedOptionsList(skillOptions, configs.options || []);
+        let variables = {};
+        for (let i in options){
+            variables[options[i].name] = options[i].value;
+        }
+
+        res[installed[i]] = variables;
+    }
+
+    return res;
 }
 
 //Sets the "active" Flag in skillConfigs.json
@@ -243,7 +268,7 @@ function activateSkill(skill, locale = "de_DE"){
         if (!installed.includes(skill)) reject("Skill not installed or do not support that language!");
 
         rhasspy.registerSkill(skill, locale).then(() => {
-            loadSkills();
+            loadSkills(locale);
             setActivateFlag(skill, true).then(() => resolve("Skill activated!"));
         }).catch(reject);
     })
@@ -255,7 +280,7 @@ function deactivateSkill(skill, locale = "de_DE"){
         if (!installed.includes(skill)) reject("Skill not installed or do not support that language!");
 
         rhasspy.unregisterSkill(skill, locale).then(() => {
-            loadSkills();
+            loadSkills(locale);
             setActivateFlag(skill, false).then(() => resolve("Skill deactivated!"));
         }).catch(reject);
     })

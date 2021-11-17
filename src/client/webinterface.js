@@ -112,7 +112,7 @@ app.get("/setActive/:skillName/:state", (req, res) => {
 });
 
 app.post("/edit/:skillName", (req, res) => {
-    skillManager.saveConfig(req.params.skillName, req.body)
+    skillManager.saveConfig(req.params.skillName, req.body, locale)
         .then(msg => {
             res.json({
                 skill: req.params.skillName,

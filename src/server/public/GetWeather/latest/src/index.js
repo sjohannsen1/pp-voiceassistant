@@ -1,20 +1,23 @@
 const customSdk = require("@fwehn/custom_sdk");
 const axios = require('axios');
 
-// TODO export this to config interface
-let apiKey = "1fa4297da7ecdb8dbb7ca9b7bcaf4fa7";
-let city = 51789;
-let country = 'DE';
-let language = 'de';
-let units = 'metric';
-let url = `https://api.openweathermap.org/data/2.5/forecast?zip=${city},${country}&appid=${apiKey}&lang=${language}&units=${units}`;
+function getUrl(){
+    return new Promise((resolve, reject) => {
+        customSdk.getAllVariables()
+            .then(variables => {
+                resolve(`https://api.openweathermap.org/data/2.5/forecast?zip=${variables["city"]},${variables["country"]}&appid=${variables["APIKey"]}&lang=${variables["language"]}&units=${variables["units"]}`);
+            }).catch(reject);
+    });
+}
 
 function getCurrentWeather(){
-    axios.get(url).then(res => {
-        let data = res.data.list[0];
-        let answer = customSdk.generateAnswer([res.data.city.name, data.weather[0].description, Math.floor(data.main.temp)]);
-        customSdk.say(answer)
-    }).catch(console.error);
+    getUrl()
+        .then(axios.get)
+        .then(res => {
+            let data = res.data.list[0];
+            let answer = customSdk.generateAnswer([res.data.city.name, data.weather[0].description, Math.floor(data.main.temp)]);
+            customSdk.say(answer);
+        }).catch(console.error);
 }
 
 function getForecast( day = 1){
@@ -30,29 +33,31 @@ function getForecast( day = 1){
 
 function getSortedData(){
     return new Promise((resolve, reject) => {
-        axios.get(url).then(res => {
-            let days = {}
-            let list = res.data.list;
+        getUrl()
+            .then(axios.get)
+            .then(res => {
+                let days = {}
+                let list = res.data.list;
 
-            for (let i in list){
-                let date = list[i]["dt_txt"].split(" ")[0];
+                for (let i in list){
+                    let date = list[i]["dt_txt"].split(" ")[0];
 
-                if (!days.hasOwnProperty(date)) {
-                    days[date] = {
-                        "temp": [],
-                        "desc": []
-                    };
+                    if (!days.hasOwnProperty(date)) {
+                        days[date] = {
+                            "temp": [],
+                            "desc": []
+                        };
+                    }
+
+                    days[date]["temp"].push(list[i].main.temp);
+                    days[date]["temp_min"] = Math.min(...days[date]["temp"]);
+                    days[date]["temp_max"] = Math.max(...days[date]["temp"]);
+                    days[date]["desc"].push(list[i].weather[0].description);
+                    days[date]["avg_desc"] = getMostFrequentValue(days[date]["desc"]);
                 }
 
-                days[date]["temp"].push(list[i].main.temp);
-                days[date]["temp_min"] = Math.min(...days[date]["temp"]);
-                days[date]["temp_max"] = Math.max(...days[date]["temp"]);
-                days[date]["desc"].push(list[i].weather[0].description);
-                days[date]["avg_desc"] = getMostFrequentValue(days[date]["desc"]);
-            }
-
-            resolve(days);
-        }).catch(reject);
+                resolve(days);
+            }).catch(reject);
     });
 }
 
