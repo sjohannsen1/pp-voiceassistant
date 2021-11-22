@@ -3,6 +3,7 @@ notes
 src/client/node_modules
 src/client/dotenv
 src/client/skills
+src/client/skillConfigs.json
 src/server/node_modules
 src/server/dotenv
 src/sdk/node_modules
