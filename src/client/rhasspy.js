@@ -38,7 +38,7 @@ async function postSlots(slotName, alternatives, overwrite = false){
 // Registering Skill and its Slots in Rhasspy
 function registerSkill(skillName, locale = "de_DE"){
     return new Promise(async (resolve, reject) => {
-        let skill = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${skillName}\\latest\\locales\\${locale}.json`).toString());
+        let skill = JSON.parse(fs.readFileSync(`${__dirname}/skills/${skillName}/latest/locales/${locale}.json`).toString());
 
         for (let slot in skill.slots) {
             await postSlots(slot, skill.slots[slot], true).catch(reject);
@@ -58,7 +58,7 @@ function registerSkill(skillName, locale = "de_DE"){
 // Unregistering Skill and its Slots in Rhasspy
 async function unregisterSkill(skillName, locale = "de_DE"){
     return new Promise(async (resolve, reject) => {
-        let skill = JSON.parse(fs.readFileSync(`${__dirname}\\skills\\${skillName}\\latest\\locales\\${locale}.json`).toString());
+        let skill = JSON.parse(fs.readFileSync(`${__dirname}/skills/${skillName}/latest/locales/${locale}.json`).toString());
 
         for (let slot in skill.slots) {
             await postSlots(slot, [], true).catch(reject);

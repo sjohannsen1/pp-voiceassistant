@@ -12,12 +12,11 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.13",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "@fwehn/custom_sdk": "file:../sdk"
   },
   "dependencies": {
-    "@fwehn/custom_sdk": "file:../sdk",
     "express": "^4.17.1",
-    "express-easy-zip": "^1.1.5",
-    "express-zip": "^3.0.0"
+    "express-easy-zip": "^1.1.5"
   }
 }

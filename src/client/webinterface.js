@@ -6,7 +6,7 @@ const skillManager = require("./skillManager.js");
 
 let locale;
 
-app.set('views', `${__dirname}\\webinterface\\views`);
+app.set('views', `${__dirname}/webinterface/views`);
 app.set('view engine', 'jade');
 
 app.use(bodyParser.urlencoded({
@@ -130,7 +130,7 @@ app.post("/edit/:skillName", (req, res) => {
 
 function startUI(loc = "de_DE", port = 3000){
     locale = loc;
-    app.use(express.static(`${__dirname}\\webinterface\\public`));
+    app.use(express.static(`${__dirname}/webinterface/public`));
 
     app.listen(port, () => {
         console.log(`Server listening on: http://localhost:${port}`);

@@ -1,0 +1,5 @@
+client/dotenv
+client/node_modules
+client/skills
+client/skillConfigs.json
+server
