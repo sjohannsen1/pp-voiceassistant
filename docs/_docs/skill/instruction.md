@@ -1,11 +1,6 @@
 ---
 title: Anleitung
 permalink: /docs/skills/instruction/
-redirect-from:
-- /docs/skills/locales/instruction.md
-- /docs/skills/sdk/instruction.md
-- /docs/client/skills/instruction.md
-- /docs/evaluation/skills/instruction.md
 ---
 
 ## Aufbau eines Befehls
