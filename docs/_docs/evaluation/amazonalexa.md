@@ -1,4 +1,4 @@
 ---
 title: Amazon Alexa
-permalink: /docs/amazon-alexa/
+permalink: /docs/evaluation/amazon-alexa/
 ---

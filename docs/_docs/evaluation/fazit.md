@@ -1,4 +1,4 @@
 ---
 title: Fazit
-permalink: /docs/conclusion/
+permalink: /docs/evaluation/conclusion/
 ---

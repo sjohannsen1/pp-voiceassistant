@@ -1,6 +1,6 @@
 ---
 title: Anleitung
-permalink: /docs/instruction/
+permalink: /docs/skills/instruction/
 ---
 
 ## Aufbau eines Befehls
@@ -18,7 +18,7 @@ Daher sieht der Aufbau der Befehle wie folgt aus:
 
 ## Ordner anlegen
 
-Ich habe mich für folgende Ordnerstruktur am Beispiel des [HelloWorld](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/public/HelloWorld/latest/src/index.js) Skills entschieden.  
+Ich habe mich für folgende Ordnerstruktur (am Beispiel des [HelloWorld](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/public/HelloWorld/latest/src/index.js) Skills) entschieden.  
 Diese ähnelt sehr stark der Struktur von Amazon.
 
 ```
@@ -40,8 +40,8 @@ HelloWorld
 
 Jede Version eines Skills wird durch einen Ordner dargestellt.  
 In jedem diese Ordner gibt es eine ``manifest.json`` und die beiden Unterordner ``src`` und ``locales``.  
-In der ``manifest.json`` werden für den Skill wichtige Angaben gespeichert, wie z.B. verschiedene [npm-dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies), die für den Skill benötigt werden.  
-Oder Variablen, welche der Endnutzer über das Webinterface einstellen soll.
+In der ``manifest.json`` werden, für den Skill wichtige, Angaben gespeichert, wie z.B. verschiedene [npm-dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies), die für den Skill benötigt werden.  
+Oder Variablen, welche der Endnutzer über das [Webinterface](./../client/webinterface.md#config-variablen) einstellen soll.
 
 Im Unterordner ``locales`` befinden sich die Dateien, welche den Aufbau eines Befehls definieren. Dabei handelt es sich bei jeder Datei um eine jeweilige Sprache bzw. Lokalisierung.
 
@@ -49,7 +49,7 @@ Im Unterordner ``locales`` befinden sich die Dateien, welche den Aufbau eines Be
 ``en_US.json`` -> amerikanisches Englisch
 
 Die Dateien sind im JSON Format geschrieben.  
-Den Aufbau einer solchen Datei findet man [hier](./locales.md).
+Den Aufbau einer solchen Datei findet man [hier](./locales).
 
 Im Unterordner ``src`` befindet sich der gesamte Code des Befehls, welcher in JavaScript geschrieben sein muss.  
 Dazu wird eine Datei mit dem Namen ``index.js`` benötigt.  

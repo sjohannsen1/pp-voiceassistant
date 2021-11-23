@@ -1,4 +1,4 @@
 ---
 title: Google Assistant
-permalink: /docs/google-assistant/
+permalink: /docs/evaluation/google-assistant/
 ---

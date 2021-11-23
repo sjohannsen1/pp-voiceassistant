@@ -1,6 +1,6 @@
 ---
 title: Vorbedingungen
-permalink: /docs/preconditions/
+permalink: /docs/client/preconditions/
 ---
 
 Manche Skills brauchen andere Programme oder Vorbedingungen um zu funktionieren.  

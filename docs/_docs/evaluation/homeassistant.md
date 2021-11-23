@@ -1,4 +1,4 @@
 ---
 title: Home Assistant
-permalink: /docs/home-assistant/
+permalink: /docs/evaluation/home-assistant/
 ---

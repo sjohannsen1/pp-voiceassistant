@@ -1,6 +1,6 @@
 ---
 title: Rhasspy
-permalink: /docs/rhasspy/
+permalink: /docs/client/rhasspy/
 ---
 
 ## Neue Intents hinzufügen

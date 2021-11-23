@@ -18,6 +18,7 @@
 
 - title: Skills
   docs:
-    - instruction
-    - locales
-    - sdk
+    skills:
+      - instruction
+      - locales
+      - sdk

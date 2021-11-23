@@ -1,4 +1,4 @@
 ---
 title: Skillmanager
-permalink: /docs/skillmanager/
+permalink: /docs/client/skillmanager/
 ---

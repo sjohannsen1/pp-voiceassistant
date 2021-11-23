@@ -1,6 +1,6 @@
 ---
 title: SDK
-permalink: /docs/sdk/
+permalink: /docs/skills/sdk/
 ---
 
 Ich habe, für die Entwicklung neuer Skills, ein eigenes SDK (**S**oftware **D**evelopment **K**it) erstellt.  
