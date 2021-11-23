@@ -1,6 +1,11 @@
 ---
 title: SDK
 permalink: /docs/skills/sdk/
+redirect-from:
+- /docs/skills/instruction/sdk.md
+- /docs/skills/locales/sdk.md
+- /docs/client/skills/sdk.md
+- /docs/evaluation/skills/sdk.md
 ---
 
 Ich habe, für die Entwicklung neuer Skills, ein eigenes SDK (**S**oftware **D**evelopment **K**it) erstellt.  

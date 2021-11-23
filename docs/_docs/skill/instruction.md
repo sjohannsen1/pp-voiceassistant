@@ -1,6 +1,11 @@
 ---
 title: Anleitung
 permalink: /docs/skills/instruction/
+redirect-from:
+- /docs/skills/locales/instruction.md
+- /docs/skills/sdk/instruction.md
+- /docs/client/skills/instruction.md
+- /docs/evaluation/skills/instruction.md
 ---
 
 ## Aufbau eines Befehls
@@ -49,7 +54,7 @@ Im Unterordner ``locales`` befinden sich die Dateien, welche den Aufbau eines Be
 ``en_US.json`` -> amerikanisches Englisch
 
 Die Dateien sind im JSON Format geschrieben.  
-Den Aufbau einer solchen Datei findet man [hier](./locales).
+Den Aufbau einer solchen Datei findet man [hier](./locales.md).
 
 Im Unterordner ``src`` befindet sich der gesamte Code des Befehls, welcher in JavaScript geschrieben sein muss.  
 Dazu wird eine Datei mit dem Namen ``index.js`` benötigt.  

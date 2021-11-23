@@ -1,6 +1,11 @@
 ---
 title: Locales
 permalink: /docs/skills/locales/
+redirect-from:
+- /docs/skills/instruction/locales.md
+- /docs/skills/sdk/locales.md
+- /docs/client/skills/locales.md
+- /docs/evaluation/skills/locales.md
 ---
 
 Im Folgenden ist der Aufbau einer Locale-File, also einer Datei die zur Lokalisierung aber auch zur Definition des Aufbaus eines Commands dient, beschrieben.  

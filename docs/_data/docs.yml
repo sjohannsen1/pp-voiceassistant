@@ -4,17 +4,17 @@
 
 - title: Evaluationen
   docs:
-    - amazon-alexa
-    - google-assistant
-    - home-assistant
-    - conclusion
+    - evaluation/amazon-alexa
+    - evaluation/google-assistant
+    - evaluation/home-assistant
+    - evaluation/conclusion
 
 - title: Client
   docs:
-    - rhasspy
-    - skillmanager
-    - webinterface
-    - preconditions
+    - client/rhasspy
+    - client/skillmanager
+    - client/webinterface
+    - client/preconditions
 
 - title: Skills
   docs:
