@@ -15,7 +15,8 @@ Im ``configObject`` werden einige Konfigurationen gespeichert.
 ````javascript
 let configObject = {
     mqtt: 'localhost',
-    intentHandler: () => {}
+    intentHandler: () => {},
+    variables: {}
 }
 ````
 *[sdk/index.js](https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js)*
@@ -70,6 +71,7 @@ Damit ein Skill-Entwickler sich nicht darum kümmern muss, über welchen Satelli
 let sessionData = {
     siteId: "default",
     sessionId: "",
+    skill: "",
     answer: ""
 };
 ````
@@ -153,3 +155,29 @@ function getTime(){
 
 Hier wird der Satz ``Es ist # Uhr #`` um die aktuelle Stunde und die aktuelle Minute erweitert, also z.B. ``Es ist 11 Uhr 34``.  
 Dieser Satz wird dann mit der ``say``-Funktion ausgegeben.
+
+## Config Variablen 
+
+Mit der Funktion [``config``](#config) wird nun das Feld ``variables`` in JS-Object ``configObject`` gesetzt.  
+Beim Aufruf der Funktionen ``getVaraibles`` und ``getVariable`` werden nun die, zum im [``sessionData``](#sitzungsdaten) gespeicherten ``skill`` passenden, Variablen ausgelesen und zurückgegeben.
+
+````javascript
+function getAllVariables(){
+    return new Promise((resolve, reject) => {
+        try{
+            let variables = configObject.variables[sessionData["skill"]];
+
+            if (variables){
+                resolve(variables);
+            }else{
+                reject("Variable undefined!");
+            }
+        }catch (e) {
+            reject(e);
+        }
+    });
+}
+````
+*[sdk/index.js](https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js)*
+
+Bei der Funktion ``getVariable`` wird lediglich der Wert, der übergeben Variable, zurückgegeben.  

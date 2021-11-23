@@ -14,9 +14,10 @@
     - rhasspy
     - skillmanager
     - webinterface
+    - preconditions
 
 - title: Skills
   docs:
-    - structure
+    - instruction
     - locales
     - sdk

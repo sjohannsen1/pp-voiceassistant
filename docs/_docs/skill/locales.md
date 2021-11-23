@@ -3,6 +3,11 @@ title: Locales
 permalink: /docs/locales/
 ---
 
+Im Folgenden ist der Aufbau einer Locale-File, also einer Datei die zur Lokalisierung aber auch zur Definition des Aufbaus eines Commands dient, beschrieben.  
+Es werden die benötigten Angaben und deren Funktion erklärt.  
+
+
+## Beispiel
 ````json
 {
   "invocation": "Hallo Welt",
