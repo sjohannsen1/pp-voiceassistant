@@ -40,11 +40,11 @@ function deleteLocalSkillFiles(name = "HelloWorld"){
     return new Promise((resolve, reject) => {
         let installed = getInstalledSkills();
         if (!installed.includes(name)) reject('Skill not found!');
-        let configsFile = JSON.parse(fs.readFileSync(`./skillConfigs.json`).toString());
+        let configsFile = getSkillConfigs();
         if (configsFile.hasOwnProperty(name)){
             delete configsFile[name];
         }
-        fs.writeFileSync(`./skillConfigs.json`, JSON.stringify(configsFile));
+        writeSkillConfigs(configsFile);
 
         fs.rmSync(`${__dirname}/skills/${name}`, { recursive: true, force: true });
         resolve('Skill deleted!');
@@ -88,12 +88,11 @@ function getInstalledSkills(locale = "de_DE"){
 function getSkillsOverview(locale = "de_DE"){
     let res = [];
     let skills = getInstalledSkills(locale)
-    let configs = JSON.parse(fs.readFileSync(`./skillConfigs.json`).toString());
+    let configs = getSkillConfigs();
 
     for (let i in skills){
-        let pathToSkill = `${__dirname}/skills/${skills[i]}/latest`;
-        let localeFile = JSON.parse(fs.readFileSync(`${pathToSkill}/locales/${locale}.json`).toString());
-        let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}/manifest.json`).toString());
+        let localeFile = getLocale(skills[i], locale);
+        let manifestFile = getManifest(skills[i]);
         let skillConfig = configs[skills[i]] || {};
 
         res.push({
@@ -112,12 +111,11 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     let installed = getInstalledSkills(locale);
     if (!installed.includes(name)) return {};
 
-    let pathToSkill = `${__dirname}/skills/${name}/latest`;
-    let localeFile = JSON.parse(fs.readFileSync(`${pathToSkill}/locales/${locale}.json`).toString());
-    let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}/manifest.json`).toString());
+    let localeFile = getLocale(name, locale);
+    let manifestFile = getManifest(name);
     let skillOptions = manifestFile["options"];
-    let configs = JSON.parse(fs.readFileSync(`./skillConfigs.json`).toString())[name] || {};
-    let defaults = JSON.parse(fs.readFileSync(`./defaults.json`).toString())[locale];
+    let configs = getSkillConfigs()[name] || {};
+    let defaults = getDefaults()[locale];
 
     let slots = localeFile.slots;
     slots = {launch: defaults["launch"], ...slots};
@@ -189,7 +187,7 @@ function getFormattedOptionsList(skillOptions, skillConfig = {}){
 function saveConfig(skill, values, locale){
     return new Promise((resolve, reject) => {
         try {
-            let configsFile = JSON.parse(fs.readFileSync(`./skillConfigs.json`).toString());
+            let configsFile = getSkillConfigs();
             if (!configsFile[skill]) configsFile[skill] = {};
 
             let skillOptions = configsFile[skill].options;
@@ -213,7 +211,7 @@ function saveConfig(skill, values, locale){
             }
 
             configsFile[skill].options = skillOptions;
-            fs.writeFileSync(`./skillConfigs.json`, JSON.stringify(configsFile));
+            writeSkillConfigs(configsFile);
             customSdk.config({variables: getAllConfigVariables(locale)});
             resolve("Options Saved");
         }catch (e) {
@@ -222,16 +220,16 @@ function saveConfig(skill, values, locale){
     });
 }
 
+// Returns all Config-Variables of a specific locale
 function getAllConfigVariables(locale = "de_DE"){
     let res = {};
     let installed = getInstalledSkills(locale);
 
     for (let i in installed){
         let name = installed[i];
-        let pathToSkill = `${__dirname}/skills/${name}/latest`;
-        let manifestFile = JSON.parse(fs.readFileSync(`${pathToSkill}/manifest.json`).toString());
+        let manifestFile = getManifest(installed[i]);
         let skillOptions = manifestFile["options"];
-        let configs = JSON.parse(fs.readFileSync(`./skillConfigs.json`).toString())[name] || {};
+        let configs = getSkillConfigs()[name] || {};
 
         let options = getFormattedOptionsList(skillOptions, configs.options || []);
         let variables = {};
@@ -249,12 +247,12 @@ function getAllConfigVariables(locale = "de_DE"){
 function setActivateFlag(skill, state){
     return new Promise((resolve, reject) => {
         try{
-            let configsFile = JSON.parse(fs.readFileSync(`./skillConfigs.json`).toString());
+            let configsFile = getSkillConfigs();
             if (!configsFile[skill]) configsFile[skill] = {};
 
             configsFile[skill].active = state;
 
-            fs.writeFileSync(`./skillConfigs.json`, JSON.stringify(configsFile));
+            writeSkillConfigs(configsFile);
             resolve("Changes Saved!");
         }catch (e) {
             reject(e);
@@ -262,6 +260,7 @@ function setActivateFlag(skill, state){
     });
 }
 
+// Activates a Skill
 function activateSkill(skill, locale = "de_DE"){
     return new Promise((resolve, reject) => {
         let installed = getInstalledSkills(locale);
@@ -274,6 +273,7 @@ function activateSkill(skill, locale = "de_DE"){
     })
 }
 
+// Deactivates a Skill
 function deactivateSkill(skill, locale = "de_DE"){
     return new Promise((resolve, reject) => {
         let installed = getInstalledSkills(locale);
@@ -286,6 +286,32 @@ function deactivateSkill(skill, locale = "de_DE"){
     })
 }
 
+// returns manifest.json of a specific skill
+function getManifest(skill, version = "latest"){
+    return JSON.parse(fs.readFileSync(`${__dirname}/skills/${version}/latest/manifest.json`).toString());
+}
+
+// returns localeFile of skill
+function getLocale(skill, locale = "de_DE", version = "latest"){
+    return JSON.parse(fs.readFileSync(`${__dirname}/skills/${skill}/${version}/locales/${locale}.json`).toString());
+}
+
+// reads the skillConfigs.json
+function getSkillConfigs(){
+    return JSON.parse(fs.readFileSync(`${__dirname}/skillConfigs.json`).toString());
+}
+
+// writes the skillConfigs.json
+function writeSkillConfigs(data){
+    fs.writeFileSync(`${__dirname}/skillConfigs.json`, JSON.stringify(data));
+}
+
+// reads the defaults.json
+function getDefaults(){
+    return JSON.parse(fs.readFileSync(`${__dirname}/defaults.json`).toString());
+
+}
+
 // Get Available Updates based on version in <SkillName>/latest/manifest.json
 function getUpdates(locale = "de_DE"){
     return new Promise(async (resolve, reject) => {
@@ -293,7 +319,7 @@ function getUpdates(locale = "de_DE"){
         let availableUpdates = {};
 
         for (let i in installed) {
-            let version = JSON.parse(fs.readFileSync(`${__dirname}/skills/${installed[i]}/latest/manifest.json`).toString()).version;
+            let version = getManifest(installed[i]).version;
             await axios.get(`http://${process.env.SERVER}/update/${locale}/${installed[i]}/${version}`).then(res => {
                 if (res.data.update) {
                     availableUpdates[installed[i]] = res.data.version;
@@ -309,9 +335,7 @@ function getUpdates(locale = "de_DE"){
 function getFunctionsOfSkill(skillName, locale = "de_DE"){
     let functions = {}
 
-
-
-    let subcommands = JSON.parse(fs.readFileSync(`./skills/${skillName}/latest/locales/${locale}.json`).toString()).subcommands;
+    let subcommands = getLocale(skillName, locale).subcommands;
 
     for (let i in subcommands){
         let functionName = subcommands[i]["function"];
