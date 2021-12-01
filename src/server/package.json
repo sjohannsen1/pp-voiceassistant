@@ -11,12 +11,16 @@
   "author": "Finn Wehn",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.13",
+    "@fwehn/custom_sdk": "file:../sdk",
     "dotenv": "^10.0.0",
-    "@fwehn/custom_sdk": "file:../sdk"
+    "nodemon": "^2.0.13"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-easy-zip": "^1.1.5"
+    "express-easy-zip": "^1.1.5",
+    "express-fileupload": "^1.2.1",
+    "adm-zip": "^0.5.9",
+    "body-parser": "^1.19.0"
   }
 }

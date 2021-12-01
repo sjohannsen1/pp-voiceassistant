@@ -16,7 +16,7 @@ function loadSkills(locale = "de_DE"){
     customSdk.config({variables: getAllConfigVariables(locale)});
     let skillsLocal = {};
     fs.readdirSync(`${__dirname}/skills`).forEach(function(skillName) {
-        let path = "./skills/" + skillName + "/latest/src";
+        let path = `./skills/${skillName}/${getVersion(skillName)}/src`;
         skillsLocal[skillName] = require(path);
     });
     skills = skillsLocal;
@@ -30,7 +30,8 @@ function downloadSkill(name = "HelloWorld") {
         }).then(res => {
             let zip = new admZip(res.data);
             zip.extractAllTo(`${__dirname}/skills/${name}`,true);
-            resolve("Done!");
+
+            resolve(zip.getEntries()[0].entryName.split("/")[0]);
         }).catch(reject);
     })
 }
@@ -75,7 +76,7 @@ function getInstalledSkills(locale = "de_DE"){
     let skills = [];
 
     fs.readdirSync(path).forEach(skill => {
-        fs.readdirSync(`${path}/${skill.toString()}/latest/locales`).forEach(file => {
+        fs.readdirSync(`${path}/${skill.toString()}/${getVersion(skill)}/locales`).forEach(file => {
             if (file.startsWith(locale)){
                 skills.push(skill);
             }
@@ -92,14 +93,14 @@ function getSkillsOverview(locale = "de_DE"){
 
     for (let i in skills){
         let localeFile = getLocale(skills[i], locale);
-        let manifestFile = getManifest(skills[i]);
+        // let manifestFile = getManifest(skills[i]);
         let skillConfig = configs[skills[i]] || {};
 
         res.push({
             active: skillConfig.active || false,
             name: skills[i],
             description: localeFile.description || "-",
-            version: manifestFile.version
+            version: getVersion(skills[i])
         });
     }
 
@@ -154,7 +155,7 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     return {
         active: configs.active || false,
         name: name,
-        version: manifestFile.version,
+        version: getVersion(name),
         description: localeFile.description,
         sentences: sentences,
         slots: slots,
@@ -266,7 +267,7 @@ function activateSkill(skill, locale = "de_DE"){
         let installed = getInstalledSkills(locale);
         if (!installed.includes(skill)) reject("Skill not installed or do not support that language!");
 
-        rhasspy.registerSkill(skill, locale).then(() => {
+        rhasspy.registerSkill(skill, locale, getVersion(skill)).then(() => {
             loadSkills(locale);
             setActivateFlag(skill, true).then(() => resolve("Skill activated!"));
         }).catch(reject);
@@ -279,7 +280,7 @@ function deactivateSkill(skill, locale = "de_DE"){
         let installed = getInstalledSkills(locale);
         if (!installed.includes(skill)) reject("Skill not installed or do not support that language!");
 
-        rhasspy.unregisterSkill(skill, locale).then(() => {
+        rhasspy.unregisterSkill(skill, locale, getVersion(skill)).then(() => {
             loadSkills(locale);
             setActivateFlag(skill, false).then(() => resolve("Skill deactivated!"));
         }).catch(reject);
@@ -287,12 +288,14 @@ function deactivateSkill(skill, locale = "de_DE"){
 }
 
 // returns manifest.json of a specific skill
-function getManifest(skill, version = "latest"){
-    return JSON.parse(fs.readFileSync(`${__dirname}/skills/${version}/latest/manifest.json`).toString());
+function getManifest(skill){
+    let version = getVersion(skill);
+    return JSON.parse(fs.readFileSync(`${__dirname}/skills/${skill}/${version}/manifest.json`).toString());
 }
 
 // returns localeFile of skill
-function getLocale(skill, locale = "de_DE", version = "latest"){
+function getLocale(skill, locale = "de_DE"){
+    let version = getVersion(skill);
     return JSON.parse(fs.readFileSync(`${__dirname}/skills/${skill}/${version}/locales/${locale}.json`).toString());
 }
 
@@ -304,6 +307,17 @@ function getSkillConfigs(){
 // writes the skillConfigs.json
 function writeSkillConfigs(data){
     fs.writeFileSync(`${__dirname}/skillConfigs.json`, JSON.stringify(data));
+}
+
+function getVersion(skill){
+    let configs = getSkillConfigs();
+    return configs[skill].version;
+}
+
+function setVersion(skill, version){
+    let configs = getSkillConfigs();
+    configs[skill].version = version;
+    writeSkillConfigs(configs);
 }
 
 // reads the defaults.json
@@ -319,7 +333,7 @@ function getUpdates(locale = "de_DE"){
         let availableUpdates = {};
 
         for (let i in installed) {
-            let version = getManifest(installed[i]).version;
+            let version = getVersion(installed[i]);
             await axios.get(`http://${process.env.SERVER}/update/${locale}/${installed[i]}/${version}`).then(res => {
                 if (res.data.update) {
                     availableUpdates[installed[i]] = res.data.version;
@@ -401,5 +415,5 @@ function customIntentHandler(topic, message){
 }
 
 module.exports = {
-    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, activateSkill, deactivateSkill,getUpdates, getFunctionMatchingSlots, customIntentHandler
+    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, activateSkill, deactivateSkill, setVersion, getUpdates, getFunctionMatchingSlots, customIntentHandler
 }

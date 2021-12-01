@@ -30,8 +30,9 @@ app.get("/download", async (req, res) => {
 });
 
 app.get("/download/:skillName", (req, res) => {
-    skillManager.downloadSkill(req.params.skillName).then(() => {
+    skillManager.downloadSkill(req.params.skillName).then((versionTag) => {
         skillManager.setActivateFlag(req.params.skillName, false).then(()=> {
+            skillManager.setVersion(req.params.skillName, versionTag);
             res.json({
                 skill: req.params.skillName,
                 success: true,
