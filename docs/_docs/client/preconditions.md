@@ -16,7 +16,7 @@ Es kann allerdings auch sein, dass der Benutzer das "Base-Topic" bei der Konfigu
 
 
 ## LCD
-
+## docker.sock
 
 ## Base/Satellite-Setup
 

@@ -37,3 +37,8 @@ Um die Änderungen wirksam zu machen, muss man nach den obigen Anfragen eine wei
 
 
 ## Base/Satellite
+Für die Arbeit an diesem Projekt brauchte ich eine Rhasspy Instanz, mit der ich meinen Code testen konnte.  
+Da ich mir vor ein paar Monaten einen [Docker-Swarm](https://docs.docker.com/engine/swarm/) Cluster aus mehreren [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) gebaut habe, habe ich mich dazu entschlossen, Rhasspy in einem [Base/Satellite-Setup](https://rhasspy.readthedocs.io/en/latest/tutorials/#server-with-satellites) zu betreiben.  
+
+[//]: #basesatellite (TODO my test todo item)
+

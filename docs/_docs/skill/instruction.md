@@ -8,7 +8,7 @@ permalink: /docs/skills/instruction/
 Basierend auf dem Befehls-Aufbau von [Alexa](./../evaluation/amazonalexa.md) und dem [Google Assistant](./../evaluation/googleassistant.md) habe ich mich dazu entschlossen, einen sehr ähnlichen, wenn nicht sogar den gleichen Aufbau vorauszusetzen.  
 Daher sieht der Aufbau der Befehle wie folgt aus:
 
-``<Wake Word> <Launch> <Invocation> <Utterance>``
+``<wake word>, <launch> <Invocation name> <utterance>``
 
 - ``Wake Word``: Das Wake Word ist das Wort, mit welchem man den Sprachassistenten "aufwecken" kann. Dieses wird von Rhasspy vorausgesetzt.
 - ``Launch``: Hierbei handelt es sich um eine Sammlung an Füllwörtern, welche in der [``defaults.js``](https://github.com/fwehn/pp-voiceassistant/blob/main/src/client/defaults.json) definiert wurden.
@@ -24,7 +24,7 @@ Diese ähnelt sehr stark der Struktur von Amazon.
 ```
 HelloWorld   
 │
-├── latest
+├── 1.0
 │   ├── manifest.json
 │   │
 │   ├── locales
