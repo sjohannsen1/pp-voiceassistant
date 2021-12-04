@@ -12,20 +12,31 @@ function getSkills(){
 }
 // File-Loader for newly downloaded Skills
 function loadSkills(locale = "de_DE"){
-    //TODO delete the require.cache
+    // Deletes old files from the require.cache
+    for (let i in skills){
+        let pathToSkill = `${__dirname}/skills/${i}`;
+        let versions = fs.readdirSync(pathToSkill, {withFileTypes: true}).filter(entry => entry.isDirectory()).map(entry => entry.name);
+
+        for (let j in versions){
+            delete require.cache[require.resolve(`${__dirname}/skills/${i}/${versions[j]}/src`)];
+        }
+    }
+
+    skills = {};
+    // (Re)Loads all configVariables and the source files from activated skills
     customSdk.config({variables: getAllConfigVariables(locale)});
     let skillsLocal = {};
     fs.readdirSync(`${__dirname}/skills`).forEach(function(skillName) {
-        let path = `./skills/${skillName}/${getVersion(skillName)}/src`;
+        let path = `${__dirname}/skills/${skillName.toString()}/${getVersion(skillName)}/src`;
         skillsLocal[skillName] = require(path);
     });
     skills = skillsLocal;
 }
 
 //Downloads the latest version of a Skill as zip and unzips it
-function downloadSkill(name = "HelloWorld") {
+function downloadSkill(name = "HelloWorld", tag = "latest") {
     return new Promise((resolve, reject) => {
-        axios.get(`http://${process.env.SERVER}/download/${name}`, {
+        axios.get(`http://${process.env.SERVER}/download/${name}/${tag}`, {
             responseType: "arraybuffer"
         }).then(res => {
             let zip = new admZip(res.data);
@@ -59,11 +70,15 @@ function getRemoteSkills(locale = "de_DE") {
             let skills = [];
             let installed = getInstalledSkills();
             for (let i in res.data) {
-                skills.push({
-                    name: i,
-                    version: res.data[i],
-                    installed: installed.includes(i)
-                });
+                let skillData = res.data[i];
+
+                let installedVersions = []
+                if (installed.includes(i)){
+                    installedVersions = fs.readdirSync(`${__dirname}/skills/${i}`, {withFileTypes: true}).filter(entry => entry.isDirectory()).map(entry => entry.name);
+                }
+
+                skillData["installed"] = installedVersions;
+                skills.push(skillData);
             }
             resolve(skills);
         }).catch(reject);
@@ -76,7 +91,7 @@ function getInstalledSkills(locale = "de_DE"){
     let skills = [];
 
     fs.readdirSync(path).forEach(skill => {
-        fs.readdirSync(`${path}/${skill.toString()}/${getVersion(skill)}/locales`).forEach(file => {
+        fs.readdirSync(`${path}/${skill.toString()}/${getVersion(skill.toString())}/locales`).forEach(file => {
             if (file.startsWith(locale)){
                 skills.push(skill);
             }
@@ -395,6 +410,12 @@ function compareSlotsWithParams(slots, params){
 function customIntentHandler(topic, message){
     let slots = {};
     let formatted = JSON.parse(message.toString())
+
+    if (formatted.intent.intentName.startsWith("_")) {
+        console.log(`Ignored Intent: ${formatted.intent.intentName}`);
+        return;
+    }
+
     for (let i in formatted.slots){
         let currentSlot = formatted.slots[i];
 

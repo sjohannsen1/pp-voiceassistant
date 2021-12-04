@@ -1,5 +1,5 @@
 {
-  "invocation": "[den] Wetterfrosch",
+  "invocation": "[den] Wetterdienst",
   "subcommands": [
     {
       "utterance": "wie [ist] das Wetter (aktuell | gerade | jetzt) [ist]",

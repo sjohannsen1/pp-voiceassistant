@@ -27,7 +27,7 @@ function getForecast( day = 1){
 
         let forecastDay = data[date.toISOString().split("T")[0]];
         let answer = customSdk.generateAnswer([forecastDay["avg_desc"], Math.floor(forecastDay["temp_min"]), Math.floor(forecastDay["temp_max"])]);
-        console.log(answer)
+        customSdk.say(answer);
     }).catch(console.error);
 }
 

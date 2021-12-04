@@ -2,7 +2,13 @@
 <div id="DivDownload">
     <div v-for="skill in skills" class="DivSkillCard">
         <p>{{skill.name}}</p>
-        <button v-if="!skill.installed" v-on:click="download(skill.name)">Herunterladen</button>
+        <p>{{skill.latest}}</p>
+        <div>
+            <select v-model="skill.selected">
+                <option v-for="version in skill.versions" v-bind:disabled="skill.installed.includes(version)">{{version}}</option>
+            </select>
+        </div>
+        <button type="button" v-bind:disabled="skill.installed.includes(skill.selected)"  v-on:click="download(skill.name, skill.selected)">Herunterladen</button>
     </div>
 </div>
 
@@ -10,13 +16,19 @@
 <script>
     Vue.createApp({
         data() {
+            let skillData = data.skills;
+            for (let i in skillData){
+                skillData[i].selected = skillData[i].latest;
+                skillData[i].versions = skillData[i].versions.reverse();
+            }
+
             return {
-                skills: data.skills
+                skills: skillData
             }
         },
         methods: {
-            download: function (skillName){
-                fetch(`${window.location.origin}/download/${skillName}`)
+            download: function (skillName, version){
+                fetch(`${window.location.origin}/download/${skillName}/${version}/`)
                     .then(res => res.json())
                     .then(data => {
                         alert(data.message);

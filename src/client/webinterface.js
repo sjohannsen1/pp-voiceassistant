@@ -29,8 +29,8 @@ app.get("/download", async (req, res) => {
         .catch(() => res.render('download', {data: {skills: [{ name: "No connection to Server!", version: "0", installed: true }]}}))
 });
 
-app.get("/download/:skillName", (req, res) => {
-    skillManager.downloadSkill(req.params.skillName).then((versionTag) => {
+app.get("/download/:skillName/:versionTag", (req, res) => {
+    skillManager.downloadSkill(req.params.skillName, req.params.versionTag).then((versionTag) => {
         skillManager.setActivateFlag(req.params.skillName, false).then(()=> {
             skillManager.setVersion(req.params.skillName, versionTag);
             res.json({

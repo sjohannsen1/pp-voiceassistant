@@ -15,7 +15,6 @@
     "nodemon": "^2.0.13"
   },
   "dependencies": {
-    "@cicciosgamino/openweather-apis": "^5.0.1",
     "@fwehn/custom_sdk": "file:../sdk",
     "adm-zip": "^0.5.9",
     "axios": "^0.23.0",

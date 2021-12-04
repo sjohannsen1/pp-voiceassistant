@@ -39,7 +39,7 @@
         },
         methods: {
             removeSkill: function (skillName){
-                fetch(`${window.location.origin}/delete/${skillName}`)
+                fetch(`${window.location.origin}/delete/${skillName}/`)
                     .then(res => res.json())
                     .then(data => {
                         alert(data.message);

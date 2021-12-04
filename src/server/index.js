@@ -29,18 +29,30 @@ app.get('/skills/:locale', (req, res) => {
         // Filters Dummies
         if (dirs[i].startsWith("_")) continue;
 
-        // Filters by locale
-        let path = `${__dirname}/skills/${dirs[i]}/${getLatestTag(dirs[i])}`;
-        if (!fs.readdirSync(`${path}/locales`).includes(`${req.params.locale}.json`)) continue;
+        let skillData = {
+            name: dirs[i],
+            versions: [],
+            latest: getLatestTag(dirs[i])
+        }
 
-        body[dirs[i]] = JSON.parse(fs.readFileSync(`${path}/manifest.json`).toString()).version;
+
+        // Filters by locale
+        let allVersions = fs.readdirSync(`${__dirname}/skills/${dirs[i]}`);
+        for (let j in allVersions){
+            let path = `${__dirname}/skills/${dirs[i]}/${allVersions[j]}`;
+            if (!fs.readdirSync(`${path}/locales`).includes(`${req.params.locale}.json`)) continue;
+
+            skillData.versions.push(allVersions[j]);
+        }
+
+        body[dirs[i]] = skillData;
     }
     res.json(body);
 });
 
 // Returns details about skill version
 app.get('/skill/:skillName/:versionTag', (req, res) => {
-    if (req.params.skillName.startsWith("_") || !fs.readdirSync(`${__dirname}/skills`).includes(req.params.skillName) || !fs.readdirSync(`${__dirname}/skillsskills/${req.params.skillName}`).includes(req.params.versionTag)){
+    if (req.params.skillName.startsWith("_") || !fs.readdirSync(`${__dirname}/skills`).includes(req.params.skillName) || !fs.readdirSync(`${__dirname}/skills/${req.params.skillName}`).includes(req.params.versionTag)){
         res.json({"error": "Skill/Version not found!"});
         return;
     }
@@ -75,8 +87,8 @@ app.get('/update/:locale/:skillName/:version', (req, res) => {
 });
 
 // Zips up requested skill and returns it
-app.get('/download/:skillName', async (req, res) => {
-    let tag = getLatestTag(req.params.skillName);
+app.get('/download/:skillName/:versionTag', async (req, res) => {
+    let tag = req.params.versionTag === "latest" ? getLatestTag(req.params.skillName) : req.params.versionTag;
     let dirPath = `${__dirname}/skills/${req.params.skillName}/${tag}`;
     await res.zip({
         files: [{

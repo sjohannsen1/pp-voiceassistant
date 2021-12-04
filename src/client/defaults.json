@@ -1,8 +1,8 @@
 {
   "de_DE": {
-    "launch": ["öffne", "benutze", "starte", "frage", "frag"]
+    "launch": ["öffne", "benutze", "starte", "frag", "sag", "spiel"]
   },
   "en_US": {
-    "launch": ["open", "use", "start", "ask"]
+    "launch": ["open", "use", "start", "ask", "tell", "play"]
   }
 }
