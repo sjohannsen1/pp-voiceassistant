@@ -25,5 +25,5 @@ Ist das der Fall so ist es etwas schwieriger zu überprüfen, ob  Displays oä a
 Mit folgendem API-Call kann man sich das Profil von Rhasspy anzeigen lassen:  
 ```http request
 http://<rhasspy-ip>:12101/api/profile
-```
+```  
 Daraus kann man dann ableiten, ob es sich um ein Base/Satellite-Setup.  

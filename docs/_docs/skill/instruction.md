@@ -10,10 +10,10 @@ Daher sieht der Aufbau der Befehle wie folgt aus:
 
 ``<wake word>, <launch> <Invocation name> <utterance>``
 
-- ``Wake Word``: Das Wake Word ist das Wort, mit welchem man den Sprachassistenten "aufwecken" kann. Dieses wird von Rhasspy vorausgesetzt.
-- ``Launch``: Hierbei handelt es sich um eine Sammlung an Füllwörtern, welche in der [``defaults.js``](https://github.com/fwehn/pp-voiceassistant/blob/main/src/client/defaults.json) definiert wurden.
-- ``Invocation``: Das ist der Name, mit dem man den Skill auswählt, z.B. ``Hallo Welt`` für [HelloWorld](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/public/HelloWorld/latest/src/index.js).
-- ``Utterance``: Utterance ist der Unterbefehl, welcher die einzelnen Funktionen eines Skills darstellt.
+- ``wake word``: Das Wake Word ist das Wort, mit welchem man den Sprachassistenten "aufwecken" kann. Dieses wird von Rhasspy vorausgesetzt.
+- ``launch``: Hierbei handelt es sich um eine Sammlung an Füllwörtern, welche in der [``defaults.js``](https://github.com/fwehn/pp-voiceassistant/blob/main/src/client/defaults.json) definiert wurden.
+- ``invocation``: Das ist der Name, mit dem man den Skill auswählt, z.B. ``Hallo Welt`` für [HelloWorld](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/public/HelloWorld/latest/src/index.js).
+- ``utterance``: Utterance ist der Unterbefehl, welcher die einzelnen Funktionen eines Skills darstellt.
 
 
 ## Ordner anlegen
@@ -56,4 +56,4 @@ Dazu wird eine Datei mit dem Namen ``index.js`` benötigt.
 Ich habe ein [SDK](https://github.com/fwehn/pp-voiceassistant/tree/main/src/sdk) erstellt welches die Kommunikation zwischen Skill und Rhasspy übernimmt.  
 Wie man dieses SDK benutzt habe ich [hier](./sdk.md) näher beschrieben.
 
-Um die Erstellung neuer Skills zu vereinfachen, habe ich einen [Dummy](https://github.com/fwehn/pp-voiceassistant/tree/main/src/server/public/_dummy) erstellt, aus dem man leicht einen neuen Skill anlegen kann.  
+Um die Erstellung neuer Skills zu vereinfachen, habe ich einen [Dummy](https://github.com/fwehn/pp-voiceassistant/tree/main/src/server/skills/_dummy) erstellt, aus dem man leicht einen neuen Skill anlegen kann.  

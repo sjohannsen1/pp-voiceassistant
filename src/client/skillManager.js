@@ -3,6 +3,7 @@ const admZip = require('adm-zip')
 const fs = require("fs");
 const customSdk = require("@fwehn/custom_sdk");
 const rhasspy = require("./rhasspy.js");
+const path = require("path")
 
 // Currently loaded Skills
 let skills = {};
@@ -13,14 +14,10 @@ function getSkills(){
 // File-Loader for newly downloaded Skills
 function loadSkills(locale = "de_DE"){
     // Deletes old files from the require.cache
-    for (let i in skills){
-        let pathToSkill = `${__dirname}/skills/${i}`;
-        let versions = fs.readdirSync(pathToSkill, {withFileTypes: true}).filter(entry => entry.isDirectory()).map(entry => entry.name);
-
-        for (let j in versions){
-            delete require.cache[require.resolve(`${__dirname}/skills/${i}/${versions[j]}/src`)];
-        }
-    }
+    Object.keys(require.cache).filter(entry => {
+            let relative = path.relative(`${__dirname}/skills/`, entry);
+            return relative && !relative.startsWith('..') && !path.isAbsolute(relative);
+        }).forEach(skillModule => delete require.cache[require.resolve(skillModule)]);
 
     skills = {};
     // (Re)Loads all configVariables and the source files from activated skills
@@ -91,7 +88,7 @@ function getInstalledSkills(locale = "de_DE"){
     let skills = [];
 
     fs.readdirSync(path).forEach(skill => {
-        fs.readdirSync(`${path}/${skill.toString()}/${getVersion(skill.toString())}/locales`).forEach(file => {
+        fs.readdirSync(`${path}/${skill}/${getVersion(skill.toString())}/locales`).forEach(file => {
             if (file.startsWith(locale)){
                 skills.push(skill);
             }

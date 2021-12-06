@@ -44,7 +44,7 @@ Jeder Befehl wird durch die folgenden Unterpunkte definiert:
 #### Utterance
 Dies definiert den Aufbau des Unterbefehls.  
 Die Syntax richtet sich dabei ganz nach der von [Rhasspy](https://rhasspy.readthedocs.io/en/latest/training/).  
-Hier müssen auch alle [Slots](#slots) angegeben werden, die in der [Funktion](#function) des Unterbefehls benötigt werden.  
+Hier werden die [Slots](#slots) eingebunden, welche weiter unten definiert, und von der [Funktion](#function) verwendet werden.
 
 #### Function
 Hier ist die Funktion angegeben, die bei der Erkennung des Befehls ausgeführt werden soll.  
