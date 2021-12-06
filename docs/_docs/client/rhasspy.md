@@ -39,6 +39,24 @@ Um die Änderungen wirksam zu machen, muss man nach den obigen Anfragen eine wei
 ## Base/Satellite
 Für die Arbeit an diesem Projekt brauchte ich eine Rhasspy Instanz, mit der ich meinen Code testen konnte.  
 Da ich mir vor ein paar Monaten einen [Docker-Swarm](https://docs.docker.com/engine/swarm/) Cluster aus mehreren [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) gebaut habe, habe ich mich dazu entschlossen, Rhasspy in einem [Base/Satellite-Setup](https://rhasspy.readthedocs.io/en/latest/tutorials/#server-with-satellites) zu betreiben.  
+Dabei hat man einen Zentralen Server (in meinem Fall das Cluster) und einen oder mehrere Satelliten (in meinem Fall ein [Raspberry Pi Zero W](https://www.raspberrypi.com/products/raspberry-pi-zero-w/) mit [ReSpeaker 2-Mics Pi HAT](https://wiki.seeedstudio.com/ReSpeaker_2_Mics_Pi_HAT/)).  
 
-[//]: #basesatellite (TODO my test todo item)
+![Raspberry Pi Cluster](./../../assets/img/Hardware/Cluster/clusteronly.jpg)
+*Bild meines Raspberry Pi Clusters mit Zigbee-Stick CC2531*
+
+![Raspberry Pi Zero W](./../../assets/img/Hardware/Satellite/satellite.jpg)
+*Bild meines Satellites (Raspberry Pi Zero W)*
+
+Auf beiden läuft ein Docker Container basierend auf dem [Rhasspy Image](https://rhasspy.readthedocs.io/en/latest/installation/#docker).  
+Darüber hinaus läuft ein Mosquitto Container als MQTT-Broker auf dem Base-Server (Cluster).  
+Beide Rhasspy Instanzen verbinden sich mit dem MQTT-Broker, um miteinander zu kommunizieren. 
+
+Dabei kümmer sich der Base Container um folgende Punkte:  
+- Speech to Text
+- Intent Recognition
+- Text to Speech
+
+Der Satellite Container übernimmt lediglich die Wake Word Detection und die Audio Ein-/Ausgabe.  
+
+[//]: #basesatellite (TODO Links für Technologien und ggf genutzten TechStack)
 

@@ -180,4 +180,8 @@ function getAllVariables(){
 ````
 *[sdk/index.js](https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js)*
 
-Bei der Funktion ``getVariable`` wird lediglich der Wert, der übergeben Variable, zurückgegeben.  
+Bei der Funktion ``getVariable`` wird lediglich der Wert, der übergeben Variable, zurückgegeben.
+
+## Fail-System
+
+[//]: #fail-system (TODO dokumentieren)

@@ -16,7 +16,8 @@ ENV PORT=12102 \
     LOCALE=de_DE \
     SERVER=localhost:3000 \
     RHASSPY=localhost:12101 \
-    MQTT=localhost:1883
+    MQTTHOST=localhost \
+    MQTTPORT=1883
 
 ENTRYPOINT ["npm", "run"]
 CMD ["start"]

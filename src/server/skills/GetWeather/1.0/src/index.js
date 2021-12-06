@@ -17,7 +17,7 @@ function getCurrentWeather(){
             let data = res.data.list[0];
             let answer = customSdk.generateAnswer([res.data.city.name, data.weather[0].description, Math.floor(data.main.temp)]);
             customSdk.say(answer);
-        }).catch(console.error);
+        }).catch(customSdk.fail);
 }
 
 function getForecast( day = 1){
@@ -28,7 +28,7 @@ function getForecast( day = 1){
         let forecastDay = data[date.toISOString().split("T")[0]];
         let answer = customSdk.generateAnswer([forecastDay["avg_desc"], Math.floor(forecastDay["temp_min"]), Math.floor(forecastDay["temp_max"])]);
         customSdk.say(answer);
-    }).catch(console.error);
+    }).catch(customSdk.fail);
 }
 
 function getSortedData(){

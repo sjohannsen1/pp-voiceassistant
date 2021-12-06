@@ -7,7 +7,7 @@
     {
       "name": "APIKey",
       "type": "String",
-      "default": "1fa4297da7ecdb8dbb7ca9b7bcaf4fa7"
+      "default": "Enter your API-Key here, please."
     },
     {
       "name": "city",

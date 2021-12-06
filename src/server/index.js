@@ -7,6 +7,8 @@ const admZip = require('adm-zip');
 const bodyParser = require("body-parser");
 const fs = require("fs");
 
+//TODO .env Variablen in einem Config-Object speicher mit Defauts wie beim Client
+
 const port = process.env.PORT;
 
 app.use(fileUpload({

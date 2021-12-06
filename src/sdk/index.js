@@ -1,5 +1,4 @@
 const mqtt = require("mqtt");
-// const fs = require("fs");
 let client;
 
 let configObject = {
@@ -98,8 +97,11 @@ function getAllVariables(){
 
 //TODO System überlegen
 //TODO Dokumentieren
-function fail(){
-    say("Tut, mir leid mit diesem Befehl gibt es derzeit Probleme");
+function fail(error, message = ""){
+    if (!message) message = "Tut, mir leid mit diesem Befehl gibt es derzeit Probleme";
+
+    say(message);
+    console.error(error);
 }
 
 module.exports = {
