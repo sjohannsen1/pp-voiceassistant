@@ -1,4 +1,4 @@
 ---
-title: CLI ( **C** ommand **L** ine **I** nterface)
+title: CLI
 permalink: /docs/client/cli/
 ---
