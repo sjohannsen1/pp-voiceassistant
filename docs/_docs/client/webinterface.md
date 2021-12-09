@@ -62,6 +62,7 @@ Ein Entwickler kann diese Optionen in der ``manifest.json`` angeben, gespeichert
 ## Download
 Über das Webinterface kann man neue Skills von einem Server Herunterladen.  
 Dabei kann man verschiedene Versionen auswählen.  
+Hier werden die Funktionen genutzt, die ich [hier](./skillmanager.md#online) näher beschrieben habe.  
 
 ![Download-Page](./../../assets/img/Webinterface/downloadPage.png)  
 *Bild der Download-Seite*
@@ -70,6 +71,8 @@ Dabei kann man verschiedene Versionen auswählen.
 - Tool um lokale Dateien hochzuladen
 - Testumgebung für Entwickler
 
+![Upload-Page](./../../assets/img/Webinterface/uploadPage.png)
+
 [//]: #upload (TODO screenshot vom webinterface einfügen)
 
 ## Umsetzung
@@ -77,7 +80,6 @@ Das Webinterface wird von einem ExpressJS-Server bereitgestellt, welcher die [Ja
 Auf den HTML-Seiten selbst wird jeweils [VueJS](https://v3.vuejs.org/guide/introduction.html#what-is-vue-js) per [UNPKG-Link](https://unpkg.com/) eingebunden, um die durch Jade übertragenen Daten einfacher darzustellen.  
 
 ## Port
-
 Ich habe mir die Frage gestellt, welchen Port man für das Webinterface benutzen könnte.  
 Für allgemeine Testzwecke nutze ich in fast jedem Projekt den Port 2712 (mein Geburtsdatum), da dieser fast immer frei ist.  
 Ich habe mir allerdings ein paar Gedanken gemacht, welchen Port man stattdessen nutzen könnte.  

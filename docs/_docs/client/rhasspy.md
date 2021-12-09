@@ -52,11 +52,8 @@ Darüber hinaus läuft ein Mosquitto Container als MQTT-Broker auf dem Base-Serv
 Beide Rhasspy Instanzen verbinden sich mit dem MQTT-Broker, um miteinander zu kommunizieren. 
 
 Dabei kümmer sich der Base Container um folgende Punkte:  
-- Speech to Text
-- Intent Recognition
-- Text to Speech
+- Speech to Text ([Kaldi](https://kaldi-asr.org/))
+- Intent Recognition ([Fsticuffs](https://rhasspy.readthedocs.io/en/latest/intent-recognition/#fsticuffs))
+- Text to Speech ([NanoTTS](https://github.com/gmn/nanotts))
 
-Der Satellite Container übernimmt lediglich die Wake Word Detection und die Audio Ein-/Ausgabe.  
-
-[//]: #basesatellite (TODO Links für Technologien und ggf genutzten TechStack)
-
+Der Satellite Container übernimmt lediglich die Wake Word Detection([Porcupine](https://picovoice.ai/platform/porcupine/)) und die Audio Ein-/Ausgabe([ALSA](http://manpages.ubuntu.com/manpages/bionic/man1/aplay.1.html)).

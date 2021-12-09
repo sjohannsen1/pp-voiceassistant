@@ -14,7 +14,12 @@
     - client/rhasspy
     - client/skillmanager
     - client/webinterface
+    - client/cli
     - client/preconditions
+
+- title: Server
+  docs:
+    - server/skillserver
 
 - title: Skills
   docs:
