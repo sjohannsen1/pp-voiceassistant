@@ -86,7 +86,8 @@ function startCLI(){
 
             case "delete":
                 await rhasspy.unregisterSkill(args[1], process.env.LOCALE).then(() => {
-                    console.log(skillManager.deleteLocalSkillFiles(args[1]));
+                    console.log(skillManager.
+                    deleteLocalSkillFiles(args[1]));
                     skillManager.loadSkills();
                 }).catch(console.error);
                 console.log(separator);

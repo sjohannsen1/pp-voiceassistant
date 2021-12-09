@@ -17,7 +17,9 @@ function loadSkills(locale = "de_DE"){
     Object.keys(require.cache).filter(entry => {
             let relative = path.relative(`${__dirname}/skills/`, entry);
             return relative && !relative.startsWith('..') && !path.isAbsolute(relative);
-        }).forEach(skillModule => delete require.cache[require.resolve(skillModule)]);
+        }).forEach(skillModule => {
+            delete require.cache[require.resolve(skillModule)]
+        });
 
     skills = {};
     // (Re)Loads all configVariables and the source files from activated skills
@@ -41,6 +43,19 @@ function downloadSkill(name = "HelloWorld", tag = "latest") {
 
             resolve(zip.getEntries()[0].entryName.split("/")[0]);
         }).catch(reject);
+    })
+}
+
+function uploadSkill(name, tag, data){
+    return new Promise((resolve, reject) => {
+        try{
+            let zip = new admZip(data);
+            zip.extractAllTo(`${__dirname}/skills/${name}/${tag}`, true);
+
+            resolve(zip.getEntries()[0].entryName.split("/")[0]);
+        }catch (e) {
+            reject(e)
+        }
     })
 }
 
@@ -429,9 +444,8 @@ function customIntentHandler(topic, message){
 
         getSkills()[formatted.intent.intentName][fun["name"]].apply(this, fun["params"]);
     }
-
 }
 
 module.exports = {
-    skills, loadSkills, downloadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, activateSkill, deactivateSkill, setVersion, getUpdates, getFunctionMatchingSlots, customIntentHandler
+    skills, loadSkills, downloadSkill, uploadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, activateSkill, deactivateSkill, setVersion, getUpdates, getFunctionMatchingSlots, customIntentHandler
 }

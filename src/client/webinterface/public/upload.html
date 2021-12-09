@@ -1,0 +1,60 @@
+<body>
+<div id="DivUpload">
+    <h1>Skill Hochladen</h1>
+    <div id="DivFields">
+        <div>
+            <label for="IName">Name:</label>
+            <input id="IName" type="text" pattern="/^\S*$/" required v-model="name"/>
+        </div>
+
+        <div>
+            <label for="IVersion">Version:</label>
+            <input id="IVersion" type="text" pattern="/^\S*$/" required v-model="version"/>
+        </div>
+
+        <div>
+            <label for="IZip">Dateien:</label>
+            <input id="IZip" name="zipped" type="file" accept=".zip" ref="fileUpload" v-on:change="changeHandler($event)"  required/>
+        </div>
+
+        <button v-bind:disabled="(!name || !version || !fileUploaded ) ? true : false" v-on:click="upload(name, version)">Hochladen</button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                name: "",
+                version: "",
+                fileUploaded: false
+            }
+        },
+        methods: {
+            changeHandler: function (event){
+                this.fileUploaded = true;
+            },
+            upload: function (skillName, versionTag){
+                let input = document.getElementById("IZip");
+
+                let formData = new FormData();
+                formData.append('zipped', input.files[0]);
+
+                fetch(`${window.location.origin}/upload/${skillName}/${versionTag}`, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message);
+                    location.reload();
+                }).catch(data => {
+                    alert(data.message);
+                    location.reload();
+                });
+            }
+        }
+    }).mount('#DivUpload');
+</script>
+</body>

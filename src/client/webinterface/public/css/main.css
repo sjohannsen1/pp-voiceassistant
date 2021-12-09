@@ -3,6 +3,7 @@
 @import url("overview.css");
 @import url("details.css");
 @import url("download.css");
+@import url("upload.css");
 
 html {
     font-size:100%;

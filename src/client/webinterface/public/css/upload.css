@@ -1,0 +1,33 @@
+#DivUpload {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    color: var(--col-text-light);
+}
+
+#DivFields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    border-top: 1px solid var(--col-bg-secondary);
+    padding-top: 2rem;
+    align-items: center;
+}
+
+#DivFields div {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+#DivFields button {
+    margin: 1rem;
+}
+
+#DivFields input {
+    width: 70%;
+}
