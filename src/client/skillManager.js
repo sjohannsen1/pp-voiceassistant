@@ -35,7 +35,7 @@ function loadSkills(locale = "de_DE"){
 //Downloads the latest version of a Skill as zip and unzips it
 function downloadSkill(name = "HelloWorld", tag = "latest") {
     return new Promise((resolve, reject) => {
-        axios.get(`http://${process.env.SERVER}/download/${name}/${tag}`, {
+        axios.get(`http://${process.env.SERVER || "localhost:3000"}/download/${name}/${tag}`, {
             responseType: "arraybuffer"
         }).then(res => {
             let zip = new admZip(res.data);
@@ -45,6 +45,8 @@ function downloadSkill(name = "HelloWorld", tag = "latest") {
         }).catch(reject);
     })
 }
+
+//TODO adfgh
 
 function uploadSkill(name, tag, data){
     return new Promise((resolve, reject) => {
@@ -78,7 +80,7 @@ function deleteLocalSkillFiles(name = "HelloWorld"){
 //Get a list of Skills on Server
 function getRemoteSkills(locale = "de_DE") {
     return new Promise((resolve, reject) => {
-        axios.get(`http://${process.env.SERVER}/skills/${locale}`).then(res => {
+        axios.get(`http://${process.env.SERVER || "localhost:3000"}/skills/${locale}`).then(res => {
             let skills = [];
             let installed = getInstalledSkills();
             for (let i in res.data) {
@@ -361,7 +363,7 @@ function getUpdates(locale = "de_DE"){
 
         for (let i in installed) {
             let version = getVersion(installed[i]);
-            await axios.get(`http://${process.env.SERVER}/update/${locale}/${installed[i]}/${version}`).then(res => {
+            await axios.get(`http://${process.env.SERVER || "localhost:3000"}/update/${locale}/${installed[i]}/${version}`).then(res => {
                 if (res.data.update) {
                     availableUpdates[installed[i]] = res.data.version;
                 }
@@ -437,7 +439,7 @@ function customIntentHandler(topic, message){
         }
     }
 
-    let fun = getFunctionMatchingSlots(formatted.intent.intentName, slots, process.env.LOCALE)
+    let fun = getFunctionMatchingSlots(formatted.intent.intentName, slots, process.env.LOCALE || "de_DE");
 
     if (fun.hasOwnProperty("name") && fun.hasOwnProperty("params") && fun.hasOwnProperty("answer")){
         customSdk.setAnswer(fun["answer"]);

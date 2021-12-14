@@ -68,12 +68,12 @@ Hier werden die Funktionen genutzt, die ich [hier](./skillmanager.md#online) nä
 *Bild der Download-Seite*
 
 ## Upload
-- Tool um lokale Dateien hochzuladen
-- Testumgebung für Entwickler
+Auf dieser Seite kann man einen lokal gespeicherten Skill installieren und benutzen, ohne eine aktive Verbindung zum [Skillserver](./../server/skillserver.md) zu haben.  
+Dazu gibt man einen Namen, eine Versionsbezeichnung und die jeweilige Skilldatei im Zip-Format an und klickt auf "Hochladen".  
+Der [Skillmanager](./skillmanager.md#offline) kümmert sich im Hintergrund dann darum, dass die Zip entpackt wird und alle Dateien am richtigen Ort platziert werden.  
+Nach dem Upload sollte der Skill dann auf der [Übersichtsseite](#bersicht) sichtbar und auswählbar sein.  
 
-![Upload-Page](./../../assets/img/Webinterface/uploadPage.png)
-
-[//]: #upload (TODO screenshot vom webinterface einfügen)
+![Upload-Page](./../../assets/img/Webinterface/uploadPage.png)  
 
 ## Umsetzung
 Das Webinterface wird von einem ExpressJS-Server bereitgestellt, welcher die [Jade Template-Engine](https://jade-lang.com/) verwendet, um zum einen verschiedene Templates zusammenzuführen, zum anderen Daten von NodeJS auf die statische Website bringt, ohne für jede Information einen eigenen REST-Endpoint erstellen zu müssen.  

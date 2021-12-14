@@ -3,7 +3,7 @@ const fs = require("fs");
 
 // The Main Function to Communicate with Rhasspy
 async function postToRhasspy(endpoint, body){
-    return await axios.post("http://" + process.env.RHASSPY + endpoint, body);
+    return await axios.post(`http://${process.env.RHASSPY || "localhost:12101"}${endpoint}`, body);
 }
 
 // Retrains the Rhasspy model

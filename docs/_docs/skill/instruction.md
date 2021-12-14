@@ -43,6 +43,8 @@ In jedem diese Ordner gibt es eine ``manifest.json`` und die beiden Unterordner 
 In der ``manifest.json`` werden, für den Skill wichtige, Angaben gespeichert, wie z.B. verschiedene [npm-dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies), die für den Skill benötigt werden.  
 Oder Variablen, welche der Endnutzer über das [Webinterface](./../client/webinterface.md#config-variablen) einstellen soll.
 
+[//]: # (TODO manifest.json von homeassistant abgeleitet)
+
 Im Unterordner ``locales`` befinden sich die Dateien, welche den Aufbau eines Befehls definieren. Dabei handelt es sich bei jeder Datei um eine jeweilige Sprache bzw. Lokalisierung.
 
 ``de_DE.json`` -> deutscher Befehl  
@@ -57,3 +59,18 @@ Ich habe ein [SDK](https://github.com/fwehn/pp-voiceassistant/tree/main/src/sdk)
 Wie man dieses SDK benutzt habe ich [hier](./sdk.md) näher beschrieben.
 
 Um die Erstellung neuer Skills zu vereinfachen, habe ich einen [Dummy](https://github.com/fwehn/pp-voiceassistant/tree/main/src/server/skills/_dummy) erstellt, aus dem man leicht einen neuen Skill anlegen kann.  
+
+## Zip erstellen
+Um möglichst einfach den SKill zu testen, muss man eine Zip-Datei erstellen.  
+Diese kann dann über die [Uploadseite](./../client/webinterface.md#upload) des Webinterfaces einfach installiert werden.  
+Wichtig ist dabei, dass man die Zip-Datei über die zwei oben genannten Verzeichnisse ``src`` und ``locales`` und die ``manifest.json`` erstellt und nicht aus dem Eltern-Verzeichnis.
+
+### Windows
+Unter Windows geht das Erstellen der Zip sehr einfach.  
+1. Dazu einfach oben genannte Dateien auswählen.  
+![Dateien auswählen](./../../assets/img/Zip-Windows/dateienAuswaehlen.png)  
+  
+2. Auf "Senden an" klicken.  
+3. Und "ZIP-komprimierter Ordner" auswählen.  
+![Zip erstellen](./../../assets/img/Zip-Windows/zip-erstellen.png)  
+

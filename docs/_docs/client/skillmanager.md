@@ -50,7 +50,7 @@ Nach dem Anlegen der Dateien und der Angaben in der ``skillConfigs.json`` kann m
 #### Webinterface
 Über das Webinterface kann man obigen Prozess sehr stark vereinfachen.  
 Ich habe ein kleines [Upload-Tool](./webinterface.md#upload) erstellt, mit dem man sich die Dateien an der richtigen Position ablegen lassen kann und welches sich um die korrekte Konfiguration kümmert.  
-Wichtig dabei ist nur, dass man die Zip-Datei, welche vom Upload-Tool verlangt wird, von den 2 Ordnern (``src`` und ``locales``) under der ``manifest.json`` erstellt wird und nicht von dem Eltern-Pfad.  
+Wichtig dabei ist nur, dass man die Zip-Datei, welche vom Upload-Tool verlangt wird, von den 2 Ordnern (``src`` und ``locales``) under der ``manifest.json`` erstellt wird und nicht vom Eltern-Pfad.  
 
 
 ## Skills aktivieren
