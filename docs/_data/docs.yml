@@ -7,6 +7,7 @@
     - evaluation/amazon-alexa
     - evaluation/google-assistant
     - evaluation/home-assistant
+    - evaluation/conclusion
 
 - title: Client
   docs:
@@ -25,3 +26,8 @@
     - skills/instruction
     - skills/locales
     - skills/sdk
+    - skills/manifest
+
+- title: Fazit
+  docs:
+    - conclusion/conclusion

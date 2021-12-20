@@ -3,6 +3,8 @@ title: Skillserver
 permalink: /docs/server/skillserver/
 ---
 
+
+
 ## Fileserver
 Beim Skillserver handelt es sich in erster Linie um einen einfachen Fileserver.  
 Mit verschiedenen HTTP-Anfragen kann man Informationen zu Skills und deren Versionen erfragen und dann den gewünschten Skill als ``.zip``-Datei herunterladen.  

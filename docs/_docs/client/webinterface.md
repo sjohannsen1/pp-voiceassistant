@@ -3,6 +3,9 @@ title: Webinterface
 permalink: /docs/client/webinterface/
 ---
 
+Um es dem Endnutzer zu erleichtern neue Skills zu installieren und verwalten, habe ich zusätzlich zum [CLI](./cli.md) ein Webinterface erstellt.  
+Dieses Interface nutzt sämtliche Funktionen, die vom [Skillmanager](./skillmanager.md) bereitgestellt werden, um Informationen anzuzeigen und die Skills zu verwalten.
+
 ## Übersicht
 
 Auf der Übersicht-Seite werden alle installierten Skills angezeigt.  
@@ -87,6 +90,6 @@ Der Port sollte leicht zu merken sein.
 Dafür bietet sich ein Port an, der aus wiederkehrenden Zahlen besteht, wie z.B. 11111 oder 8080 (im Gegensatz zu 19294).  
 Mögliche Ports die ich mir überlegt habe:
 - 12321
-- 12102 oder 12121 (abgeleitet vom standard Rhasspy-Port)
+- 12102 oder 12121 (abgeleitet vom standard Rhasspy-Port 12101)
 
-Von denen ist 12102 unassigned.  
+Schlussendlich habe ich mich für den Port 12102 entschieden, da dieser in mehreren Onlinelisten unbelegt war.

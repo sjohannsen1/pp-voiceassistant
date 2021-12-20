@@ -8,9 +8,12 @@ Dieses kümmert sich, in Zusammenarbeit mit dem [Skillmanager](./../client/skill
 
 ## Konfiguration und Initialisierung
 
+Dieser Abschnitt beschreibt die Kommunikation vom Skillmanager mit dem SDK.  
+Damit der Skillmanager die Skills korrekt verwenden kann, müssen bei der Initialisierung einige Informationen definiert werden (wie z.B. unter welcher Adresse der MQTT-Broker erreichbar ist).  
+
 ### Config
 
-Im ``configObject`` werden einige Konfigurationen gespeichert.
+Beim start des Skillmanagers wird ein ``configObject`` erstellt, in dem einige Konfigurationen gespeichert werden.  
 
 ````javascript
 let configObject = {
@@ -23,6 +26,9 @@ let configObject = {
 
 Unter ``mqtt`` wird die Host-IP des [MQTT-Brokers](https://mqtt.org/) gespeichert, über den Rhasspy mit den einzelnen Komponenten kommuniziert.  
 Über diesen Broker kommen auch alle [Intents](https://rhasspy.readthedocs.io/en/latest/intent-recognition/#mqtthermes) an, welche dann vom ``intentHandler`` verarbeitet werden.  
+Beim ``intentHandler`` handelt es sich um eine Callback-Funktion, welche in ``skillManager.js`` definiert wurde.
+In Variables werden die vom Endnutzer gesetzten Optionen gespeichert, damit diese von den Skills über eine SDK-Funktion abgerufen werden können.  
+  
 Diese Angaben werden vom [Skillmanager](./../client/skillmanager.md) mittels der ``config``-Funktion gesetzt.
 
 ````javascript
@@ -113,7 +119,7 @@ function helloWorld(hello, world){
     customSdk.say(`${hello} ${world}`);
 }
 ````
-*[HelloWorld](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/public/HelloWorld/latest/src/index.js)*
+*[HelloWorld](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/HelloWorld/1.0/src/index.js)*
 
 Bei diesem Beispiel werden die beiden Strings ``hello`` und ``world`` aneinander gehangen und ausgegeben.
 
@@ -121,7 +127,7 @@ Bei diesem Beispiel werden die beiden Strings ``hello`` und ``world`` aneinander
 
 Skill-Entwickler können [Antwortsätze]() in verschiedenen Sprachen definieren.  
 Damit diese jedoch mit einigen Werten erweitert werden können, muss ein solcher Satz generiert werden.  
-Dazu gibt der Entwickler einen Satz wie zum Beispiel ``Es ist # Uhr #`` (aus [GetTime](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/public/GetTime/latest/src/index.js)) an.  
+Dazu gibt der Entwickler einen Satz wie zum Beispiel ``Es ist # Uhr #`` (aus [GetTime](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/GetTime/1.0/src/index.js)) an.  
 Die Funktion ``generateAnswer`` ersetzt dann den Separator (standardmäßig ``#``) mit den Werten, die als Array übergeben werden.  
 
 ````javascript
@@ -151,7 +157,7 @@ function getTime(){
     customSdk.say(answer);
 }
 ````
-*[GetTime](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/public/GetTime/latest/src/index.js)*
+*[GetTime](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/GetTime/1.0/src/index.js)*
 
 Hier wird der Satz ``Es ist # Uhr #`` um die aktuelle Stunde und die aktuelle Minute erweitert, also z.B. ``Es ist 11 Uhr 34``.  
 Dieser Satz wird dann mit der ``say``-Funktion ausgegeben.
@@ -182,6 +188,6 @@ function getAllVariables(){
 
 Bei der Funktion ``getVariable`` wird lediglich der Wert, der übergeben Variable, zurückgegeben.
 
-## Fail-System
+[//]: # (## Fail-System)
 
 [//]: #fail-system (TODO dokumentieren)

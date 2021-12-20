@@ -22,8 +22,6 @@ Diese Daten werden dann vom Webinterface und der CLI verwendet, um dem Nutzer zu
 Mit der Funktion ``downloadSkill`` kann man dann einen bestimmten Skill in einer bestimmten Version herunterladen.  
 Dabei wird vom Server eine Zip-Datei heruntergeladen, die dann mit dem Package "adm-zip" entpackt und im entsprechendem Verzeichnis gespeichert werden.  
   
-[//]: # (- Skills bei Rhasspy registrieren)
-
 [//]: # (- active und version-flag setzen)
 
 
@@ -59,30 +57,32 @@ Wenn man, wie oben beschrieben einen neuen Skill installiert hat, kann man diese
 Man muss ihn erst aktivieren.  
 Das kann man entweder über die CLI oder über das Webinterface machen.  
 
-Dabei werden einige für den Skillmanager wichtige Konfigurationen getroffen und die verschiedenen Sätze als [Intents](./rhasspy.md#neue-intents-hinzufgen) bei Rhasspy [registriert](./rhasspy.md#rhasspy-trainieren).  
+Dabei werden einige für den Skillmanager wichtige Konfigurationen in der ``skillConfigs.json`` getroffen und die verschiedenen Sätze als [Intents](./rhasspy.md#neue-intents-hinzufgen) bei Rhasspy [registriert](./rhasspy.md#rhasspy-trainieren).  
+
+````json
+{
+  "<Name des Skills>": {
+    "version": "<Version des Skills>",
+    "active": true
+  }
+}
+````
+*Ausschnitt aus der Datei ``skillConfigs.json``. Der Skill wurde erfolgreich aktiviert.*
 
 [//]: # (TODO link zum rhasspy api docu von mir)
 [//]: # (TODO links zur cli und zu webinterface)
 [//]: # (TODO link zum Skillserver.md)
-[//]: # (TODO damit gelb--------------------------------------------------------------------------------------------------------------------)
 
-[//]: # (## Skills löschen)
+## Skills löschen
 
-[//]: # (- Skills bei Rhasspy abmelden)
+Der Skillmanager kümmert sich natürlich nicht nur darum, neue Skills zu installieren, sondern auch darum lokale Dateien auf Wunsch zu löschen.  
+Dazu werden wir Rhasspy zunächst angewiesen die jeweiligen Intents zu löschen und sich neu zu trainieren, dann werden die Konfigurationen in der ``skillConfigs.json`` gelöscht.  
+Zu guter letzt wird das gesamte Verzeichnis des Skills gelöscht, mit allen Versionen.  
+Derzeit ist es nicht möglich einzelne Versionen zu löschen.  
 
-[//]: # (- locale dateien löschen)
 
-[//]: # (- skillConfigs.json bereinigen)
+## Details auslesen
 
-[//]: # ()
-[//]: # (## Details auslesen)
-
-[//]: # (- Manifest.json)
-
-[//]: # (- locale files)
-
-[//]: # (## Skills registrieren)
-
-[//]: # (- Rhasspy API)
-
-[//]: # (- Rhasspy Train)
+Damit man zum Beispiel auf dem Webinterface einige Angaben zum Lokalen Skill erhält, bietet der Skillmanager einige Funktionen um Lokale Dateien auszulesen und deren Informationen wiederzugeben.  
+Darunter fallen die Dateien ``manifest.json`` und die jeweilige ``<locale>.json``.  
+Aber auch einige Informationen aus der ``skillConfigs.json`` werden zurückgegeben, zum Beispiel, ob ein Skill aktiviert ist oder nicht und in welcher Version.  

@@ -3,14 +3,18 @@ title: Rhasspy
 permalink: /docs/client/rhasspy/
 ---
 
+Hier beschreibe ich einige Dinge zu Rhasspy, welche ich genutzt habe, um mein Skillsystem umzusetzen.   
+Wie genau kommuniziert meine Anwendung mit der Rhasspy Instanz?  
+Wie betreibe ich Rhasspy eigentlich?  
+
 ## Neue Intents hinzufügen
-**Problem: Wie hinterlegt man die Intents eines Skills bei Rhasspy, sodass die Spracherkennung und die Intent-Erkennung damit arbeiten können.**
+**Problem: Wie hinterlegt man die Intents eines Skills bei Rhasspy, sodass die Spracherkennung und die Intent-Erkennung damit arbeiten können?**
 
 Lösung: Ich nutze die [Rhasspy-Api](https://rhasspy.readthedocs.io/en/latest/reference/#http-api), um neue Intents zu hinterlegen und Rhasspy neu zu trainieren.
 ### Sätze
 Neue Sätze/Intents kann man unter ``http://<host-ip>:12101/api/sentences`` registrieren.  
 Diese werden dann unter ``<Pfad des Profils>/intents/<Intentname>`` gespeichert.  
-Dazu werden folgende Daten an obigen Endpoint gepostet:
+Dazu werden folgende Daten mittels einer HTTP-POST-Anfrage an obigen Endpoint gepostet:
 ````json
 {
   "intents/<Name des Intents>.ini" : "[<Name des Intents>]\n<Sätze jeweils mit '\n' separiert>"
@@ -19,7 +23,7 @@ Dazu werden folgende Daten an obigen Endpoint gepostet:
 
 ### Slots
 Neue Slots kann man unter ``http://<host-ip>:12101/api/slots`` registrieren.  
-Dazu werden folgende Daten an obigen Endpoint gepostet:
+Dazu wird ein Array mit den einzelnen Alternativen unter dem Slotnamen an obigen Endpoint gepostet:
 ````json
 {
   "slots/<Name des Slots>": [
@@ -33,7 +37,10 @@ Dazu werden folgende Daten an obigen Endpoint gepostet:
 ````
 
 ## Rhasspy trainieren
-Um die Änderungen wirksam zu machen, muss man nach den obigen Anfragen eine weitere Anfrage an folgenden Endpoint senden: ``http://<host-ip>:12101/api/train``
+Um die Änderungen wirksam zu machen, muss man nach den obigen Anfragen eine weitere Anfrage an folgenden Endpoint senden: ``http://<host-ip>:12101/api/train``  
+Dadurch wird Rhasspy's eigene Trainingsroutine gestartet.  
+Rhasspy kümmert sich im Hintergrund darum, dass die Spracherkennung die neu hinzugefügten Wörter erkennt und die neuen Sätze vom Intentrecognition-System erfasst und die Intention bestimmt werden können.  
+
 
 
 ## Base/Satellite

@@ -3,6 +3,11 @@ title: Anleitung
 permalink: /docs/skills/instruction/
 ---
 
+Diese Seite richtet sich in erster Linie an Entwickler, die einen Skill für mein System entwickeln möchten.  
+Hier wird zunächst die Befehls- und Ordnerstruktur eines Skills beschrieben.  
+Hat man alle Dateien wie beschrieben angelegt und sich überlegt, wie die einzelnen Befehle eines Skills aussehen sollen, kann man auf den Seiten zu den Locales-Dateien und zum SDK nachschauen wie ein solcher Skill erstellt wird.   
+Anschließend findet man auf dieser Seite eine kurze Anleitung, wie man seinen Skill am besten verpackt, um ihn zu installieren. 
+
 ## Aufbau eines Befehls
 
 Basierend auf dem Befehls-Aufbau von [Alexa](./../evaluation/amazonalexa.md) und dem [Google Assistant](./../evaluation/googleassistant.md) habe ich mich dazu entschlossen, einen sehr ähnlichen, wenn nicht sogar den gleichen Aufbau vorauszusetzen.  
@@ -11,14 +16,14 @@ Daher sieht der Aufbau der Befehle wie folgt aus:
 ``<wake word>, <launch> <Invocation name> <utterance>``
 
 - ``wake word``: Das Wake Word ist das Wort, mit welchem man den Sprachassistenten "aufwecken" kann. Dieses wird von Rhasspy vorausgesetzt.
-- ``launch``: Hierbei handelt es sich um eine Sammlung an Füllwörtern, welche in der [``defaults.js``](https://github.com/fwehn/pp-voiceassistant/blob/main/src/client/defaults.json) definiert wurden.
-- ``invocation``: Das ist der Name, mit dem man den Skill auswählt, z.B. ``Hallo Welt`` für [HelloWorld](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/public/HelloWorld/latest/src/index.js).
+- ``launch``: Hierbei handelt es sich um eine Sammlung an Füllwörtern, welche in der [``defaults.json``](https://github.com/fwehn/pp-voiceassistant/blob/main/src/client/defaults.json) definiert wurden.
+- ``invocation``: Das ist der Name, mit dem man den Skill auswählt, z.B. ``Hallo Welt`` für [HelloWorld](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/HelloWorld/1.0/src/index.js).
 - ``utterance``: Utterance ist der Unterbefehl, welcher die einzelnen Funktionen eines Skills darstellt.
 
 
 ## Ordner anlegen
 
-Ich habe mich für folgende Ordnerstruktur (am Beispiel des [HelloWorld](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/public/HelloWorld/latest/src/index.js) Skills) entschieden.  
+Ich habe mich für folgende Ordnerstruktur (am Beispiel des [HelloWorld](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/HelloWorld/1.0/src/index.js) Skills) entschieden.  
 Diese ähnelt sehr stark der Struktur von Amazon.
 
 ```
@@ -40,7 +45,7 @@ HelloWorld
 
 Jede Version eines Skills wird durch einen Ordner dargestellt.  
 In jedem diese Ordner gibt es eine ``manifest.json`` und die beiden Unterordner ``src`` und ``locales``.  
-In der ``manifest.json`` werden, für den Skill wichtige, Angaben gespeichert, wie z.B. verschiedene [npm-dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies), die für den Skill benötigt werden.  
+In der ``manifest.json`` werden, für den Skill notwendige Angaben gespeichert, wie z.B. verschiedene [npm-dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies), die für den Skill benötigt werden.  
 Oder Variablen, welche der Endnutzer über das [Webinterface](./../client/webinterface.md#config-variablen) einstellen soll.
 
 [//]: # (TODO manifest.json von homeassistant abgeleitet)
@@ -74,3 +79,7 @@ Unter Windows geht das Erstellen der Zip sehr einfach.
 3. Und "ZIP-komprimierter Ordner" auswählen.  
 ![Zip erstellen](./../../assets/img/Zip-Windows/zip-erstellen.png)  
 
+
+
+
+[//]: # (TODO neue manifest.md einbinden)

@@ -58,10 +58,24 @@ Damit man den Client in der eigenen individuellen Umgebung nutzen kann, gibt es 
 [//]: # (TODO beschreibungen verbessern)
 
 ### Server
+
+Beim Server handelt es sich um einen Dateiserver für die Skills.  
+Darüber kann der Client dann die einzelnen Skills installieren.  
+Auch für den Server gibt es zwei verschiedene Methoden für die Installation.
+
 #### NodeJS
+
+Die Installation des Skillservers ist etwas einfacher.  
+Dazu benötigt man lediglich die Dateien im Verzeichnis "[src/server](https://github.com/fwehn/pp-voiceassistant/tree/main/src/server)".  
+In diesem Verzeichnis muss man dann nur noch den Befehl ``npm run start`` ausführen.  
+
+
 #### Docker
 - [Dockerfile](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/Dockerfile)
 #### Env-Variablen
+Für den Server gibt es lediglich eine Umgebungsvariable.  
+
+``PORT``: Port auf den der Express-Server "hört" (default: ``3000``)
 
 
 
