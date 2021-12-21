@@ -3,17 +3,20 @@ title: Skillserver
 permalink: /docs/server/skillserver/
 ---
 
-
+Damit es leichter ist neue Skills zu installieren habe ich eine Server-Anwendung entwickelt, über auf die der [Skillmanager](./../client/skillmanager.md) zugreifen kann.  
+Diese Anwendung ist komplett optional, da man auch lokal neue Skills installieren kann (zum Beispiel über das [Webinterface](./../client/webinterface.md#upload)).
 
 ## Fileserver
 Beim Skillserver handelt es sich in erster Linie um einen einfachen Fileserver.  
-Mit verschiedenen HTTP-Anfragen kann man Informationen zu Skills und deren Versionen erfragen und dann den gewünschten Skill als ``.zip``-Datei herunterladen.  
+Mit verschiedenen HTTP-Anfragen kann man Informationen zu den Skills und deren Versionen abfragen und dann den gewünschten Skill als ``.zip``-Datei herunterladen.  
 Die ``.zip``-Datei wird dann vom [Skillmanager](./../client/skillmanager.md#online) entpackt und die Dateien an der richtigen Stelle abgelegt.  
 
 ## Versionen
-- ``versions.json`` speichert alle verfügbaren versionen zu allen skills
-- dadurch spätere auflösung in verzeichnisse
-- ``latest``-Version immer 0. eintrag im jeweiligen Array
+
+Damit man als Nutzer verschiedene Skill herunter- bzw. als Entwickler verschiedene Versionen hochladen kann, habe ich ein recht simples Versionierungssystem entwickelt.  
+Dieses besteht aus zwei Komponenten.  
+Erstens aus der Art wie und wo die Skills gespeichert werden.  
+Zweitens aus einer Datei mit dem Namen ``versions.json``, in der alle aktuellen Skill-Namen und deren Versions-Bezeichnungen gespeichert werden.  
 
 ````json
 {
@@ -22,15 +25,16 @@ Die ``.zip``-Datei wird dann vom [Skillmanager](./../client/skillmanager.md#onli
   "HelloWorld": ["3.0","2.0","1.0"]
 }
 ````
-*Aktuelles Beispiel*
-- HelloWorld versionen lediglich ein test da es sich immer um die gleichen dateien handelt
-- ``skills/HelloWorld/3.0``
-- ``skills/HelloWorld/2.0``
-- ``skills/HelloWorld/1.0``
+*[server/versions.json](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/versions.json)*
 
+Die Daten aus dieser ``.json``-Datei werden bei Abruf dann in die jeweiligen Datei-Pfade aufgelöst.  
+So werden zum Beispiel, beim Abruf der Version "[2.0](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/HelloWorld/2.0)" des ``HelloWorld``-Skills, die Dateien im verzeichnis ``skills/HelloWorld/3.0`` bereitgestellt.  
+Erhält der Server nun eine Anfrage mit der Version ``latest``, so verwendet er den ersten Eintrag in der jeweiligen Liste, im Beispiel von ``HelloWorld`` wäre das Version "[3.0](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/HelloWorld/3.0)".
 
 ## Upload
-- Dateien als Zip hochladen
-- Version und namen auswählen
-- kein syntaxchecker -> man muss sicher sein, dass der skill funktioniert
-- 
+
+Möchte man nun einen Neuen Skill oder neue Versionen vorhandener Skills hochladen, tut man das auf die gleiche Art wie beim [Webinterface](./../client/webinterface.md#upload).  
+Auch hier muss man zuvor eine ``.zip``-Datei erstellen.  
+Wie das unter Windows funktioniert habe ich [hier](./../skill/instruction.md#zip-erstellen) näher beschrieben.  
+
+**Hinweis**: Derzeit gibt es keinerlei Überprüfungssysteme, die den Skill auf Fehler überprüfen. Man sollte also sicher sein, dass der Skill einwandfrei funktioniert.  
