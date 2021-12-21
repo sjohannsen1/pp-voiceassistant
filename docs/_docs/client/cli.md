@@ -28,8 +28,9 @@ Dabei werden auch alle Konfigurationen in der ``skillConfigs.json`` gelöscht.
 
 [//]: #befehle (TODO screenshots von befehl rückgaben)
 
-[//]: # (## Umsetzung)
-[//]: # ()
-[//]: # (- primitiv)
-[//]: # (- console log)
-[//]: # (- console scan)
+## Umsetzung
+
+Um das CLI zu realisieren, nutze ich das integrierte NodeJS-Package [Readline](https://nodejs.org/api/readline.html).  
+Diese Umsetzung ist recht primitiv und bietet nicht allzu viele Möglichkeiten.  
+Allerdings ist das CLI auch nicht als Hauptbedienmöglichkeit meines Skillsystems gedacht.  
+Dazu sollte man das [Webinterface](./webinterface.md) nutzen.  
