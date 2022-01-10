@@ -12,6 +12,6 @@ permalink: /docs/conclusion/conclusion/
 ## Pro
 ## Contra
 - Einschränkungen in Umfang und Funktion der Skills
-- 
+- Keine Koversationen nur einzeilige befehle
 ## Schwierigkeiten
 ## Ausblick

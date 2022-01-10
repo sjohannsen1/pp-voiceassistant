@@ -4,4 +4,7 @@ permalink: /docs/evaluation/conclusion/
 ---
 
 ## Befehlsstruktur
+
+
+
 ## Ordnerstruktur

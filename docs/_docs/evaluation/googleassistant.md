@@ -64,8 +64,10 @@ Beim Code selbst handelt es sich um ``.yaml``-Dateien, welche je nach Verzeichni
 Sämtliche Einstellungen in der Actions Console sind Darstellungen jener ``.yaml``-Dateien.  
 
 ### Sonstige Möglichkeiten
-- Dialogflow
-- eigener Server auf den webhock daten pusht -> zb bei smarthome kategorie
+
+Möchte man keine der Beiden oben genannten Möglichkeiten nutzen, so kann man die Action auch mittels Dialogflow oder einem eigenen Server umsetzten.  
+Um den eigenen Server zu nutzen, kann man in der Actions Console einen Webhook definieren, an welchen dann die Daten gesendet werden.  
+Als Backend kann man dann sämtliche Sprachen verwenden, die Webhooks unterstützen.  
 
 ## Quellen
 
