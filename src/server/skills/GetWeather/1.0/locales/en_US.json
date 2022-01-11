@@ -1,5 +1,5 @@
 {
-  "invocation": "[the] weather service",
+  "invocation": "[the] [weather service]",
   "subcommands": [
     {
       "utterance": "how [is] the weather ( currently | right now) [is]",

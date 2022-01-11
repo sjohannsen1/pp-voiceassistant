@@ -1,5 +1,6 @@
 {
-  "invocation": "[den] Wetterdienst",
+  "invocation": "[den] [Wetterdienst]",
+  "description": "Ein sehr einfacher Skill, der auf die Wetterdaten von openweathermap.org zugreift.\nFür die Nutzung benötigt man einen API-Key.",
   "subcommands": [
     {
       "utterance": "wie [ist] das Wetter (aktuell | gerade | jetzt) [ist]",
@@ -14,7 +15,5 @@
       "answer": "# bei Temperaturen von # bis # Grad Celsius."
     }
   ],
-  "slots": {
-
-  }
+  "slots": {}
 }

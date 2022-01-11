@@ -1,5 +1,5 @@
 {
-  "invocation": "GetTime",
+  "invocation": "[GetTime]",
   "subcommands": [
     {
       "utterance": "wie spät ist es",
