@@ -283,3 +283,8 @@ Dieses Kit kümmert sich um die Kommunikation zwischen dem Skill und der Alexa U
 Man kann darüber auf die unter im [Interaction Model](#interaction-model) definierten Intents und Validierungen zugreifen und es liegt jedem Skill zu grunde.  
 Es ist für NodeJS, Java und Python verfügbar.  
 
+## Quellen
+
+[Alexa Skills Kit](https://developer.amazon.com/en-US/docs/alexa/ask-overviews/what-is-the-alexa-skills-kit.html)  
+[Alexa Dev Course (Ger)](https://www.youtube.com/playlist?list=PL2KJmkHeYQTNIYkWM6E4hMXZMk9PRYYn3)  
+[Alexa Dev Course (Eng)](https://www.youtube.com/playlist?list=PL2KJmkHeYQTO65ko4I--OC-7CC_Cjg8sS)

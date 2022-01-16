@@ -70,3 +70,7 @@ Eine ausführliche Liste gibt es [hier](https://developers.home-assistant.io/doc
 Damit nicht für jede Integration alles neu entwickelt werden muss, stellt Home Assistant ein sehr modulares und sehr komplexes Entity-System zur verfügung.  
 Damit kann auf sehr viele Verschiedene Smart Home Geräte und Dienste zugreifen.  
 Man kann jedoch auch eigene Entities erstellen.  
+
+## Quellen 
+
+[Home Assistant Docs](https://developers.home-assistant.io/docs/development_index)
