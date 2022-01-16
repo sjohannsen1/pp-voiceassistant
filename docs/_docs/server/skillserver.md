@@ -37,4 +37,6 @@ Möchte man nun einen Neuen Skill oder neue Versionen vorhandener Skills hochlad
 Auch hier muss man zuvor eine ``.zip``-Datei erstellen.  
 Wie das unter Windows funktioniert habe ich [hier](./../skill/instruction.md#zip-erstellen) näher beschrieben.  
 
-**Hinweis**: Derzeit gibt es keinerlei Überprüfungssysteme, die den Skill auf Fehler überprüfen. Man sollte also sicher sein, dass der Skill einwandfrei funktioniert.  
+**Hinweis**: Derzeit gibt es keinerlei Überprüfungssysteme, die den Skill auf Fehler überprüfen. Man sollte also sicher sein, dass der Skill einwandfrei funktioniert.
+
+[//]: # (TODO endpoints auflisten)

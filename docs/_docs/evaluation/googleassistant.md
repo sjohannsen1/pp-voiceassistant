@@ -60,7 +60,7 @@ Dadurch können jedoch auch einige Limitationen in der Funktion der Action entst
 ### Actions-SDK
 
 Beim Actions-SDK handelt es sich in erster Linie um ein CLI, welches der Erstellung und Synchronisation einer Action dient.  
-Beim Code selbst handelt es sich um ``.yaml``-Dateien, welche je nach Verzeichnis und gesetzter Variablen zum Beispiel eine Szene, ein Intent oder ein Slot sein kann.  
+Beim Code selbst handelt es sich um ``.yaml``-Dateien, welche je nach Verzeichnis und gesetzter Variablen zum Beispiel eine Szene, ein Intent oder ein Slot sein können.  
 Sämtliche Einstellungen in der Actions Console sind Darstellungen jener ``.yaml``-Dateien.  
 
 ### Sonstige Möglichkeiten

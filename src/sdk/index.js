@@ -95,10 +95,8 @@ function getAllVariables(){
     });
 }
 
-//TODO System überlegen
-//TODO Dokumentieren
 function fail(error, message = ""){
-    if (!message) message = "Tut, mir leid mit diesem Befehl gibt es derzeit Probleme";
+    if (!message) message = "Tut, mir leid mit diesem Befehl gibt es derzeit Probleme.";
 
     say(message);
     console.error(error);

@@ -33,6 +33,7 @@ Grundsätzlich wird eine Integration in der Sprache [Python](https://www.python.
 └── __init__.py
 ````
 
+[//]: # (TODO weiterschreiben)
 
 ## Manifest
 

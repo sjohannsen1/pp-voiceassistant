@@ -61,6 +61,9 @@ Kann Alexa beispielsweise fragen: "Ok, woran soll ich dich erinnern?"
 Für einige Smarthomefunktionen könnte man den Skills eine Liste der verfügbaren MQTT- und Zigbee-Geräten übergeben.  
 Da Rhasspy für die Spracherkennung, die Namen der Geräte kennen muss, müsste man diese Liste auch als Slot trainieren.  
 
+Bisher gibt es das Webinterface ausschließlich auf Deutsch.  
+Hier könnte ein das Lokalisierungssystem erweitert werden, sodass auch die einzelnen Seiten des Webinterfaces in der Sprache angezeigt werden, welche als ``.env``-Variable beim Start angegeben wird.  
+
 Ein weiterer Schritt könnte es sein, einige Skills als "Standardkit" zu implementieren.  
 Dazu gibt es ein Anschlussprojekt von Sophia Johannsen, welches man [hier] findet.  
 

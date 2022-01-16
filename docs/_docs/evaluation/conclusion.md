@@ -22,4 +22,10 @@ Diese Dateien befinden sich in dem Verzeichnis ``<SkillName>/<SkillVersion>/loca
 Im verzeichnis ``<SkillName>/<SkillVersion>/src`` befindet sich mein Code, welcher in JavaScript geschrieben ist, da mir diese Sprache liegt und ich in der Vergangenheit auch schon andere Projekte mit NodeJS realisiert habe.  
 Wie alle anderen Systeme auch, stelle ich ein sdk zur verfügung, welches sich in erster Linie um die kommunikation mit Rhasspy kümmert, aber auch einige Funktionen meines eigenen Systems bietet (mehr dazu [hier](./../skill/sdk.md)).  
 Für einige Metadaten und Abhängigkeiten habe ich mich dazu entschlossen, eine ``manifest.json`` ähnlich der des Home Assistant vorauszusetzen.  
-In dieser Datei befinden sich Angaben zum Skill, des Abhängigkeiten anderer "npm-packages" und Angaben zu vom Nutzer änderbaren Optionen.  
+In dieser Datei befinden sich Angaben zum Skill, des Abhängigkeiten anderer "npm-packages" und Angaben zu vom Nutzer änderbaren Optionen.
+
+
+[//]: # ()
+[//]: # (- am ehesten an alexa angelehnt)
+
+[//]: # (- )

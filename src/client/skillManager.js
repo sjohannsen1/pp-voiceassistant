@@ -46,7 +46,6 @@ function downloadSkill(name = "HelloWorld", tag = "latest") {
     })
 }
 
-//TODO adfgh
 
 function uploadSkill(name, tag, data){
     return new Promise((resolve, reject) => {
