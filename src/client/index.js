@@ -19,5 +19,5 @@ rhasspy.postSlots("launch", defaults["launch"], true).then(() => rhasspy.trainRh
 //TODO add env-variable to switch ui and cli on and off
 
 webinterface.startUI(process.env.LOCALE || "de_DE", process.env.PORT || "12102");
-// cli.startCLI();
+cli.startCLI(process.env.LOCALE);
 
