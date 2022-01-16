@@ -69,7 +69,4 @@ Möchte man keine der Beiden oben genannten Möglichkeiten nutzen, so kann man d
 Um den eigenen Server zu nutzen, kann man in der Actions Console einen Webhook definieren, an welchen dann die Daten gesendet werden.  
 Als Backend kann man dann sämtliche Sprachen verwenden, die Webhooks unterstützen.  
 
-## Quellen
 
-[Google I/O'19](https://www.youtube.com/watch?v=dpNrq_wiqGs&t=1s)  
-[Tutorial By Mirek Stanek](https://chatbotsmagazine.com/your-first-google-assistant-skill-883cf6c21545)  

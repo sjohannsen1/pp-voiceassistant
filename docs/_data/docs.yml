@@ -1,6 +1,7 @@
 - title: Willkommen
   docs:
     - home
+    - installation
 
 - title: Evaluationen
   docs:
@@ -8,6 +9,7 @@
     - evaluation/google-assistant
     - evaluation/home-assistant
     - evaluation/conclusion
+    - evaluation/sources
 
 - title: Client
   docs:

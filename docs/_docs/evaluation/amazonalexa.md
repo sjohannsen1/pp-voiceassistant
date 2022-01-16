@@ -15,7 +15,8 @@ Ich beschränke mich auf [Alexa Hosted Skills] mit der Programmiersprache JavaSc
 Ein Befehl bei Alexa ist wie folgt aufgebaut:  
 ``<wake word>, <launch> <Invocation name> <utterance>``  
 Was die einzelnen Teile des Befehls bedeuten, habe ich [hier](./../skill/instruction.md#aufbau-eines-befehls) etwas ausführlicher beschrieben.  
-
+Die einzelnen Teile eines Befehls können auch in anderer Reihenfolge auftreten, sodass der Invocation Name nach der Utterance kommt.  
+Amazon stellt dazu einige Füllwörter bereit, welche genutzt werden können, um einen natürlich klingenden Satz zu bilden.  
 
 
 ## Ordnerstruktur
@@ -71,7 +72,7 @@ Da dieser Aufbau für sehr viele unterschiedliche Skills funktionieren muss und 
 
 Im Verzeichnis ``response/display`` befinden sich Daten für Alexa-Geräte mit einem Display (z.B. [Echo Show]).  
 Im Rahmen dieses Projektes beschränke ich mich jedoch lediglich auf eine Audio-Wiedergabe.  
-Das Verzeichnis ``response/promt`` beinhaltet Antworten für Alexa Conversations Description Language (ACDL), welche sich jedoch zurzeit noch im Beta Status befindet.  
+Das Verzeichnis ``response/prompt`` beinhaltet Antworten für Alexa Conversations Description Language (ACDL), welche sich jedoch zurzeit für viele Sprachen noch im Beta Status befindet.  
 Daher beachte ich auch das Verzeichnis ``skill-package/conversations`` nicht.  
 Bei der Datei ``skill.json`` handelt es sich um einige Metadaten, die in erster Linie auch für Alexa Conversations relevant sind.  
 
@@ -282,28 +283,3 @@ Dieses Kit kümmert sich um die Kommunikation zwischen dem Skill und der Alexa U
 Man kann darüber auf die unter im [Interaction Model](#interaction-model) definierten Intents und Validierungen zugreifen und es liegt jedem Skill zu grunde.  
 Es ist für NodeJS, Java und Python verfügbar.  
 
-
-
-## 
-- NodeJS oder Python
-- Übernehmen tue ich:
-  - Befehlsaufbau
-  - Aufteilung in verschiedene locales files
-  - Auch ich stelle sdk bereit mit einigen utility funktionen
-- nicht übernehmen tue ich:
-  - aufteilung von ein- und ausgabe in verschiedene directories
-  - audio format -> bei mir ist es sehr viel simpler
-  - sdk ist nicht bei jedem skill extra dabei
-
-## Quellen
-
-[//]: # (TODO clean up)
-
-[Change Me](https://developer.amazon.com/en-US/docs/alexa/custom-skills/choose-the-invocation-name-for-a-custom-skill.html)  
-[Change Me](https://developer.amazon.com/en-US/docs/alexa/smapi/interaction-model-schema.html#sample-interaction-model-schema)  
-[Change Me]()  
-[Change Me]()  
-[Change Me]()  
-
-[Alexa Dev Course (Ger)](https://www.youtube.com/playlist?list=PL2KJmkHeYQTNIYkWM6E4hMXZMk9PRYYn3)  
-[Alexa Dev Course (Eng)](https://www.youtube.com/playlist?list=PL2KJmkHeYQTO65ko4I--OC-7CC_Cjg8sS)  
