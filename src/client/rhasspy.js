@@ -27,7 +27,6 @@ async function postSentences(intentName, intents){
 
         if (sentences.length === 0) sentencesString = "";
         data[fileName] = sentencesString;
-        console.log(data)
     }
     return await postToRhasspy("/api/sentences",  data);
 }

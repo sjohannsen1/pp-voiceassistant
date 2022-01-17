@@ -14,15 +14,16 @@ Ich erkläre die Funktionen und Begriffe anhand folgenden Beispiels aus dem Hell
 ````json
 {
   "invocation": "Hallo Welt",
-  "subcommands": [
+  "description": "Das ist ein ganz klassisches HelloWorld-Programm.\nBenutzte einen der unteren Sätze um es auszuprobieren.",
+  "intents": [
     {
-      "utterance": "sag ($slots/hello){hello} ($slots/world){world}",
+      "sentences": ["sag ($slots/hello){hello} ($slots/world){world}"],
       "function": "helloWorld",
       "args": ["hello", "world"],
       "answer": ""
     },
     {
-      "utterance": "sag ($slots/hello){hello}",
+      "sentences": ["sag ($slots/hello){hello}"],
       "function": "hello",
       "args": ["hello"],
       "answer": ""
@@ -41,14 +42,15 @@ Dieser Punkt bezeichnet den Namen des Befehls, unter dem man den Befehl ansprech
 Hier ist das "Hallo Welt".  
 Man kann auch Invocation Names übersetzten.  
 In der [``en_US.json``](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/HelloWorld/1.0/locales/en_US.json) ist dieser Name zum Beispiel als "Hello World" definiert.  
+Üblicherweise wird der Invocation Name dazu genutzt, einen Skill eindeutig zu identifizieren.  
+Wenn man also zwei verschiedene Skills für die Wetterinformationen hat, kann man einen beispielsweise mit "OpenWeather" und den anderen mit "Deutscher Wetterdienst" aufrufen.  
 
-
-## Subcommands
-Unter diesem Punkt sind alle Unterbefehle aufgeführt.  
+## Intents
+Unter diesem Punkt sind alle Unterbefehle des Skills aufgeführt.  
 Jeder Befehl wird durch die folgenden Unterpunkte definiert:
 
-### Utterance
-Dies definiert den Aufbau des Unterbefehls.  
+### Sentences
+Dies definiert die Sätze mit denen die einzelnen Unterbefehle genutzt werden können.  
 Die Syntax richtet sich dabei ganz nach der von [Rhasspy](https://rhasspy.readthedocs.io/en/latest/training/).  
 Hier werden die [Slots](#slots) eingebunden, welche weiter unten definiert, und von der [Funktion](#function) verwendet werden.
 
@@ -60,18 +62,18 @@ Diese Funktion muss im ``src`` Verzeichnis des jeweiligen Skills, in der Datei `
 Durch die ``Slots`` werden Argumente definiert, die in einem Unterbefehl genutzt werden können.  
 Die Reihenfolge der Argumente im Satz kann sich von Sprache zu Sprache unterscheiden.  
 Damit man nicht für jede Sprache eine eigene Funktion definieren muss, bei der sich lediglich die Parameter-Reihenfolge unterscheidet, gibt man unter ``args`` die gewünschte Reihenfolge an.  
-Die Namen müssen mit den Namen der Slots im ``utterance`` Punkt übereinstimmen.  
+Die Namen müssen mit den Namen der Slots im ``sentences`` Punkt übereinstimmen.  
 
 ### Antwortsätze
 Für einige Funktionen ist es hilfreich einen Antwortsatz zu definieren.  
-Bei diesem Satz können, mittels des [sdk](./sdk.md#antwort-generieren), Zeichen durch im Code generiert Variablen ersetzt werden.  
+Bei diesem Satz können, mittels des [sdk](./sdk.md#antwort-generieren), Zeichen durch im Code generierte Variablen ersetzt werden.  
 Der Satz wird dann vom TTS-System ausgesprochen.
 
 ## Slots
 Hier werden alle Slots definiert die Rhasspy nicht bereits kennt.  
 Dazu gibt man unter dem Slot-Namen alle möglichen Werte des Slots als Array an.  
-Möchte man diese Slots verwenden, muss man sie unter ``utterance`` wie folgt angeben:  
+Möchte man diese Slots verwenden, muss man sie unter ``sentences`` wie folgt angeben:  
 ``($slots/<Name des Slots>){Variablen Name}``
-
-
-
+Es gibt einen Slot, den man nicht definieren muss, um ihn zu nutzen.  
+Den Slot ``($slots/zigbee2mqtt){zigbee2mqtt}``.  
+Dieser wird beim start des Skillmanagers automatisch erstellt und beinhaltet alle Geräte und Gruppen, die in einer möglichen [Zigbee2MQTT-Instanz](https://zigbee2mqtt.io/) definiert wurden.
