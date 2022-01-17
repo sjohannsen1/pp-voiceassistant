@@ -1,9 +1,9 @@
 {
   "invocation": "",
   "description": "",
-  "subcommands": [
+  "intents": [
     {
-      "utterance": "",
+      "sentences": [""],
       "function": "",
       "args": [],
       "answer": ""

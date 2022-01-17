@@ -12,18 +12,23 @@ async function trainRhasspy() {
 }
 
 // Adds a Sentence to an Intent
-async function postSentences(intentName, sentences){
+async function postSentences(intentName, intents){
     let data = {}
     let fileName = `intents/${intentName}.ini`;
     let sentencesString = ``;
 
-    for (let i in sentences){
-        sentencesString = `${sentencesString}[${intentName}_${i}]\n${sentences[i]}\n`;
+    for (let i in intents){
+        let sentences = intents[i];
+
+        sentencesString = `${sentencesString}[${intentName}_${i}]\n`;
+        for (let j in sentences){
+            sentencesString = `${sentencesString}${sentences[j]}\n`;
+        }
+
+        if (sentences.length === 0) sentencesString = "";
+        data[fileName] = sentencesString;
+        console.log(data)
     }
-
-    if (sentences.length === 0) sentencesString = "";
-    data[fileName] = sentencesString;
-
     return await postToRhasspy("/api/sentences",  data);
 }
 
@@ -44,12 +49,19 @@ function registerSkill(skillName, locale = "de_DE", version){
             await postSlots(slot, skill.slots[slot], true).catch(reject);
         }
 
-        let sentences = [];
-        for (let i in skill.subcommands){
-            sentences.push(`($slots/launch){launch} ${skill.invocation} ${skill.subcommands[i].utterance}`);
+        let intents = [];
+        for (let i in skill["intents"]){
+            let sentences = skill["intents"][i]["sentences"];
+
+            let formattedSentences = [];
+            for (let j in sentences){
+                formattedSentences.push(`($slots/launch){launch} ${skill["invocation"]} ${sentences[j]}`);
+            }
+
+            intents.push(formattedSentences);
         }
 
-        postSentences(skillName, sentences).then(() => {
+        postSentences(skillName, intents).then(() => {
             trainRhasspy().then(resolve);
         }).catch(reject);
     });
@@ -64,7 +76,8 @@ async function unregisterSkill(skillName, locale = "de_DE", version){
             await postSlots(slot, [], true).catch(reject);
         }
 
-        postSentences(skillName, []).then(() => {
+        postSentences(skillName, [[]]).then(() => {
+
             trainRhasspy().then(resolve);
         }).catch(reject);
     });

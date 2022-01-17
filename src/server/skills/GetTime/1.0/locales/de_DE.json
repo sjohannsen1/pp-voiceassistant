@@ -1,8 +1,8 @@
 {
   "invocation": "[GetTime]",
-  "subcommands": [
+  "intents": [
     {
-      "utterance": "wie spät ist es",
+      "sentences": ["wie spät ist es"],
       "function": "getTime",
       "args": [],
       "answer":  "Es ist # Uhr #"

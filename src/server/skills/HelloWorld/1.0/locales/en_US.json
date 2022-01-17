@@ -1,13 +1,13 @@
 {
   "invocation": "Hello World",
-  "subcommands": [
+  "intents": [
     {
-      "utterance": "say ($slots/hello){hello} ($slots/world){world}",
+      "sentences": ["say ($slots/hello){hello} ($slots/world){world}"],
       "function": "helloWorld",
       "args": ["hello", "world"]
     },
     {
-      "utterance": "say ($slots/hello){hello}",
+      "sentences": ["say ($slots/hello){hello}"],
       "function": "hello",
       "args": ["hello"]
     }

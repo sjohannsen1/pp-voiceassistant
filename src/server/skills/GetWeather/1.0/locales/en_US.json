@@ -1,8 +1,8 @@
 {
   "invocation": "[the] [weather service]",
-  "subcommands": [
+  "intents": [
     {
-      "utterance": "how [is] the weather ( currently | right now) [is]",
+      "sentences": ["how [is] the weather ( currently | right now) [is]"],
       "function": "getCurrentWeather",
       "args": [],
       "answer": "In # it is currently # at Temperatures of # degree Fahrenheit."

@@ -149,35 +149,40 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     let slots = localeFile.slots;
     slots = {launch: defaults["launch"], ...slots};
 
-    let sentences = [];
-    for (let i in localeFile.subcommands){
-        let utterance = localeFile.subcommands[i].utterance.replaceAll(/\(\$slots\/[a-zA-Z]+\)/g, "");
-        let numberMatches = utterance.match(/\(\d+..\d+\){[a-zA-Z]+}/g);
+    let formattedSentences = [];
+    for (let i in localeFile["intents"]){
+        let intent = localeFile["intents"][i]
+        let sentences = intent["sentences"];
 
-        if (numberMatches && numberMatches.length > 0) {
-            for (let i in numberMatches){
-                let parts = numberMatches[i].split("{");
-                let key = parts[1].substr(0, parts[1].length-1);
-                let values = parts[0].substr(1, parts[0].length-2).split("..").map(val => parseInt(val, 10));
-                let startValue = values[0];
-                let endValue = values[1];
-                let diff = endValue - startValue;
+        for (let i in sentences) {
+            sentences[i] = sentences[i].replaceAll(/\(\$slots\/[a-zA-Z]+\)/g, "");
+            let numberMatches = sentences[i].match(/\(\d+..\d+\){[a-zA-Z]+}/g);
 
-                if (diff > 4){
-                    let randomValuesInRange = Array.from({length: 3}, () => Math.floor(Math.random() * (diff) + startValue)).sort((a, b) => a-b);
-                    values = [...new Set([startValue, ...randomValuesInRange, endValue])];
-                }else{
-                    values = Array.from({length: diff+1}, (_,index) => startValue+index);
+            if (numberMatches && numberMatches.length > 0) {
+                for (let i in numberMatches){
+                    let parts = numberMatches[i].split("{");
+                    let key = parts[1].substr(0, parts[1].length-1);
+                    let values = parts[0].substr(1, parts[0].length-2).split("..").map(val => parseInt(val, 10));
+                    let startValue = values[0];
+                    let endValue = values[1];
+                    let diff = endValue - startValue;
+
+                    if (diff > 4){
+                        let randomValuesInRange = Array.from({length: 3}, () => Math.floor(Math.random() * (diff) + startValue)).sort((a, b) => a-b);
+                        values = [...new Set([startValue, ...randomValuesInRange, endValue])];
+                    }else{
+                        values = Array.from({length: diff+1}, (_,index) => startValue+index);
+                    }
+
+                    slots[key] = values;
                 }
 
-                slots[key] = values;
+                sentences[i] = sentences[i].replaceAll(/\(\d+..\d+\)/g, "");
             }
 
-            utterance = utterance.replaceAll(/\(\d+..\d+\)/g, "");
+            let formattedSentence = `... {launch} ${localeFile.invocation} ${sentences[i]}`;
+            formattedSentences.push(formattedSentence);
         }
-
-        let sentence = `... {launch} ${localeFile.invocation} ${utterance}`;
-        sentences.push(sentence);
     }
 
     return {
@@ -185,7 +190,7 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
         name: name,
         version: getVersion(name),
         description: localeFile.description,
-        sentences: sentences,
+        sentences: formattedSentences,
         slots: slots,
         options: getFormattedOptionsList(skillOptions, configs.options || [])
     }
@@ -378,17 +383,17 @@ function getFunctionBYIntentName(intentName, slots, locale = "de_DE"){
     let skillName = intentName.split("_")[0];
     let intentNumber = intentName.split("_")[1];
 
-    let subcommands = getLocale(skillName, locale)["subcommands"];
+    let intents = getLocale(skillName, locale)["intents"];
 
-    if (!subcommands[intentNumber]) return {};
+    if (!intents[intentNumber]) return {};
 
     let params = [];
-    subcommands[intentNumber]["args"].forEach(param => params.push(slots[param]));
+    intents[intentNumber]["args"].forEach(param => params.push(slots[param]));
 
     return {
-        "name": subcommands[intentNumber]["function"],
+        "name": intents[intentNumber]["function"],
         "params": params,
-        "answer": subcommands[intentNumber]["answer"]
+        "answer": intents[intentNumber]["answer"]
     };
 }
 

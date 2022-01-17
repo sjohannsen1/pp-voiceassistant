@@ -1,15 +1,15 @@
 {
   "invocation": "Hallo Welt",
   "description": "Das ist ein ganz klassisches HelloWorld-Programm.\nBenutzte einen der unteren Sätze um es auszuprobieren.",
-  "subcommands": [
+  "intents": [
     {
-      "utterance": "sag ($slots/hello){hello} ($slots/world){world}",
+      "sentences": ["sag ($slots/hello){hello} ($slots/world){world}"],
       "function": "helloWorld",
       "args": ["hello", "world"],
       "answer": ""
     },
     {
-      "utterance": "sag ($slots/hello){hello}",
+      "sentences": ["sag ($slots/hello){hello}"],
       "function": "hello",
       "args": ["hello"],
       "answer": ""
