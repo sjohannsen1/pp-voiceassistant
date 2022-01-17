@@ -15,10 +15,10 @@ async function trainRhasspy() {
 async function postSentences(intentName, sentences){
     let data = {}
     let fileName = `intents/${intentName}.ini`;
-    let sentencesString = `[${intentName}]`;
+    let sentencesString = ``;
 
     for (let i in sentences){
-        sentencesString = `${sentencesString}\n${sentences[i]}`;
+        sentencesString = `${sentencesString}[${intentName}_${i}]\n${sentences[i]}\n`;
     }
 
     if (sentences.length === 0) sentencesString = "";

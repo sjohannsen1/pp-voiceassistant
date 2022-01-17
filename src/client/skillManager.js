@@ -373,51 +373,25 @@ function getUpdates(locale = "de_DE"){
     });
 }
 
-// Get all functions of intent
-function getFunctionsOfSkill(skillName, locale = "de_DE"){
-    let functions = {}
+// Returns a funktion based on IntentName
+function getFunctionBYIntentName(intentName, slots, locale = "de_DE"){
+    let skillName = intentName.split("_")[0];
+    let intentNumber = intentName.split("_")[1];
 
-    let subcommands = getLocale(skillName, locale).subcommands;
+    let subcommands = getLocale(skillName, locale)["subcommands"];
 
-    for (let i in subcommands){
-        let functionName = subcommands[i]["function"];
-        functions[functionName] = {
-            args: subcommands[i].args,
-            answer: subcommands[i].answer
-        }
-    }
-    return functions;
-}
+    if (!subcommands[intentNumber]) return {};
 
-// Checks if Intent has Function with Matching Slots/Parameters
-function getFunctionMatchingSlots(skillName, slots, locale = "de_DE"){
-    let fun = {}
     let params = [];
+    subcommands[intentNumber]["args"].forEach(param => params.push(slots[param]));
 
-    let functions = getFunctionsOfSkill(skillName, locale);
-    for (let i in functions){
-        if (functions[i].args.length === Object.keys(slots).length && compareSlotsWithParams(slots, functions[i].args)){
-            functions[i].args.forEach(param => params.push(slots[param]));
-
-            fun["name"] = i;
-            fun["params"] = params;
-            fun["answer"] = functions[i].answer;
-            return fun;
-        }
-    }
-    return {};
+    return {
+        "name": subcommands[intentNumber]["function"],
+        "params": params,
+        "answer": subcommands[intentNumber]["answer"]
+    };
 }
 
-// Compares Slots and Functions to find the right function of Intent
-function compareSlotsWithParams(slots, params){
-    for (let i in params){
-        let param = params[i];
-        if (slots[param] === undefined){
-            return false;
-        }
-    }
-    return true;
-}
 
 // Custom Intent Handler to call functions based on Intent and Slots
 function customIntentHandler(topic, message){
@@ -438,15 +412,15 @@ function customIntentHandler(topic, message){
         }
     }
 
-    let fun = getFunctionMatchingSlots(formatted.intent.intentName, slots, process.env.LOCALE || "de_DE");
+    let fun = getFunctionBYIntentName(formatted.intent.intentName, slots, process.env.LOCALE || "de_DE");
 
     if (fun.hasOwnProperty("name") && fun.hasOwnProperty("params") && fun.hasOwnProperty("answer")){
         customSdk.setAnswer(fun["answer"]);
 
-        getSkills()[formatted.intent.intentName][fun["name"]].apply(this, fun["params"]);
+        getSkills()[formatted.intent.intentName.split("_")[0]][fun["name"]].apply(this, fun["params"]);
     }
 }
 
 module.exports = {
-    skills, loadSkills, downloadSkill, uploadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, activateSkill, deactivateSkill, setVersion, getUpdates, getFunctionMatchingSlots, customIntentHandler
+    skills, loadSkills, downloadSkill, uploadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, activateSkill, deactivateSkill, setVersion, getUpdates, customIntentHandler
 }

@@ -69,7 +69,7 @@ async function init() {
                 default:
                     sessionData["siteId"] = formatted.siteId;
                     sessionData["sessionId"] = formatted.sessionId;
-                    sessionData["skill"] = formatted.intent.intentName;
+                    sessionData["skill"] = formatted.intent.intentName.split("_")[0];
 
                     configObject.intentHandler(topic, message);
             }

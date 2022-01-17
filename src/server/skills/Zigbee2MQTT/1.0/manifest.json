@@ -3,9 +3,9 @@
   "dependencies": {},
   "options": [
     {
-      "name": "Test",
+      "name": "Zigbee2MQTT-Topic",
       "type": "String",
-      "default": "String here."
+      "default": "zigbee2mqtt"
     }
   ]
 }
