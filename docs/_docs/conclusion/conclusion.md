@@ -58,14 +58,15 @@ Dabei kann Alexa nach Informationen Fragen, sollten diese nicht im ersten Befehl
 Sagt man also: "Alexa, erstelle mir eine Erinnerung für den Tag XY."  
 Kann Alexa beispielsweise fragen: "Ok, woran soll ich dich erinnern?"  
   
-Für einige Smarthomefunktionen könnte man den Skills eine Liste der verfügbaren MQTT- und Zigbee-Geräten übergeben.  
-Da Rhasspy für die Spracherkennung, die Namen der Geräte kennen muss, müsste man diese Liste auch als Slot trainieren.  
-
+Man könnte ein System implementieren, mit dem man Audiodateien abspielen kann.    
+So könnten man Töne nutzen, um zum Beispiel einen Wecker-Skill zu erstellen.  
+   
 Bisher gibt es das Webinterface ausschließlich auf Deutsch.  
 Hier könnte ein das Lokalisierungssystem erweitert werden, sodass auch die einzelnen Seiten des Webinterfaces in der Sprache angezeigt werden, welche als ``.env``-Variable beim Start angegeben wird.  
+  
+[//]: # (Ein weiterer Schritt könnte es sein, einige Skills als "Standardkit" zu implementieren.  )
 
-Ein weiterer Schritt könnte es sein, einige Skills als "Standardkit" zu implementieren.  
-Dazu gibt es ein Anschlussprojekt von Sophia Johannsen, welches man [hier] findet.  
+[//]: # (Dazu gibt es ein Anschlussprojekt von Sophia Johannsen, welches man [hier] findet.  )
 
 [//]: # (TODO repo link von sophia)
 

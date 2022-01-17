@@ -6,17 +6,34 @@ const cli = require("./cli-tool.js");
 const fs = require("fs");
 const defaults = JSON.parse(fs.readFileSync(`./defaults.json`).toString())[process.env.LOCALE || "de_DE"];
 
+let initiated = false;
+function getInitStatus(){
+    return initiated;
+}
 
 skillManager.loadSkills();
 customSdk.config({
     mqtt: process.env.MQTTHOST || "localhost",
     port: process.env.MQTTPORT || "1883",
-    intentHandler: skillManager.customIntentHandler
+    intentHandler: skillManager.customIntentHandler,
+    zigbeeTopic: process.env.ZIGBEETOPIC || "zigbee2mqtt",
+    zigbeeUpdater: updateZigbeeList
 });
+rhasspy.postSlots("zigbee2mqtt", [], true).catch(console.error);
 customSdk.init().catch(console.error);
-rhasspy.postSlots("launch", defaults["launch"], true).then(() => rhasspy.trainRhasspy()).catch(console.error);
+rhasspy.postSlots("launch", defaults["launch"], true)
+    .then(() => rhasspy.trainRhasspy().then(() => initiated = true))
+    .catch(console.error);
 
-//TODO add env-variable to switch ui and cli on and off
+// Updates the zigbee2MQTT slot
+function updateZigbeeList(){
+    let zigbeeNames = [...customSdk.getZigbeeDevices(), ...customSdk.getZigbeeGroups()] || [];
+    rhasspy.postSlots("zigbee2mqtt", zigbeeNames, true)
+        .then(() => {
+            if (!getInitStatus()) return;
+            rhasspy.trainRhasspy().catch(console.error);
+        }).catch(console.error);
+}
 
 webinterface.startUI(process.env.LOCALE || "de_DE", process.env.PORT || "12102");
 cli.startCLI(process.env.LOCALE);

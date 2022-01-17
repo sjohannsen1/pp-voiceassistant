@@ -15,13 +15,10 @@ Außerdem kann man den jeweiligen Skill hier löschen.
 ![Installed-Page](./../../assets/img/Webinterface/overviewPage.png)  
 *Bild der Übersicht-Seite*
 
-[//]: #bersicht (TODO screenshot erneuern)
-
-
 ## Details
 Auf dieser Seite befinden sich alle Informationen und Details die für den Endnutzer wichtig sind.  
 Man erhält eine kleine Beschreibung des Skills und einige Sätze, die man verwenden kann, um den Skill zu benutzen.  
-Außerdem kann man hier einige benötigte Informationen angeben.  
+Außerdem kann man hier einige benötigte Optionen angeben.  
 Am Beispiel des GetWeather-Skills wären das unter anderem die Stadt oder der API-Key.  
 Ein Entwickler kann diese Optionen in der ``manifest.json`` angeben, gespeichert werden sie dann in der ``skillConfigs.json``.  
 
@@ -61,6 +58,9 @@ Ein Entwickler kann diese Optionen in der ``manifest.json`` angeben, gespeichert
 }
 ```  
 *[GetWeather/manifest.json](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/GetWeather/1.0/manifest.json)*
+
+Zu guter Letzt kann man auf dieser Seite den jeweiligen Skill [aktivieren und deaktivieren](./skillmanager.md#skills-aktivieren).  
+Das sorgt dafür, dass die Intents und Slots bei Rhasspy registriert werden und der Skill dadurch nutzbar gemacht wird.
 
 ## Download
 Über das Webinterface kann man neue Skills von einem Server Herunterladen.  

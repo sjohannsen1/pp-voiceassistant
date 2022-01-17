@@ -46,9 +46,8 @@ HelloWorld
 Jede Version eines Skills wird durch einen Ordner dargestellt.  
 In jedem diese Ordner gibt es eine ``manifest.json`` und die beiden Unterordner ``src`` und ``locales``.  
 In der ``manifest.json`` werden, für den Skill notwendige Angaben gespeichert, wie z.B. verschiedene [npm-dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies), die für den Skill benötigt werden.  
-Oder Variablen, welche der Endnutzer über das [Webinterface](./../client/webinterface.md#config-variablen) einstellen soll.
-
-[//]: # (TODO manifest.json von homeassistant abgeleitet)
+Oder Variablen, welche der Endnutzer über das [Webinterface](./../client/webinterface.md#details) einstellen soll.  
+Was in einer solchen ``manifest.json``-Datei stehen muss, habe ich [hier](./manifest.md) näher beschrieben.
 
 Im Unterordner ``locales`` befinden sich die Dateien, welche den Aufbau eines Befehls definieren. Dabei handelt es sich bei jeder Datei um eine jeweilige Sprache bzw. Lokalisierung.
 
@@ -78,8 +77,3 @@ Unter Windows geht das Erstellen der Zip sehr einfach.
 2. Auf "Senden an" klicken.  
 3. Und "ZIP-komprimierter Ordner" auswählen.  
 ![Zip erstellen](./../../assets/img/Zip-Windows/zip-erstellen.png)  
-
-
-
-
-[//]: # (TODO neue manifest.md einbinden)

@@ -13,13 +13,17 @@ Damit der Skillmanager die Skills korrekt verwenden kann, müssen bei der Initia
 
 ### Config
 
-Beim start des Skillmanagers wird ein ``configObject`` erstellt, in dem einige Konfigurationen gespeichert werden.  
+Beim start des Skillmanagers wird über das SDK ein ``configObject`` erstellt, in dem einige Konfigurationen gespeichert werden.  
 
 ````javascript
 let configObject = {
     mqtt: 'localhost',
     intentHandler: () => {},
-    variables: {}
+    variables: {},
+    zigbeeTopic: "",
+    zigbeeUpdater: () => {},
+    zigbeeDevices: [],
+    zigbeeGroups: []
 }
 ````
 *[sdk/index.js](https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js)*
@@ -27,7 +31,13 @@ let configObject = {
 Unter ``mqtt`` wird die Host-IP des [MQTT-Brokers](https://mqtt.org/) gespeichert, über den Rhasspy mit den einzelnen Komponenten kommuniziert.  
 Über diesen Broker kommen auch alle [Intents](https://rhasspy.readthedocs.io/en/latest/intent-recognition/#mqtthermes) an, welche dann vom ``intentHandler`` verarbeitet werden.  
 Beim ``intentHandler`` handelt es sich um eine Callback-Funktion, welche in ``skillManager.js`` definiert wurde.
-In Variables werden die vom Endnutzer gesetzten Optionen gespeichert, damit diese von den Skills über eine SDK-Funktion abgerufen werden können.  
+In Variables werden die von den Endnutzerinnen und Endnutzern gesetzten Optionen gespeichert, damit diese von den Skills über eine SDK-Funktion abgerufen werden können.  
+  
+Bei ``zigbeeTopic`` handelt es sich um das Topic, auf welches eine, mögliche [Zigbee2MQTT-Instanz](https://www.zigbee2mqtt.io/) ihre Daten veröffentlicht.  
+Zigbee2MQTT ist hierbei optional.  
+Sollte eine solche Anwendung vorliegen, so wird eine Liste mit allen Geräten und Gruppen ausgelesen und an den ``zigbeeUpdater`` übergeben.  
+Dabei handelt es sich wieder um eine Callbackfunktion, die diese Liste bei Rhasspy als Slot registriert.  
+``zigbeeDevices`` und ``zigbeeGroups`` beinhalten die jeweiligen Einträge.  
   
 Diese Angaben werden vom [Skillmanager](./../client/skillmanager.md) mittels der ``config``-Funktion gesetzt.
 
@@ -42,36 +52,39 @@ function config(options = {}){
 ```` 
 *[sdk/index.js](https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js)*
 
-Bei dieser Funktion handelt es sich im Grunde um eine einfache Setter Funktion, welche jedoch darauf achtet, dass nur im ``configObject`` deklarierte Felder gesetzt werden.
+Bei dieser Funktion handelt es sich im Grunde um eine einfache Setter Funktion, welche jedoch darauf achtet, dass nur im ``configObject`` deklarierte Felder gesetzt und verändert werden können.
 
 ### Init
 
-Mit der ``init``-Funktion verbindet sich der [Skillmanager](./../client/skillmanager.md) mit dem MQTT-Broker und abonniert das Topic ``hermes/intent/#``, wodurch alle Intents entgegengenommen werden.
+Mit der ``init``-Funktion verbindet sich der [Skillmanager](./../client/skillmanager.md) mit dem MQTT-Broker und abonniert einige Topics:
 
 ````javascript
 async function init() {
     client = await mqtt.connect(`mqtt://${configObject.mqtt}`);
 
     client.on("connect", function () {
+        client.subscribe(`${configObject.zigbeeTopic}/bridge/devices`);
+        client.subscribe(`${configObject.zigbeeTopic}/bridge/groups`);
+
         client.subscribe('hermes/intent/#');
 
         client.on('message', (topic, message) => {
-            let formatted = JSON.parse(message);
-            sessionData["siteId"] = formatted.siteId;
-            sessionData["sessionId"] = formatted.sessionId;
-
-            configObject.intentHandler(topic, message);
+            // ...
         });
     });
 }
 ````
 *[sdk/index.js](https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js)*
 
+Zwei der Topics dienen dazu, eine Liste aller Geräte und Gruppen von Zigbee2MQTT auszulesen und alle Änderungen mitzubekommen.   
+Diese Liste wird dann als Slot mit dem Namen "zigbee2mqtt" an Rhasspy gesendet, damit die Spracherkennung die Wörter erkennen kann.  
+  
+Das dritte Topic dient dazu alle eingehenden Intents von Rhasspy aufzufangen.  
 Nachdem ein Intent erkannt wird, werden sofort einige Informationen im JavaScript-Objekt ``sessionData`` gespeichert und die Nachricht an den im ``configObject`` gespeicherten ``intentHandler`` weitergegeben.  
 
 ## Sitzungsdaten
 
-Damit ein Skill-Entwickler sich nicht darum kümmern muss, über welchen Satelliten die Sprache ausgegeben wird, und auch in welcher Sitzung man sich derzeit befindet, gibt es die sog. ``sessionData``.
+Damit ein Skill-Entwickler sich nicht darum kümmern muss, über welchen Satelliten die Sprache ausgegeben wird oder in welcher Sitzung man sich derzeit befindet, gibt es die sog. ``sessionData``.
 
 ````javascript
 let sessionData = {
@@ -87,7 +100,7 @@ Hier werden einige Informationen gespeichert, welche direkt von Rhasspy kommen, 
 Diese werden unter anderem von der [``say``](#Sprachausgabe) Funktion genutzt, damit die Sprachausgabe auf dem Satelliten widergegeben wird, über welchen die Eingabe stattfand.  
 
 Aber auch Informationen eines Skills werden hier gespeichert.  
-So wird zum Beispiel basierend auf der ausgewählten Sprache, der Antwortsatz aus den jeweiligen JSON-Dateien ausgelesen.  
+So wird zum Beispiel basierend auf der ausgewählten Sprache, der Antwortsatz aus den jeweiligen ``locale``-Dateien ausgelesen.  
 
 ## Sprachausgabe
 
@@ -125,7 +138,7 @@ Bei diesem Beispiel werden die beiden Strings ``hello`` und ``world`` aneinander
 
 ## Antwort generieren
 
-Skill-Entwickler können [Antwortsätze]() in verschiedenen Sprachen definieren.  
+Skill-Entwicklerinnen und Entwickler können [Antwortsätze](./locales.md#antwortstze) in verschiedenen Sprachen definieren.  
 Damit diese jedoch mit einigen Werten erweitert werden können, muss ein solcher Satz generiert werden.  
 Dazu gibt der Entwickler einen Satz wie zum Beispiel ``Es ist # Uhr #`` (aus [GetTime](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/GetTime/1.0/src/index.js)) an.  
 Die Funktion ``generateAnswer`` ersetzt dann den Separator (standardmäßig ``#``) mit den Werten, die als Array übergeben werden.  
@@ -142,7 +155,7 @@ function generateAnswer(vars = [""], separator = "#"){
 ````
 *[sdk/index.js](https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js)*
 
-Möchte der Entwickler das Zeichen ``#`` selbst benutzen kann er einen eigenen Separator verwenden, muss diesen jedoch auch der Funktion übergeben.  
+Möchte man das Zeichen ``#`` selbst benutzen, kann man einen eigenen Separator verwenden, dazu muss dieser jedoch auch der Funktion übergeben werden.
 Der jeweilige Satz wird vom [Skillmanager](./../client/skillmanager.md) in der jeweiligen Sprache geladen und mit der einfachen Setter-Funktion ``setAnswer`` im Objekt ``sessionData`` gespeichert.  
 Von dort wird die Antwort ausgelesen.  
 
@@ -188,6 +201,32 @@ function getAllVariables(){
 
 Bei der Funktion ``getVariable`` wird lediglich der Wert, der übergeben Variable, zurückgegeben.
 
-[//]: # (## Fail-System)
+### Beispiel
 
-[//]: #fail-system (TODO dokumentieren)
+````javascript
+const customSdk = require("@fwehn/custom_sdk");
+
+function getUrl(){
+    return new Promise((resolve, reject) => {
+        customSdk.getAllVariables()
+            .then(variables => {
+                resolve(`https://api.openweathermap.org/data/2.5/forecast?zip=${variables["city"]},${variables["country"]}&appid=${variables["APIKey"]}&lang=${variables["language"]}&units=${variables["units"]}`);
+            }).catch(reject);
+    });
+}
+````
+*[GetWeather](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/GetWeather/1.0/src/index.js)*
+
+In diesem Beispiel werden die Angaben, die über das [Webinterface](./../client/webinterface.md#details) gesetzt wurden, dazu genutzt, eine URL zu generieren, um auf die API von [OpenWeather](https://openweathermap.org/) zuzugreifen.  
+
+## Publish
+
+Um möglichen Entwicklerinnen und Entwicklern mehr Möglichkeiten zu bieten, habe ich eine Funktion implementiert, mit der man eigene MQTT-Nachrichten senden kann.  
+
+````javascript
+function publishMQTT(topic, payload =  "{}"){
+    client.publish(topic, payload);
+}
+````
+
+Dazu müssen die zu sendenden Daten als String vorliegen.

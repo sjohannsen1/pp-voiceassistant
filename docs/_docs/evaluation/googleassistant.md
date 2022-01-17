@@ -35,11 +35,8 @@ Als Entwickler muss man mindestens zehn verschiedene Varianten eines Intents ang
 Google Actions basiert auf Javascript und verwendet einige Firebase-Ressourcen.  
 Es gibt viele verschiedene Möglichkeiten, Google Actions zu erstellen.  
 Von Google werden zwei Varianten empfohlen:
-- Mit der Actions Console
-- Mit dem Actions-SDK
-
-[//]: # (TODO link zur actions console)
-[//]: # (TODO link zum actions sdk)
+- Mit der [Actions Console](https://console.actions.google.com/)
+- Mit dem [Actions-SDK](https://developers.google.com/assistant/df-asdk/actions-sdk)
 
 ### Actions Console
 
@@ -73,3 +70,6 @@ Als Backend kann man dann sämtliche Sprachen verwenden, die Webhooks unterstüt
 
 [Google Assistant Dokumentation](https://developers.google.com/assistant)
 [Google I/O'19](https://www.youtube.com/watch?v=dpNrq_wiqGs&t=1s)
+
+
+[//]: # (TODO mehr)

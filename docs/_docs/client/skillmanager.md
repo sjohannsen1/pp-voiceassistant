@@ -11,7 +11,8 @@ Er stellt einige nützliche Funktionen bereit, unter anderem kümmert er sich um
 Um neue Skills zu installieren, gibt es zwei verschiedene Wege:  
 [Online](#online) und [Offline](#offline)  
 
-Für die Online-Variante benötigt man eine Instanz des Skillservers, unter welcher Adresse dieser erreichbar ist, kann man als Umgebungsvariable im Skillmanager speichern.  
+Für die Online-Variante benötigt man eine Instanz des [Skillservers](./../server/skillserver.md).  
+Unter welcher Adresse dieser erreichbar ist, kann man als Umgebungsvariable im Skillmanager speichern.  
 
 ### Online
 
@@ -22,14 +23,16 @@ Diese Daten werden dann vom Webinterface und der CLI verwendet, um dem Nutzer zu
 Mit der Funktion ``downloadSkill`` kann man dann einen bestimmten Skill in einer bestimmten Version herunterladen.  
 Dabei wird vom Server eine Zip-Datei heruntergeladen, die dann mit dem Package "adm-zip" entpackt und im entsprechendem Verzeichnis gespeichert werden.  
   
-[//]: # (- active und version-flag setzen)
+Beim Herunterladen der Skills, werden in der Datei ``skillConfigs.json`` die beiden Variablen ``active`` (auf ``false``) und ``version`` (auf die jeweilige Version) gesetzt.  
 
 
 ### Offline
 
-#### Manuell
 Hat man keine Möglichkeit eine Instanz des Skillservers zu betreiben oder zu erreichen, kann man Skills auch lokal installieren.  
-Dazu muss man jedoch einige Sachen beachten.  
+Dazu hat man zwei verschiedene Möglichkeiten.
+
+#### Manuell
+
 Zunächst muss man die Dateien des Skills inm Verzeichnis ``skills/<Name des Skills>/<Version des Skills>`` ablegen.  
 Wie das auszusehen hat, habe ich [hier](./../skill/instruction.md#ordner-anlegen) beschrieben.  
 Danach muss man in der Datei ``skillConfigs.json`` unter dem Schlüssel mit dem Namen des Skills ein neues Objekt anlegen.  
@@ -55,9 +58,9 @@ Wichtig dabei ist nur, dass man die Zip-Datei, welche vom Upload-Tool verlangt w
 
 Wenn man, wie oben beschrieben einen neuen Skill installiert hat, kann man diesen jedoch nicht sofort nutzen.  
 Man muss ihn erst aktivieren.  
-Das kann man entweder über die CLI oder über das Webinterface machen.  
+Das kann man entweder über die [CLI](./cli.md#befehle) oder über das [Webinterface](./webinterface.md#details) machen.  
 
-Dabei werden einige für den Skillmanager wichtige Konfigurationen in der ``skillConfigs.json`` getroffen und die verschiedenen Sätze als [Intents](./rhasspy.md#neue-intents-hinzufgen) bei Rhasspy [registriert](./rhasspy.md#rhasspy-trainieren).  
+Dabei werden einige, für den Skillmanager wichtige Konfigurationen in der ``skillConfigs.json`` getroffen und die verschiedenen Sätze als [Intents](./rhasspy.md#neue-intents-hinzufgen) bei Rhasspy [registriert](./rhasspy.md#rhasspy-trainieren).  
 
 ````json
 {
@@ -68,10 +71,6 @@ Dabei werden einige für den Skillmanager wichtige Konfigurationen in der ``skil
 }
 ````
 *Ausschnitt aus der Datei ``skillConfigs.json``. Der Skill wurde erfolgreich aktiviert.*
-
-[//]: # (TODO link zum rhasspy api docu von mir)
-[//]: # (TODO links zur cli und zu webinterface)
-[//]: # (TODO link zum Skillserver.md)
 
 ## Skills löschen
 
