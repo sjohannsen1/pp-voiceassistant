@@ -34,8 +34,6 @@ Die Pfade im Dockerfile müssen ggf. Angepasst werden.
 Aus dem Dockerfile kann mit ``docker build -t <Name des Images> .`` ein Image erzeugt werden.    
 Danach kann ein Container mit dem Befehl ``docker run <Name des Images>`` gestartet werden.  
 
-[//]: # (TODO anleitung zum erstellen eines images/containers verlinken/erstellen)
-
 ### Env-Variablen
 
 Damit man den Client in der eigenen individuellen Umgebung nutzen kann, gibt es einige Umgebungsvariablen:
