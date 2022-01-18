@@ -4,7 +4,7 @@ permalink: /docs/client/cli/
 ---
 
 Bevor ich das Webinterface erstellt habe, konnte man Skills lediglich über disses CLI (**C**ommand **L**ine **I**nterface) installieren und verwalten.  
-Die Bedienung über das Webinterface ist natürlich shr viel einfacher und bietet auch einige Extrafunktionen, allerdings wollte ich das CLI nicht unkommentiert lassen.
+Die Bedienung über das Webinterface ist natürlich sehr viel einfacher und bietet auch einige Extrafunktionen, allerdings wollte ich das CLI nicht unkommentiert lassen.
 
 ## Befehle
 
@@ -39,6 +39,3 @@ Um das CLI zu realisieren, nutze ich das integrierte NodeJS-Package [Readline](h
 Diese Umsetzung ist recht primitiv und bietet nicht allzu viele Möglichkeiten.  
 Allerdings ist das CLI auch nicht als Hauptbedienmöglichkeit meines Skillsystems gedacht.  
 Dazu sollte man das [Webinterface](./webinterface.md) nutzen.
-
-
-[//]: # (TODO mach besser)

@@ -39,4 +39,22 @@ Wie das unter Windows funktioniert habe ich [hier](./../skill/instruction.md#zip
 
 **Hinweis**: Derzeit gibt es keinerlei Überprüfungssysteme, die den Skill auf Fehler überprüfen. Man sollte also sicher sein, dass der Skill einwandfrei funktioniert.
 
-[//]: # (TODO endpoints auflisten)
+## Endpoints
+
+Damit der Skillmanager mit dem Server kommunizieren kann, habe ich einige HTTP-Endpoints definiert.  
+Über diese Endpoint erfragt der Client informationen über die Skills und deren Beschreibungen.  
+Außerdem werden letztendlich darüber auch die Skills heruntergeladen.   
+
+### GET-Endpoints
+
+Zunächst habe ich einige einfache Endpoints erstellt, die mit einer HTTP-GET-Anfrage abgerufen werden können:  
+
+- ``/skills/<locale-Bezeichnung>``: Gibt eine Liste aller vorhandene Skills zurück.
+- ``/skill/<Name des Skills>/<Version>``: Gibt informationen eines bestimmten Skills in einer bestimmten Version zurück.
+- ``/update/<locale-Bezeichnung>/<Name des Skills>/<Version>``: Überprüft, ob es zu einer vorhandenen Version ein Update gibt. (Nur [CLI](./../client/cli.md))
+- ``/download/<Name des Skills>/<Version>``: Läd einen bestimmten Skill in einer bestimmten Version als ``.zip``-Datei herunter. 
+
+## POST
+
+Für HTTP-POST-Anfragen gibt es lediglich einen Endpoint:
+- ``/upload``: Dieser Endpoint wird verwendet, um neue Skills auf den Server [hochzuladen](#upload).
