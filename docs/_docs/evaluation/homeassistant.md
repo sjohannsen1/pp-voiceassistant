@@ -38,10 +38,6 @@ Daher könnte eine Integration wie folgt erweitert werden:
 └── __init__.py
 ````
 
-
-
-[//]: # (TODO weiterschreiben)
-
 ## Manifest
 
 Wie in der Ordnerstruktur beschrieben, benötigt jede Integration eine Datei mit dem Namen ``manifest.json``.   
