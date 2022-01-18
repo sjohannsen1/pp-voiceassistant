@@ -70,6 +70,3 @@ Als Backend kann man dann sämtliche Sprachen verwenden, die Webhooks unterstüt
 
 [Google Assistant Dokumentation](https://developers.google.com/assistant)
 [Google I/O'19](https://www.youtube.com/watch?v=dpNrq_wiqGs&t=1s)
-
-
-[//]: # (TODO mehr)
