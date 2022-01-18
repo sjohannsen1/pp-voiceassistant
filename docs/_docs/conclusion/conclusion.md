@@ -17,12 +17,13 @@ Darüber hinaus sollte das System auch für "Nichtinformatiker" nutzbar sein.
 
 ## Was ist das Ergebnis des Projekts?
 
-Das Ergebnis meiner Arbeit ist ein wie oben beschriebenes System und bisher drei einfache Skills.
-Bei den Skills handelt es sich um einen sehr simplen "HelloWorld"-Skill, einen der die Zeit ansagt und einen Skill mit dem man Wetterinformationen erhalten kann.
+Das Ergebnis meiner Arbeit ist ein wie oben beschriebenes System und bisher vier einfache Skills.
+Bei den Skills handelt es sich um einen sehr simplen "HelloWorld"-Skill, einen Zeit-Skill, einen Wetter-Skill und einen SmartHome-Skill.  
 Mit jedem Skill habe ich versucht ein neues Feature zu implementieren.  
 So ging es beim "HelloWorld"-Skill lediglich darum, einen ersten Programmablauf festzulegen und mit dem Skill auf die Slots zuzugreifen.  
 Für den "GetTime"-Skill habe ich das [Antworten-System](./../skill/sdk.md#antwort-generieren) entworfen.  
-Und im "GetWeather"-Skill habe ich die [Optionen](./../client/webinterface.md#details) des Webinterfaces genutzt.  
+Im "GetWeather"-Skill habe ich die [Optionen](./../client/webinterface.md#details) des Webinterfaces genutzt.  
+Und beim "Zigbee2MQTT"-Skill habe ich auf die Geräte zugegriffen, die ich bei [Zigbee2MQTT](https://zigbee2mqtt.io/) registriert habe.  
 
 Dabei bildet das System in erster Linie eine solide Basis, auf der weiter aufgebaut werden kann.  
 Ich habe mich bemüht, das System so modular wie möglich zu entwickeln, sodass schnell und einfach neue Funktionen eingebaut oder bestehende Funktionen, wie zum Beispiel das Downloadsystem für neue Skills, verbessert werden können.  
@@ -49,6 +50,9 @@ Darüber hinaus gibt es bisher keine Möglichkeit, auf MQTT-Smarthome-Geräte im
 
 Auch wenn mein System dank NodeJS leicht installierbar ist, braucht man einige Kenntnisse über NodeJS oder Docker (da ich ein Docker-Image für die Installation erstellt habe).  
 Und es gibt keinen Installer für Leute, die sich mit IT nicht auskennen.  
+
+[//]: # (TODO Problem: npm dependencies relativ schwer zu installieren da kein package.json vorhanden ist)
+[//]: # (TODO das könnte man verbessern)
 
 ## Was wären die nächsten Schritte?
 
