@@ -44,10 +44,12 @@ function registerSkill(skillName, locale = "de_DE", version){
     return new Promise(async (resolve, reject) => {
         let skill = JSON.parse(fs.readFileSync(`${__dirname}/skills/${skillName}/${version}/locales/${locale}.json`).toString());
 
+        // post slots
         for (let slot in skill.slots) {
             await postSlots(slot, skill.slots[slot], true).catch(reject);
         }
 
+        // post intents
         let intents = [];
         for (let i in skill["intents"]){
             let sentences = skill["intents"][i]["sentences"];
@@ -71,10 +73,12 @@ async function unregisterSkill(skillName, locale = "de_DE", version){
     return new Promise(async (resolve, reject) => {
         let skill = JSON.parse(fs.readFileSync(`${__dirname}/skills/${skillName}/${version}/locales/${locale}.json`).toString());
 
+        // clear slots
         for (let slot in skill.slots) {
             await postSlots(slot, [], true).catch(reject);
         }
 
+        // clear intents
         postSentences(skillName, [[]]).then(() => {
 
             trainRhasspy().then(resolve);
