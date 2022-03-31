@@ -19,7 +19,7 @@ Außerdem kann man den jeweiligen Skill hier löschen.
 Auf dieser Seite befinden sich alle Informationen und Details die für den Endnutzer wichtig sind.  
 Man erhält eine kleine Beschreibung des Skills und einige Sätze, die man verwenden kann, um den Skill zu benutzen.  
 Außerdem kann man hier einige benötigte Optionen angeben.  
-Am Beispiel des GetWeather-Skills wären das unter anderem die Stadt oder der API-Key.  
+Am Beispiel des GetWeather-Skills wären das unter anderem die **Stadt** oder der **API-Key**.  
 Ein Entwickler kann diese Optionen in der ``manifest.json`` angeben, gespeichert werden sie dann in der ``skillConfigs.json``.  
 
 ![Details-Page](./../../assets/img/Webinterface/detailsPage-GetWeather.png)  

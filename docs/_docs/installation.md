@@ -25,7 +25,7 @@ Dann kann man sich die Verzeichnisse ["src/client"](https://github.com/fwehn/pp-
 Ich empfehle dabei die Ordnerstruktur beizubehalten, da das SDK im [``package.json``] des Clients als ``dependency`` mit einem relativen Pfad angegeben ist.  
 Dieser lässt sich jedoch leicht ändern, möchte man das SDK an einer anderen Stelle ablegen.
 
-Hat man alle benötigten Verzeichnisse heruntergeladen, muss man noch eine JSON-Datei mit dem Namen ``skillCOnfigs.json`` im Verzeichnis des Clients anlegen, die ein leeres JSON objekt (``{}``) enthält.
+Hat man alle benötigten Verzeichnisse heruntergeladen, muss man noch eine JSON-Datei mit dem Namen ``skillConfigs.json`` im Verzeichnis des Clients anlegen, die ein leeres JSON objekt (``{}``) enthält.
 
 ### Docker (Client)
 Im Verzeichnis ["src"](https://github.com/fwehn/pp-voiceassistant/tree/main/src) befindet sich ein [Dockerfile](https://github.com/fwehn/pp-voiceassistant/blob/main/src/Dockerfile), welches der erstellung eines Docker-Images dient.  

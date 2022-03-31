@@ -1,8 +1,9 @@
-FROM node:17-alpine
+FROM node:17
 
 WORKDIR /usr/src
 COPY sdk ./sdk
-RUN npm install sdk -g
+WORKDIR /usr/src/sdk
+RUN npm install -g
 
 WORKDIR /usr/src/app
 COPY client/package*.json ./
@@ -17,7 +18,8 @@ ENV PORT=12102 \
     SERVER=localhost:3000 \
     RHASSPY=localhost:12101 \
     MQTTHOST=localhost \
-    MQTTPORT=1883
+    MQTTPORT=1883 \
+    ZIGBEETOPIC=zigbee2mqtt
 
 ENTRYPOINT ["npm", "run"]
 CMD ["start"]

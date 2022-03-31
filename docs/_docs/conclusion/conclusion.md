@@ -68,6 +68,7 @@ So könnten man Töne nutzen, um zum Beispiel einen Wecker-Skill zu erstellen.
 Bisher gibt es das Webinterface ausschließlich auf Deutsch.  
 Hier könnte ein das Lokalisierungssystem erweitert werden, sodass auch die einzelnen Seiten des Webinterfaces in der Sprache angezeigt werden, welche als ``.env``-Variable beim Start angegeben wird.  
   
+
 [//]: # (Ein weiterer Schritt könnte es sein, einige Skills als "Standardkit" zu implementieren.  )
 
 [//]: # (Dazu gibt es ein Anschlussprojekt von Sophia Johannsen, welches man [hier] findet.  )

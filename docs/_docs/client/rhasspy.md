@@ -3,7 +3,11 @@ title: Rhasspy
 permalink: /docs/client/rhasspy/
 ---
 
-Hier beschreibe ich einige Dinge zu Rhasspy, welche ich genutzt habe, um mein Skillsystem umzusetzen.   
+Was ist Rhasspy?  
+Rhasspy ist eim Open-Source Sprachassistent.
+Es ist ein Programm, welches verschiedene Techniken, unter anderem eine WakeWord-Erkennung, eine Spracherkennung und eine Intent-Erkennung verbindet, sodass es möglich ist, aus einem gesprochenen Satz einen Befehl zu erkennen und zu verarbeiten.  
+  
+Auf dieser Seite beschreibe ich einige Dinge zu Rhasspy, welche ich genutzt habe, um mein Skillsystem umzusetzen.   
 Wie genau kommuniziert meine Anwendung mit der Rhasspy Instanz?  
 Wie betreibe ich Rhasspy eigentlich?  
 
@@ -39,7 +43,7 @@ Dazu wird ein Array mit den einzelnen Alternativen unter dem Slotnamen an obigen
 ## Rhasspy trainieren
 Um die Änderungen wirksam zu machen, muss man nach den obigen Anfragen eine weitere Anfrage an folgenden Endpoint senden: ``http://<host-ip>:12101/api/train``  
 Dadurch wird Rhasspy's eigene Trainingsroutine gestartet.  
-Rhasspy kümmert sich im Hintergrund darum, dass die Spracherkennung die neu hinzugefügten Wörter erkennt und die neuen Sätze vom Intentrecognition-System erfasst und die Intention bestimmt werden können.  
+Rhasspy kümmert sich im Hintergrund darum, dass die Spracherkennung die neu hinzugefügten Wörter erkennt und die neuen Sätze von der Intent-Erkennung erfasst und die Intentionen bestimmt werden können.  
 
 
 
@@ -55,10 +59,10 @@ Dabei hat man einen Zentralen Server (in meinem Fall das Cluster) und einen oder
 *Bild meines Satellites (Raspberry Pi Zero W)*
 
 Auf beiden läuft ein Docker Container basierend auf dem [Rhasspy Image](https://rhasspy.readthedocs.io/en/latest/installation/#docker).  
-Darüber hinaus läuft ein Mosquitto Container als MQTT-Broker auf dem Base-Server (Cluster).  
+Darüber hinaus läuft ein [Mosquitto Container](https://hub.docker.com/_/eclipse-mosquitto) als MQTT-Broker auf dem Base-Server (Cluster).  
 Beide Rhasspy Instanzen verbinden sich mit dem MQTT-Broker, um miteinander zu kommunizieren. 
 
-Dabei kümmer sich der Base Container um folgende Punkte:  
+Dabei kümmert sich der Base Container um folgende Punkte:  
 - Speech to Text ([Kaldi](https://kaldi-asr.org/))
 - Intent Recognition ([Fsticuffs](https://rhasspy.readthedocs.io/en/latest/intent-recognition/#fsticuffs))
 - Text to Speech ([NanoTTS](https://github.com/gmn/nanotts))

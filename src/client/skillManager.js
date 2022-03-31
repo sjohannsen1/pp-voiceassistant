@@ -32,7 +32,7 @@ function loadSkills(locale = "de_DE"){
     skills = skillsLocal;
 }
 
-//Downloads the latest version of a Skill as zip and unzips it
+// Downloads the latest version of a Skill as zip and unzips it
 function downloadSkill(name = "HelloWorld", tag = "latest") {
     return new Promise((resolve, reject) => {
         axios.get(`http://${process.env.SERVER || "localhost:3000"}/download/${name}/${tag}`, {
@@ -46,7 +46,7 @@ function downloadSkill(name = "HelloWorld", tag = "latest") {
     })
 }
 
-
+// Function used by the webinterface to save Uploaded skill files to the skill directory
 function uploadSkill(name, tag, data){
     return new Promise((resolve, reject) => {
         try{
@@ -60,7 +60,7 @@ function uploadSkill(name, tag, data){
     })
 }
 
-//Deletes the Local Skill-Files
+// Deletes the Local Skill-Files
 function deleteLocalSkillFiles(name = "HelloWorld"){
     return new Promise((resolve, reject) => {
         let installed = getInstalledSkills();
@@ -76,7 +76,7 @@ function deleteLocalSkillFiles(name = "HelloWorld"){
     })
 }
 
-//Get a list of Skills on Server
+// Get a list of Skills on Server
 function getRemoteSkills(locale = "de_DE") {
     return new Promise((resolve, reject) => {
         axios.get(`http://${process.env.SERVER || "localhost:3000"}/skills/${locale}`).then(res => {
@@ -98,7 +98,7 @@ function getRemoteSkills(locale = "de_DE") {
     });
 }
 
-//Get a list of locally installed skills
+// Get a list of locally installed skills
 function getInstalledSkills(locale = "de_DE"){
     let path = `${__dirname}/skills`;
     let skills = [];
@@ -113,7 +113,7 @@ function getInstalledSkills(locale = "de_DE"){
     return skills;
 }
 
-//Shows Overview of local Skill files
+// Shows Overview of local Skill files
 function getSkillsOverview(locale = "de_DE"){
     let res = [];
     let skills = getInstalledSkills(locale)
@@ -125,9 +125,9 @@ function getSkillsOverview(locale = "de_DE"){
         let skillConfig = configs[skills[i]] || {};
 
         res.push({
-            active: skillConfig.active || false,
+            active: skillConfig["active"] || false,
             name: skills[i],
-            description: localeFile.description || "-",
+            description: localeFile["description"] || "-",
             version: getVersion(skills[i])
         });
     }
@@ -135,7 +135,7 @@ function getSkillsOverview(locale = "de_DE"){
     return res;
 }
 
-//Get some Detailed Information of a Skill based on locale
+// Get some Detailed Information of a Skill based on locale
 function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     let installed = getInstalledSkills(locale);
     if (!installed.includes(name)) return {};
@@ -161,8 +161,8 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
             if (numberMatches && numberMatches.length > 0) {
                 for (let i in numberMatches){
                     let parts = numberMatches[i].split("{");
-                    let key = parts[1].substr(0, parts[1].length-1);
-                    let values = parts[0].substr(1, parts[0].length-2).split("..").map(val => parseInt(val, 10));
+                    let key = parts[1].substring(0, parts[1].length-1);
+                    let values = parts[0].substring(1, parts[0].length-2).split("..").map(val => parseInt(val, 10));
                     let startValue = values[0];
                     let endValue = values[1];
                     let diff = endValue - startValue;
@@ -180,19 +180,19 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
                 sentences[i] = sentences[i].replaceAll(/\(\d+..\d+\)/g, "");
             }
 
-            let formattedSentence = `... {launch} ${localeFile.invocation} ${sentences[i]}`;
+            let formattedSentence = `... {launch} ${localeFile["invocation"]} ${sentences[i]}`;
             formattedSentences.push(formattedSentence);
         }
     }
 
     return {
-        active: configs.active || false,
+        active: configs["active"] || false,
         name: name,
         version: getVersion(name),
-        description: localeFile.description,
+        description: localeFile["description"],
         sentences: formattedSentences,
         slots: slots,
-        options: getFormattedOptionsList(skillOptions, configs.options || [])
+        options: getFormattedOptionsList(skillOptions, configs["options"] || [])
     }
 }
 
@@ -203,14 +203,14 @@ function getFormattedOptionsList(skillOptions, skillConfig = {}){
     for (let i in skillOptions){
         let currentOption = skillOptions[i];
         let currentConfig = skillConfig.find(conf => {
-            return conf.name === currentOption.name;
+            return conf["name"] === currentOption["name"];
         }) || {};
 
         res.push({
-            name: currentOption.name,
-            value: currentConfig.value || currentOption.default,
-            type: currentOption.type,
-            choices: currentOption.choices || []
+            name: currentOption["name"],
+            value: currentConfig["value"] || currentOption["default"],
+            type: currentOption["type"],
+            choices: currentOption["choices"] || []
         })
     }
 
@@ -224,7 +224,7 @@ function saveConfig(skill, values, locale){
             let configsFile = getSkillConfigs();
             if (!configsFile[skill]) configsFile[skill] = {};
 
-            let skillOptions = configsFile[skill].options;
+            let skillOptions = configsFile[skill]["options"];
             if (!skillOptions) skillOptions = [];
 
             for (let key in values){
@@ -233,7 +233,7 @@ function saveConfig(skill, values, locale){
                 option["value"] = values[key];
 
                 let optionToReplace = skillOptions.find(option => {
-                    return option.name === key;
+                    return option["name"] === key;
                 });
 
                 if (!optionToReplace) {
@@ -244,7 +244,7 @@ function saveConfig(skill, values, locale){
                 }
             }
 
-            configsFile[skill].options = skillOptions;
+            configsFile[skill]["options"] = skillOptions;
             writeSkillConfigs(configsFile);
             customSdk.config({variables: getAllConfigVariables(locale)});
             resolve("Options Saved");
@@ -265,10 +265,10 @@ function getAllConfigVariables(locale = "de_DE"){
         let skillOptions = manifestFile["options"];
         let configs = getSkillConfigs()[name] || {};
 
-        let options = getFormattedOptionsList(skillOptions, configs.options || []);
+        let options = getFormattedOptionsList(skillOptions, configs["options"] || []);
         let variables = {};
         for (let i in options){
-            variables[options[i].name] = options[i].value;
+            variables[options[i]["name"]] = options[i]["value"];
         }
 
         res[installed[i]] = variables;
@@ -284,7 +284,7 @@ function setActivateFlag(skill, state){
             let configsFile = getSkillConfigs();
             if (!configsFile[skill]) configsFile[skill] = {};
 
-            configsFile[skill].active = state;
+            configsFile[skill]["active"] = state;
 
             writeSkillConfigs(configsFile);
             resolve("Changes Saved!");
@@ -344,12 +344,12 @@ function writeSkillConfigs(data){
 
 function getVersion(skill){
     let configs = getSkillConfigs();
-    return configs[skill].version;
+    return configs[skill]["version"];
 }
 
 function setVersion(skill, version){
     let configs = getSkillConfigs();
-    configs[skill].version = version;
+    configs[skill]["version"] = version;
     writeSkillConfigs(configs);
 }
 
@@ -368,8 +368,8 @@ function getUpdates(locale = "de_DE"){
         for (let i in installed) {
             let version = getVersion(installed[i]);
             await axios.get(`http://${process.env.SERVER || "localhost:3000"}/update/${locale}/${installed[i]}/${version}`).then(res => {
-                if (res.data.update) {
-                    availableUpdates[installed[i]] = res.data.version;
+                if (res.data["update"]) {
+                    availableUpdates[installed[i]] = res.data["version"];
                 }
             }).catch(reject);
         }
@@ -403,26 +403,26 @@ function customIntentHandler(topic, message){
     let slots = {};
     let formatted = JSON.parse(message.toString())
 
-    if (formatted.intent.intentName.startsWith("_")) {
-        console.log(`Ignored Intent: ${formatted.intent.intentName}`);
+    if (formatted["intent"]["intentName"].startsWith("_")) {
+        console.log(`Ignored Intent: ${formatted["intent"]["intentName"]}`);
         return;
     }
 
-    for (let i in formatted.slots){
-        let currentSlot = formatted.slots[i];
+    for (let i in formatted["slots"]){
+        let currentSlot = formatted["slots"][i];
 
-        if (currentSlot.slotName !== "launch"){
+        if (currentSlot["slotName"] !== "launch"){
             //TODO make launch slot accessible to skills
-            slots[currentSlot.slotName] = currentSlot.value.value;
+            slots[currentSlot["slotName"]] = currentSlot["value"]["value"];
         }
     }
 
-    let fun = getFunctionBYIntentName(formatted.intent.intentName, slots, process.env.LOCALE || "de_DE");
+    let fun = getFunctionBYIntentName(formatted["intent"]["intentName"], slots, process.env.LOCALE || "de_DE");
 
     if (fun.hasOwnProperty("name") && fun.hasOwnProperty("params") && fun.hasOwnProperty("answer")){
         customSdk.setAnswer(fun["answer"]);
 
-        getSkills()[formatted.intent.intentName.split("_")[0]][fun["name"]].apply(this, fun["params"]);
+        getSkills()[formatted["intent"]["intentName"].split("_")[0]][fun["name"]].apply(this, fun["params"]);
     }
 }
 

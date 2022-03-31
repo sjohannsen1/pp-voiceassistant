@@ -4,10 +4,10 @@ permalink: /docs/evaluation/amazon-alexa/
 ---
 
 Einer der meist verbreitetsten Sprachassistenten ist Amazons Alexa, welcher auf sämtlichen Amazon Geräten, wie dem FireTV oder der gesamten Echo-Reihe verfügbar ist.  
-Amazon stellt dabei eine sehr große Bibliothek aus sog. Skills zur Verfügung und ermöglicht es Entwicklern recht einfach neue Skills zu erstellen und zu veröffentlichen.   
+Amazon stellt dabei eine sehr große Bibliothek aus Skills zur Verfügung und ermöglicht es Entwicklern recht einfach neue Skills zu erstellen und zu veröffentlichen.   
 
 Als Entwickler gibt es viele verschiedene Möglichkeiten einen Skill zu entwickeln, zum Beispiel als [AWS Lambda Function](https://developer.amazon.com/en-US/docs/alexa/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html) oder als HTTPS Web-Service.  
-Ich beschränke mich auf [Alexa Hosted Skills] mit der Programmiersprache JavaScript (in NodeJS).  
+Ich beschränke mich hier auf [Alexa Hosted Skills](https://developer.amazon.com/en-US/docs/alexa/hosted-skills/build-a-skill-end-to-end-using-an-alexa-hosted-skill.html) in der Programmiersprache JavaScript (bzw. NodeJS).  
 
 
 
@@ -70,16 +70,15 @@ Da dieser Aufbau für sehr viele unterschiedliche Skills funktionieren muss und 
             └── ...               
 ````
 
-Im Verzeichnis ``response/display`` befinden sich Daten für Alexa-Geräte mit einem Display (z.B. [Echo Show]).  
+Im Verzeichnis ``response/display`` befinden sich Daten für Alexa-Geräte mit einem Display (z.B. [Echo Show](https://www.amazon.de/echo-show-15-156-zoll-smart-display-in-full-hd-fur-ein-organisiertes-familienleben-mit-alexa/dp/B08MQKPD4L)).  
 Im Rahmen dieses Projektes beschränke ich mich jedoch lediglich auf eine Audio-Wiedergabe.  
-Das Verzeichnis ``response/prompt`` beinhaltet Antworten für Alexa Conversations Description Language (ACDL), welche sich jedoch zurzeit für viele Sprachen noch im Beta Status befindet.  
+Das Verzeichnis ``response/prompt`` beinhaltet Antworten für [Alexa Conversations Description Language (ACDL)](https://developer.amazon.com/en-US/docs/alexa/conversations/about-acdl.html), welche sich jedoch zurzeit für viele Sprachen noch im Beta Status befindet.  
 Daher beachte ich auch das Verzeichnis ``skill-package/conversations`` nicht.  
 Bei der Datei ``skill.json`` handelt es sich um einige Metadaten, die in erster Linie auch für Alexa Conversations relevant sind.  
 
-Durch diese Vereinfachung erhalte ich eine kompaktere Ordnerstruktur, welche eher dem Umfang meines Projekts entspricht.  
+Durch diese Vereinfachung erhalte ich eine kompaktere Ordnerstruktur, welche eher dem Umfang meines Projekts entspricht.
 
-
-- ``.ask``: In diesem Verzeichnis befindet sich Amazons SDK, das **A**lexa **S**kills **K**it.
+- ``.ask``: In diesem Verzeichnis befindet sich Amazons SDK, das [**A**lexa **S**kills **K**it](https://developer.amazon.com/de-DE/alexa/alexa-skills-kit).
 - ``lambda``: Hier befindet sich die tatsächliche Logik, in Form eines NodeJS-Projekts mit ``package.json`` und den jeweiligen JavaScript-Dateien.
 - ``skill-package``: 
   - ``build``: Dieses Verzeichnis wird vom Alexa Backend erstellt und verwaltet.
@@ -89,6 +88,7 @@ Durch diese Vereinfachung erhalte ich eine kompaktere Ordnerstruktur, welche ehe
 
 Den Aufbau eines Interaction Models beschriebe ich an Amazons [Beispiel aus ihrer Dokumentation](https://developer.amazon.com/en-US/docs/alexa/smapi/interaction-model-schema.html#sample-interaction-model-schema).  
 Der Einfachheit halber habe ich das Beispiel Interaction Model in einzelne Abschnitte unterteilt.  
+Da die Codebeispiele von Amazon in Englisch geschrieben wurden, werde ich dementsprechend auch die Befehlsbeispiele in Englisch schreiben, damit sofort erkennbar ist, welcher Teil im Code an welcher Stelle im Befehl zu finden ist.  
 
 ### Language Model
 
@@ -202,7 +202,7 @@ Unter dem Punkt ``samples`` werden die einzelnen Sätze definiert, mit denen man
 
 #### Slots
 
-Da die Möglichkeiten mit obigen Befehlen sehr beschränkt wären, kann man in den Intents sog. Slots verwenden.  
+Da die Möglichkeiten mit obigen Befehlen sehr beschränkt wären, kann man in den Intents Slots verwenden.  
 Dabei handelt es sich um vordefinierte Variablen eines bestimmten Typs.  
 Es gibt einige Typen, die Amazon bereitstellt wie zum Beispiel für Zahlen oder Daten.  
 Allerdings gibt es auch die Möglichkeit, eigene Typen zu definieren.  
@@ -274,12 +274,12 @@ Unter dem Punkt ``dialog`` finden sich Angaben zu Alexas Dialog-System.
 Dabei werden einige Intents definiert, welche Slots nutzen.  
 Wird dann beim Aufruf ein Slot nicht genannt (zum Beispiel ein Planet), so kann man unter ``prompts`` sätze definieren, mit denen Alexa nach den jeweiligen Slots fragt.  
 
-Ein solches Dialogsystem sprengt allerdings den Rahmen dieses Projekts, daher werd ich nicht näher auf dieses System eingehen. 
+Ein solches Dialogsystem sprengt allerdings den Rahmen dieses Projekts, daher werde ich nicht näher auf dieses System eingehen. 
 
 ## ASK - Alexa Skills Kit
 
-Damit ein Entwickler die vielen Funktionen von Alexa nutzen kann, stellt Amazon das sog. *A*lexa *S*kills *K*it (kurz "ask") zur Verfügung.  
-Dieses Kit kümmert sich um die Kommunikation zwischen dem Skill und der Alexa Umgebung, um den Build-Prozess und stellt Test- und Monitoring-Funktionen zur Verfügung.  
+Damit Entwicklerinnen und Entwickler die vielen Funktionen von Alexa nutzen können, stellt Amazon das sog. *A*lexa *S*kills *K*it (kurz "ask") zur Verfügung.  
+Dieses Kit kümmert sich um die Kommunikation zwischen dem Skill und der Alexa-Umgebung, um den Build-Prozess und stellt Test- und Monitoring-Funktionen zur Verfügung.  
 Man kann darüber auf die unter im [Interaction Model](#interaction-model) definierten Intents und Validierungen zugreifen und es liegt jedem Skill zu grunde.  
 Es ist für NodeJS, Java und Python verfügbar.  
 

@@ -21,7 +21,7 @@ Ich habe mir dabei die beiden Sprachassistenten Amazon Alexa und Google Assistan
 
 Im Abschnitt "Client" beschreibe ich mein eigenes System.  
 Dabei handelt es sich um die Anwendung für die Endnutzerinnen und Endnutzer, also die Anwendung, die die einzelnen Skills installiert und verwaltet.  
-Wie werden die Skills installiert?
+Wie werden die Skills installiert?  
 Wie funktioniert das Webinterface?  
 
 Im Gegensatz dazu steht der Abschnitt "Server".  
@@ -29,15 +29,15 @@ Hier beschreibe ich meine Serveranwendung, von der die Skills heruntergeladen we
 
 Der Abschnitt "Skills" wird wahrscheinlich für Entwicklerinnen und Entwickler am interessantesten sein.  
 Hier erkläre ich, wie ein Skill aufgebaut ist und welche Dateien benötigt werden, damit der Skill reibungslos funktioniert.  
-Außerdem sind hier einige Erklärungen, wie mein SDK-Funktioniert.  
+Außerdem sind hier einige Erklärungen zur Funktionsweise meines SDK.  
 
-Zu guter Letzt habe ich im Abschnitt "Fazit" nochmal zusammengefasst worum es in meinem Projekt ging, was am Ende dabei herausgekommen ist und welche Vor- und Nachteile mein System hat.  
+Zu guter Letzt habe ich im Abschnitt "Fazit" noch einmal zusammengefasst, worum es in meinem Projekt ging, was am Ende dabei herausgekommen ist und welche Vor- und Nachteile mein System hat.  
 Des Weiteren gebe ich einen kleinen Ausblick darüber, was in Zukunft aus dem Projekt werden könnte und was die nächsten Schritte wären.  
 
 ## Begriffe
 
 Ich werde in dieser Dokumentation einige Begriffe Verwenden, die so auch bei den Systemen von Amazon und Google verwendet werden.  
-Daher habe ich hier eine Art kleines Glossar, in dem ich einmal diese Begriffe erkläre.
+Daher habe ich hier eine Art Mini-Glossar, in dem ich einmal diese Begriffe erkläre.
 
 ### Skills
 
@@ -59,6 +59,6 @@ Sie Beschreiben eben diese unterschiedlichen Befehle.
 
 Ein Slot bezeichnet eine Variable im Befehl.  
 Wenn ich also wissen möchte, wie das Wetter in Köln ist, könnte ich mit "..., wie ist das Wetter in ``Köln``?" danach fragen.  
-Dabei ist Köln der Slot.  
+Dabei wäre ``Köln`` der Slot.  
 Diesen Slot könnte man auch durch andere Städtenamen ersetzten.  
 Es geht darum, dass man nicht für jede mögliche Stadt einen neuen Befehl erstellen muss, sondern eine Liste an Städten hat, die an dieser Stelle eingesetzt werden können.  

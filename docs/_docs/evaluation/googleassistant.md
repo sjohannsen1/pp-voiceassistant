@@ -9,7 +9,7 @@ Actions können auf viele verschiedene Arten erstellt und verwendet werden.
 ## Befehlsstruktur
 
 Bei Google Actions gibt es keine "richtige" Befehlsstruktur, vielmehr verschiedene Varianten einen Satz zu interpretieren.  
-Google nutzt nämlich ein NLU-Technik (**N**atural **L**anguage **U**nderstanding) um aus einem Set aus Sätzen ein KI-Modell zu trainieren.  
+Google nutzt nämlich ein NLU-Technik (**N**atural **L**anguage **U**nderstanding), um aus einem Set aus Sätzen ein KI-Modell zu trainieren.  
 Anhand dieses Modells kann der Google Assistant dann ermitteln, um welche Action es sich handelt.  
 Als Entwickler muss man mindestens zehn verschiedene Varianten eines Intents angeben.  
 
@@ -17,6 +17,7 @@ Als Entwickler muss man mindestens zehn verschiedene Varianten eines Intents ang
 
 ## Ordnerstruktur 
 
+[//]: # (TODO Bissl erklären)
 ````
 <Action-Verzeichnis>   
 │

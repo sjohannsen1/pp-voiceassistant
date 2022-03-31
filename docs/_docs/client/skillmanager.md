@@ -16,7 +16,7 @@ Unter welcher Adresse dieser erreichbar ist, kann man als Umgebungsvariable im S
 
 ### Online
 
-Der Skillmanager sendet zunächst eine Anfrage an den Server und erhält als Antwort ein JSON-Objekt mit einigen Informationen, zu den jeweiligen Skills wie zum Beispiel die verfügbaren Versionen oder eine kleine Beschreibung des jeweiligen Skills.  
+Der Skillmanager sendet zunächst eine Anfrage an den Server und erhält als Antwort ein JSON-Objekt mit einigen Informationen zu den jeweiligen Skills, wie zum Beispiel die verfügbaren Versionen oder eine kleine Beschreibung des jeweiligen Skills.  
 Die Funktion ``getRemoteSkills`` sortiert diese Daten dann ein wenig und überprüft, ob der jeweilige Skill bereits installiert wurde.  
 Diese Daten werden dann vom Webinterface und der CLI verwendet, um dem Nutzer zu zeigen, welche Skills es gibt und wozu diese benutzt werden können.  
   
@@ -48,8 +48,7 @@ In diesem Objekt muss man noch das Feld ``version`` mit dem Namen des Unterordne
 #### Webinterface
 Über das Webinterface kann man obigen Prozess sehr stark vereinfachen.  
 Ich habe ein kleines [Upload-Tool](./webinterface.md#upload) erstellt, mit dem man sich die Dateien an der richtigen Position ablegen lassen kann und welches sich um die korrekte Konfiguration kümmert.  
-Wichtig dabei ist nur, dass man die Zip-Datei, welche vom Upload-Tool verlangt wird, von den 2 Ordnern (``src`` und ``locales``) under der ``manifest.json`` erstellt wird und nicht vom Eltern-Pfad (diesen Prozess habe ich [hier](./../skill/instruction.md#zip-erstellen) etwas ausführlicher beschrieben).  
-
+Wichtig dabei ist nur, dass man die Zip-Datei, welche vom Upload-Tool verlangt wird, von den 2 Ordnern (``src`` und ``locales``) und der ``manifest.json`` erstellt wird und nicht vom Eltern-Pfad (diesen Prozess habe ich [hier](./../skill/instruction.md#zip-erstellen) etwas ausführlicher beschrieben).  
 
 ## Skills aktivieren
 
@@ -80,6 +79,6 @@ Derzeit ist es nicht möglich einzelne Versionen zu löschen.
 
 ## Details auslesen
 
-Damit man zum Beispiel auf dem Webinterface einige Angaben zum lokalen Skill erhält, bietet der Skillmanager einige Funktionen um lokale Dateien auszulesen und deren Informationen wiederzugeben.  
+Damit man zum Beispiel auf dem Webinterface einige Angaben zum lokalen Skill erhält, bietet der Skillmanager einige Funktionen an, um lokale Dateien auszulesen und deren Informationen wiederzugeben.  
 Darunter fallen die Dateien ``manifest.json`` und die jeweilige ``<locale>.json``.  
 Aber auch einige Informationen aus der ``skillConfigs.json`` werden zurückgegeben, zum Beispiel, ob ein Skill aktiviert ist oder nicht und in welcher Version.  

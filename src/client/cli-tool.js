@@ -3,6 +3,7 @@ const readline = require("readline");
 
 const separator = "\n----------------------------------\n";
 
+// uses the npm-package "readline" to start a cli
 function startCLI(locale = "de_DE"){
     console.log(separator);
 
@@ -16,23 +17,24 @@ function startCLI(locale = "de_DE"){
         console.log("\n")
         let args = line.split(" ");
         switch (args[0]) {
-            case "skills":
+            case "skills": // Shows Information about Skills
                 switch (args[1]){
-                    case "remote":
+                    case "remote": // Gets Information from the Skill Server
                         skillManager.getRemoteSkills(process.env.LOCALE).then(skills => {
                             skills.forEach(skill => {
                                 let installedVersions = "";
 
+                                // Checks if there are installed versions of each skill
                                 if (skill.installed.length > 0){
                                     installedVersions = " ("
                                     skill.installed.forEach(version => installedVersions = `${installedVersions}${version}, `);
-                                    installedVersions = installedVersions.substr(0, installedVersions.length-2) + ") ";
+                                    installedVersions = installedVersions.substring(0, installedVersions.length-2) + ") ";
                                 }
 
                                 let availableVersions = "";
                                 skill.versions.forEach(version => availableVersions = `${availableVersions}${version}, `)
 
-                                console.log(`${skill.name}${installedVersions}: ${availableVersions.substr(0, availableVersions.length-2)}`);
+                                console.log(`${skill.name}${installedVersions}: ${availableVersions.substring(0, availableVersions.length-2)}`);
                             });
                             console.log(separator);
                         }).catch(err => {
@@ -41,12 +43,12 @@ function startCLI(locale = "de_DE"){
                         });
                         break;
 
-                    case "local":
+                    case "local": // Reads the Information from local files
                         let localSkills = skillManager.getSkillsOverview(process.env.LOCALE);
 
+                        // Sorts installed skills by their active flag in the skillConfigs.json file
                         let activeSkills = localSkills.filter(skill => skill.active === true);
                         let inactiveSkills = localSkills.filter(skill => skill.active === false);
-
 
                         console.log("Active:\n");
                         activeSkills.forEach(skill => console.log(`${skill.name}: ${skill.version}\n`));
@@ -62,7 +64,7 @@ function startCLI(locale = "de_DE"){
                 }
                 break;
 
-            case "updates":
+            case "updates": // checks if there is an update available on the skill server
                 console.log("Searching for Updates...");
                 let availableUpdates;
 
@@ -84,11 +86,11 @@ function startCLI(locale = "de_DE"){
                 });
                 break;
 
-            case "download":
+            case "download": // downloads skill files from the server
                 let skillDownload = args[1] ? args[1] : "HelloWorld";
                 let tagDownload = args[2] ? args[2] : "latest";
 
-
+                // Downloads a skill, set important configurations and updates the NodeJS-Require-Stack
                 skillManager.downloadSkill(skillDownload, tagDownload).then((versionTag) => {
                     skillManager.setActivateFlag(skillDownload, false).then(()=> {
                         skillManager.setVersion(skillDownload, versionTag);
@@ -103,10 +105,11 @@ function startCLI(locale = "de_DE"){
                 });
                 break;
 
-            case "delete":
+            case "delete": // deletes local files of a skill
                 let skillDelete = args[1] ? args[1] : "HelloWorld";
                 let tagDelete = args[2] ? args[2] : "1.0";
 
+                // Deactivates skill, removes all configurations and deletes local files
                 skillManager.deactivateSkill(skillDelete, locale).then(() => {
                     skillManager.deleteLocalSkillFiles(skillDelete).then(() => {
                         skillManager.loadSkills(locale);
@@ -120,7 +123,7 @@ function startCLI(locale = "de_DE"){
                 });
                 break;
 
-            case "activate":
+            case "activate": // activates a skill and registers the sentences in rhasspy
                 let skillActivate = args[1] ? args[1] : "HelloWorld";
                 skillManager.activateSkill(skillActivate, locale)
                     .then(() => {
@@ -133,7 +136,7 @@ function startCLI(locale = "de_DE"){
                     });
                 break;
 
-            case "deactivate":
+            case "deactivate": // deactivates a skill
                 let skillDeactivate = args[1] ? args[1] : "HelloWorld";
                 skillManager.deactivateSkill(skillDeactivate, locale)
                     .then(() => {
