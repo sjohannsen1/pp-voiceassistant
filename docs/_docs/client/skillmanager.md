@@ -12,13 +12,13 @@ Um neue Skills zu installieren, gibt es zwei verschiedene Wege:
 [Online](#online) und [Offline](#offline)  
 
 Für die Online-Variante benötigt man eine Instanz des [Skillservers](./../server/skillserver.md).  
-Unter welcher Adresse dieser erreichbar ist, kann man als Umgebungsvariable im Skillmanager speichern.  
+Unter welcher Adresse dieser erreichbar ist, kann man als Umgebungsvariable in der [Client-Anwendung](./../installation.md#client) speichern.  
 
 ### Online
 
 Der Skillmanager sendet zunächst eine Anfrage an den Server und erhält als Antwort ein JSON-Objekt mit einigen Informationen zu den jeweiligen Skills, wie zum Beispiel die verfügbaren Versionen oder eine kleine Beschreibung des jeweiligen Skills.  
 Die Funktion ``getRemoteSkills`` sortiert diese Daten dann ein wenig und überprüft, ob der jeweilige Skill bereits installiert wurde.  
-Diese Daten werden dann vom Webinterface und der CLI verwendet, um dem Nutzer zu zeigen, welche Skills es gibt und wozu diese benutzt werden können.  
+Diese Daten werden dann vom Webinterface und dem CLI verwendet, um dem Nutzer zu zeigen, welche Skills es gibt und wozu diese benutzt werden können.  
   
 Mit der Funktion ``downloadSkill`` kann man dann einen bestimmten Skill in einer bestimmten Version herunterladen.  
 Dabei wird vom Server eine Zip-Datei heruntergeladen, die dann mit dem Package "[adm-zip](https://www.npmjs.com/package/adm-zip)" entpackt und im entsprechendem Verzeichnis gespeichert werden.  
@@ -54,7 +54,7 @@ Wichtig dabei ist nur, dass man die Zip-Datei, welche vom Upload-Tool verlangt w
 
 Wenn man, wie oben beschrieben einen neuen Skill installiert hat, kann man diesen jedoch nicht sofort nutzen.  
 Man muss ihn erst aktivieren.  
-Das kann man entweder über die [CLI](./cli.md#befehle) oder über das [Webinterface](./webinterface.md#details) machen.  
+Das kann man entweder über das [CLI](./cli.md#befehle) oder über das [Webinterface](./webinterface.md#details) machen.  
 
 Dabei werden einige, für den Skillmanager wichtige Konfigurationen in der ``skillConfigs.json`` getroffen und die verschiedenen Sätze als [Intents](./rhasspy.md#neue-intents-hinzufgen) bei Rhasspy [registriert](./rhasspy.md#rhasspy-trainieren).  
 Für die kommunikation mit Rhasspy habe ich eine eigene [JavaScript-Datei](https://github.com/fwehn/pp-voiceassistant/blob/main/src/client/rhasspy.js) erstellt, in der sich einige Funktionen befinden.  

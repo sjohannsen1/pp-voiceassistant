@@ -3,7 +3,7 @@ title: Webinterface
 permalink: /docs/client/webinterface/
 ---
 
-Um es dem Endnutzer zu erleichtern neue Skills zu installieren und verwalten, habe ich zusätzlich zum [CLI](./cli.md) ein Webinterface erstellt.  
+Um es dem Endnutzer zu erleichtern neue Skills zu installieren und zu verwalten, habe ich zusätzlich zum [CLI](./cli.md) ein Webinterface erstellt.  
 Dieses Interface nutzt sämtliche Funktionen, die vom [Skillmanager](./skillmanager.md) bereitgestellt werden, um Informationen anzuzeigen und die Skills zu verwalten.
 
 ## Übersicht
@@ -83,9 +83,7 @@ Das Webinterface wird von einem ExpressJS-Server bereitgestellt, welcher die [Ja
 Auf den HTML-Seiten selbst wird jeweils [VueJS](https://v3.vuejs.org/guide/introduction.html#what-is-vue-js) per [UNPKG-Link](https://unpkg.com/) eingebunden, um die durch Jade übertragenen Daten einfacher darzustellen.  
 
 ## Port
-Ich habe mir die Frage gestellt, welchen Port man für das Webinterface benutzen könnte.  
-Für allgemeine Testzwecke nutze ich in fast jedem Projekt den Port 2712 (mein Geburtsdatum), da dieser fast immer frei ist.  
-Ich habe mir allerdings ein paar Gedanken gemacht, welchen Port man stattdessen nutzen könnte.  
+Ich habe mir die Frage gestellt, welchen Port man für das Webinterface benutzen könnte.
 Der Port sollte leicht zu merken sein.  
 Dafür bietet sich ein Port an, der aus wiederkehrenden Zahlen besteht, wie z.B. 11111 oder 8080 (im Gegensatz zu 19294).  
 Mögliche Ports die ich mir überlegt habe:

@@ -18,7 +18,7 @@ Es kann allerdings auch sein, dass der Benutzer das "Base-Topic" bei der Konfigu
 
 ## docker.sock
 Sollte man den Skillmanager als Docker Container ausrollen, könnte man ihm Zugriff auf den ``docker.sock`` gewähren.  
-Dadurch könnte man einsehen, welche Container auf dem aktuellen Host laufen (ähnlich wie zum Beispiel Portainer).  
+Dadurch könnte man einsehen, welche Container auf dem aktuellen Host laufen (ähnlich wie zum Beispiel [Portainer](https://www.portainer.io/)).  
 
 ## Base/Satellite-Setup
 
