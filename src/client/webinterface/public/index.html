@@ -3,20 +3,20 @@
     <h1>Übersicht</h1>
     <table id="UlInstalledSkills">
         <tr>
-            <th>Name</th>
-            <th>Beschreibung</th>
-            <th>Version</th>
-            <th>Aktiviert</th>
-            <th></th>
+            <th id="ThName" class="clippedText">Name</th>
+            <th id="ThDescription" class="clippedText">Beschreibung</th>
+            <th id="ThVersion" class="clippedText">Version</th>
+            <th id="ThActive" class="clippedText">Aktiviert</th>
+            <th id="ThDelete" class="clippedText"></th>
         </tr>
         <tr v-for="skill in skills">
-            <td>
+            <td class="clippedText">
                 <a :href="'/details/' + skill.name">{{ skill.name }}</a>
             </td>
-            <td>
+            <td class="clippedText">
                 {{ skill.description }}
             </td>
-            <td>
+            <td class="clippedText">
                 {{ skill.version }}
             </td>
             <td>
