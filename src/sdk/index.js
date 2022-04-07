@@ -78,8 +78,14 @@ async function init() {
 }
 
 // function to send custom MQTT messages from skill
-function publishMQTT(topic, payload =  "{}"){
-    client.publish(topic, payload);
+function publishMQTT(topic = "", payload ){
+    if (typeof payload === "string"){
+        client.publish(topic, payload);
+    }else if (typeof payload === "object"){
+        client.publish(topic, JSON.stringify(payload));
+    }else{
+        fail();
+    }
 }
 
 // getter for zigbee2mqtt devices

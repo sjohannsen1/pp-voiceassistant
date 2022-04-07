@@ -9,7 +9,7 @@ function changeLightState(zigbeeName, state){
     getZigbeeTopic()
         .then(zigbeeTopic => {
             customSdk.say(customSdk.generateAnswer([]));
-            customSdk.publishMQTT(`${zigbeeTopic}/${zigbeeName}/set`, JSON.stringify({"state": stateMap[state]}));
+            customSdk.publishMQTT(`${zigbeeTopic}/${zigbeeName}/set`, {"state": stateMap[state]});
         }).catch(customSdk.fail);
 }
 
@@ -17,7 +17,7 @@ function changeLightBrightness(zigbeeName, brightness){
     getZigbeeTopic()
         .then(zigbeeTopic => {
             customSdk.say(customSdk.generateAnswer([]));
-            customSdk.publishMQTT(`${zigbeeTopic}/${zigbeeName}/set`, JSON.stringify({"brightness": Math.floor(255*brightness/100)}));
+            customSdk.publishMQTT(`${zigbeeTopic}/${zigbeeName}/set`, {"brightness": Math.floor(255*brightness/100)});
         }).catch(customSdk.fail);
 }
 

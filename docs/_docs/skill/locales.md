@@ -64,7 +64,7 @@ Die Reihenfolge der Argumente im Satz kann sich von Sprache zu Sprache untersche
 Damit man nicht für jede Sprache eine eigene Funktion definieren muss, bei der sich lediglich die Parameter-Reihenfolge unterscheidet, gibt man unter ``args`` die gewünschte Reihenfolge an.  
 Die Namen müssen mit den Namen der Slots im ``sentences`` Punkt übereinstimmen. 
 
-### Antwortsätze
+### Answer
 Für einige Funktionen ist es hilfreich einen Antwortsatz zu definieren.  
 Bei diesem Satz können, mittels des [sdk](./sdk.md#antwort-generieren), Zeichen durch im Code generierte Variablen ersetzt werden.  
 Der Satz wird dann vom TTS-System ausgesprochen.
