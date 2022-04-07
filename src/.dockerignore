@@ -1,6 +1,0 @@
-client/dotenv
-client/node_modules
-client/skills
-client/skillConfigs.json
-sdk/node_modules
-server

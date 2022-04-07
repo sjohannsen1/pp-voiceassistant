@@ -8,31 +8,19 @@ Damit die Installation reibungslos funktioniert habe ich hier eine kleine Anleit
 Voraussetzung für die unten genannten Schritte sind eine [Rhasspy-Instanz](https://rhasspy.readthedocs.io/en/latest/installation/) und ein [MQTT-Broker](https://mqtt.org/software/#servers-brokers) (in meinem Fall ein [Mosquitto-Broker](https://mosquitto.org/)).
 
 Dieses Projekt umfasst zwei NodeJS-Projekte: Den Skillmanager (Client) und einen Skillserver.  
-Der Skillserver ist dabei rein optional. Er stellt eine Möglichkeit dar Skills zu [installieren](./client/skillmanager.md#online).  
+Der Skillserver ist dabei rein optional.  
+Er stellt eine Möglichkeit dar, Skills zu [installieren](./client/skillmanager.md#online).  
 Beide Applikationen können auf demselben Host installiert werden wie Rhasspy, müssen es jedoch nicht.  
 Lediglich der Client benötigt eine Verbindung zur Rhasspy-Instanz.
 
 ## Client
 
-Für die Installation des Clients gibt es zwei verschiedene Möglichkeiten:
-- Mit [NodeJS bzw. npm](#nodejs-client)
-- Mit [Docker](#docker-client)
-
-
-### NodeJS (Client)
 Zunächst muss man [NodeJS](https://nodejs.org/en/download/) (in meinem Fall version "17.0.0") installieren.  
 Dann kann man sich die Verzeichnisse ["src/client"](https://github.com/fwehn/pp-voiceassistant/tree/main/src/client) und ["src/sdk"](https://github.com/fwehn/pp-voiceassistant/tree/main/src/sdk) herunterladen.  
-Ich empfehle dabei die Ordnerstruktur beizubehalten, da das SDK im [``package.json``] des Clients als ``dependency`` mit einem relativen Pfad angegeben ist.  
-Dieser lässt sich jedoch leicht ändern, möchte man das SDK an einer anderen Stelle ablegen.
+Ich empfehle dabei die Ordnerstruktur beizubehalten, da das SDK im [``package.json``](https://github.com/fwehn/pp-voiceassistant/blob/main/src/client/package.json) des Clients als ``dependency`` mit einem relativen Pfad angegeben ist.  
+Dieser lässt sich jedoch leicht ändern, möchte man das SDK an einer anderen Stelle ablegen.  
 
-Hat man alle benötigten Verzeichnisse heruntergeladen, muss man noch eine JSON-Datei mit dem Namen ``skillConfigs.json`` im Verzeichnis des Clients anlegen, die ein leeres JSON objekt (``{}``) enthält.
-
-### Docker (Client)
-Im Verzeichnis ["src"](https://github.com/fwehn/pp-voiceassistant/tree/main/src) befindet sich ein [Dockerfile](https://github.com/fwehn/pp-voiceassistant/blob/main/src/Dockerfile), welches der erstellung eines Docker-Images dient.  
-Die Pfade im Dockerfile müssen ggf. Angepasst werden.
-
-Aus dem Dockerfile kann mit ``docker build -t <Name des Images> .`` ein Image erzeugt werden.    
-Danach kann ein Container mit dem Befehl ``docker run <Name des Images>`` gestartet werden.  
+Hat man alle benötigten Verzeichnisse heruntergeladen, muss man noch eine JSON-Datei mit dem Namen ``skillConfigs.json`` im Verzeichnis des Clients anlegen, die ein leeres JSON objekt (``{}``) enthält.  
 
 ### Env-Variablen
 
@@ -50,22 +38,23 @@ Damit man den Client in der eigenen individuellen Umgebung nutzen kann, gibt es 
 
 Beim Server handelt es sich um einen Dateiserver für die Skills.  
 Darüber kann der Client dann die einzelnen Skills installieren.  
-Auch für den Server gibt es zwei verschiedene Methoden für die Installation.
-
-### NodeJS (Server)
 
 Die Installation des Skillservers ist etwas einfacher.  
 Dazu benötigt man lediglich die Dateien im Verzeichnis "[src/server](https://github.com/fwehn/pp-voiceassistant/tree/main/src/server)".  
 In diesem Verzeichnis muss man dann nur noch den Befehl ``npm run start`` ausführen.
 
-
-### Docker (Server)
-
-Auch für den Server habe ich eine Dockerfile erstellt.  
-Diese befindet sich im Verzeichnis ["src/server"](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/Dockerfile).  
-Diese kann wie oben beschreiben genutzt werden, nur benötigt man hier nicht ganz so viele Umgebungsvariablen.
-
 ### Env-Variablen
 Für den Server gibt es lediglich eine Umgebungsvariable.
 
 ``PORT``: Port auf den der Express-Server "hört" (default: ``3000``)
+
+
+## Installation der Dependencies
+
+Einige Skills verwenden bestimmte [npm-Dependencies](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies).  
+Diese werden in den jeweiligen [Manifest-Dateien](./skill/manifest.md#abhngigkeiten) unter dem Punkt ``dependencies`` aufgeführt.  
+Diese npm-Dependencies müssen manuell installiert werden.  
+Dazu verwendet man den Befehl:  
+``npm install <Name und Version der Dependency>``
+
+Dieser sollte im Verzeichnis des Skillmanagers ausgeführt werden, also im Verzeichnis, in dem sich die ``package.json`` befindet.
