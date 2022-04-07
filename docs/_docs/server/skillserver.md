@@ -22,7 +22,8 @@ Zweitens aus einer Datei mit dem Namen ``versions.json``, in der alle aktuellen 
 {
   "GetTime": ["1.0"],
   "GetWeather": ["1.0"],
-  "HelloWorld": ["3.0","2.0","1.0"]
+  "HelloWorld": ["3.0","2.0","1.0"],
+  "Zigbee2MQTT": ["1.0"]
 }
 ````
 *[server/versions.json](https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/versions.json)*
