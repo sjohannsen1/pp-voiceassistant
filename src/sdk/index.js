@@ -136,7 +136,7 @@ function getVariable(variableName){
     });
 }
 
-// function to get all variables, set on the details page
+// function to get all variables, set on the details-page of the webinterface
 function getAllVariables(){
     return new Promise((resolve, reject) => {
         try{
@@ -153,6 +153,7 @@ function getAllVariables(){
     });
 }
 
+// very primitive failing-system that just catches the error and sends a message to the tts-system
 function fail(error, message = ""){
     if (!message) message = "Tut, mir leid mit diesem Befehl gibt es derzeit Probleme.";
 
