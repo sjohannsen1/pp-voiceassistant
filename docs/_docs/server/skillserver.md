@@ -3,7 +3,7 @@ title: Skillserver
 permalink: /docs/server/skillserver/
 ---
 
-Damit es leichter ist neue Skills zu installieren habe ich eine Server-Anwendung entwickelt, über auf die der [Skillmanager](./../client/skillmanager.md) zugreifen kann.  
+Damit es leichter ist neue Skills zu installieren habe ich eine Server-Anwendung entwickelt, auf die der [Skillmanager](./../client/skillmanager.md) zugreifen kann.  
 Diese Anwendung ist komplett optional, da man auch lokal neue Skills installieren kann (zum Beispiel über das [Webinterface](./../client/webinterface.md#upload)).
 
 ## Fileserver
@@ -13,7 +13,7 @@ Die ``.zip``-Datei wird dann vom [Skillmanager](./../client/skillmanager.md#onli
 
 ## Versionen
 
-Damit man als Nutzer verschiedene Skill herunter- bzw. als Entwickler verschiedene Versionen hochladen kann, habe ich ein recht simples Versionierungssystem entwickelt.  
+Damit man verschiedene Skills herunter- bzw. hochladen kann, habe ich ein recht simples Versionierungssystem entwickelt.  
 Dieses besteht aus zwei Komponenten.  
 Erstens aus der Art wie und wo die Skills gespeichert werden.  
 Zweitens aus einer Datei mit dem Namen ``versions.json``, in der alle aktuellen Skill-Namen und deren Versions-Bezeichnungen gespeichert werden.  
@@ -34,7 +34,7 @@ Erhält der Server nun eine Anfrage mit der Version ``latest``, so verwendet er 
 ## Upload
 
 Möchte man nun einen Neuen Skill oder neue Versionen vorhandener Skills hochladen, tut man das auf die gleiche Art wie beim [Webinterface](./../client/webinterface.md#upload).  
-Auch hier muss man zuvor eine ``.zip``-Datei erstellen.  
+Auch hier muss zuvor eine ``.zip``-Datei erstelllt werden.  
 Wie das unter Windows funktioniert habe ich [hier](./../skill/instruction.md#zip-erstellen) näher beschrieben.  
 
 **Hinweis**: Derzeit gibt es keinerlei Überprüfungssysteme, die den Skill auf Fehler überprüfen. Man sollte also sicher sein, dass der Skill einwandfrei funktioniert.
@@ -42,8 +42,8 @@ Wie das unter Windows funktioniert habe ich [hier](./../skill/instruction.md#zip
 ## Endpoints
 
 Damit der Skillmanager mit dem Server kommunizieren kann, habe ich einige HTTP-Endpoints definiert.  
-Über diese Endpoint erfragt der Client informationen über die Skills und deren Beschreibungen.  
-Außerdem werden letztendlich darüber auch die Skills heruntergeladen.   
+Über diese Endpoints erfragt der Client informationen über die Skills und deren Beschreibungen.  
+Außerdem werden darüber auch die Skills heruntergeladen.   
 
 ### GET-Endpoints
 
@@ -51,10 +51,10 @@ Zunächst habe ich einige einfache Endpoints erstellt, die mit einer HTTP-GET-An
 
 - ``/skills/<locale-Bezeichnung>``: Gibt eine Liste aller vorhandene Skills zurück.
 - ``/skill/<Name des Skills>/<Version>``: Gibt informationen eines bestimmten Skills in einer bestimmten Version zurück.
-- ``/update/<locale-Bezeichnung>/<Name des Skills>/<Version>``: Überprüft, ob es zu einer vorhandenen Version ein Update gibt. (Nur [CLI](./../client/cli.md))
+- ``/update/<locale-Bezeichnung>/<Name des Skills>/<Version>``: Überprüft, ob es zu einer vorhandenen Version ein Update gibt. (Derzeit nur vom [CLI](./../client/cli.md) verwendet)
 - ``/download/<Name des Skills>/<Version>``: Läd einen bestimmten Skill in einer bestimmten Version als ``.zip``-Datei herunter. 
 
-## POST
+## POST-Endpoints
 
 Für HTTP-POST-Anfragen gibt es lediglich einen Endpoint:
 - ``/upload``: Dieser Endpoint wird verwendet, um neue Skills auf den Server [hochzuladen](#upload).
