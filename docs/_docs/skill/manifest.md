@@ -59,9 +59,9 @@ Dabei handelt es sich bei diesen Abhängigkeiten um [npm-Dependencies](https://d
 Zurzeit müssen diese noch manuell installiert werden, das soll jedoch in Zukunft automatisch passieren.
 
 ## Optionen
-Damit man den eigenen Skill auf die Bedürfnisse des jeweiligen Endnutzers anpassen kann, gibt es die Optionen.  
+Damit man den eigenen Skill auf die Bedürfnisse der jeweiligen Nutzerinnen und Nutzer anpassen kann, gibt es die Optionen.  
 Diese können unter dem Punkt ``options`` definieren.  
-Später können diese Optionen dann über das [Webinterface] angepasst werden.  
+Später können diese Optionen dann über das [Webinterface](./../client/webinterface.md#details) angepasst werden.  
 In obigem Beispiel kann man dann zum Beispiel einen eigenen API-Key oder den eigenen Wohnort angeben.  
   
 Um eine Option zu definieren, muss man drei Felder definieren:  
