@@ -3,7 +3,7 @@ title: Anleitung
 permalink: /docs/skills/instruction/
 ---
 
-Diese Seite richtet sich in erster Linie an Entwickler, die einen Skill für mein System entwickeln möchten.  
+Diese Seite richtet sich in erster Linie an Entwicklerinnen und Entwickler, die einen Skill für mein System entwickeln möchten.  
 Hier wird zunächst die Befehls- und Ordnerstruktur eines Skills beschrieben.  
 Hat man alle Dateien wie beschrieben angelegt und sich überlegt, wie die einzelnen Befehle eines Skills aussehen sollen, kann man auf den Seiten zu den Locales-Dateien und zum SDK nachschauen wie ein solcher Skill erstellt wird.   
 Anschließend findet man auf dieser Seite eine kurze Anleitung, wie man seinen Skill am besten verpackt, um ihn zu installieren. 
@@ -44,7 +44,7 @@ HelloWorld
 ```
 
 Jede Version eines Skills wird durch einen Ordner dargestellt.  
-In jedem diese Ordner gibt es eine ``manifest.json`` und die beiden Unterordner ``src`` und ``locales``.  
+In jedem dieser Ordner gibt es eine ``manifest.json`` und die beiden Unterordner ``src`` und ``locales``.  
 In der ``manifest.json`` werden, für den Skill notwendige Angaben gespeichert, wie z.B. verschiedene [npm-dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies), die für den Skill benötigt werden.  
 Oder Variablen, welche der Endnutzer über das [Webinterface](./../client/webinterface.md#details) einstellen soll.  
 Was in einer solchen ``manifest.json``-Datei stehen muss, habe ich [hier](./manifest.md) näher beschrieben.
@@ -73,7 +73,8 @@ Wichtig ist dabei, dass man die Zip-Datei über die zwei oben genannten Verzeich
 Unter Windows geht das Erstellen der Zip sehr einfach.  
 1. Dazu einfach oben genannte Dateien auswählen.  
 ![Dateien auswählen](./../../assets/img/Zip-Windows/dateienAuswaehlen.png)  
-  
-2. Auf "Senden an" klicken.  
-3. Und "ZIP-komprimierter Ordner" auswählen.  
+
+2. "Rechtsklick" auf eine der Dateien.
+3. Auf "Senden an" klicken.  
+4. Und "ZIP-komprimierter Ordner" auswählen.  
 ![Zip erstellen](./../../assets/img/Zip-Windows/zip-erstellen.png)  
