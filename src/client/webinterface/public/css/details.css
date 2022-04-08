@@ -79,13 +79,22 @@
 }
 
 #DivSlots div {
-    background: var(--col-bg-secondary);
-    width: 150px;
+    width: 200px;
     margin: 1rem;
     padding: 1rem;
     overflow-x: hidden;
     border: 1px solid var(--col-bg-secondary);
     border-radius: .5rem;
+}
+
+.builtIn-slots {
+    background: var(--col-bg-primary);
+    color: var(--col-text-dark);
+}
+
+.custom-slots {
+    background: var(--col-bg-secondary);
+    color: var(--col-text-light);
 }
 
 #DivSlots h4 {

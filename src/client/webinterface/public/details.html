@@ -14,10 +14,10 @@
         </ul>
 
         <div id="DivSlots">
-            <div v-for="(slot, name) in slots">
+            <div v-for="(slot, name) in slots" v-bind:class = "(name === 'launch' || name === 'zigbee2mqtt')?'builtIn-slots':'custom-slots'">
                 <h4>{{name}}</h4>
                 <ul>
-                    <li v-for="alt in slot">{{alt}}</li>
+                    <li v-for="alt in slot">{{alt.toString().split(":")[0]}}</li>
                 </ul>
             </div>
         </div>
@@ -57,17 +57,18 @@
 
             for (let i in data.sentences){
                 let sentence = data.sentences[i];
+                let matches = sentence.match(/{.*?}/g);
 
-                let matches = sentence.match(/{[a-zA-Z]+}/g);
                 for (let i in matches){
-                    let slotName = matches[i].substr(1, matches[i].length - 2);
+                    let slotName = matches[i].substring(1, matches[i].length - 1).split("!")[0];
                     let slot = slots[slotName] || [];
-                    let example = slot[Math.floor(Math.random()*slot.length)] || "";
 
+                    let rand = Math.floor(Math.random()*slot.length);
+
+                    let example = slot[rand].toString().split(":")[0];
                     sentence = sentence.replace(matches[i], `<strong>${example}</strong> <span>${slotName}</span>`);
-
                 }
-                sentences.push(sentence)
+                sentences.push(sentence);
             }
 
             return {

@@ -55,7 +55,7 @@ function uploadSkill(name, tag, data){
 
             resolve(zip.getEntries()[0].entryName.split("/")[0]);
         }catch (e) {
-            reject(e)
+            reject(e);
         }
     })
 }
@@ -137,6 +137,7 @@ function getSkillsOverview(locale = "de_DE"){
 
 // Get some Detailed Information of a Skill based on locale
 function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
+    // Loads all required information
     let installed = getInstalledSkills(locale);
     if (!installed.includes(name)) return {};
 
@@ -146,38 +147,56 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     let configs = getSkillConfigs()[name] || {};
     let defaults = getDefaults()[locale];
 
-    let slots = localeFile.slots;
-    slots = {launch: defaults["launch"], ...slots};
+    // Trims down launches and zigbee slot to 5 random entries
+    let zigbeeNames = [...customSdk.getZigbeeDevices(), ...customSdk.getZigbeeGroups()].sort(()=> Math.random() - 0.5);
+    zigbeeNames = zigbeeNames.slice(0, 5);
 
+    let launch = defaults["launch"].sort(()=> Math.random() - 0.5);
+    launch = launch.slice(0, 5);
+
+    let slots = localeFile.slots;
+    slots = {launch: launch.sort(), zigbee2mqtt: zigbeeNames.sort(), ...slots};
+
+    // Formats the sentences for a better readability
     let formattedSentences = [];
     for (let i in localeFile["intents"]){
-        let intent = localeFile["intents"][i]
+        let intent = localeFile["intents"][i];
         let sentences = intent["sentences"];
 
         for (let i in sentences) {
-            sentences[i] = sentences[i].replaceAll(/\(\$slots\/[a-zA-Z]+\)/g, "");
-            let numberMatches = sentences[i].match(/\(\d+..\d+\){[a-zA-Z]+}/g);
+            sentences[i] = sentences[i].replaceAll(/\(\$slots\/.*?\)/g, "");  // RegEx: "...($slots/zigbee2mqtt){zigbee2mqtt}..." > "...{zigbee2mqtt}..."
+            let numberMatches = sentences[i].match(/\(\d+..\d+\){.*?}/g);     // RegEx: identifying "(0..100){brightness}"
 
+            // If the slot is a number range, this will generate a slot with some values to show on the webinterface
             if (numberMatches && numberMatches.length > 0) {
                 for (let i in numberMatches){
                     let parts = numberMatches[i].split("{");
                     let key = parts[1].substring(0, parts[1].length-1);
-                    let values = parts[0].substring(1, parts[0].length-2).split("..").map(val => parseInt(val, 10));
+                    let values = parts[0].substring(1, parts[0].length-1).split("..").map(val => parseInt(val, 10));
                     let startValue = values[0];
                     let endValue = values[1];
                     let diff = endValue - startValue;
 
+
+                    // If the range contains more than 5 values, random values within the range will be picked
                     if (diff > 4){
-                        let randomValuesInRange = Array.from({length: 3}, () => Math.floor(Math.random() * (diff) + startValue)).sort((a, b) => a-b);
-                        values = [...new Set([startValue, ...randomValuesInRange, endValue])];
+                        let randomValuesInRange = [];
+
+                        while(randomValuesInRange.length < 3){
+                            let rand = Math.floor(Math.random() * (endValue-2)) + 1;
+                            if(randomValuesInRange.indexOf(rand) === -1) randomValuesInRange.push(rand);
+                        }
+
+                        randomValuesInRange.sort((a, b) => a-b);
+
+                        values = [startValue, ...randomValuesInRange, endValue];
                     }else{
                         values = Array.from({length: diff+1}, (_,index) => startValue+index);
                     }
 
                     slots[key] = values;
                 }
-
-                sentences[i] = sentences[i].replaceAll(/\(\d+..\d+\)/g, "");
+                sentences[i] = sentences[i].replaceAll(/\(\d+..\d+\)/g, "");    // RegEx: "...(0..100){brightness}..." > "...{brightness}..."
             }
 
             let formattedSentence = `... {launch} ${localeFile["invocation"]} ${sentences[i]}`;
@@ -412,7 +431,6 @@ function customIntentHandler(topic, message){
         let currentSlot = formatted["slots"][i];
 
         if (currentSlot["slotName"] !== "launch"){
-            //TODO make launch slot accessible to skills
             slots[currentSlot["slotName"]] = currentSlot["value"]["value"];
         }
     }
