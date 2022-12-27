@@ -6,9 +6,9 @@ description: >
 lang: de-DE
 
 baseurl: "/pp-voiceassistant"
-url: https://fwehn.github.io/pp-voiceassistant
-git_address: https://github.com/fwehn/pp-voiceassistant
-git_edit_address: https://github.com/fwehn/pp-voiceassistant/tree/main/docs
+url: https://sjohannsen1.github.io/pp-voiceassistant/
+git_address: https://github.com/sjohannsen1/pp-voiceassistant
+git_edit_address: https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs
 
 # theme options from https://bootswatch.com/3/
 # comment out this to use default Bootstrap
