@@ -14,7 +14,7 @@ Für den jeweiligen Endnutzer stellt das System neben dem CLI (Command Line Inte
 
 ## Aufbau
 
-Ich habe meine Dokumentation in fünf verschiedene Abschnitte aufgeteilt.  
+Ich habe meine Dokumentation in Abschnitte aufgeteilt.  
 Das Verzeichnis links gibt die bevorzugte Reihenfolge der einzelnen Themen vor, beginnend mit den "Evaluationen".  
 In diesem Abschnitt habe ich mich mit einigen verschiedenen Systemen auseinandergesetzt, die ein modulares System für Funktionen bereitstellen.  
 Ich habe mir dabei die beiden Sprachassistenten Amazon Alexa und Google Assistant angeschaut und die Smarthome Anwendung Home Assistant.  
