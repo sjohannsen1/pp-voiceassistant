@@ -1,6 +1,6 @@
 ---
 title: Installation
-permalink: /docs/installation/installation
+permalink: /docs/installation/index
 ---
 Entwickelt wurde auf einen Raspberry Pi 4b. Grundsätzlich kann allerdings jede Art von Computer, auf der eine Rhasspy Instanz laufen kann, verwendet werden. Um dieselben Vorraussetzungen für die Inbetriebnahme wie wofür entwickelt wurde zu haben, lässt sich hier eine [Hardware Liste](./hardware) finden. 
 

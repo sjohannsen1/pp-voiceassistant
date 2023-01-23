@@ -16,19 +16,27 @@ html {
     }
   }
   
+  .landing {
+    background: url('../img/bg.jpg') no-repeat 80% 0;
+
+  }
   
   .header-container {
     background-color: black;
-    background: url('../img/bg.jpg') no-repeat 50% 0;
-    color: #fff;
-  
+    background-color: rgba(255, 255, 255, 0.5);
+    background: url('../img/bg.jpg') no-repeat 80% ;
+    color: rgb(0, 0, 0);
     h1 {
-      color: #fff;
+      color: #000;
+      background-color: rgb(255, 255, 255);
+      background-color: rgba(255, 255, 255, 0.5);
+  
     }
-    // background-attachment: fixed;
-    background-size: cover;
-    background-position: center 36%;
-    margin-top: -37px;
+
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: 0%;
+    //margin-top: -37px;
   }
   .navbar-container {
     font-size: 16px;

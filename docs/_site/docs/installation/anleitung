@@ -21,9 +21,9 @@
 <meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/installation/anleitung" />
 <meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-01-22T15:11:14+01:00" />
+<meta property="article:published_time" content="2023-01-23T21:21:27+01:00" />
 <script type="application/ld+json">
-{"description":"Zunächst kann der Installationsanleitung von Finn Wehn gefolgt werden. Allerdings müssen dabei ein paar Dinge beachtet werden. Es wird mit einer SD-Karte mit der 32 Bit version des Raspberry Pi OS gestartet. Falls bei der Installation des Betriebsystems der Standarduser “pi” geändert wurde, müssen bei der weitergehenden Installation ein paar Dinge angepasst werden. Diese sind markiert. Diese wird in den Raspberry Pi gesteckt und dieser dann gestartet. Ist dieser mit einem Netzwerk verbunden, kann man sich nun mit einem Computer per SSH verbinden. SSH, oder auch Secure Shell, ist ein Netzwerkprotokoll, mit welchem auf das Terminal des Pis zugegriffen werden kann. Alternativ kann auch ein Bildschirm, eine Maus und eine Tastatur angeschlossen werden und ein Terminal direkt auf dem Pi geöffnet werden. Darüber müssen auf dem Pi ein MQTT-Broker, in diesem Fall Mosquitto, eine Rhasspy-Instanz, die Laufzeit-Umgebung NodeJS und Git installiert werden. Bei der Installation der Rhasspy-Instanz muss beachtet werden, dass diese in der richtigen Sprache, in diesem Fall deutsch, vorgenommen wird. Außerdem muss Zugriff auf den MQTT-Broker gewährleistet werden. Von Rhasspy wird empfohlen, dafür den Docker-Container im Host-Networking-Modus laufen zu lassen. Dadurch teilt sich der Docker-Container einen Namensraum mit dem restlichen System und kann so ohne weitere Konfiguration auf den MQTT-Broker via dessen Port zugreifen. Das Kommando zum Starten des Rhasspy Docker Images lautet somit:","url":"http://localhost:4000/pp-voiceassistant/docs/installation/anleitung","@type":"WebPage","headline":"Anleitung","dateModified":"2023-01-22T15:11:14+01:00","datePublished":"2023-01-22T15:11:14+01:00","@context":"http://schema.org"}</script>
+{"description":"Zunächst kann der Installationsanleitung von Finn Wehn gefolgt werden. Allerdings müssen dabei ein paar Dinge beachtet werden. Es wird mit einer SD-Karte mit der 32 Bit version des Raspberry Pi OS gestartet. Falls bei der Installation des Betriebsystems der Standarduser “pi” geändert wurde, müssen bei der weitergehenden Installation ein paar Dinge angepasst werden. Diese sind markiert. Diese wird in den Raspberry Pi gesteckt und dieser dann gestartet. Ist dieser mit einem Netzwerk verbunden, kann man sich nun mit einem Computer per SSH verbinden. SSH, oder auch Secure Shell, ist ein Netzwerkprotokoll, mit welchem auf das Terminal des Pis zugegriffen werden kann. Alternativ kann auch ein Bildschirm, eine Maus und eine Tastatur angeschlossen werden und ein Terminal direkt auf dem Pi geöffnet werden. Darüber müssen auf dem Pi ein MQTT-Broker, in diesem Fall Mosquitto, eine Rhasspy-Instanz, die Laufzeit-Umgebung NodeJS und Git installiert werden. Bei der Installation der Rhasspy-Instanz muss beachtet werden, dass diese in der richtigen Sprache, in diesem Fall deutsch, vorgenommen wird. Außerdem muss Zugriff auf den MQTT-Broker gewährleistet werden. Von Rhasspy wird empfohlen, dafür den Docker-Container im Host-Networking-Modus laufen zu lassen. Dadurch teilt sich der Docker-Container einen Namensraum mit dem restlichen System und kann so ohne weitere Konfiguration auf den MQTT-Broker via dessen Port zugreifen. Das Kommando zum Starten des Rhasspy Docker Images lautet somit:","url":"http://localhost:4000/pp-voiceassistant/docs/installation/anleitung","@type":"WebPage","headline":"Anleitung","dateModified":"2023-01-23T21:21:27+01:00","datePublished":"2023-01-23T21:21:27+01:00","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -120,6 +120,10 @@
             
             <a class="list-group-item " href=""></a>
           
+            
+            
+            <a class="list-group-item " href=""></a>
+          
         </div>
       </div>
     </div>
@@ -128,7 +132,7 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-            Client
+            Skills
           </a>
         </h4>
       </div>
@@ -139,23 +143,31 @@
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/client/rhasspy/">Rhasspy</a>
+            <a class="list-group-item " href=""></a>
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a>
+            <a class="list-group-item " href=""></a>
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/client/webinterface/">Webinterface</a>
+            <a class="list-group-item " href=""></a>
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/client/cli/">CLI</a>
+            <a class="list-group-item " href=""></a>
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/client/preconditions/">Vorbedingungen</a>
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
           
         </div>
       </div>
@@ -165,67 +177,13 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
-            Server
-          </a>
-        </h4>
-      </div>
-      
-      
-      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
-        <div class="list-group">
-          
-            
-            
-            <a class="list-group-item " href="/pp-voiceassistant/docs/server/skillserver/">Skillserver</a>
-          
-        </div>
-      </div>
-    </div>
-  
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
-            Skills
-          </a>
-        </h4>
-      </div>
-      
-      
-      <div class="panel-collapse collapse" id="collapse-5" role="tabpanel" aria-label="Side Navigation">
-        <div class="list-group">
-          
-            
-            
-            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/instruction/">Anleitung</a>
-          
-            
-            
-            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/locales/">Locales</a>
-          
-            
-            
-            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/sdk/">SDK</a>
-          
-            
-            
-            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/manifest/">Manifest</a>
-          
-        </div>
-      </div>
-    </div>
-  
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
             Fazit
           </a>
         </h4>
       </div>
       
       
-      <div class="panel-collapse collapse" id="collapse-6" role="tabpanel" aria-label="Side Navigation">
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
         <div class="list-group">
           
             
@@ -279,7 +237,7 @@ Wenn nun mit 'npm start' der Bot Client gestartet wird, loggt sich der Bot ein u
             <div style="clear:both;">
               <p class="text-center">
                 <br />
-                <a target="_blank" href="https://github.com/fwehn/pp-voiceassistant/tree/main/docs/_docs/installation/anleitung" class="btn btn-default" role="button">
+                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/installation/anleitung" class="btn btn-default" role="button">
                   <i class="fa fa-pencil fa-lg"></i> Improve this page
                 </a>
               </p>
@@ -290,12 +248,6 @@ Wenn nun mit 'npm start' der Bot Client gestartet wird, loggt sich der Bot ein u
 
 
 
-
-  
-  
-
-  
-  
 
   
   

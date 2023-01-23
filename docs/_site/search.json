@@ -13,29 +13,29 @@
     
     
     {
-      "title": "",
-      "url": ""
+      "title": "Installation",
+      "url": "/pp-voiceassistant/docs/installation/index"
     },
   
     
     
     {
-      "title": "",
-      "url": ""
+      "title": "Anleitung",
+      "url": "/pp-voiceassistant/docs/installation/anleitung"
     },
   
     
     
     {
-      "title": "",
-      "url": ""
+      "title": "Hardware",
+      "url": "/pp-voiceassistant/docs/installation/hardware"
     },
   
     
     
     {
-      "title": "",
-      "url": ""
+      "title": "Zigbee2MQTT",
+      "url": "/pp-voiceassistant/docs/installation/Zigbee2MQTT"
     },
   
 
@@ -96,7 +96,7 @@
     {
       "title": "Fazit",
       "url": "/pp-voiceassistant/docs/conclusion/conclusion/"
-    },
+    }
   
 
 

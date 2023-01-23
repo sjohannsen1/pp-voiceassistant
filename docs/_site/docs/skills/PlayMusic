@@ -11,19 +11,19 @@
 
     <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Evaluationen | Praxisprojekt Sprachassistent</title>
+<title>PlayMusic Skill | Praxisprojekt Sprachassistent</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Evaluationen" />
+<meta property="og:title" content="PlayMusic Skill" />
 <meta property="og:locale" content="de_DE" />
-<meta name="description" content="In diesem Abschnitt werde ich mir einige verschiedene Ansätze für modulare Systeme anschauen und evaluieren. Dazu habe ich mir drei verschiedene Systeme herausgesucht: Amazon Alexa Google Assistant Homeassistant" />
-<meta property="og:description" content="In diesem Abschnitt werde ich mir einige verschiedene Ansätze für modulare Systeme anschauen und evaluieren. Dazu habe ich mir drei verschiedene Systeme herausgesucht: Amazon Alexa Google Assistant Homeassistant" />
-<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/evaluation/evaluation/" />
-<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/evaluation/evaluation/" />
+<meta name="description" content="Bei PlayMusic handelt es sich um einen Skill welcher Musikdateien oder Radiosender abspielen kann." />
+<meta property="og:description" content="Bei PlayMusic handelt es sich um einen Skill welcher Musikdateien oder Radiosender abspielen kann." />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/skills/PlayMusic" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/skills/PlayMusic" />
 <meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-01-22T15:11:14+01:00" />
+<meta property="article:published_time" content="2023-01-23T21:21:27+01:00" />
 <script type="application/ld+json">
-{"description":"In diesem Abschnitt werde ich mir einige verschiedene Ansätze für modulare Systeme anschauen und evaluieren. Dazu habe ich mir drei verschiedene Systeme herausgesucht: Amazon Alexa Google Assistant Homeassistant","url":"http://localhost:4000/pp-voiceassistant/docs/evaluation/evaluation/","@type":"WebPage","headline":"Evaluationen","dateModified":"2023-01-22T15:11:14+01:00","datePublished":"2023-01-22T15:11:14+01:00","@context":"http://schema.org"}</script>
+{"description":"Bei PlayMusic handelt es sich um einen Skill welcher Musikdateien oder Radiosender abspielen kann.","url":"http://localhost:4000/pp-voiceassistant/docs/skills/PlayMusic","@type":"WebPage","headline":"PlayMusic Skill","dateModified":"2023-01-23T21:21:27+01:00","datePublished":"2023-01-23T21:21:27+01:00","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -120,6 +120,10 @@
             
             <a class="list-group-item " href=""></a>
           
+            
+            
+            <a class="list-group-item " href=""></a>
+          
         </div>
       </div>
     </div>
@@ -128,7 +132,7 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-            Client
+            Skills
           </a>
         </h4>
       </div>
@@ -139,23 +143,31 @@
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/client/rhasspy/">Rhasspy</a>
+            <a class="list-group-item " href=""></a>
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a>
+            <a class="list-group-item " href=""></a>
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/client/webinterface/">Webinterface</a>
+            <a class="list-group-item " href=""></a>
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/client/cli/">CLI</a>
+            <a class="list-group-item " href=""></a>
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/client/preconditions/">Vorbedingungen</a>
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
           
         </div>
       </div>
@@ -165,67 +177,13 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
-            Server
-          </a>
-        </h4>
-      </div>
-      
-      
-      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
-        <div class="list-group">
-          
-            
-            
-            <a class="list-group-item " href="/pp-voiceassistant/docs/server/skillserver/">Skillserver</a>
-          
-        </div>
-      </div>
-    </div>
-  
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
-            Skills
-          </a>
-        </h4>
-      </div>
-      
-      
-      <div class="panel-collapse collapse" id="collapse-5" role="tabpanel" aria-label="Side Navigation">
-        <div class="list-group">
-          
-            
-            
-            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/instruction/">Anleitung</a>
-          
-            
-            
-            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/locales/">Locales</a>
-          
-            
-            
-            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/sdk/">SDK</a>
-          
-            
-            
-            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/manifest/">Manifest</a>
-          
-        </div>
-      </div>
-    </div>
-  
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
             Fazit
           </a>
         </h4>
       </div>
       
       
-      <div class="panel-collapse collapse" id="collapse-6" role="tabpanel" aria-label="Side Navigation">
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
         <div class="list-group">
           
             
@@ -241,38 +199,54 @@
         </div>
 
         <div class="col-md-8">
-            <h1>Evaluationen</h1>
-            <div id="markdown-content-container"><p>In diesem Abschnitt werde ich mir einige verschiedene Ansätze für modulare Systeme anschauen und evaluieren.<br />
-Dazu habe ich mir drei verschiedene Systeme herausgesucht:</p>
-<ul>
-  <li>Amazon Alexa</li>
-  <li>Google Assistant</li>
-  <li>Homeassistant</li>
-</ul>
+            <h1>PlayMusic Skill</h1>
+            <div id="markdown-content-container">Bei PlayMusic handelt es sich um einen Skill welcher Musikdateien oder Radiosender abspielen kann. 
 
-<p>Alle drei bieten einen etwas anderen Ansatz und Aufbau.</p>
+### Installation
 
-<h1 id="warum-habe-ich-mir-genau-diese-systeme-ausgesucht">Warum habe ich mir genau diese Systeme ausgesucht?</h1>
+Falls der Standardnutzer des Pis geändert wurde, muss der Nutzer zur "audio" Gruppe hinzugefügt werden. Dazu kann dieser Befehl in einem Terminal eingegeben werden: `sudo usermod -a -G audio NUTZERNAME` <br>
+Bevor Musik oder Radio abgespielt werden muss, müssen diese eingerichtet werden. Für Musik muss der Titel, der Interpret und der Speicherort des Lieds in die Datei `configSongs` eingetragen werden. In die Datei `configRadio` müssen Name und die Streamurl des Senders eingetragen werden. Die Streamurl ist die Internetadresse über welche die Tonspur des Radio zu finden ist. Wenn beides nicht eingerichtet wird, können weder Radio noch Musik abgespielt werden. Bei Aktivierung des Skills werden die Dateien dann leer erzeugt und können über die Schnittstelle des Bots befüllt werden. 
 
-<p>Amazon Alexa und Google Assistant sind zwei der weit verbreitetsten Sprachassistenten überhaupt.<br />
-Es lag also recht nahe, mir diese beiden Systeme anzuschauen.</p>
+### Radio
 
-<p>Homeassistant habe ich mir angeschaut, da es kein Sprachassistent ist, jedoch trotzdem ein modulares Funktionssystem benutzt.<br />
-Der grundlegende Anwendungszweck war also ein gänzlich anderer.</p>
+Radiosender können ausgegeben und abgespielt werden. Es können außerdem Informationen über das Gehörte abgefragt werden und aus dem Stream ausgelesen werden. Die Wiedergabe kann gestoppt werden. 
 
-<h1 id="worauf-habe-ich-mich-fokussiert">Worauf habe ich mich fokussiert?</h1>
+### Sprachbefehle nur fürs Radio
 
-<p>Bei der Evaluation der Systeme habe ich mich auf den grundlegenden Aufbau der verschiedenen Module konzentriert.<br />
-Welche Dateien werden von den Systemen verlangt, damit das Modul einwandfrei funktioniert?<br />
-Wie sind diese Dateien aufgebaut?<br />
-Wie sind die Befehle der Sprachassistenten aufgebaut? (Nur bei Amazon Alexa und Google Assistant)</p>
+... `start` [ Musikplayer ] [ und ] [starte] das Radio <br>
+... `start` [ Musikplayer ] [ und ] Mach das Radio an <br>
+... `start` [ Musikplayer ] [ und ] [ nächster | anderer ] [ Sender | Radiosender ] <br>
+... `start` [ Musikplayer ] [ und ] Welcher [ Sender | Radiosender ] spielt gerade <br>
+... `start` [ Musikplayer ] [ und ] Spiele den [ Sender | Radiosender ] `radiostations` ab <br>
+... `start` [ Musikplayer ] [ und ] Welche [ Sender | Radiosender ] gibt es <br>
+... `start` [ Musikplayer ] [ und ] Was kann ich [im] Radio hören <br>
 
-<p>Es ging mir bei der Evaluation also nicht darum, die Funktionsweise der Systeme zu analysieren, sondern eher die Sicht der Entwicklerinnen und Entwickler einzunehmen.</p>
-</div>
+### Musikdateien
+
+Lieder können ausgegeben und abgespielt werden. Es kann abgefragt werden was momentan abgespielt wird. Die Wiedergabe kann gestoppt werden.
+
+### Sprachbefehle für Musik
+
+... `start` [ Musikplayer ] [ und ] Spiele [ das Lied | den Song ] `songs` ab <br>
+... `start` [ Musikplayer ] [ und ] Welche [ Lieder | Songs ] gibt es <br>
+
+### Sprachbefehle für Musik und Radio
+
+... `start` [ Musikplayer ] [ und ] Was läuft gerade <br>
+... `start` [ Musikplayer ] [ und ] Was wird gerade abgespielt <br>
+... `start` [ Musikplayer ] [ und ] Mach [ das | die ] [ Radio | Musik ] aus <br>
+... `start` [ Musikplayer ] [ und ] ( Stoppe | Stop ) [ die | das ] [ Musik | Radio | Wiedergabe ] <br>
+
+### Slots
+
+Die Slots `radiostations` und `songs` werden dynamisch befüllt. Zunächst liest der Skill bei Aktivierung die Konfigurationsdateien ein und sendet sie Sendernamen und den Interpret und Liedtitel der Lieder an Rhasspy. Wenn über die Schnittstelle des Bots neue Sender oder Lieder hinzugefügt werden, sendet der Bot diese an Rhasspy. 
+
+`radiostations` kann alle gespeicherten Radiosender annehmen
+`songs` kann alle gespeicherten Lieder annehmen</div>
             <div style="clear:both;">
               <p class="text-center">
                 <br />
-                <a target="_blank" href="https://github.com/fwehn/pp-voiceassistant/tree/main/docs/_docs/evaluation/index.md" class="btn btn-default" role="button">
+                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/skills/PlayMusic" class="btn btn-default" role="button">
                   <i class="fa fa-pencil fa-lg"></i> Improve this page
                 </a>
               </p>
@@ -283,12 +257,6 @@ Wie sind die Befehle der Sprachassistenten aufgebaut? (Nur bei Amazon Alexa und 
 
 
 
-
-  
-  
-
-  
-  
 
   
   
