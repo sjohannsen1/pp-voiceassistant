@@ -31,41 +31,11 @@
       "url": ""
     },
   
-
-  
     
     
     {
-      "title": "Rhasspy",
-      "url": "/pp-voiceassistant/docs/client/rhasspy/"
-    },
-  
-    
-    
-    {
-      "title": "Skillmanager",
-      "url": "/pp-voiceassistant/docs/client/skillmanager/"
-    },
-  
-    
-    
-    {
-      "title": "Webinterface",
-      "url": "/pp-voiceassistant/docs/client/webinterface/"
-    },
-  
-    
-    
-    {
-      "title": "CLI",
-      "url": "/pp-voiceassistant/docs/client/cli/"
-    },
-  
-    
-    
-    {
-      "title": "Vorbedingungen",
-      "url": "/pp-voiceassistant/docs/client/preconditions/"
+      "title": "",
+      "url": ""
     },
   
 
@@ -73,38 +43,50 @@
     
     
     {
-      "title": "Skillserver",
-      "url": "/pp-voiceassistant/docs/server/skillserver/"
-    },
-  
-
-  
-    
-    
-    {
-      "title": "Anleitung",
-      "url": "/pp-voiceassistant/docs/skills/instruction/"
+      "title": "",
+      "url": ""
     },
   
     
     
     {
-      "title": "Locales",
-      "url": "/pp-voiceassistant/docs/skills/locales/"
+      "title": "",
+      "url": ""
     },
   
     
     
     {
-      "title": "SDK",
-      "url": "/pp-voiceassistant/docs/skills/sdk/"
+      "title": "",
+      "url": ""
     },
   
     
     
     {
-      "title": "Manifest",
-      "url": "/pp-voiceassistant/docs/skills/manifest/"
+      "title": "",
+      "url": ""
+    },
+  
+    
+    
+    {
+      "title": "",
+      "url": ""
+    },
+  
+    
+    
+    {
+      "title": "",
+      "url": ""
+    },
+  
+    
+    
+    {
+      "title": "",
+      "url": ""
     },
   
 
