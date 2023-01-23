@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/main.css">
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>SDK | Praxisprojekt Sprachassistent</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="SDK" />
+<meta property="og:locale" content="de_DE" />
+<meta name="description" content="Ich habe, für die Entwicklung neuer Skills, ein eigenes SDK (Software Development Kit) erstellt. Dieses kümmert sich, in Zusammenarbeit mit dem Skillmanager, um nützliche Funktionen wie zum Beispiel die Sprachausgabe, oder aber den Umgang mit den Antwortsätzen." />
+<meta property="og:description" content="Ich habe, für die Entwicklung neuer Skills, ein eigenes SDK (Software Development Kit) erstellt. Dieses kümmert sich, in Zusammenarbeit mit dem Skillmanager, um nützliche Funktionen wie zum Beispiel die Sprachausgabe, oder aber den Umgang mit den Antwortsätzen." />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/skills/sdk/" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/skills/sdk/" />
+<meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-22T15:11:14+01:00" />
+<script type="application/ld+json">
+{"description":"Ich habe, für die Entwicklung neuer Skills, ein eigenes SDK (Software Development Kit) erstellt. Dieses kümmert sich, in Zusammenarbeit mit dem Skillmanager, um nützliche Funktionen wie zum Beispiel die Sprachausgabe, oder aber den Umgang mit den Antwortsätzen.","url":"http://localhost:4000/pp-voiceassistant/docs/skills/sdk/","@type":"WebPage","headline":"SDK","dateModified":"2023-01-22T15:11:14+01:00","datePublished":"2023-01-22T15:11:14+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="alternate" type="application/rss+xml" title="Praxisprojekt Sprachassistent" href="http://localhost:4000/pp-voiceassistant/feed.xml" />
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="/pp-voiceassistant/">
+                <span><img src="/pp-voiceassistant/assets/img/logonav.png" alt="Logo"></span> Praxisprojekt Sprachassistent
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li  class="active" ><a href="/pp-voiceassistant/docs/home/">Docs</a></li>
+<!--                <li ><a href="">Blog</a></li>-->
+            </ul>
+            <div class="navbar-right">
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="form-group has-feedback">-->
+<!--                        <input id="search-box" type="search" class="form-control" placeholder="Search...">-->
+<!--                        <i class="fa fa-search form-control-feedback"></i>-->
+<!--                    </div>-->
+<!--                </form>-->
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/sjohannsen1/pp-voiceassistant"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+            Willkommen
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-1" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/home/">Willkommen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+            Installation
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-2" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+            Client
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-3" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/rhasspy/">Rhasspy</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/webinterface/">Webinterface</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/cli/">CLI</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/preconditions/">Vorbedingungen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+            Server
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/server/skillserver/">Skillserver</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+            Skills
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse" id="collapse-5" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/instruction/">Anleitung</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/locales/">Locales</a>
+          
+            
+            
+            <a class="list-group-item active" href="/pp-voiceassistant/docs/skills/sdk/">SDK</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/manifest/">Manifest</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
+            Fazit
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-6" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/conclusion/conclusion/">Fazit</a>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+
+        <div class="col-md-8">
+            <h1>SDK</h1>
+            <div id="markdown-content-container"><p>Ich habe, für die Entwicklung neuer Skills, ein eigenes SDK (<strong>S</strong>oftware <strong>D</strong>evelopment <strong>K</strong>it) erstellt.<br />
+Dieses kümmert sich, in Zusammenarbeit mit dem <a href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a>, um nützliche Funktionen wie zum Beispiel die Sprachausgabe, oder aber den Umgang mit den <a href="/pp-voiceassistant/docs/skills/locales/#answer">Antwortsätzen</a>.</p>
+
+<h2 id="konfiguration-und-initialisierung">Konfiguration und Initialisierung</h2>
+
+<p>Dieser Abschnitt beschreibt die Kommunikation vom Skillmanager mit dem SDK.<br />
+Damit der Skillmanager die Skills korrekt verwenden kann, müssen bei der Initialisierung einige Informationen definiert werden (wie z.B. unter welcher Adresse der MQTT-Broker erreichbar ist).</p>
+
+<h3 id="config">Config</h3>
+
+<p>Beim start des Skillmanagers wird über das SDK ein <code class="language-plaintext highlighter-rouge">configObject</code> erstellt, in dem einige Konfigurationen gespeichert werden.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">configObject</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">mqtt</span><span class="p">:</span> <span class="dl">'</span><span class="s1">localhost</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">intentHandler</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">variables</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="na">zigbeeTopic</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="na">zigbeeUpdater</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{},</span>
+    <span class="na">zigbeeDevices</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="na">zigbeeGroups</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js">sdk/index.js</a></em></p>
+
+<p>Unter <code class="language-plaintext highlighter-rouge">mqtt</code> wird die Host-IP des <a href="https://mqtt.org/">MQTT-Brokers</a> gespeichert, über den Rhasspy mit den einzelnen Komponenten kommuniziert.<br />
+Über diesen Broker kommen auch alle <a href="https://rhasspy.readthedocs.io/en/latest/intent-recognition/#mqtthermes">Intents</a> an, welche dann vom <code class="language-plaintext highlighter-rouge">intentHandler</code> verarbeitet werden.<br />
+Beim <code class="language-plaintext highlighter-rouge">intentHandler</code> handelt es sich um eine Callback-Funktion, welche in <a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/client/skillManager.js"><code class="language-plaintext highlighter-rouge">skillManager.js</code></a> als <code class="language-plaintext highlighter-rouge">customIntentHandler</code> definiert wurde.<br />
+In Variables werden die von den Endnutzerinnen und Endnutzern gesetzten Optionen gespeichert, damit diese von den Skills über eine SDK-Funktion abgerufen werden können.</p>
+
+<p>Bei <code class="language-plaintext highlighter-rouge">zigbeeTopic</code> handelt es sich um das Topic, auf welches eine, mögliche <a href="https://www.zigbee2mqtt.io/">Zigbee2MQTT-Instanz</a> ihre Daten veröffentlicht.<br />
+Zigbee2MQTT ist hierbei optional.<br />
+Sollte eine solche Anwendung vorliegen, so wird eine Liste mit allen Geräten und Gruppen ausgelesen und an den <code class="language-plaintext highlighter-rouge">zigbeeUpdater</code> übergeben.<br />
+Dabei handelt es sich wieder um eine Callback-Funktion, die diese Liste bei Rhasspy als Slot registriert.<br />
+<code class="language-plaintext highlighter-rouge">zigbeeDevices</code> und <code class="language-plaintext highlighter-rouge">zigbeeGroups</code> beinhalten die jeweiligen Einträge.</p>
+
+<p>Diese Angaben werden vom <a href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a> mittels der <code class="language-plaintext highlighter-rouge">config</code>-Funktion gesetzt.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">config</span><span class="p">(</span><span class="nx">options</span> <span class="o">=</span> <span class="p">{}){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">options</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">configObject</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">||</span> <span class="nx">options</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">options</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+
+        <span class="nx">configObject</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">options</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js">sdk/index.js</a></em></p>
+
+<p>Bei dieser Funktion handelt es sich im Grunde um eine einfache Setter Funktion, welche jedoch darauf achtet, dass nur im <code class="language-plaintext highlighter-rouge">configObject</code> deklarierte Felder gesetzt und verändert werden können.</p>
+
+<h3 id="init">Init</h3>
+
+<p>Mit der <code class="language-plaintext highlighter-rouge">init</code>-Funktion verbindet sich der <a href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a> mit dem MQTT-Broker und abonniert einige Topics:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">client</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">mqtt</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s2">`mqtt://</span><span class="p">${</span><span class="nx">configObject</span><span class="p">.</span><span class="nx">mqtt</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+
+    <span class="nx">client</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">connect</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">client</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">configObject</span><span class="p">.</span><span class="nx">zigbeeTopic</span><span class="p">}</span><span class="s2">/bridge/devices`</span><span class="p">);</span>
+        <span class="nx">client</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">configObject</span><span class="p">.</span><span class="nx">zigbeeTopic</span><span class="p">}</span><span class="s2">/bridge/groups`</span><span class="p">);</span>
+
+        <span class="nx">client</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="dl">'</span><span class="s1">hermes/intent/#</span><span class="dl">'</span><span class="p">);</span>
+
+        <span class="nx">client</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">topic</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js">sdk/index.js</a></em></p>
+
+<p>Zwei der Topics dienen dazu, eine Liste aller Geräte und Gruppen von Zigbee2MQTT auszulesen und alle Änderungen mitzubekommen. <br />
+Diese Liste wird dann als Slot mit dem Namen “zigbee2mqtt” an Rhasspy gesendet, damit die Spracherkennung die Wörter erkennen kann.</p>
+
+<p>Das dritte Topic dient dazu alle eingehenden Intents von Rhasspy aufzufangen.<br />
+Nachdem ein Intent erkannt wird, werden sofort einige Informationen im JavaScript-Objekt <code class="language-plaintext highlighter-rouge">sessionData</code> gespeichert und die Nachricht an den im <code class="language-plaintext highlighter-rouge">configObject</code> gespeicherten <code class="language-plaintext highlighter-rouge">intentHandler</code> weitergegeben.</p>
+
+<h2 id="sitzungsdaten">Sitzungsdaten</h2>
+
+<p>Damit Entwicklerinnen und Entwickler sich nicht darum kümmern muss, über welchen Satelliten die Sprache ausgegeben wird oder in welcher Sitzung man sich derzeit befindet, gibt es die sog. <code class="language-plaintext highlighter-rouge">sessionData</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sessionData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">siteId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">default</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">sessionId</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="na">skill</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="na">answer</span><span class="p">:</span> <span class="dl">""</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js">sdk/index.js</a></em></p>
+
+<p>Hier werden einige Informationen gespeichert, welche direkt von Rhasspy kommen, wie zum Beispiel die <code class="language-plaintext highlighter-rouge">sessionId</code> oder auch die <code class="language-plaintext highlighter-rouge">siteId</code>.<br />
+Diese werden unter anderem von der <a href="#Sprachausgabe"><code class="language-plaintext highlighter-rouge">say</code></a> Funktion genutzt, damit die Sprachausgabe auf dem Satelliten wiedergegeben wird, über welchen die Eingabe stattfand.</p>
+
+<p>Aber auch Informationen eines Skills werden hier gespeichert.<br />
+So wird zum Beispiel basierend auf der ausgewählten Sprache, der Antwortsatz aus den jeweiligen <code class="language-plaintext highlighter-rouge">locale</code>-Dateien ausgelesen.</p>
+
+<h2 id="sprachausgabe">Sprachausgabe</h2>
+
+<p>Die Funktion <code class="language-plaintext highlighter-rouge">say</code> kann genutzt werden, um einen Satz von Rhasspy sprechen zu lassen.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">say</span><span class="p">(</span><span class="nx">text</span> <span class="o">=</span> <span class="dl">""</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">text</span><span class="p">:</span> <span class="nx">text</span><span class="p">,</span>
+        <span class="na">siteId</span><span class="p">:</span> <span class="nx">sessionData</span><span class="p">[</span><span class="dl">"</span><span class="s2">siteId</span><span class="dl">"</span><span class="p">],</span>
+        <span class="na">sessionId</span><span class="p">:</span> <span class="nx">sessionData</span><span class="p">[</span><span class="dl">"</span><span class="s2">sessionId</span><span class="dl">"</span><span class="p">]</span>
+    <span class="p">};</span>
+
+    <span class="nx">client</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="dl">'</span><span class="s1">hermes/tts/say</span><span class="dl">'</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">message</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js">sdk/index.js</a></em></p>
+
+<p>Der Funktion wird lediglich ein String übergeben.<br />
+Die restlichen Informationen bezieht sie über das <code class="language-plaintext highlighter-rouge">sessionData</code>-Objekt.<br />
+Zum Schluss werden die Daten als String auf das Topic <code class="language-plaintext highlighter-rouge">hermes/tts/say</code> veröffentlicht.</p>
+
+<h3 id="beispiel">Beispiel</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">customSdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@fwehn/custom_sdk</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">helloWorld</span><span class="p">(</span><span class="nx">hello</span><span class="p">,</span> <span class="nx">world</span><span class="p">){</span>
+    <span class="nx">customSdk</span><span class="p">.</span><span class="nx">say</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">hello</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="nx">world</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/HelloWorld/1.0/src/index.js">HelloWorld</a></em></p>
+
+<p>Bei diesem Beispiel werden die beiden Strings <code class="language-plaintext highlighter-rouge">hello</code> und <code class="language-plaintext highlighter-rouge">world</code> aneinander gehangen und ausgegeben.</p>
+
+<h2 id="antwort-generieren">Antwort generieren</h2>
+
+<p>Entwicklerinnen und Entwickler können <a href="/pp-voiceassistant/docs/skills/locales/#answer">Antwortsätze</a> in verschiedenen Sprachen definieren.<br />
+Damit diese jedoch mit einigen Werten erweitert werden können, muss ein solcher Satz generiert werden.<br />
+Dazu gibt man einen Satz wie zum Beispiel <code class="language-plaintext highlighter-rouge">Es ist # Uhr #</code> (aus <a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/GetTime/1.0/src/index.js">GetTime</a>) an.<br />
+Die Funktion <code class="language-plaintext highlighter-rouge">generateAnswer</code> ersetzt dann jeden Separator (standardmäßig <code class="language-plaintext highlighter-rouge">#</code>) mit den Werten, die als Array übergeben werden.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">generateAnswer</span><span class="p">(</span><span class="nx">vars</span> <span class="o">=</span> <span class="p">[</span><span class="dl">""</span><span class="p">],</span> <span class="nx">separator</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">#</span><span class="dl">"</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">parts</span> <span class="o">=</span> <span class="nx">sessionData</span><span class="p">.</span><span class="nx">answer</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="nx">separator</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="nx">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">parts</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="nx">answer</span> <span class="o">=</span> <span class="nx">answer</span> <span class="o">+</span> <span class="nx">vars</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">parts</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js">sdk/index.js</a></em></p>
+
+<p>Möchte man das Zeichen <code class="language-plaintext highlighter-rouge">#</code> selbst benutzen, kann man einen eigenen Separator verwenden, dazu muss dieser jedoch auch der Funktion übergeben werden.
+Der jeweilige Satz wird vom <a href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a> in der jeweiligen Sprache geladen und mit der einfachen Setter-Funktion <code class="language-plaintext highlighter-rouge">setAnswer</code> im Objekt <code class="language-plaintext highlighter-rouge">sessionData</code> gespeichert.<br />
+Von dort wird die Antwort ausgelesen.</p>
+
+<h3 id="beispiel-1">Beispiel</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">customSdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@fwehn/custom_sdk</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">getTime</span><span class="p">(){</span>
+    <span class="kd">let</span> <span class="nx">time</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="nx">customSdk</span><span class="p">.</span><span class="nx">generateAnswer</span><span class="p">([</span><span class="nx">time</span><span class="p">.</span><span class="nx">getHours</span><span class="p">(),</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()]);</span>
+    <span class="nx">customSdk</span><span class="p">.</span><span class="nx">say</span><span class="p">(</span><span class="nx">answer</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/GetTime/1.0/src/index.js">GetTime</a></em></p>
+
+<p>Hier wird der Satz <code class="language-plaintext highlighter-rouge">Es ist # Uhr #</code> um die aktuelle Stunde und die aktuelle Minute erweitert, also z.B. <code class="language-plaintext highlighter-rouge">Es ist 11 Uhr 34</code>.<br />
+Dieser Satz wird dann mit der <code class="language-plaintext highlighter-rouge">say</code>-Funktion ausgegeben.</p>
+
+<h2 id="config-variablen">Config Variablen</h2>
+
+<p>Mit der Funktion <a href="#config"><code class="language-plaintext highlighter-rouge">config</code></a> wird nun das Feld <code class="language-plaintext highlighter-rouge">variables</code> im JS-Object <code class="language-plaintext highlighter-rouge">configObject</code> gesetzt.<br />
+Beim Aufruf der Funktionen <code class="language-plaintext highlighter-rouge">getVaraibles</code> und <code class="language-plaintext highlighter-rouge">getVariable</code> werden nun die, zum im <a href="#sitzungsdaten"><code class="language-plaintext highlighter-rouge">sessionData</code></a> gespeicherten <code class="language-plaintext highlighter-rouge">skill</code> passenden, Variablen ausgelesen und zurückgegeben.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getAllVariables</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">try</span><span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">variables</span> <span class="o">=</span> <span class="nx">configObject</span><span class="p">.</span><span class="nx">variables</span><span class="p">[</span><span class="nx">sessionData</span><span class="p">[</span><span class="dl">"</span><span class="s2">skill</span><span class="dl">"</span><span class="p">]];</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">variables</span><span class="p">){</span>
+                <span class="nx">resolve</span><span class="p">(</span><span class="nx">variables</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="nx">reject</span><span class="p">(</span><span class="dl">"</span><span class="s2">Variable undefined!</span><span class="dl">"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span><span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">reject</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/sdk/index.js">sdk/index.js</a></em></p>
+
+<p>Bei der Funktion <code class="language-plaintext highlighter-rouge">getVariable</code> wird lediglich der Wert, der angegeben Variable, zurückgegeben.</p>
+
+<h3 id="beispiel-2">Beispiel</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">customSdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@fwehn/custom_sdk</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">getUrl</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">customSdk</span><span class="p">.</span><span class="nx">getAllVariables</span><span class="p">()</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">variables</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">resolve</span><span class="p">(</span><span class="s2">`https://api.openweathermap.org/data/2.5/forecast?zip=</span><span class="p">${</span><span class="nx">variables</span><span class="p">[</span><span class="dl">"</span><span class="s2">city</span><span class="dl">"</span><span class="p">]}</span><span class="s2">,</span><span class="p">${</span><span class="nx">variables</span><span class="p">[</span><span class="dl">"</span><span class="s2">country</span><span class="dl">"</span><span class="p">]}</span><span class="s2">&amp;appid=</span><span class="p">${</span><span class="nx">variables</span><span class="p">[</span><span class="dl">"</span><span class="s2">APIKey</span><span class="dl">"</span><span class="p">]}</span><span class="s2">&amp;lang=</span><span class="p">${</span><span class="nx">variables</span><span class="p">[</span><span class="dl">"</span><span class="s2">language</span><span class="dl">"</span><span class="p">]}</span><span class="s2">&amp;units=</span><span class="p">${</span><span class="nx">variables</span><span class="p">[</span><span class="dl">"</span><span class="s2">units</span><span class="dl">"</span><span class="p">]}</span><span class="s2">`</span><span class="p">);</span>
+            <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">reject</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/GetWeather/1.0/src/index.js">GetWeather</a></em></p>
+
+<p>In diesem Beispiel werden die Angaben, die über das <a href="/pp-voiceassistant/docs/client/webinterface/#details">Webinterface</a> gesetzt wurden, dazu genutzt, eine URL zu generieren, um auf die API von <a href="https://openweathermap.org/">OpenWeather</a> zuzugreifen.</p>
+
+<h2 id="publish">Publish</h2>
+
+<p>Um möglichen Entwicklerinnen und Entwicklern mehr Möglichkeiten zu bieten, habe ich eine Funktion implementiert, mit der man eigene MQTT-Nachrichten senden kann.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">publishMQTT</span><span class="p">(</span><span class="nx">topic</span> <span class="o">=</span> <span class="dl">""</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">payload</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">){</span>
+        <span class="nx">client</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="nx">topic</span><span class="p">,</span> <span class="nx">payload</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">payload</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">object</span><span class="dl">"</span><span class="p">){</span>
+        <span class="nx">client</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="nx">topic</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">));</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">fail</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Dazu müssen die zu sendenden Daten entweder als String oder als JS-Object vorliegen.</p>
+</div>
+            <div style="clear:both;">
+              <p class="text-center">
+                <br />
+                <a target="_blank" href="https://github.com/fwehn/pp-voiceassistant/tree/main/docs/_docs/skill/sdk.md" class="btn btn-default" role="button">
+                  <i class="fa fa-pencil fa-lg"></i> Improve this page
+                </a>
+              </p>
+            </div>
+            <hr>
+            
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <ul class="pager">
+      
+        
+        
+        <li class="previous">
+          <a href="/pp-voiceassistant/docs/skills/locales/">
+            <span aria-hidden="true">&larr;</span> Previous
+          </a>
+        </li>
+      
+
+      
+        
+        
+        <li class="next">
+          <a href="/pp-voiceassistant/docs/skills/manifest/">
+            Next <span aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      
+      </ul>
+    <div class="clear"></div>
+    
+
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            Praxisprojekt Sprachassistent 2023 |
+            Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
+
+    <script>
+  var baseurl = '/pp-voiceassistant'
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/pp-voiceassistant/assets/js/bootstrap.min.js "></script>
+<script src="/pp-voiceassistant/assets/js/typeahead.bundle.min.js "></script>
+
+<script src="/pp-voiceassistant/assets/js/main.js "></script>
+
+</body>
+
+</html>

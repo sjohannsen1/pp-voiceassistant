@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  },
+  "options":[{
+    "name": "alarm_sound",
+    "type": "String",
+    "default": "Zeit ist abgelaufen"
+  }] ,
+  "custom_slots": []
+}

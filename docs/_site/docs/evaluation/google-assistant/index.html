@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/main.css">
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Google Assistant | Praxisprojekt Sprachassistent</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Google Assistant" />
+<meta property="og:locale" content="de_DE" />
+<meta name="description" content="Beim Google Assistant heißen die Funktionen Google Actions. Actions können auf viele verschiedene Arten erstellt und verwendet werden." />
+<meta property="og:description" content="Beim Google Assistant heißen die Funktionen Google Actions. Actions können auf viele verschiedene Arten erstellt und verwendet werden." />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/evaluation/google-assistant/" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/evaluation/google-assistant/" />
+<meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-22T15:11:14+01:00" />
+<script type="application/ld+json">
+{"description":"Beim Google Assistant heißen die Funktionen Google Actions. Actions können auf viele verschiedene Arten erstellt und verwendet werden.","url":"http://localhost:4000/pp-voiceassistant/docs/evaluation/google-assistant/","@type":"WebPage","headline":"Google Assistant","dateModified":"2023-01-22T15:11:14+01:00","datePublished":"2023-01-22T15:11:14+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="alternate" type="application/rss+xml" title="Praxisprojekt Sprachassistent" href="http://localhost:4000/pp-voiceassistant/feed.xml" />
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="/pp-voiceassistant/">
+                <span><img src="/pp-voiceassistant/assets/img/logonav.png" alt="Logo"></span> Praxisprojekt Sprachassistent
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li  class="active" ><a href="/pp-voiceassistant/docs/home/">Docs</a></li>
+<!--                <li ><a href="">Blog</a></li>-->
+            </ul>
+            <div class="navbar-right">
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="form-group has-feedback">-->
+<!--                        <input id="search-box" type="search" class="form-control" placeholder="Search...">-->
+<!--                        <i class="fa fa-search form-control-feedback"></i>-->
+<!--                    </div>-->
+<!--                </form>-->
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/sjohannsen1/pp-voiceassistant"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+            Willkommen
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-1" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/home/">Willkommen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+            Installation
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-2" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+            Client
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-3" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/rhasspy/">Rhasspy</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/webinterface/">Webinterface</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/cli/">CLI</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/preconditions/">Vorbedingungen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+            Server
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/server/skillserver/">Skillserver</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+            Skills
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-5" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/instruction/">Anleitung</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/locales/">Locales</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/sdk/">SDK</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/manifest/">Manifest</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
+            Fazit
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-6" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/conclusion/conclusion/">Fazit</a>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+
+        <div class="col-md-8">
+            <h1>Google Assistant</h1>
+            <div id="markdown-content-container"><p>Beim Google Assistant heißen die Funktionen Google Actions.<br />
+Actions können auf viele verschiedene Arten erstellt und verwendet werden.</p>
+
+<h2 id="befehlsstruktur">Befehlsstruktur</h2>
+
+<p>Bei Google Actions gibt es keine “richtige” Befehlsstruktur, vielmehr verschiedene Varianten einen Satz zu interpretieren.<br />
+Google nutzt nämlich ein NLU-Technik (<strong>N</strong>atural <strong>L</strong>anguage <strong>U</strong>nderstanding), um aus einem Set aus Sätzen ein KI-Modell zu trainieren.<br />
+Anhand dieses Modells kann der Google Assistant dann ermitteln, um welche Action es sich handelt.<br />
+Als Entwickler muss man mindestens zehn verschiedene Varianten eines Intents angeben.</p>
+
+<h2 id="ordnerstruktur">Ordnerstruktur</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Action-Verzeichnis&gt;   
+│
+├── actions/
+├── custom/
+│   ├── global/
+│   ├── intents/
+│   ├── scenes/
+│   └── types/
+├── settings/
+└── manifest.yaml
+</code></pre></div></div>
+
+<h2 id="entwicklung">Entwicklung</h2>
+
+<p>Google Actions basiert auf Javascript und verwendet einige Firebase-Ressourcen.<br />
+Es gibt viele verschiedene Möglichkeiten, Google Actions zu erstellen.<br />
+Von Google werden zwei Varianten empfohlen:</p>
+<ul>
+  <li>Mit der <a href="https://console.actions.google.com/">Actions Console</a></li>
+  <li>Mit dem <a href="https://developers.google.com/assistant/df-asdk/actions-sdk">Actions-SDK</a></li>
+</ul>
+
+<h3 id="actions-console">Actions Console</h3>
+
+<p>Bei Actions Console handelt es sich um eine UI-Basierte IDE, welche sofort über einen Browser abrufbar ist.<br />
+Hier kann man dann neue Projekte erstellen.<br />
+Dazu wählt man zu Beginn eine aus fünf verschiedenen Kategorien aus.<br />
+Diese Kategorien sind <code class="language-plaintext highlighter-rouge">Smart Home</code>, <code class="language-plaintext highlighter-rouge">Food Ordering</code>, <code class="language-plaintext highlighter-rouge">Game</code>, <code class="language-plaintext highlighter-rouge">Story Telling</code> und <code class="language-plaintext highlighter-rouge">Education</code>.<br />
+Dabei erstellt Google ein vorgefertigtes Template, bei dem bereits einige Intents und Antworten hinterlegt sind. <br />
+Man hat jedoch auch die Möglichkeit ein leeres Projekt anzulegen, wenn keine der Kategorien auf die Anwendung passt.<br />
+Dazu wählt man <code class="language-plaintext highlighter-rouge">Custom</code>.</p>
+
+<p>Egal wie man seine Anwendung entwickeln möchte, dieser Erstellungsprozess ist für alle Varianten gleich.<br />
+In der Actions Console kann man sehr schnell die individuelle Action erstellen.<br />
+Die IDE ist sehr stark UI-basiert und man hat für jede Option einen Button oder ein Eingabefeld.<br />
+Dadurch können jedoch auch einige Limitationen in der Funktion der Action entstehen.</p>
+
+<h3 id="actions-sdk">Actions-SDK</h3>
+
+<p>Beim Actions-SDK handelt es sich in erster Linie um ein CLI, welches der Erstellung und Synchronisation einer Action dient.<br />
+Beim Code selbst handelt es sich um <code class="language-plaintext highlighter-rouge">.yaml</code>-Dateien, welche je nach Verzeichnis und gesetzter Variablen zum Beispiel eine Szene, ein Intent oder ein Slot sein können.<br />
+Sämtliche Einstellungen in der Actions Console sind Darstellungen jener <code class="language-plaintext highlighter-rouge">.yaml</code>-Dateien.</p>
+
+<h3 id="sonstige-möglichkeiten">Sonstige Möglichkeiten</h3>
+
+<p>Möchte man keine der Beiden oben genannten Möglichkeiten nutzen, so kann man die Action auch mittels Dialogflow oder einem eigenen Server umsetzten.<br />
+Um den eigenen Server zu nutzen, kann man in der Actions Console einen Webhook definieren, an welchen dann die Daten gesendet werden.<br />
+Als Backend kann man dann sämtliche Sprachen verwenden, die Webhooks unterstützen.</p>
+
+<h2 id="quellen">Quellen</h2>
+
+<p><a href="https://developers.google.com/assistant">Google Assistant Dokumentation</a>
+<a href="https://www.youtube.com/watch?v=dpNrq_wiqGs&amp;t=1s">Google I/O’19</a></p>
+</div>
+            <div style="clear:both;">
+              <p class="text-center">
+                <br />
+                <a target="_blank" href="https://github.com/fwehn/pp-voiceassistant/tree/main/docs/_docs/evaluation/googleassistant.md" class="btn btn-default" role="button">
+                  <i class="fa fa-pencil fa-lg"></i> Improve this page
+                </a>
+              </p>
+            </div>
+            <hr>
+            
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            Praxisprojekt Sprachassistent 2023 |
+            Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
+
+    <script>
+  var baseurl = '/pp-voiceassistant'
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/pp-voiceassistant/assets/js/bootstrap.min.js "></script>
+<script src="/pp-voiceassistant/assets/js/typeahead.bundle.min.js "></script>
+
+<script src="/pp-voiceassistant/assets/js/main.js "></script>
+
+</body>
+
+</html>

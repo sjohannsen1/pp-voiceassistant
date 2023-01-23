@@ -1,0 +1,68 @@
+{
+  "version": "1.0",
+  "dependencies": {},
+  "options": [
+    {
+      "name": "Zigbee2MQTT-Topic",
+      "type": "String",
+      "default": "zigbee2mqtt"
+    },
+    {
+      "name": "motionsensor_name",
+      "type": "String",
+      "default": "motion"
+    },
+    {
+      "name": "nightlight_name",
+      "type": "String",
+      "default": "Lampe"
+    },
+    {
+      "name": "washingmachine_name",
+      "type": "String",
+      "default": "washing_machine"
+    },
+    {
+      "name": "freezer_name",
+      "type": "String",
+      "default": "freezer_door"
+    },
+    {
+      "name": "letter_box_name",
+      "type": "String",
+      "default": "letter_box"
+    },
+    {
+      "name": "bell_name",
+      "type": "String",
+      "default": "bell"
+    },
+    {
+      "name": "APIKey Weather",
+      "type": "String",
+      "default": "1840be9127d7b93fe3799b42ee055b7c"
+    },
+    {
+      "name": "city",
+      "type": "Number",
+      "default": 51643
+    },
+    {
+      "name": "country",
+      "type": "String",
+      "default": "DE"
+    },
+    {
+      "name": "language",
+      "type": "String",
+      "default": "de"
+    },
+    {
+      "name": "units",
+      "type": "String",
+      "default": "metric",
+      "choices": ["standard","metric", "imperial"]
+    }
+  ],
+  "custom_slots": []
+}

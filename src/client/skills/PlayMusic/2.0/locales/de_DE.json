@@ -1,0 +1,56 @@
+{
+  "invocation": "[Musikplayer] [und]",
+  "description": "Einfacher Skill zum Abspielen von Radio",
+  "intents": [
+    {
+      "sentences": ["[starte] das Radio", "Mach das Radio an","(Nächster | anderer) Sender"],
+      "function": "next",
+      "args": [],
+      "answer":[ "Spiele # ab"],
+      "fail": ["Das Radio muss erst eingerichtet werden", "Es wird gerade schon etwas abgespielt"]
+    },
+    {
+      "sentences": ["( Stoppe | Stop ) [die | das] [Musik | Radio | Wiedergabe]", "Mach [das | die] [Radio | Musik] aus"],
+      "function": "stop",
+      "args": [],
+      "answer": ["Ok"],
+      "fail": ["Es wird gerade nichts abgespielt"]
+    },
+    {
+      "sentences": ["Spiele ($slots/music_mode){music_mode!int} ($slots/radiostations){radiostations} ab"],
+      "function": "setActive",
+      "args": ["radiostations", "music_mode"],
+      "answer": ["Spiele # ab"],
+      "fail": ["Diesen Sender kenne ich leider nicht", "Es wird gerade schon etwas abgespielt"]
+    },
+    {
+      "sentences": ["Spiele ($slots/music_mode){music_mode!int} ($slots/songs){songs} ab"],
+      "function": "setActive",
+      "args": ["songs", "music_mode"],
+      "answer": ["Spiele # ab"],
+      "fail": ["Dieses Lied kenne ich leider nicht", "Es wird gerade schon etwas abgespielt"]
+    },
+    
+    {
+      "sentences": ["Welcher Sender spielt gerade","Was läuft gerade", "Was wird gerade abgespielt"],
+      "function": "getCurrent",
+      "args": [],
+      "answer": ["Es spielt gerade # von #"],
+      "fail": ["Es wird gerade nichts abgespielt"]
+    },
+    {
+      "sentences": ["Welche ($slots/music_mode){music_mode!int} gibt es", "Was kann ich [im] ($slots/music_mode){music_mode!int} hören"],
+      "function": "getNames",
+      "args":["music_mode"],
+      "answer": ["Du kannst # hören"],
+      "fail": ["Es sind keine Radiosender eingerichtet", "Es sind keine Lieder eingerichtet"]
+    }
+  ],
+  "slots": {
+    "radiostations": ["_"],
+    "songs": ["_"],
+    "music_mode": ["sender:1", "radiosender:1","radio:1", "song:0", "lied:0", "songs:0", "lieder:0"]
+  }
+}
+
+

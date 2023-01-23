@@ -1,0 +1,44 @@
+{
+  "invocation": "Automatisierung",
+  "description": "Ein Skill um Automatisierungen an oder aus zu schalten",
+  "intents": [
+    {
+      "sentences": ["[mach] [die] Wäsche benachrichtigungen ($slots/state_auto){state}"],
+      "function": "washingMachine",
+      "args": ["state"],
+      "answer": ["Waschmaschinenbenachrichtigungen an", "Waschmaschinenbenachrichtigungen aus", "waschmaschine ist gestartet", "waschmaschine ist fertig" ],
+      "fail": [""]
+    },
+    {
+      "sentences": ["[mach] [das] Nachtlicht ($slots/state_auto){state}"],
+      "function": "nightLight",
+      "args": ["state"],
+      "answer": ["Nachtlicht an", "Nachtlicht aus"],
+      "fail": [" "]
+    },
+    {
+      "sentences": ["[mach] [die] Gefrierschrank beobachtungen ($slots/state_auto){state}"],
+      "function": "freezerDoor",
+      "args": ["state"],
+      "answer": ["Gefrierschrankbenachrichtigungen an ", "Gefrierschrankbenachrichtigungen aus ", "Der Gefrierschrank steht offen"],
+      "fail": [" "]
+    },
+    {
+      "sentences": ["[mach] [die] stumme Klingel ($slots/state_auto){state}"],
+      "function": "silentBell",
+      "args": ["state"],
+      "answer": ["Stumme Türklingel an ", "Stumme Türklingel aus ", "Es hat geklingel"],
+      "fail": [" "]
+    },
+    {
+      "sentences": ["[mach] [die] Briefkasten Benachrichtigungen ($slots/state_auto){state}"],
+      "function": "letterNotif",
+      "args": ["state"],
+      "answer": ["Ich benachrichtige dich wenn der Briefkasten auf geht ", "Briefkasten Benachrichtigungen aus ", "Post ist da"],
+      "fail": [" "]
+    }
+  ],
+  "slots": {
+    "state_auto": ["an:true", "aus:false"]
+  }
+}

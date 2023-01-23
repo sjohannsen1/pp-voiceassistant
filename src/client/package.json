@@ -1,29 +1,32 @@
 {
-  "name": "client",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "node -r dotenv/config.js index.js dotenv_config_path=./dotenv/.env",
-    "devmon": "nodemon -r dotenv/config.js index.js dotenv_config_path=./dotenv/.env"
-  },
-  "author": "Finn Wehn",
-  "license": "ISC",
-  "devDependencies": {
-    "dotenv": "^10.0.0",
-    "nodemon": "^2.0.13"
-  },
-  "dependencies": {
-    "@fwehn/custom_sdk": "file:../sdk",
-    "adm-zip": "^0.5.9",
-    "axios": "^0.23.0",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "express-fileupload": "^1.2.1",
-    "express-easy-zip": "^1.1.5",
-    "jade": "^1.11.0",
-    "openweather-apis": "^4.4.2",
-    "weather-js": "^2.0.0"
-  }
+    "name": "client",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node -r dotenv/config index.js",
+        "dev": "node -r dotenv/config index.js",
+        "devmon": "nodemon -r dotenv/config index.js"
+    },
+    "author": "Finn Wehn",
+    "license": "ISC",
+    "devDependencies": {
+        "dotenv": "^10.0.0",
+        "nodemon": "^2.0.13"
+    },
+    "dependencies": {
+        "@fwehn/custom_sdk": "file:../sdk",
+        "@suldashi/lame": "^1.2.5",
+        "adm-zip": "^0.5.9",
+        "axios": "^0.27.2",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "express-easy-zip": "^1.1.5",
+        "express-fileupload": "^1.2.1",
+        "fs": "^0.0.1-security",
+        "jade": "^1.11.0",
+        "mqtt": "^4.3.7",
+        "openweather-apis": "^4.4.2",
+        "speaker": "^0.5.4"
+    }
 }

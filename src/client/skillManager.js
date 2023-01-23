@@ -5,6 +5,11 @@ const customSdk = require("@fwehn/custom_sdk");
 const rhasspy = require("./rhasspy.js");
 const path = require("path")
 
+const { execSync } = require("child_process");
+const { resolve } = require('path');
+require('dotenv').config()
+
+
 // Currently loaded Skills
 let skills = {};
 // Getter for Skills
@@ -22,14 +27,19 @@ function loadSkills(locale = "de_DE"){
         });
 
     skills = {};
-    // (Re)Loads all configVariables and the source files from activated skills
-    customSdk.config({variables: getAllConfigVariables(locale)});
-    let skillsLocal = {};
+
+    
+    getAllCustomSlots(locale).then(customSlots=>{
+       customSdk.config({variables: getAllConfigVariables(locale), customSlots: customSlots});
+       let skillsLocal = {}; 
     fs.readdirSync(`${__dirname}/skills`).forEach(function(skillName) {
         let path = `${__dirname}/skills/${skillName.toString()}/${getVersion(skillName)}/src`;
         skillsLocal[skillName] = require(path);
     });
     skills = skillsLocal;
+    })
+    // (Re)Loads all configVariables and the source files from activated skills
+    
 }
 
 // Downloads the latest version of a Skill as zip and unzips it
@@ -94,7 +104,9 @@ function getRemoteSkills(locale = "de_DE") {
                 skills.push(skillData);
             }
             resolve(skills);
-        }).catch(reject);
+        }).catch(reject=>{
+            
+        });
     });
 }
 
@@ -109,6 +121,7 @@ function getInstalledSkills(locale = "de_DE"){
                 skills.push(skill);
             }
         })
+    
     });
     return skills;
 }
@@ -139,7 +152,9 @@ function getSkillsOverview(locale = "de_DE"){
 function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     // Loads all required information
     let installed = getInstalledSkills(locale);
-    if (!installed.includes(name)) return {};
+    if (!installed.includes(name)){
+        console.log("hier ist nichts")
+         return {};}
 
     let localeFile = getLocale(name, locale);
     let manifestFile = getManifest(name);
@@ -147,23 +162,41 @@ function getSkillDetails(name = "HelloWorld", locale = "de_DE"){
     let configs = getSkillConfigs()[name] || {};
     let defaults = getDefaults()[locale];
 
-    // Trims down launches and zigbee slot to 5 random entries
-    let zigbeeNames = [...customSdk.getZigbeeDevices(), ...customSdk.getZigbeeGroups()].sort(()=> Math.random() - 0.5);
-    zigbeeNames = zigbeeNames.slice(0, 5);
-
+    // Trims down launches to 5 random entries
+    let customSlots = customSdk.getCustomSlots(name)
     let launch = defaults["launch"].sort(()=> Math.random() - 0.5);
     launch = launch.slice(0, 5);
 
-    let slots = localeFile.slots;
-    slots = {launch: launch.sort(), zigbee2mqtt: zigbeeNames.sort(), ...slots};
+    let slots = localeFile.slots
+    
+    // Removes duplicates
+    let filteredSlots={}
+    for (let i in slots){
+        if (!Object.keys(customSlots).includes(i))
+            filteredSlots[i]=slots[i]
+    }
+    // Trims down custom Slots to 5 random entries
+    for(let i in customSlots){
+        
+        if (customSlots[i] && customSlots[i].length>5){
+            let random=Math.floor(Math.random() * (customSlots[i].length-6))
+            customSlots[i]=customSlots[i].slice(random, random+5)
+        }
+    }
+   
 
+    slots = {launch: launch.sort(), ...customSlots ,...filteredSlots};
     // Formats the sentences for a better readability
-    let formattedSentences = [];
-    for (let i in localeFile["intents"]){
-        let intent = localeFile["intents"][i];
-        let sentences = intent["sentences"];
+    let formattedSentences = []
 
+    let intents = localeFile["intents"]
+
+    for (let index in intents){
+        let intent = intents[index]
+        let sentences = intent["sentences"];
+        
         for (let i in sentences) {
+            //let i = Math.floor(Math.random() * (sentences.length-1))
             sentences[i] = sentences[i].replaceAll(/\(\$slots\/.*?\)/g, "");  // RegEx: "...($slots/zigbee2mqtt){zigbee2mqtt}..." > "...{zigbee2mqtt}..."
             let numberMatches = sentences[i].match(/\(\d+..\d+\){.*?}/g);     // RegEx: identifying "(0..100){brightness}"
 
@@ -265,8 +298,13 @@ function saveConfig(skill, values, locale){
 
             configsFile[skill]["options"] = skillOptions;
             writeSkillConfigs(configsFile);
-            customSdk.config({variables: getAllConfigVariables(locale)});
-            resolve("Options Saved");
+            customSdk.config({variables: getAllConfigVariables(locale)})
+            
+            getAllCustomSlots(locale).then(customSlots=>{
+              customSdk.config({customSlots: customSlots})
+              resolve("Options Saved");  
+            })
+            
         }catch (e) {
             reject(e);
         }
@@ -296,6 +334,27 @@ function getAllConfigVariables(locale = "de_DE"){
     return res;
 }
 
+function getAllCustomSlots(locale = "de_DE"){
+    return new Promise((resolve, reject) => {rhasspy.getSlots().then(allSlots=>{
+        let res = {};
+        let installed = getInstalledSkills(locale);
+
+    for (let i in installed){
+        let manifestFile = getManifest(installed[i]);
+        let slotNames = manifestFile["custom_slots"];
+        let customSlots=[]
+        for(let i in slotNames){
+            customSlots[slotNames[i]] = allSlots.data[`slots/${slotNames[i]}`]
+        }
+        res[installed[i]] = customSlots;
+    }
+    resolve(res)
+
+    })
+})
+}
+    
+
 //Sets the "active" Flag in skillConfigs.json
 function setActivateFlag(skill, state){
     return new Promise((resolve, reject) => {
@@ -308,6 +367,7 @@ function setActivateFlag(skill, state){
             writeSkillConfigs(configsFile);
             resolve("Changes Saved!");
         }catch (e) {
+            console.log(e)
             reject(e);
         }
     });
@@ -359,6 +419,31 @@ function getSkillConfigs(){
 // writes the skillConfigs.json
 function writeSkillConfigs(data){
     fs.writeFileSync(`${__dirname}/skillConfigs.json`, JSON.stringify(data));
+}
+//Als Promise? 
+function installDependencies(skill, version){
+    return new Promise((resolve,reject)=>{
+      let manifest= getManifest(skill,version)
+    let dependencies= manifest.dependencies
+    let package= JSON.parse(fs.readFileSync(`${__dirname}/package.json`))
+    let newDep=Object.assign(package.dependencies, dependencies)
+    package.dependencies=newDep
+    fs.writeFileSync(`${__dirname}/package.json`, JSON.stringify(package))
+    execSync("npm install",(err, stdout,stderr)=>{
+        if (err) {
+            console.log(`error: ${error.message}`)
+            reject(err)
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`)
+            reject(stderr)
+        }
+        console.log(`stdout: ${stdout}`)
+        resolve()
+    })  
+    })
+    
+
 }
 
 function getVersion(skill){
@@ -412,8 +497,9 @@ function getFunctionBYIntentName(intentName, slots, locale = "de_DE"){
     return {
         "name": intents[intentNumber]["function"],
         "params": params,
-        "answer": intents[intentNumber]["answer"]
-    };
+        "answer": intents[intentNumber]["answer"],
+        "fail": intents[intentNumber]["fail"] || "no fail response"
+    }
 }
 
 
@@ -439,11 +525,13 @@ function customIntentHandler(topic, message){
 
     if (fun.hasOwnProperty("name") && fun.hasOwnProperty("params") && fun.hasOwnProperty("answer")){
         customSdk.setAnswer(fun["answer"]);
+        if(fun.hasOwnProperty("fail"))
+            customSdk.setFailResponse(fun["fail"]);
 
         getSkills()[formatted["intent"]["intentName"].split("_")[0]][fun["name"]].apply(this, fun["params"]);
     }
 }
 
 module.exports = {
-    skills, loadSkills, downloadSkill, uploadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, activateSkill, deactivateSkill, setVersion, getUpdates, customIntentHandler
+    skills, loadSkills, downloadSkill, uploadSkill, deleteLocalSkillFiles, getRemoteSkills, getInstalledSkills, getSkillsOverview, getSkillDetails, saveConfig, setActivateFlag, activateSkill, deactivateSkill, setVersion, getUpdates, customIntentHandler, installDependencies, getAllCustomSlots
 }

@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "dependencies": {},
+  "options": [
+    {
+      "name": "Zigbee2MQTT-Topic",
+      "type": "String",
+      "default": "zigbee2mqtt"
+    }
+  ],
+  "custom_slots": ["zigbee_scenes","zigbee_devices", "zigbee_groups"]
+}

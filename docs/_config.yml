@@ -1,18 +1,18 @@
 # Site settings
 title: Praxisprojekt Sprachassistent
-email: finn.wehn@smail.th-koeln.de
+email: sophia_ella_margarethe.johannsen@smail.th-koeln.de
 description: >
   Dokumentation meines Praxisprojekts.
 lang: de-DE
 
 baseurl: "/pp-voiceassistant"
-url: https://fwehn.github.io/pp-voiceassistant
-git_address: https://github.com/fwehn/pp-voiceassistant
+url: https://sjohannsen1.github.io/pp-voiceassistant
+git_address: https://github.com/sjohannsen1/pp-voiceassistant
 git_edit_address: https://github.com/fwehn/pp-voiceassistant/tree/main/docs
 
 # theme options from https://bootswatch.com/3/
 # comment out this to use default Bootstrap
-bootwatch: superhero # cerulean cosmo custom cyborg darkly flatly journal lumen readable sandstone simplex slate solar spacelab superhero united yeti
+bootwatch:  sandstone # cerulean cosmo custom cyborg darkly flatly journal lumen readable sandstone simplex slate solar spacelab superhero united yeti
 
 # Build settings
 markdown: kramdown
@@ -28,7 +28,6 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
-  - .idea/
   - .gitignore
   - README.md
 timezone: Europe/Berlin

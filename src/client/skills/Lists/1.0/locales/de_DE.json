@@ -1,0 +1,45 @@
+{
+  "invocation": "Listen",
+  "description": "Ein Skill um Listen zu erstellen und zu verwalten",
+  "intents": [
+    {
+      "sentences": ["Erstelle eine neue Liste", "neue Liste"],
+      "function": "newList",
+      "args": [],
+      "answer": ["# wurde erstellt"],
+      "fail": ["Es ist etwas schief gelaufen"]
+    },
+    {
+      "sentences": ["Füge ($slots/list_items){list_items} ( zur Liste | zu ) ($slots/list_names){list_names} hinzu"],
+      "function": "editList",
+      "args": ["list_names", "list_items"],
+      "answer": ["Ok hinzugefügt"],
+      "fail": ["Die Liste # existiert nicht"]
+    },
+    {
+      "sentences": ["Lösche [ die Liste ] ($slots/list_names){list_names}"],
+      "function": "deleteList",
+      "args": ["list_names"],
+      "answer": ["# wurde gelöscht"],
+      "fail": ["Die Liste # existiert nicht"]
+    },
+    {
+      "sentences": ["Exportiere [ die Liste ] ($slots/list_names){list_names}", "schicke  [ die liste ] ($slots/list_names){list_names} an ( mein Handy | meinen Bot | meinen Rechner | meinen Computer )"],
+      "function": "exportList",
+      "args": ["list_names"],
+      "answer": ["Ok exportiert", "# Inhalt: #", "# Noch kein Inhalt vorhanden"],
+      "fail": ["Die Liste # existiert nicht"]
+    },
+    {
+      "sentences": ["( speiche | speichere | speichern ) [ die Listen ] "],
+      "function": "saveLists",
+      "args": [],
+      "answer": ["Ok gespeichert"],
+      "fail": ["Die Liste # existiert nicht"]
+    }
+  ],
+  "slots": {
+    "list_items": ["_"],
+    "list_names": ["_"]
+  }
+}

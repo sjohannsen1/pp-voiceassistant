@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "dependencies": {
+    "axios": "^0.23.0"
+  },
+  "options": [
+    {
+      "name": "APIKey",
+      "type": "String",
+      "default": "Enter your API-Key here, please."
+    },
+    {
+      "name": "city",
+      "type": "Number",
+      "default": 51643
+    },
+    {
+      "name": "region",
+      "type": "String",
+      "default": "Oberbergischer Kreis"
+    },
+    {
+      "name": "country",
+      "type": "String",
+      "default": "DE"
+    },
+    {
+      "name": "language",
+      "type": "String",
+      "default": "de"
+    },
+    {
+      "name": "units",
+      "type": "String",
+      "default": "metric",
+      "choices": ["standard","metric", "imperial"]
+    }
+  ],
+  "custom_slots": []
+}

@@ -1,9 +1,10 @@
 const axios = require('axios');
 const fs = require("fs");
+require('dotenv').config()
 
 // The Main Function to Communicate with Rhasspy
 async function postToRhasspy(endpoint, body){
-    return await axios.post(`http://${process.env.RHASSPY || "localhost:12101"}${endpoint}`, body);
+    return await axios.post(`http://${process.env.RHASSPY || "localhost:12101"}${endpoint}`, body)
 }
 
 // Retrains the Rhasspy model
@@ -39,6 +40,10 @@ async function postSlots(slotName, alternatives, overwrite = false){
     return await postToRhasspy(`/api/slots?overwrite_all=${overwrite}`, data);
 }
 
+async function getSlots(){
+    return await axios.get(`http://${process.env.RHASSPY || "localhost:12101"}/api/slots`)
+}
+
 // Registering Skill and its Slots in Rhasspy
 function registerSkill(skillName, locale = "de_DE", version){
     return new Promise(async (resolve, reject) => {
@@ -48,7 +53,7 @@ function registerSkill(skillName, locale = "de_DE", version){
         for (let slot in skill.slots) {
             await postSlots(slot, skill.slots[slot], true).catch(reject);
         }
-
+        
         // post intents
         let intents = [];
         for (let i in skill["intents"]){
@@ -89,5 +94,5 @@ async function unregisterSkill(skillName, locale = "de_DE", version){
 
 
 module.exports = {
-    trainRhasspy, postSentences, postSlots, registerSkill, unregisterSkill
+    trainRhasspy, postSentences, postSlots, registerSkill, unregisterSkill,postToRhasspy, getSlots
 }

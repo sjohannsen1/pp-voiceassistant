@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/main.css">
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Skillmanager | Praxisprojekt Sprachassistent</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Skillmanager" />
+<meta property="og:locale" content="de_DE" />
+<meta name="description" content="Der Skillmanager ist das Herzstück meines Skillsystems. Er stellt einige nützliche Funktionen bereit, unter anderem kümmert er sich um die Verbindung zum Skillserver und die Verwaltung der lokalen Skill Dateien." />
+<meta property="og:description" content="Der Skillmanager ist das Herzstück meines Skillsystems. Er stellt einige nützliche Funktionen bereit, unter anderem kümmert er sich um die Verbindung zum Skillserver und die Verwaltung der lokalen Skill Dateien." />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/client/skillmanager/" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/client/skillmanager/" />
+<meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-22T15:11:14+01:00" />
+<script type="application/ld+json">
+{"description":"Der Skillmanager ist das Herzstück meines Skillsystems. Er stellt einige nützliche Funktionen bereit, unter anderem kümmert er sich um die Verbindung zum Skillserver und die Verwaltung der lokalen Skill Dateien.","url":"http://localhost:4000/pp-voiceassistant/docs/client/skillmanager/","@type":"WebPage","headline":"Skillmanager","dateModified":"2023-01-22T15:11:14+01:00","datePublished":"2023-01-22T15:11:14+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="alternate" type="application/rss+xml" title="Praxisprojekt Sprachassistent" href="http://localhost:4000/pp-voiceassistant/feed.xml" />
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="/pp-voiceassistant/">
+                <span><img src="/pp-voiceassistant/assets/img/logonav.png" alt="Logo"></span> Praxisprojekt Sprachassistent
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li  class="active" ><a href="/pp-voiceassistant/docs/home/">Docs</a></li>
+<!--                <li ><a href="">Blog</a></li>-->
+            </ul>
+            <div class="navbar-right">
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="form-group has-feedback">-->
+<!--                        <input id="search-box" type="search" class="form-control" placeholder="Search...">-->
+<!--                        <i class="fa fa-search form-control-feedback"></i>-->
+<!--                    </div>-->
+<!--                </form>-->
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/sjohannsen1/pp-voiceassistant"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+            Willkommen
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-1" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/home/">Willkommen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+            Installation
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-2" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+            Client
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse" id="collapse-3" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/rhasspy/">Rhasspy</a>
+          
+            
+            
+            <a class="list-group-item active" href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/webinterface/">Webinterface</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/cli/">CLI</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/preconditions/">Vorbedingungen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+            Server
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/server/skillserver/">Skillserver</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+            Skills
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-5" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/instruction/">Anleitung</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/locales/">Locales</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/sdk/">SDK</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/manifest/">Manifest</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
+            Fazit
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-6" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/conclusion/conclusion/">Fazit</a>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+
+        <div class="col-md-8">
+            <h1>Skillmanager</h1>
+            <div id="markdown-content-container"><p>Der Skillmanager ist das Herzstück meines Skillsystems. <br />
+Er stellt einige nützliche Funktionen bereit, unter anderem kümmert er sich um die Verbindung zum Skillserver und die Verwaltung der lokalen Skill Dateien.</p>
+
+<h2 id="skills-installieren">Skills installieren</h2>
+
+<p>Um neue Skills zu installieren, gibt es zwei verschiedene Wege:<br />
+<a href="#online">Online</a> und <a href="#offline">Offline</a></p>
+
+<p>Für die Online-Variante benötigt man eine Instanz des <a href="/pp-voiceassistant/docs/server/skillserver/">Skillservers</a>.<br />
+Unter welcher Adresse dieser erreichbar ist, kann man als Umgebungsvariable in der <a href="./../installation.md#client">Client-Anwendung</a> speichern.</p>
+
+<h3 id="online">Online</h3>
+
+<p>Der Skillmanager sendet zunächst eine Anfrage an den Server und erhält als Antwort ein JSON-Objekt mit einigen Informationen zu den jeweiligen Skills, wie zum Beispiel die verfügbaren Versionen oder eine kleine Beschreibung des jeweiligen Skills.<br />
+Die Funktion <code class="language-plaintext highlighter-rouge">getRemoteSkills</code> sortiert diese Daten dann ein wenig und überprüft, ob der jeweilige Skill bereits installiert wurde.<br />
+Diese Daten werden dann vom Webinterface und dem CLI verwendet, um dem Nutzer zu zeigen, welche Skills es gibt und wozu diese benutzt werden können.</p>
+
+<p>Mit der Funktion <code class="language-plaintext highlighter-rouge">downloadSkill</code> kann man dann einen bestimmten Skill in einer bestimmten Version herunterladen.<br />
+Dabei wird vom Server eine Zip-Datei heruntergeladen, die dann mit dem Package “<a href="https://www.npmjs.com/package/adm-zip">adm-zip</a>” entpackt und im entsprechendem Verzeichnis gespeichert werden.</p>
+
+<p>Beim Herunterladen der Skills, werden in der Datei <code class="language-plaintext highlighter-rouge">skillConfigs.json</code> die beiden Variablen <code class="language-plaintext highlighter-rouge">active</code> (auf <code class="language-plaintext highlighter-rouge">false</code>) und <code class="language-plaintext highlighter-rouge">version</code> (auf die jeweilige Version) gesetzt.</p>
+
+<h3 id="offline">Offline</h3>
+
+<p>Hat man keine Möglichkeit eine Instanz des Skillservers zu betreiben oder zu erreichen, kann man Skills auch lokal installieren.<br />
+Dazu hat man zwei verschiedene Möglichkeiten.</p>
+
+<h4 id="manuell">Manuell</h4>
+
+<p>Zunächst muss man die Dateien des Skills im Verzeichnis <code class="language-plaintext highlighter-rouge">skills/&lt;Name des Skills&gt;/&lt;Version des Skills&gt;</code> ablegen.<br />
+Wie das auszusehen hat, habe ich <a href="/pp-voiceassistant/docs/skills/instruction/#ordner-anlegen">hier</a> beschrieben.<br />
+Danach muss man in der Datei <code class="language-plaintext highlighter-rouge">skillConfigs.json</code> unter dem Schlüssel mit dem Namen des Skills ein neues Objekt anlegen.<br />
+In diesem Objekt muss man noch das Feld <code class="language-plaintext highlighter-rouge">version</code> mit dem Namen des Unterordners definieren.</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"&lt;Name des Skills&gt;"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Version des Skills&gt;"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p><em>Ausschnitt aus der Datei <code class="language-plaintext highlighter-rouge">skillConfigs.json</code></em></p>
+
+<h4 id="webinterface">Webinterface</h4>
+<p>Über das Webinterface kann man obigen Prozess sehr stark vereinfachen.<br />
+Ich habe ein kleines <a href="/pp-voiceassistant/docs/client/webinterface/#upload">Upload-Tool</a> erstellt, mit dem man sich die Dateien an der richtigen Position ablegen lassen kann und welches sich um die korrekte Konfiguration kümmert.<br />
+Wichtig dabei ist nur, dass man die Zip-Datei, welche vom Upload-Tool verlangt wird, von den 2 Ordnern (<code class="language-plaintext highlighter-rouge">src</code> und <code class="language-plaintext highlighter-rouge">locales</code>) und der <code class="language-plaintext highlighter-rouge">manifest.json</code> erstellt wird und nicht vom Eltern-Pfad (diesen Prozess habe ich <a href="/pp-voiceassistant/docs/skills/instruction/#zip-erstellen">hier</a> etwas ausführlicher beschrieben).</p>
+
+<h2 id="skills-aktivieren">Skills aktivieren</h2>
+
+<p>Wenn man, wie oben beschrieben einen neuen Skill installiert hat, kann man diesen jedoch nicht sofort nutzen.<br />
+Man muss ihn erst aktivieren.<br />
+Das kann man entweder über das <a href="/pp-voiceassistant/docs/client/cli/#befehle">CLI</a> oder über das <a href="/pp-voiceassistant/docs/client/webinterface/#details">Webinterface</a> machen.</p>
+
+<p>Dabei werden einige, für den Skillmanager wichtige Konfigurationen in der <code class="language-plaintext highlighter-rouge">skillConfigs.json</code> getroffen und die verschiedenen Sätze als <a href="/pp-voiceassistant/docs/client/rhasspy/#neue-intents-hinzufgen">Intents</a> bei Rhasspy <a href="/pp-voiceassistant/docs/client/rhasspy/#rhasspy-trainieren">registriert</a>.<br />
+Für die kommunikation mit Rhasspy habe ich eine eigene <a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/client/rhasspy.js">JavaScript-Datei</a> erstellt, in der sich einige Funktionen befinden.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"&lt;Name des Skills&gt;"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Version des Skills&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p><em>Ausschnitt aus der Datei <code class="language-plaintext highlighter-rouge">skillConfigs.json</code>. Der Skill wurde erfolgreich aktiviert.</em></p>
+
+<h2 id="skills-löschen">Skills löschen</h2>
+
+<p>Der Skillmanager kümmert sich natürlich nicht nur darum, neue Skills zu installieren, sondern auch darum lokale Dateien auf Wunsch zu löschen.<br />
+Dazu wird Rhasspy zunächst angewiesen die jeweiligen Intents zu löschen und sich neu zu trainieren, dann werden die Konfigurationen in der <code class="language-plaintext highlighter-rouge">skillConfigs.json</code> gelöscht.<br />
+Zu guter letzt wird das gesamte Verzeichnis des Skills gelöscht, mit allen Versionen.<br />
+Derzeit ist es nicht möglich einzelne Versionen zu löschen.</p>
+
+<h2 id="details-auslesen">Details auslesen</h2>
+
+<p>Damit man zum Beispiel auf dem Webinterface einige Angaben zum lokalen Skill erhält, bietet der Skillmanager einige Funktionen an, um lokale Dateien auszulesen und deren Informationen wiederzugeben.<br />
+Darunter fallen die Dateien <code class="language-plaintext highlighter-rouge">manifest.json</code> und die jeweilige <code class="language-plaintext highlighter-rouge">&lt;locale&gt;.json</code>.<br />
+Aber auch einige Informationen aus der <code class="language-plaintext highlighter-rouge">skillConfigs.json</code> werden zurückgegeben, zum Beispiel, ob ein Skill aktiviert ist oder nicht und in welcher Version.</p>
+</div>
+            <div style="clear:both;">
+              <p class="text-center">
+                <br />
+                <a target="_blank" href="https://github.com/fwehn/pp-voiceassistant/tree/main/docs/_docs/client/skillmanager.md" class="btn btn-default" role="button">
+                  <i class="fa fa-pencil fa-lg"></i> Improve this page
+                </a>
+              </p>
+            </div>
+            <hr>
+            
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <ul class="pager">
+      
+        
+        
+        <li class="previous">
+          <a href="/pp-voiceassistant/docs/client/rhasspy/">
+            <span aria-hidden="true">&larr;</span> Previous
+          </a>
+        </li>
+      
+
+      
+        
+        
+        <li class="next">
+          <a href="/pp-voiceassistant/docs/client/webinterface/">
+            Next <span aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      
+      </ul>
+    <div class="clear"></div>
+    
+
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            Praxisprojekt Sprachassistent 2023 |
+            Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
+
+    <script>
+  var baseurl = '/pp-voiceassistant'
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/pp-voiceassistant/assets/js/bootstrap.min.js "></script>
+<script src="/pp-voiceassistant/assets/js/typeahead.bundle.min.js "></script>
+
+<script src="/pp-voiceassistant/assets/js/main.js "></script>
+
+</body>
+
+</html>

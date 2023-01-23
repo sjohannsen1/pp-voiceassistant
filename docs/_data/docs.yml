@@ -1,35 +1,23 @@
 - title: Willkommen
   docs:
     - home
-    - installation
 
-- title: Evaluationen
+- title: Installation
   docs:
-    - evaluation/evaluation
-    - evaluation/amazon-alexa
-    - evaluation/google-assistant
-    - evaluation/home-assistant
-    - evaluation/conclusion
-    - evaluation/sources
-
-- title: Client
-  docs:
-    - client/rhasspy
-    - client/skillmanager
-    - client/webinterface
-    - client/cli
-    - client/preconditions
-
-- title: Server
-  docs:
-    - server/skillserver
+    - installation/installation
+    - installation/anleitung
+    - installation/hardware
+    - installation/Zigbee2MQTT
 
 - title: Skills
   docs:
-    - skills/instruction
-    - skills/locales
-    - skills/sdk
-    - skills/manifest
+    - skills/allgemein
+    - skills/Automation
+    - skills/GetTime
+    - skills/GetWeather
+    - skills/Lists
+    - skills/PlayMusic
+    - skills/Zigbee2MQTT
 
 - title: Fazit
   docs:

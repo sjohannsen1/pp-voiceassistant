@@ -1,0 +1,122 @@
+[
+
+  
+    
+    
+    {
+      "title": "Willkommen",
+      "url": "/pp-voiceassistant/docs/home/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "",
+      "url": ""
+    },
+  
+    
+    
+    {
+      "title": "",
+      "url": ""
+    },
+  
+    
+    
+    {
+      "title": "",
+      "url": ""
+    },
+  
+
+  
+    
+    
+    {
+      "title": "Rhasspy",
+      "url": "/pp-voiceassistant/docs/client/rhasspy/"
+    },
+  
+    
+    
+    {
+      "title": "Skillmanager",
+      "url": "/pp-voiceassistant/docs/client/skillmanager/"
+    },
+  
+    
+    
+    {
+      "title": "Webinterface",
+      "url": "/pp-voiceassistant/docs/client/webinterface/"
+    },
+  
+    
+    
+    {
+      "title": "CLI",
+      "url": "/pp-voiceassistant/docs/client/cli/"
+    },
+  
+    
+    
+    {
+      "title": "Vorbedingungen",
+      "url": "/pp-voiceassistant/docs/client/preconditions/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "Skillserver",
+      "url": "/pp-voiceassistant/docs/server/skillserver/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "Anleitung",
+      "url": "/pp-voiceassistant/docs/skills/instruction/"
+    },
+  
+    
+    
+    {
+      "title": "Locales",
+      "url": "/pp-voiceassistant/docs/skills/locales/"
+    },
+  
+    
+    
+    {
+      "title": "SDK",
+      "url": "/pp-voiceassistant/docs/skills/sdk/"
+    },
+  
+    
+    
+    {
+      "title": "Manifest",
+      "url": "/pp-voiceassistant/docs/skills/manifest/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "Fazit",
+      "url": "/pp-voiceassistant/docs/conclusion/conclusion/"
+    },
+  
+
+
+  
+]

@@ -1,9 +1,8 @@
-.idea
-notes
 src/client/node_modules
-src/client/dotenv
-src/client/skills
+src/client/.env
 src/client/skillConfigs.json
 src/server/node_modules
-src/server/dotenv
+src/server/.env
+src/discord_client/.env
+src/discord_client/node_modules
 src/sdk/node_modules

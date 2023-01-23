@@ -29,6 +29,10 @@ app.get("/", (req, res) => {
 
 // Details-Page with some information and sentences for a specific skill
 app.get("/details/:skillName", (req, res) => {
+    //skillManager.getSkillDetails(req.params.skillName, locale).then( details=>{
+     // res.render('details', { data : details })  
+    //})
+    
     res.render('details', { data : skillManager.getSkillDetails(req.params.skillName, locale)});
 });
 
@@ -44,13 +48,24 @@ app.get("/download/:skillName/:versionTag", (req, res) => {
     skillManager.downloadSkill(req.params.skillName, req.params.versionTag).then((versionTag) => {
         skillManager.setActivateFlag(req.params.skillName, false).then(()=> {
             skillManager.setVersion(req.params.skillName, versionTag);
-            skillManager.loadSkills(locale);
+
+            skillManager.installDependencies(req.params.skillName,versionTag).then(resolve=>{
+              skillManager.loadSkills(locale);
             res.json({
                 skill: req.params.skillName,
                 success: true,
                 message: `Successfully downloaded ${req.params.skillName}`
-            });
-        });
+            }).catch(reject=>{
+                res.json({
+                    skill: req.params.skillName,
+                    success: false,
+                    message: reject.toString()
+                });
+            })
+        });  
+            })
+            
+            
     }).catch(err => {
         res.json({
             skill: req.params.skillName,
@@ -155,13 +170,19 @@ app.post('/upload/:skillName/:versionTag', (req, res) => {
     skillManager.uploadSkill(req.params.skillName, req.params.versionTag, req.files.zipped.data).then(() => {
         skillManager.setActivateFlag(req.params.skillName, false).then(()=> {
             skillManager.setVersion(req.params.skillName, req.params.versionTag);
-            skillManager.loadSkills(locale);
-
-            res.json({
-                skill: req.params.skillName,
-                success: true,
-                message: `Successfully uploaded ${req.params.skillName}`
-            });
+            skillManager.installDependencies(req.params.skillName,req.params.versionTag).then(resolve=>{
+                skillManager.loadSkills(locale)
+                res.json({
+                  skill: req.params.skillName,
+                  success: true,
+                  message: `Successfully uploaded ${req.params.skillName}`
+              }).catch(reject=>{
+                  res.json({
+                      skill: req.params.skillName,
+                      success: false,
+                      message: reject.toString()
+                  });
+              })
         });
     }).catch(err => {
         res.json({
@@ -171,6 +192,7 @@ app.post('/upload/:skillName/:versionTag', (req, res) => {
         });
     });
 });
+})
 
 // Simple function to start the webinterface
 function startUI(loc = "de_DE", port = 3000){

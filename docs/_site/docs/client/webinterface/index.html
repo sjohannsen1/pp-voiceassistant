@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/main.css">
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Webinterface | Praxisprojekt Sprachassistent</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Webinterface" />
+<meta property="og:locale" content="de_DE" />
+<meta name="description" content="Um es dem Endnutzer zu erleichtern neue Skills zu installieren und zu verwalten, habe ich zusätzlich zum CLI ein Webinterface erstellt. Dieses Interface nutzt sämtliche Funktionen, die vom Skillmanager bereitgestellt werden, um Informationen anzuzeigen und die Skills zu verwalten." />
+<meta property="og:description" content="Um es dem Endnutzer zu erleichtern neue Skills zu installieren und zu verwalten, habe ich zusätzlich zum CLI ein Webinterface erstellt. Dieses Interface nutzt sämtliche Funktionen, die vom Skillmanager bereitgestellt werden, um Informationen anzuzeigen und die Skills zu verwalten." />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/client/webinterface/" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/client/webinterface/" />
+<meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-22T15:11:14+01:00" />
+<script type="application/ld+json">
+{"description":"Um es dem Endnutzer zu erleichtern neue Skills zu installieren und zu verwalten, habe ich zusätzlich zum CLI ein Webinterface erstellt. Dieses Interface nutzt sämtliche Funktionen, die vom Skillmanager bereitgestellt werden, um Informationen anzuzeigen und die Skills zu verwalten.","url":"http://localhost:4000/pp-voiceassistant/docs/client/webinterface/","@type":"WebPage","headline":"Webinterface","dateModified":"2023-01-22T15:11:14+01:00","datePublished":"2023-01-22T15:11:14+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="alternate" type="application/rss+xml" title="Praxisprojekt Sprachassistent" href="http://localhost:4000/pp-voiceassistant/feed.xml" />
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="/pp-voiceassistant/">
+                <span><img src="/pp-voiceassistant/assets/img/logonav.png" alt="Logo"></span> Praxisprojekt Sprachassistent
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li  class="active" ><a href="/pp-voiceassistant/docs/home/">Docs</a></li>
+<!--                <li ><a href="">Blog</a></li>-->
+            </ul>
+            <div class="navbar-right">
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="form-group has-feedback">-->
+<!--                        <input id="search-box" type="search" class="form-control" placeholder="Search...">-->
+<!--                        <i class="fa fa-search form-control-feedback"></i>-->
+<!--                    </div>-->
+<!--                </form>-->
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/sjohannsen1/pp-voiceassistant"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+            Willkommen
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-1" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/home/">Willkommen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+            Installation
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-2" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+            Client
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse" id="collapse-3" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/rhasspy/">Rhasspy</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a>
+          
+            
+            
+            <a class="list-group-item active" href="/pp-voiceassistant/docs/client/webinterface/">Webinterface</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/cli/">CLI</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/client/preconditions/">Vorbedingungen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+            Server
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/server/skillserver/">Skillserver</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+            Skills
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-5" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/instruction/">Anleitung</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/locales/">Locales</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/sdk/">SDK</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/skills/manifest/">Manifest</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
+            Fazit
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-6" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/conclusion/conclusion/">Fazit</a>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+
+        <div class="col-md-8">
+            <h1>Webinterface</h1>
+            <div id="markdown-content-container"><p>Um es dem Endnutzer zu erleichtern neue Skills zu installieren und zu verwalten, habe ich zusätzlich zum <a href="/pp-voiceassistant/docs/client/cli/">CLI</a> ein Webinterface erstellt.<br />
+Dieses Interface nutzt sämtliche Funktionen, die vom <a href="/pp-voiceassistant/docs/client/skillmanager/">Skillmanager</a> bereitgestellt werden, um Informationen anzuzeigen und die Skills zu verwalten.</p>
+
+<h2 id="übersicht">Übersicht</h2>
+
+<p>Auf der Übersicht-Seite werden alle installierten Skills angezeigt.<br />
+In der Tabelle sieht man eine kurze Zusammenfassung der wichtigsten Informationen, bestehend aus Name, Beschreibung, Version und ob der Skill aktiviert ist oder nicht.<br />
+Außerdem kann man den jeweiligen Skill hier löschen.</p>
+
+<p><img src="/pp-voiceassistant/assets/img/Webinterface/overviewPage.png" alt="Installed-Page" /><br />
+<em>Bild der Übersicht-Seite</em></p>
+
+<h2 id="details">Details</h2>
+<p>Auf dieser Seite befinden sich alle Informationen und Details die für den Endnutzer wichtig sind.<br />
+Man erhält eine kleine Beschreibung des Skills und einige Sätze, die man verwenden kann, um den Skill zu benutzen.<br />
+Außerdem kann man hier einige benötigte Optionen angeben.<br />
+Am Beispiel des GetWeather-Skills wären das unter anderem die <strong>Stadt</strong> oder der <strong>API-Key</strong>.<br />
+Ein Entwickler kann diese Optionen in der <code class="language-plaintext highlighter-rouge">manifest.json</code> angeben, gespeichert werden sie dann in der <code class="language-plaintext highlighter-rouge">skillConfigs.json</code>.</p>
+
+<p><img src="/pp-voiceassistant/assets/img/Webinterface/detailsPage-GetWeather.png" alt="Details-Page" /><br />
+<em>Bild der Details-Seite</em></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APIKey"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enter your API-Key here, please."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Number"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="mi">51789</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"language"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"units"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"metric"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"choices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"standard"</span><span class="p">,</span><span class="s2">"metric"</span><span class="p">,</span><span class="w"> </span><span class="s2">"imperial"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p><em><a href="https://github.com/fwehn/pp-voiceassistant/blob/main/src/server/skills/GetWeather/1.0/manifest.json">GetWeather/manifest.json</a></em></p>
+
+<p>Zu guter Letzt kann man auf dieser Seite den jeweiligen Skill <a href="/pp-voiceassistant/docs/client/skillmanager/#skills-aktivieren">aktivieren und deaktivieren</a>.<br />
+Das sorgt dafür, dass die Intents und Slots bei Rhasspy registriert werden und der Skill dadurch nutzbar gemacht wird.</p>
+
+<h2 id="download">Download</h2>
+<p>Über das Webinterface kann man neue Skills von einem Server Herunterladen.<br />
+Dabei kann man verschiedene Versionen auswählen.<br />
+Hier werden die Funktionen genutzt, die ich <a href="/pp-voiceassistant/docs/client/skillmanager/#online">hier</a> näher beschrieben habe.</p>
+
+<p><img src="/pp-voiceassistant/assets/img/Webinterface/downloadPage.png" alt="Download-Page" /><br />
+<em>Bild der Download-Seite</em></p>
+
+<h2 id="upload">Upload</h2>
+<p>Auf dieser Seite kann man einen lokal gespeicherten Skill installieren und benutzen, ohne eine aktive Verbindung zum <a href="/pp-voiceassistant/docs/server/skillserver/">Skillserver</a> zu haben.<br />
+Dazu gibt man einen Namen, eine Versionsbezeichnung und die jeweilige Skilldatei im Zip-Format an und klickt auf “Hochladen”.<br />
+Der <a href="/pp-voiceassistant/docs/client/skillmanager/#offline">Skillmanager</a> kümmert sich im Hintergrund dann darum, dass die Zip entpackt wird und alle Dateien am richtigen Ort platziert werden.<br />
+Nach dem Upload sollte der Skill dann auf der <a href="#bersicht">Übersichtsseite</a> sichtbar und auswählbar sein.</p>
+
+<p><img src="/pp-voiceassistant/assets/img/Webinterface/uploadPage.png" alt="Upload-Page" /></p>
+
+<h2 id="umsetzung">Umsetzung</h2>
+<p>Das Webinterface wird von einem ExpressJS-Server bereitgestellt, welcher die <a href="https://jade-lang.com/">Jade Template-Engine</a> verwendet, um zum einen verschiedene Templates zusammenzuführen, zum anderen Daten von NodeJS auf die statische Website bringt, ohne für jede Information einen eigenen REST-Endpoint erstellen zu müssen.<br />
+Auf den HTML-Seiten selbst wird jeweils <a href="https://v3.vuejs.org/guide/introduction.html#what-is-vue-js">VueJS</a> per <a href="https://unpkg.com/">UNPKG-Link</a> eingebunden, um die durch Jade übertragenen Daten einfacher darzustellen.</p>
+
+<h2 id="port">Port</h2>
+<p>Ich habe mir die Frage gestellt, welchen Port man für das Webinterface benutzen könnte.
+Der Port sollte leicht zu merken sein.<br />
+Dafür bietet sich ein Port an, der aus wiederkehrenden Zahlen besteht, wie z.B. 11111 oder 8080 (im Gegensatz zu 19294).<br />
+Mögliche Ports die ich mir überlegt habe:</p>
+<ul>
+  <li>12321</li>
+  <li>12102 oder 12121 (abgeleitet vom standard Rhasspy-Port 12101)</li>
+</ul>
+
+<p>Schlussendlich habe ich mich für den Port 12102 entschieden, da dieser in mehreren Onlinelisten unbelegt war.</p>
+</div>
+            <div style="clear:both;">
+              <p class="text-center">
+                <br />
+                <a target="_blank" href="https://github.com/fwehn/pp-voiceassistant/tree/main/docs/_docs/client/webinterface.md" class="btn btn-default" role="button">
+                  <i class="fa fa-pencil fa-lg"></i> Improve this page
+                </a>
+              </p>
+            </div>
+            <hr>
+            
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <ul class="pager">
+      
+        
+        
+        <li class="previous">
+          <a href="/pp-voiceassistant/docs/client/skillmanager/">
+            <span aria-hidden="true">&larr;</span> Previous
+          </a>
+        </li>
+      
+
+      
+        
+        
+        <li class="next">
+          <a href="/pp-voiceassistant/docs/client/cli/">
+            Next <span aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      
+      </ul>
+    <div class="clear"></div>
+    
+
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            Praxisprojekt Sprachassistent 2023 |
+            Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
+
+    <script>
+  var baseurl = '/pp-voiceassistant'
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/pp-voiceassistant/assets/js/bootstrap.min.js "></script>
+<script src="/pp-voiceassistant/assets/js/typeahead.bundle.min.js "></script>
+
+<script src="/pp-voiceassistant/assets/js/main.js "></script>
+
+</body>
+
+</html>

@@ -94,11 +94,13 @@ function startCLI(locale = "de_DE"){
                 skillManager.downloadSkill(skillDownload, tagDownload).then((versionTag) => {
                     skillManager.setActivateFlag(skillDownload, false).then(()=> {
                         skillManager.setVersion(skillDownload, versionTag);
+                        skillManager.installDependencies(req.params.skillName,req.params.versionTag).then(resolve=>{
                         skillManager.loadSkills(locale);
 
                         console.log(`Successfully downloaded skill '${skillDownload} ${versionTag}'!`);
                         console.log(separator);
                     })
+                })
                 }).catch(() => {
                     console.log(`Unable to download skill '${skillDownload} ${tagDownload}'!`);
                     console.log(separator);

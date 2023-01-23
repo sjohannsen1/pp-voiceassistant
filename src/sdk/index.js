@@ -9,7 +9,9 @@ let configObject = {
     zigbeeTopic: "",
     zigbeeUpdater: () => {},
     zigbeeDevices: [],
-    zigbeeGroups: []
+    zigbeeGroups: [],
+    postSlots: () => {},
+    customSlots: [] 
 }
 
 // object to store some session data, generated on incoming intents
@@ -17,15 +19,17 @@ let sessionData = {
     siteId: "default",
     sessionId: "",
     skill: "",
-    answer: ""
+    answer: "",
+    fail: ""
 };
 
 // function to change the configObject from outside
 function config(options = {}){
     for (let i in options){
         if (!configObject.hasOwnProperty(i) || options[i] === undefined || options[i] === null) continue;
-
+        
         configObject[i] = options[i];
+        //console.log(configObject)
     }
 }
 
@@ -34,6 +38,8 @@ async function init() {
     client = await mqtt.connect(`mqtt://${configObject.mqtt}`);
 
     client.on("connect", function () {
+        console.log("connected")
+        //say("hola")
         // subscribes to zigbee2mqtt topics to receive changes
         client.subscribe(`${configObject.zigbeeTopic}/bridge/devices`);
         client.subscribe(`${configObject.zigbeeTopic}/bridge/groups`);
@@ -43,7 +49,8 @@ async function init() {
 
         client.on('message', (topic, message) => {
             let formatted = JSON.parse(message);
-
+            console.log(formatted)
+            
             switch (topic){
                 // zigbee2mqtt device-list changes
                 case `${configObject.zigbeeTopic}/bridge/devices`:
@@ -88,6 +95,11 @@ function publishMQTT(topic = "", payload ){
     }
 }
 
+// function to get MQTT Address
+function getMQTT(){
+    return `mqtt://${configObject.mqtt}`
+}
+
 // getter for zigbee2mqtt devices
 function getZigbeeDevices(){
     return configObject.zigbeeDevices;
@@ -115,15 +127,56 @@ function setAnswer(answer){
     sessionData.answer = answer;
 }
 
+function setFailResponse(answer){
+    sessionData.fail = answer;
+}
+
 // function to generate answer in skill
-function generateAnswer(vars = [""], separator = "#"){
-    let parts = sessionData.answer.split(separator);
+function generateAnswer(vars = [""], index = 0,separator = "#"){
+    let parts = sessionData.answer[index].split(separator);
     let answer = parts[0];
     for (let i = 1; i < parts.length; i++){
+        if(!vars[i-1]){
+            answer = answer + parts[i]
+            return answer
+        }
         answer = answer + vars[i-1] + parts[i];
     }
     return answer;
 }
+
+function generateFailResponse(vars = [""], index=0, separator = "#"){
+    let parts = sessionData.fail[index].split(separator);
+    let answer = parts[0];
+    for (let i = 1; i < parts.length; i++){
+        if(!vars[i-1]){
+            answer = answer + parts[i]
+            return answer
+        }
+        answer = answer + vars[i-1] + parts[i];
+    }
+    return answer;
+}
+
+//function to generate an enumeration from a list
+function generateEnum(list){
+    let enumeration=""
+        if(list.length>1){
+            for (let index = 0; index < list.length; index++){
+            if(!list[index+1]){
+                enumeration+=` und ${list[index]}`
+                return enumeration
+            }
+            else
+              enumeration+=` ${list[index]}`
+          }
+        }
+        else{
+            enumeration=list[0] 
+            return enumeration   
+        }  
+}
+
 
 // function to get specific variable, set on the details page
 function getVariable(variableName){
@@ -133,6 +186,23 @@ function getVariable(variableName){
 
             if (variables && variables[variableName]){
                 resolve(variables[variableName])
+            }else{
+                reject("Variable undefined!");
+            }
+        }catch (e) {
+            reject(e);
+        }
+    });
+}
+
+//function to setVariable
+function setVariable(variableName, value){
+    return new Promise((resolve, reject) => {
+        try{
+            let variables = configObject.variables[sessionData["skill"]];
+
+            if (variables && variables[variableName]){
+                variables[variableName]=value
             }else{
                 reject("Variable undefined!");
             }
@@ -167,6 +237,18 @@ function fail(error, message = ""){
     console.error(error);
 }
 
+function getSlotHandler(){
+    return configObject.postSlots
+}
+
+function getCustomSlots(name){
+    return configObject.customSlots[name]
+}
+
+function getAllCustomSlots(){
+    return configObject.customSlots
+}
+
 module.exports = {
-    config, init, publishMQTT, getZigbeeDevices, getZigbeeGroups,say, generateAnswer, setAnswer, getVariable, getAllVariables, fail
+    config, init, publishMQTT, getZigbeeDevices, getZigbeeGroups,say, generateAnswer, setAnswer, getVariable, getAllVariables, fail, getSlotHandler, generateEnum, setVariable, getMQTT, generateFailResponse, setFailResponse, getCustomSlots, getAllCustomSlots
 }

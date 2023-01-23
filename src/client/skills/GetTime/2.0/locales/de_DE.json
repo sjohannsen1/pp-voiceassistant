@@ -1,0 +1,71 @@
+{
+  "invocation": "[GetTime]",
+  "intents": [
+    {
+      "sentences": ["wie spät ist es"],
+      "function": "getTime",
+      "args": [],
+      "answer":  ["Es ist # Uhr #"],
+      "fail": [""]
+    },
+    {
+      "sentences": ["stelle einen Timer [für|auf] (1..240){minutes} minuten","stelle einen Timer [für|auf] (0..240){minutes} minuten und (0..59){seconds} sekunden"],
+      "function": "startTimer",
+      "args": ["minutes","seconds"],
+      "answer":  ["Timer für # minuten # sekunden. Und es geht los"],
+      "fail": ["Fehler beim speichern von Timer", "Fehler beim lesen von Timer"]
+    },
+    {
+      "sentences": ["wie lange noch","wie lange läuft der Timer noch"],
+      "function": "getTimer",
+      "args": [],
+      "answer":  ["Es sind noch # Minuten und # Sekunden übrig"],
+      "fail": ["Fehler beim speichern von Timer", "Fehler beim lesen von Timer"]
+    },
+    {
+      "sentences": ["stelle einen Wecker [für|auf] (0..23){alarm_hours} uhr (0..59){alarm_minutes}", "stelle einen Wecker für [jeden] ($slots/alarm_repeat){alarm_repeat} um (0..23){alarm_hours} uhr (0..59){alarm_minutes}"],
+      "function": "newAlarm",
+      "args": ["alarm_hours", "alarm_minutes", "alarm_repeat"],
+      "answer":  ["Ok Wecker für # Uhr # "],
+      "fail": ["Fehler beim speichern von Wecker", "Fehler beim lesen von Wecker"]
+    },
+    {
+      "sentences": ["Snooze", "Snooze für (1..15){snooze}"],
+      "function": "snooze",
+      "args": ["snooze"],
+      "answer":  [""],
+      "fail": ["Fehler beim speichern von Wecker", "Fehler beim lesen von Wecker"]
+    },
+    {
+      "sentences": ["Stop", "Stoppe den Timer"],
+      "function": "stopTimer",
+      "args": [""],
+      "answer":  ["Ok, gestoppt"],
+      "fail": [""]
+    },
+    {
+      "sentences": ["Lösche den Wecker für (0..23){alarm_hours} uhr (0..59){alarm_minutes} "],
+      "function": "deleteAlarm",
+      "args": ["alarm_hours", "alarm_minutes"],
+      "answer":  ["Ok, gelöscht"],
+      "fail": ["Fehler beim speichern von Wecker", "Fehler beim lesen von Wecker","Es existiert kein solcher Wecker"]
+    },
+    {
+      "sentences": ["Lösche den Wecker für (0..23){alarm_hours} uhr (0..59){alarm_minutes} am  ($slots/alarm_repeat){alarm_repeat}", "Lösche den Wecker am  ($slots/alarm_repeat){alarm_repeat}"],
+      "function": "deleteAlarm",
+      "args": ["alarm_hours", "alarm_minutes", "alarm_repeat"],
+      "answer":  ["Ok, gelöscht"],
+      "fail": ["Fehler beim speichern von Wecker", "Fehler beim lesen von Wecker","Es existiert kein solcher Wecker"]
+    },
+    {
+      "sentences": ["Welche Wecker [gibt es | habe ich gestellt | sind gestellt ]"],
+      "function": "getAlarm",
+      "args": [],
+      "answer":  ["Diese Wecker sind gestellt #"],
+      "fail": ["Fehler beim lesen von Wecker", "Es sind keine Wecker gestellt"]
+    }
+  ],
+  "slots": {
+    "alarm_repeat": ["montag:1", "dienstag:2", "mittwoch:3", "donnerstag:4", "freitag:5", "samstag:6", "sonntag:0", "werktag:7"]
+  }
+}

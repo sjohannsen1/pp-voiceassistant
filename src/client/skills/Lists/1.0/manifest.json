@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "dependencies": {},
+  "options": [
+    ],
+  "custom_slots": ["list_items","list_names"]
+}
