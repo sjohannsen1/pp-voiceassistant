@@ -22,21 +22,21 @@ html {
   }
   
   .header-container {
-    background-color: black;
-    background-color: rgba(255, 255, 255, 0.5);
-    background: url('../img/background.jpg') no-repeat 80% ;
-    color: rgb(0, 0, 0);
+    background-color: rgb(8, 26, 56);
+    background-color: rgba(212, 226, 255, 0.5);
+    background: url('../img/background.jpg') no-repeat 80%;
+    color: rgb(8, 26, 56);
     h1 {
-      color: #000;
-      background-color: rgb(255, 255, 255);
-      background-color: rgba(255, 255, 255, 0.5);
-  
+      color: rgb(8, 26, 56);
+      background-color: rgb(212, 226, 255);
+      background-color: rgba(212, 226, 255,0.5);
+      text-indent: 2%;
     }
 
     background-attachment: fixed;
-    background-size: 100%;
-    background-position: 0%;
-    //margin-top: -37px;
+    background-size: 80%;
+    background-position: center;
+    margin-top: -20px;
   }
   .navbar-container {
     font-size: 16px;

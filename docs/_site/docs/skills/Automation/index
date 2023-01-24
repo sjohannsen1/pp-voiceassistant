@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/main.css">
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Automatisierungsskill | Praxisprojekt Sprachassistent</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Automatisierungsskill" />
+<meta property="og:locale" content="de_DE" />
+<meta name="description" content="Mit diesem Skill können Smart Home Automatisierungen genutzt werden. Die Besonderheit hierbei ist, das Intents nicht nur eine direkte Antwort auslösen, sondern auch einen automatiserten Ablauf starten. Zigbee2MQTT ist verantwortlich für die Kommunikation zwischen diesem Skill und den Geräten." />
+<meta property="og:description" content="Mit diesem Skill können Smart Home Automatisierungen genutzt werden. Die Besonderheit hierbei ist, das Intents nicht nur eine direkte Antwort auslösen, sondern auch einen automatiserten Ablauf starten. Zigbee2MQTT ist verantwortlich für die Kommunikation zwischen diesem Skill und den Geräten." />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/skills/Automation/index" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/skills/Automation/index" />
+<meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-24T15:44:04+01:00" />
+<script type="application/ld+json">
+{"description":"Mit diesem Skill können Smart Home Automatisierungen genutzt werden. Die Besonderheit hierbei ist, das Intents nicht nur eine direkte Antwort auslösen, sondern auch einen automatiserten Ablauf starten. Zigbee2MQTT ist verantwortlich für die Kommunikation zwischen diesem Skill und den Geräten.","url":"http://localhost:4000/pp-voiceassistant/docs/skills/Automation/index","@type":"WebPage","headline":"Automatisierungsskill","dateModified":"2023-01-24T15:44:04+01:00","datePublished":"2023-01-24T15:44:04+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="alternate" type="application/rss+xml" title="Praxisprojekt Sprachassistent" href="http://localhost:4000/pp-voiceassistant/feed.xml" />
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="/pp-voiceassistant/">
+                <span><img src="/pp-voiceassistant/assets/img/logonav.png" alt="Logo"></span> Praxisprojekt Sprachassistent
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li  class="active" ><a href="/pp-voiceassistant/docs/home/">Docs</a></li>
+<!--                <li ><a href="">Blog</a></li>-->
+            </ul>
+            <div class="navbar-right">
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="form-group has-feedback">-->
+<!--                        <input id="search-box" type="search" class="form-control" placeholder="Search...">-->
+<!--                        <i class="fa fa-search form-control-feedback"></i>-->
+<!--                    </div>-->
+<!--                </form>-->
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/sjohannsen1/pp-voiceassistant"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+            Willkommen
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-1" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/home/">Willkommen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+            Installation
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-2" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+            Skills
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-3" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+            Fazit
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/conclusion/conclusion/">Fazit</a>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+
+        <div class="col-md-8">
+            <h1>Automatisierungsskill</h1>
+            <div id="markdown-content-container">Mit diesem Skill können Smart Home Automatisierungen genutzt werden. Die Besonderheit hierbei ist, das Intents nicht nur eine direkte Antwort auslösen, sondern auch einen automatiserten Ablauf starten. Zigbee2MQTT ist verantwortlich für die Kommunikation zwischen diesem Skill und den Geräten.
+
+### Zusätzliche Hardware
+
+Es wird ein Zigbee-Stick und mehrere Smart Home Geräte benötigt. <br>
+Diese Geräte sind: <br>
+
+Eine smarte Steckdose mit Stromverbrauchsmessung, hier wurde ein Aqara Smart Plug verwendet. <br>
+Ein Bewegungsmelder, hier wurde ein Aqara Motion Sensor verwendet. <br>
+Zwei Kontakt-Sensoren, hier wurden Sonoff Wireless Door/Window Sensoren verwendet. <br>
+Eine Lampe, hier wurde ein Müller Licht Tint LED-Reflektor GU10 verwendet <br>
+Ein Tastsensor, hier wurde ein Aqara Wireless Mini Switch verwendet <br>
+
+### Installation
+
+[Der Service Zigbee2MQTT muss installiert und die Geräte damit verbunden](../installation/Zigbee2MQTT) werden. Danach kann der Skill installiert werden.
+
+### Einrichtung
+
+Bevor der Skill aktiviert werden kann müssen einige Optionen ausgefüllt werden. Es müssen die Postleitzahl, Sprache und Land von dem Ort in dem der Skill genutz werden eingetragen werden. Außerdem müssen die Namen der Zigbeegeräte und dem MQTT-Topic von Zigbee2MQTT entweder an die Standardeinstellungen angepasst oder die neuen Namen eingetragen werden. Es wird auch ein API-Key für OpenWeatherMap benötigt.
+
+### Nachtlicht
+
+Das Nachtlicht ist ein Zusammenspiel eines Bewegungsmelders, einer Lampe und einer API. Durch eine Anfrage an die API werden die tagesaktuellen Sonnenauf- und Sonnenuntergangszeiten ermittelt. Wenn nun der Bewegungsmelder ausgelöst wird, wird überprüft ob es vor Sonnenauf- oder nach Sonnenuntergang ist. Ist dem so wird die Lampe angeschaltet. Dieser Ablauf kann durch den Sprachassistenten gestartet oder gestoppt werden.
+
+### Sprachbefehl
+
+... `start` Automatisierung [ mach ] [ das ] Nachtlicht `state`
+
+### Wäschebenachrichtigungen.
+
+Der Stromverbrauch einer Waschmaschine wird mit einer Steckdose überwacht. Durch Beobachtung wurden Schwellenwerte ermittelt, die die Waschmaschine nur zu Beginn und am Ende des Programmes unter- beziehungsweise überschreitet. Somit lässt sich der Beginn und das Ende des Waschprogrammes feststellen. Wenn diese Beobachtung durch den Sprachassistenten gestartet wurde, wird über Beginn und Ende durch eine Benachrichtigung informiert. 
+
+### Sprachbefehl
+
+... `start` Automatisierung [ mach ] [ die ] Wäschebenachrichtigungen `state`
+
+### Gefrierschrankbenachrichtigungen
+
+An die Tür eines Gefrierschranks wird ein Kontakt-Sensor angebracht. Wenn die Tür geöffnet wird, startet ein Timer für 60 Sekunden. Wenn dann nach Ablauf des Timers die Tür immer noch offen steht, kann das festgestellt werden. Wenn die Beobachtung durch den Sprachassistenten gestartet wurde, durch offenstehen eine Benachrichtigung ausgelöst.
+
+### Sprachbefehl
+
+... `start` Automatisierung [ mach ] [ die ] Gefrierschrankbeobachtungen `state`
+
+### Stumme Türklingel
+
+An die Tür wird ein Tastsensor angebracht. Wenn dieser gedrückt wird und die Klingel aktiviert ist, wird eine Benachrichtigung an den Bot gesendet
+
+### Sprachbefehl
+
+... `start` Automatisierung [ mach ] [ die ] stumme Klingel `state`
+
+### Briefkastenbenachrichtigung
+
+An den Briefkasten wird ein Kontakt-Sensor angebracht. Wird der Kontakt unterbrochen und sind die Benachrichtigungen aktiviert, wird eine Benachrichtigung ausgelöst. 
+
+### Sprachbefehl
+
+... `start` Automatisierung [ mach ] [ die ] Briefkasten Benachrichtigungen `state`
+
+
+### Slots
+
+`state` kann die Werte "an" oder "aus" annehmen und beschreibt den Zustand der Automatisierung. Dieser Slot wird mittels Substitition in boolsche Werte umgewandelt, so kann  die sprachunabhängige Implementierung des Skills gewährleistet werden. 
+</div>
+            <div style="clear:both;">
+              <p class="text-center">
+                <br />
+                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/skills/Automation/index" class="btn btn-default" role="button">
+                  <i class="fa fa-pencil fa-lg"></i> Improve this page
+                </a>
+              </p>
+            </div>
+            <hr>
+            
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            Praxisprojekt Sprachassistent 2023 |
+            Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
+
+    <script>
+  var baseurl = '/pp-voiceassistant'
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/pp-voiceassistant/assets/js/bootstrap.min.js "></script>
+<script src="/pp-voiceassistant/assets/js/typeahead.bundle.min.js "></script>
+
+<script src="/pp-voiceassistant/assets/js/main.js "></script>
+
+</body>
+
+</html>

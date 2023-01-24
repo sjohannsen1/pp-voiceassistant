@@ -1,7 +1,7 @@
 const customSdk = require("@fwehn/custom_sdk"), fs= require("fs"), path= require("path")
 saveFilePath = path.join(`${__dirname}`,"../savefiles/lists.json"),
 configFilePath = path.join(`${__dirname}`,"../savefiles/list_items.json")
-var lists = { Einkaufsliste: ["salat"]}
+var lists = {}
 
 function init() {
     fs.readFile(configFilePath, (err, rawData) => {
@@ -86,6 +86,12 @@ function deleteList(name){
     })
 }
 
+function removeItem(name, item){
+    checkList(name, () =>{
+        lists[name]=lists[name].filter(it => it != item)
+        customSdk.say(customSdk.generateAnswer([item,name]))
+    })
+}
 
 function saveLists(){
     fs.writeFile(saveFilePath, JSON.stringify(lists), err => { if(err) customSdk.fail(err, customSdk.generateFailResponse()) })
@@ -97,5 +103,5 @@ function saveLists(){
 init()
 
 module.exports = {
-    saveLists, newList, deleteList, exportList, editList
+    saveLists, newList, deleteList, exportList, editList, removeItem
 }

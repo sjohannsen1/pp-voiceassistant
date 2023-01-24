@@ -17,11 +17,36 @@
     },
     {
       "sentences": [
+        "schalte [mein | meine | die | das | den] ($slots/zigbee_groups){zigbee_groups} ($slots/state){state}",
+        "um [mein | meine | die | das | den] ($slots/zigbee_groups){zigbee_groups} ($slots/state){state} zu schalten"
+      ],
+      "function": "changeLightState",
+      "args": [
+        "zigbee_groups",
+        "state"
+      ],
+      "answer": ["OK"],
+      "fail":[""]
+    },
+    {
+      "sentences": [
         "[schalte | um] [mein | meine | die | das | den] ($slots/zigbee_devices){zigbee_devices} auf (0..100){brightness} Prozent [Helligkeit] [zu] [machen | schalten]"
       ],
       "function": "setLightBrightness",
       "args": [
         "zigbee_devices",
+        "brightness"
+      ],
+      "answer": ["OK"],
+      "fail":[""]
+    },
+    {
+      "sentences": [
+        "[schalte | um] [mein | meine | die | das | den] ($slots/zigbee_groups){zigbee_groups} auf (0..100){brightness} Prozent [Helligkeit] [zu] [machen | schalten]"
+      ],
+      "function": "setLightBrightness",
+      "args": [
+        "zigbee_groups",
         "brightness"
       ],
       "answer": ["OK"],
@@ -77,6 +102,54 @@
     },
     {
       "sentences": [
+        "[schalte | um | Mache] [das Licht von] ($slots/zigbee_groups){zigbee_groups} ($slots/brightness_change){brightness_change}[zu] [machen | schalten]"
+      ],
+      "function": "moveLightBrightness",
+      "args": [
+        "zigbee_groups",
+        "brightness_change"
+      ],
+      "answer": ["OK"],
+      "fail":[""]
+    },
+    {
+      "sentences": [
+        "[schalte | um | Mache] [das Licht von] ($slots/zigbee_groups){zigbee_groups} ($slots/light_temp){light_temp} [zu] [machen | schalten]"
+      ],
+      "function": "setColorTemperature",
+      "args": [
+        "zigbee_groups",
+        "light_temp"
+      ],
+      "answer": ["OK"],
+      "fail":[""]
+    },
+    {
+      "sentences": [
+        "[schalte | um | Mache] [das Licht von] ($slots/zigbee_groups){zigbee_groups} ($slots/temp_change){temp_change} [zu] [machen | schalten]"
+      ],
+      "function": "moveColorTemperature",
+      "args": [
+        "zigbee_groups",
+        "temp_change"
+      ],
+      "answer": ["OK"],
+      "fail":[""]
+    },
+    {
+      "sentences": [
+        "[schalte | um | Mache] [das Licht von] ($slots/zigbee_groups){zigbee_groups} ($slots/light_color){light_color} [zu] [machen | schalten]"
+      ],
+      "function": "changeLightColor",
+      "args": [
+        "zigbee_groups",
+        "light_color"
+      ],
+      "answer": ["OK"],
+      "fail":["Die Farbe # ist leider nicht gespeichert"]
+    },
+    {
+      "sentences": [
         "[Um|Füge] ($slots/zigbee_devices){zigbee_devices} zu ($slots/zigbee_groups){zigbee_groups} [hinzu | hinzuzufügen]"
       ],
       "function": "addToGroup",
@@ -112,6 +185,17 @@
     },
     {
       "sentences": [
+        "[Um|Speichere] die Einstellung von ($slots/zigbee_groups){zigbee_groups} [zu speichern]"
+      ],
+      "function": "createScene",
+      "args": [
+        "zigbee_groups"
+      ],
+      "answer": ["OK, als # gespeichert"],
+      "fail":[""]
+    },
+    {
+      "sentences": [
         "[Um | stelle] die Szene ($slots/zigbee_scenes){zigbee_scenes} [ein|einzustellen]"
       ],
       "function": "recallScene",
@@ -135,6 +219,19 @@
       "sentences": [
         "Ist ($slots/zigbee_devices){zigbee_devices} [gerade] ($slots/state){state_property}",
         "Wie ($slots/state_property){state_property} ist ($slots/zigbee_devices){zigbee_devices} [gerade|aktuell]"
+      ],
+      "function": "getState",
+      "args": [
+        "zigbee_devices",
+        "state_property"
+      ],
+      "answer": ["# ist # "],
+      "fail":["# hat keine solche Eigenschaft"]
+    },
+    {
+      "sentences": [
+        "Ist ($slots/zigbee_groups){zigbee_groups} [gerade] ($slots/state){state_property}",
+        "Wie ($slots/state_property){state_property} ist ($slots/zigbee_groups){zigbee_groups} [gerade|aktuell]"
       ],
       "function": "getState",
       "args": [
