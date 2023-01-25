@@ -15,15 +15,15 @@
 <meta name="generator" content="Jekyll v3.8.5" />
 <meta property="og:title" content="Zwischenfazit" />
 <meta property="og:locale" content="de_DE" />
-<meta name="description" content="Dokumentation meines Praxisprojekts." />
-<meta property="og:description" content="Dokumentation meines Praxisprojekts." />
+<meta name="description" content="Mittels Iteration sind fast alle identifizierten Probleme des Skillverwaltungssystems gelöst wurden." />
+<meta property="og:description" content="Mittels Iteration sind fast alle identifizierten Probleme des Skillverwaltungssystems gelöst wurden." />
 <link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/evaluation/conclusion/" />
 <meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/evaluation/conclusion/" />
 <meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-01-24T15:44:04+01:00" />
+<meta property="article:published_time" content="2023-01-25T18:08:32+01:00" />
 <script type="application/ld+json">
-{"description":"Dokumentation meines Praxisprojekts.","url":"http://localhost:4000/pp-voiceassistant/docs/evaluation/conclusion/","@type":"WebPage","headline":"Zwischenfazit","dateModified":"2023-01-24T15:44:04+01:00","datePublished":"2023-01-24T15:44:04+01:00","@context":"http://schema.org"}</script>
+{"description":"Mittels Iteration sind fast alle identifizierten Probleme des Skillverwaltungssystems gelöst wurden.","url":"http://localhost:4000/pp-voiceassistant/docs/evaluation/conclusion/","@type":"WebPage","headline":"Zwischenfazit","dateModified":"2023-01-25T18:08:32+01:00","datePublished":"2023-01-25T18:08:32+01:00","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -118,11 +118,11 @@
           
             
             
-            <a class="list-group-item " href=""></a>
+            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/hardware/">Hardware Liste</a>
           
             
             
-            <a class="list-group-item " href=""></a>
+            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/Zigbee2MQTT/">Installation Zigbee2MQTT</a>
           
         </div>
       </div>
@@ -200,12 +200,27 @@
 
         <div class="col-md-8">
             <h1>Zwischenfazit</h1>
-            <div id="markdown-content-container">
+            <div id="markdown-content-container"><p>Mittels <a href="./iteration">Iteration</a> sind fast alle <a href="./index">identifizierten Probleme</a> des Skillverwaltungssystems gelöst wurden. <br /></p>
+
+<p>Das Problem der fehlenden Flexibilität in der Sprach- und Befehlserkennung könnte durch die Verwendung eines “Mixed Language Models” und einer flexibleren Sprachbefehlserkennung (Intentrecognition) gelöst werden. Dabei wird das individuell generierte Sprachmodell von Rhasspy mit einem größeren, vorgegebenen Sprachmodell nach einem definierten Verhältnis gemischt.  <br />
+Das von Rhasspy individuelle generierte Sprachmodell ist ein statistisches Sprachmodell. Dabei generiert Rhasspy einen Graphen aller möglichen Sätze aller Sprachbefehle mit den unterschiedlichen Einträgen für die jeweiligen Slots. Basierend darauf kann nun für jede Wortabfolge eine Wahrscheinlichkeit errechnet werden. Mithilfe diesen Wahrscheinlichkeiten kann Rhasspy ähnlich klingende Wörter richtig interpretieren. 
+Beispielsweise kann Rhasspy so entscheiden das “füge Beeren zu Liste 1 hinzu” der intendierte Satz war, selbst wenn das eigentlich gesagte sich wie “füge Bären zu Liste 1 hinzu” angehört hat. <br />
+Wird nun die Einstellung “Mixed Language Models” genutzt, wird ein schon erstelltes statistisches Sprachmodell basierend auf der in Rhasspy eingestellten Sprache mit dem individuell generierten gemischt. Dies hat den Vorteil das der Textkorpus, also die Sammlung an Sätzen mit denen trainiert wird, deutlich umfassender wird. So können beispielsweise sowohl “schalte Lampe an” als auch “könntest du bitte die Lampe an schalten” erkannt werden, selbst wenn nur “schalte Lampe an” Teil der festgelegten Sätzen sind. Der Nachteil davon ist, dass die von Rhasspy benötigte Trainingszeit mit der wachsender Größe des Sprachmodells stark ansteigt. Außerdem steigt mit der Menge an erkannten Sätzen der Aufwand der Intentrecognition. Auch dort können verschiedene Programme verwendet werden. Diese gehen unterschiedlich mit unbekannten Wörtern um. Rigide Intentrecognition erkennt nur die Sprachbefehle welche in Rhasspy eingestellt wurden und ignorieren zusätzliche Wörter. Manche davon erkennen auch falsch geschriebene Wörter oder Änderungen in deren Reihenfolge richtig, in dem sie den der Eingabe ähnlichsten Sprachbefehl erkennen. Flexiblere  Intentrecognition kann unbekannte und zusätzliche Wörter erkennen und sie sinngemäß einem Sprachbefehl zuordnen. Auch hier ist der Nachteil das mit steigender Flexibilität der Intentrecognition sowohl die Trainingszeit als auch die Erkennungzeit steigt. Aus diesem Grund wurde dieses Problem nicht durch Änderungen gelöst, sondern die Sprachbefehle möglichst umfassend gestaltet. <br /></p>
+
+<p>Basierend auf dieser Recherche wurden für Rhasspy folgende Einstellungen geändert: <br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">Intent Recognition: Fuzzywuzzy</code> <br /></p>
+
+<p>Dieses Programm ist zwar so rigide, das es die Trainingszeit und die Erkennungszeit nicht deutlich verlängert, aber ermöglicht auch die Erkenntnis falsch geschriebener Worte. Dies ist sinnvoll für die Verwendung eines Chatbots. <br /></p>
+
+<p>Die richtige Erkennung von unbekannten Wörtern und der darauffolgenden richtigen Zuordnung zu Slots wird von Rhasspy nicht unterstützt. Es wäre allerdings möglich den Slotinhalt aus dem transkribierten Text zu extrahieren. Dazu muss ein “Mixed Language Model” verwendet werden, da sonst die unbekannten Wörter nicht transkribiert werden. Da sich hier gegen ein solches Modell entschieden wurde, wurde dies nicht umgesetzt. <br /></p>
+
+<p>Aufgrund der erkannten Limitationen von Rhasspy sind einige Funktionen angepasst oder entfernt worden. Die aktualisierte Anforderungsliste befindet sich <a href="../iterierteAnforderungen">hier</a></p>
 </div>
             <div style="clear:both;">
               <p class="text-center">
                 <br />
-                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/vorgehensweise/evaluation/conclusion.md" class="btn btn-default" role="button">
+                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/method/evaluation/conclusion.md" class="btn btn-default" role="button">
                   <i class="fa fa-pencil fa-lg"></i> Improve this page
                 </a>
               </p>

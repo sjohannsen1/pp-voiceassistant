@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/main.css">
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>PlayMusic - Anforderungen | Praxisprojekt Sprachassistent</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="PlayMusic - Anforderungen" />
+<meta property="og:locale" content="de_DE" />
+<meta name="description" content="Der Skill PlayMusic muss den vorher festgelegten Anforderungen genügen. Aufgrund sowohl ihrer inhaltlichen als auch funktionalen Ähnlichkeit wurden F-04 und F-05 zu einem Skill zusammengefasst. Hier sind diese sortiert ausgeführt. Falls diese nicht implementiert wurden, ist dies mit einem Kreuz markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden aber noch verbessert werden könnten." />
+<meta property="og:description" content="Der Skill PlayMusic muss den vorher festgelegten Anforderungen genügen. Aufgrund sowohl ihrer inhaltlichen als auch funktionalen Ähnlichkeit wurden F-04 und F-05 zu einem Skill zusammengefasst. Hier sind diese sortiert ausgeführt. Falls diese nicht implementiert wurden, ist dies mit einem Kreuz markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden aber noch verbessert werden könnten." />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/skills/PlayMusic/requirements/" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/skills/PlayMusic/requirements/" />
+<meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-25T18:08:32+01:00" />
+<script type="application/ld+json">
+{"description":"Der Skill PlayMusic muss den vorher festgelegten Anforderungen genügen. Aufgrund sowohl ihrer inhaltlichen als auch funktionalen Ähnlichkeit wurden F-04 und F-05 zu einem Skill zusammengefasst. Hier sind diese sortiert ausgeführt. Falls diese nicht implementiert wurden, ist dies mit einem Kreuz markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden aber noch verbessert werden könnten.","url":"http://localhost:4000/pp-voiceassistant/docs/skills/PlayMusic/requirements/","@type":"WebPage","headline":"PlayMusic - Anforderungen","dateModified":"2023-01-25T18:08:32+01:00","datePublished":"2023-01-25T18:08:32+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="alternate" type="application/rss+xml" title="Praxisprojekt Sprachassistent" href="http://localhost:4000/pp-voiceassistant/feed.xml" />
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="/pp-voiceassistant/">
+                <span><img src="/pp-voiceassistant/assets/img/logonav.png" alt="Logo"></span> Praxisprojekt Sprachassistent
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li  class="active" ><a href="/pp-voiceassistant/docs/home/">Docs</a></li>
+<!--                <li ><a href="">Blog</a></li>-->
+            </ul>
+            <div class="navbar-right">
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="form-group has-feedback">-->
+<!--                        <input id="search-box" type="search" class="form-control" placeholder="Search...">-->
+<!--                        <i class="fa fa-search form-control-feedback"></i>-->
+<!--                    </div>-->
+<!--                </form>-->
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/sjohannsen1/pp-voiceassistant"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+            Willkommen
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-1" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/home/">Willkommen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+            Installation
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-2" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/hardware/">Hardware Liste</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/Zigbee2MQTT/">Installation Zigbee2MQTT</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+            Skills
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-3" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+            Fazit
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/conclusion/conclusion/">Fazit</a>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+
+        <div class="col-md-8">
+            <h1>PlayMusic - Anforderungen</h1>
+            <div id="markdown-content-container"><p>Der Skill PlayMusic muss den vorher festgelegten Anforderungen genügen. Aufgrund sowohl ihrer inhaltlichen als auch funktionalen Ähnlichkeit wurden F-04 und F-05 zu einem Skill zusammengefasst. Hier sind diese sortiert ausgeführt. Falls diese nicht implementiert wurden, ist dies mit einem Kreuz markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden aber noch verbessert werden könnten.</p>
+
+<h2 id="nichtfunktionale-anforderungen">Nichtfunktionale Anforderungen</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifikator</th>
+      <th>Beschreibung</th>
+      <th style="text-align: center">Umgesetzt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NF-003</td>
+      <td>Die Sprach-zu-Text Komponente muss auf deutsche Sprache ausgelegt sein</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>NF-004</td>
+      <td>Die Skills müssen sprachunabhängig entwickelt werden</td>
+      <td style="text-align: center">➖</td>
+    </tr>
+    <tr>
+      <td>NF-005</td>
+      <td>Die Skills müssen unabhängig von einander Funktionieren</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Die Anforderung NF-004 ist bedingt durch die sprachabhängigkeit der Sender nur teilweise erfüllt. Diese publizieren Informationen zum aktuell gesendeten nur auf der Sprache des Programms. Das Parsen dieser Informationen lässt sich deshalb leider nicht sprachunabhängig umsetzen. Alle restlichen Sprachbefehle erfüllen NF-004.</p>
+
+<h2 id="funktionale-anforderungen-für-musik">Funktionale Anforderungen für Musik</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifikator</th>
+      <th>Beschreibung</th>
+      <th style="text-align: center">Umgesetzt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>F-040</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Musik einzuschalten</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-041</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Musik auszuschalten</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-042</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten einzelne Lieder auszuwählen</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-043</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Lieder zur Abspielung zur Verfügung zu stellen</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-044</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich alle abspielbaren Lieder auszugeben</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-045</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich ausgeben zu lassen was gerade abgespielt wird</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="funktionale-anforderungen-für-radio">Funktionale Anforderungen für Radio</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifikator</th>
+      <th>Beschreibung</th>
+      <th style="text-align: center">Umgesetzt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>F-050</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Radio einzuschalten</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-051</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Radio auszuschalten</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-052</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Radiosender zu wechseln</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-053</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten ein Radiosender auszuwählen</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-054</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten ein Radiosender hinzuzufügen</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-055</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich verfügbare Radiosender anzeigen zu lassen</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-056</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich ausgeben zu lassen was gerade abgespielt wird</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+    <tr>
+      <td>F-057</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich ausgeben zu lassen welcher Sender gerade abgespielt wird</td>
+      <td style="text-align: center">✔</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+            <div style="clear:both;">
+              <p class="text-center">
+                <br />
+                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/skills/PlayMusic/requirements.md" class="btn btn-default" role="button">
+                  <i class="fa fa-pencil fa-lg"></i> Improve this page
+                </a>
+              </p>
+            </div>
+            <hr>
+            
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            Praxisprojekt Sprachassistent 2023 |
+            Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
+
+    <script>
+  var baseurl = '/pp-voiceassistant'
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/pp-voiceassistant/assets/js/bootstrap.min.js "></script>
+<script src="/pp-voiceassistant/assets/js/typeahead.bundle.min.js "></script>
+
+<script src="/pp-voiceassistant/assets/js/main.js "></script>
+
+</body>
+
+</html>

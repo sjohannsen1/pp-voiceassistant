@@ -159,12 +159,12 @@ function generateFailResponse(vars = [""], index=0, separator = "#"){
 }
 
 //function to generate an enumeration from a list
-function generateEnum(list){
+function generateEnum(list, join = "und"){
     let enumeration=""
         if(list.length>1){
             for (let index = 0; index < list.length; index++){
             if(!list[index+1]){
-                enumeration+=` und ${list[index]}`
+                enumeration+=` ${join} ${list[index]}`
                 return enumeration
             }
             else

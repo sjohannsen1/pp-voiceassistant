@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/main.css">
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>SDK | Praxisprojekt Sprachassistent</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="SDK" />
+<meta property="og:locale" content="de_DE" />
+<meta name="description" content="Die CustomSDK von Finn Wehn wurde iteriert. Die ursprüngliche SDK ist hier dokumentiert. Die Änderungen werden hier beschrieben." />
+<meta property="og:description" content="Die CustomSDK von Finn Wehn wurde iteriert. Die ursprüngliche SDK ist hier dokumentiert. Die Änderungen werden hier beschrieben." />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/method/develop-skill/sdk" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/method/develop-skill/sdk" />
+<meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-25T18:08:32+01:00" />
+<script type="application/ld+json">
+{"description":"Die CustomSDK von Finn Wehn wurde iteriert. Die ursprüngliche SDK ist hier dokumentiert. Die Änderungen werden hier beschrieben.","url":"http://localhost:4000/pp-voiceassistant/docs/method/develop-skill/sdk","@type":"WebPage","headline":"SDK","dateModified":"2023-01-25T18:08:32+01:00","datePublished":"2023-01-25T18:08:32+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="alternate" type="application/rss+xml" title="Praxisprojekt Sprachassistent" href="http://localhost:4000/pp-voiceassistant/feed.xml" />
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="/pp-voiceassistant/">
+                <span><img src="/pp-voiceassistant/assets/img/logonav.png" alt="Logo"></span> Praxisprojekt Sprachassistent
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li  class="active" ><a href="/pp-voiceassistant/docs/home/">Docs</a></li>
+<!--                <li ><a href="">Blog</a></li>-->
+            </ul>
+            <div class="navbar-right">
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="form-group has-feedback">-->
+<!--                        <input id="search-box" type="search" class="form-control" placeholder="Search...">-->
+<!--                        <i class="fa fa-search form-control-feedback"></i>-->
+<!--                    </div>-->
+<!--                </form>-->
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/sjohannsen1/pp-voiceassistant"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+            Willkommen
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-1" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/home/">Willkommen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+            Installation
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-2" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/hardware/">Hardware Liste</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/Zigbee2MQTT/">Installation Zigbee2MQTT</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+            Skills
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-3" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+            Fazit
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/conclusion/conclusion/">Fazit</a>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+
+        <div class="col-md-8">
+            <h1>SDK</h1>
+            <div id="markdown-content-container"><p>Die CustomSDK von Finn Wehn wurde iteriert. <a href="https://fwehn.github.io/pp-voiceassistant/docs/create-skills/sdk/">Die ursprüngliche SDK ist hier dokumentiert.</a> Die Änderungen werden hier beschrieben. <br /></p>
+
+<h2 id="konfigurationsobjekt">Konfigurationsobjekt</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let configObject = {
+    mqtt: 'localhost',
+    intentHandler: () =&gt; {},
+    variables: {},
+    zigbeeTopic: "",
+    zigbeeUpdater: () =&gt; {},
+    zigbeeDevices: [],
+    zigbeeGroups: [],
+    postSlots: () =&gt; {},
+    customSlots: [] 
+}
+</code></pre></div></div>
+<p><em><a href="../../../../src/sdk/index.js">sdk/index.js</a></em> <br /></p>
+
+<p>Die Eigenschaften <code class="language-plaintext highlighter-rouge">zigbeeDevices</code> und <code class="language-plaintext highlighter-rouge">zigbeeGroups</code> enthalten alle Zigbee Devices und alle in Zigbee2MQTT eingerichteten Gruppen. <br />
+Die Eigenschaft <code class="language-plaintext highlighter-rouge">postSlots</code> erhält eine Funktion zum registrieren von neuen Sloteinträgen an Rhasspy. Dabei muss der Slotname, die neuen Einträge und optional ob die existierenden Einträge mit den neuen Überschrieben werden sollen übergeben werden. <br />
+Die Eigenschaft <code class="language-plaintext highlighter-rouge">customSlots</code> ist eine Liste mit allen dynamischen Slots. Diese sind nach Skills sortiert. Diese Eigenschaft wird ausschließlich von der Detailseite genutzt.</p>
+
+<h2 id="sessiondata">Sessiondata</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let sessionData = {
+    siteId: "default",
+    sessionId: "",
+    skill: "",
+    answer: "",
+    fail: ""
+}
+</code></pre></div></div>
+<p><em><a href="../../../../src/sdk/index.js">sdk/index.js</a></em> <br /></p>
+
+<p>Die <code class="language-plaintext highlighter-rouge">sessionData</code> erhält zusätzlich noch eine Eigenschaft <code class="language-plaintext highlighter-rouge">fail</code>. Dort werden die Fehlermeldungen <code class="language-plaintext highlighter-rouge">fail</code> aus den Manifest Dateien der Skills festgehalten.</p>
+
+<h2 id="antwort-und-fehler-generieren">Antwort und Fehler generieren</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function generateFailResponse(vars = [""], index=0, separator = "#"){
+    let parts = sessionData.fail[index].split(separator);
+    let answer = parts[0];
+    for (let i = 1; i &lt; parts.length; i++){
+        if(!vars[i-1]){
+            answer = answer + parts[i]
+            return answer
+        }
+        answer = answer + vars[i-1] + parts[i];
+    }
+    return answer;
+}
+</code></pre></div></div>
+<p><em><a href="../../../../src/sdk/index.js">sdk/index.js</a></em> <br /></p>
+
+<p>Die Funktionen zur Generation von Antwort und Fehlermeldung sind bis auf die verwendete Eigenschaft der <code class="language-plaintext highlighter-rouge">sessionData</code> identisch. Sie erhalten eine Liste <code class="language-plaintext highlighter-rouge">vars</code> an einzusetzenden Wörtern und fügen sie in den durch den <code class="language-plaintext highlighter-rouge">index</code> definierten Satz ein. Dieser Satz wird dann zurückgegeben. <br /></p>
+
+<h2 id="aufzählung-generieren">Aufzählung generieren</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function generateEnum(list, join = "und"){
+    let enumeration=""
+        if(list.length&gt;1){
+            for (let index = 0; index &lt; list.length; index++){
+            if(!list[index+1]){
+                enumeration+=` ${join} ${list[index]}`
+                return enumeration
+            }
+            else
+              enumeration+=` ${list[index]}`
+          }
+        }
+        else{
+            enumeration=list[0] 
+            return enumeration   
+        }  
+}
+</code></pre></div></div>
+<p><em><a href="../../../../src/sdk/index.js">sdk/index.js</a></em> <br /></p>
+
+<p>Diese Funktion erhält eine Liste <code class="language-plaintext highlighter-rouge">list</code> an Wörtern und generiert daraus eine, mit den Verbindungswort <code class="language-plaintext highlighter-rouge">join</code> verbundene, Aufzählung. Diese wird zurückgegeben. 
+<br /></p>
+</div>
+            <div style="clear:both;">
+              <p class="text-center">
+                <br />
+                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/method/develop-skills/sdk.md" class="btn btn-default" role="button">
+                  <i class="fa fa-pencil fa-lg"></i> Improve this page
+                </a>
+              </p>
+            </div>
+            <hr>
+            
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            Praxisprojekt Sprachassistent 2023 |
+            Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
+
+    <script>
+  var baseurl = '/pp-voiceassistant'
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/pp-voiceassistant/assets/js/bootstrap.min.js "></script>
+<script src="/pp-voiceassistant/assets/js/typeahead.bundle.min.js "></script>
+
+<script src="/pp-voiceassistant/assets/js/main.js "></script>
+
+</body>
+
+</html>

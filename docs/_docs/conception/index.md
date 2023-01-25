@@ -1,0 +1,21 @@
+---
+title: Konzeption
+permalink: /docs/conception/index/
+---
+
+## Zielgruppe 
+
+Zunächst wurde eine Zielgruppe festgelegt für welche das Grundset entwickelt werden soll.
+- Personen die deutsch sprechen
+- Diese Personen haben ein Grundverständnis in dem Umgang mit oder Interesse an Technikkomponenten
+- Wenn dieser Personen weder ein Grundverständnis noch Interesse am Umgang mit Technikkomponenten haben, haben sie Zugang zu Personen die ihnen dabei helfen können
+- Diese Personen haben Unsicherheit und Sorgen im Bezug auf den Verbleib ihrer Daten
+- Diese Personen haben Unsicherheit und Sorgen im Bezug auf den Umgang mit ihren Daten
+
+## Protokolle
+
+Basierend auf dieser Zielgruppe wurden Personen ausgewählt, welche Protokolle über ihren Tagesablauf führen sollen. 
+
+[Protokoll 1](./protocols/1)
+[Protokoll 2](./protocols/1)
+[Protokoll 3](./protocols/1)

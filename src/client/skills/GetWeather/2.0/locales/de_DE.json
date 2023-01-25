@@ -6,18 +6,18 @@
       "sentences": ["wie [ist] das Wetter (aktuell | gerade | jetzt) [ist]"],
       "function": "getCurrentWeather",
       "args": [],
-      "answer": ["In # ist es aktuell # bei Temperaturen von # Grad Celsius. Durch die Wetterbedignungen fühlt es sich an wie # Grad", "es gibt # Warnungen # "],
+      "answer": ["In # ist es aktuell # bei Temperaturen von # Grad Celsius. Durch die Wetterbedingungen fühlt es sich an wie # Grad", "es gibt # Warnungen # "],
       "fail": ["Fehler bei Wetterdienstservice"]
     },
     {
-      "sentences": ["wie [wird] das Wetter in (1..4){day} day_namesn [wird]"],
+      "sentences": ["wie [wird] das Wetter in (1..4){day} Tagen [wird]"],
       "function": "getForecast",
       "args": ["day"],
       "answer": ["# bei Temperaturen von # bis # Grad Celsius."],
       "fail": ["Fehler bei Wetterdienstservice"]
     },
     {
-      "sentences": ["wie [wird] das Wetter ($slots/day_names){day_names!int} [wird]"],
+      "sentences": ["wie [wird] das Wetter ($slots/day_names){day_names} [wird]"],
       "function": "getForecast",
       "args": ["day_names"],
       "answer": ["# bei Temperaturen von # bis # Grad Celsius."],
@@ -30,7 +30,7 @@
       "answer": ["Es soll # geben","Es soll kein markantes Wetter geben" , "es gibt # Warnungen #"],
       "fail": ["Fehler bei Wetterdienstservice"]
     },{
-      "sentences": ["ob es ($slots/day_names){day_names!int} markantes Wetter gibt"],
+      "sentences": ["ob es ($slots/day_names){day_names} markantes Wetter gibt"],
       "function": "getNotableWeather",
       "args": ["day_names"],
       "answer": ["Es soll # geben", "Es soll kein markantes Wetter geben", "es gibt # Warnungen #"],

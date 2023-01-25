@@ -22,8 +22,7 @@ customSdk.config({
     intentHandler: skillManager.customIntentHandler,
     zigbeeTopic: process.env.ZIGBEETOPIC || "zigbee2mqtt",
     zigbeeUpdater: updateZigbeeList,
-    postSlots: postSlots//,
-    //slotUpdater: updateCustomSlots
+    postSlots: postSlots
 });
 // Clears Zigbee-list, inits the sdk and registers the default launch slots in Rhasspy
 //rhasspy.postSlots("zigbeeDevices", [], true).catch(console.error)
@@ -52,18 +51,6 @@ function updateZigbeeList(){
                 rhasspy.trainRhasspy().catch(console.error);
             }).catch(console.error);
 }
-/*
-function updateCustomSlots(){
-    let customSlots = customSdk.getAllCustomSlots() || [];
-    rhasspy.getSlots().then(allSlots=>{
-        console.log(allSlots)
-        for (let skill in customSlots){
-            for (let slot in skill)
-                customSlots[skill][slot]=allSlots.data[`slots/${slot}`]
-        }
-        console.log(customSlots)
-    })
-}*/
 
 function postSlots(slotName, alternatives, overwrite = false){
     rhasspy.postSlots(slotName, alternatives, overwrite).then(() => {

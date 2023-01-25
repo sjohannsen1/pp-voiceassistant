@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/main.css">
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Evaluation des Skillverwaltungssystems von Finn Wehn im Hinblick auf die Umsetzung der ermittelten Anforderungen | Praxisprojekt Sprachassistent</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Evaluation des Skillverwaltungssystems von Finn Wehn im Hinblick auf die Umsetzung der ermittelten Anforderungen" />
+<meta property="og:locale" content="de_DE" />
+<meta name="description" content="Es wurde die Version des Skillverwaltungssystems vom 8. April 2022 evaluiert und für den Rest des Projekts verwendet." />
+<meta property="og:description" content="Es wurde die Version des Skillverwaltungssystems vom 8. April 2022 evaluiert und für den Rest des Projekts verwendet." />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/method/evaluation/eval/" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/method/evaluation/eval/" />
+<meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-25T18:08:32+01:00" />
+<script type="application/ld+json">
+{"description":"Es wurde die Version des Skillverwaltungssystems vom 8. April 2022 evaluiert und für den Rest des Projekts verwendet.","url":"http://localhost:4000/pp-voiceassistant/docs/method/evaluation/eval/","@type":"WebPage","headline":"Evaluation des Skillverwaltungssystems von Finn Wehn im Hinblick auf die Umsetzung der ermittelten Anforderungen","dateModified":"2023-01-25T18:08:32+01:00","datePublished":"2023-01-25T18:08:32+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="alternate" type="application/rss+xml" title="Praxisprojekt Sprachassistent" href="http://localhost:4000/pp-voiceassistant/feed.xml" />
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="/pp-voiceassistant/">
+                <span><img src="/pp-voiceassistant/assets/img/logonav.png" alt="Logo"></span> Praxisprojekt Sprachassistent
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li  class="active" ><a href="/pp-voiceassistant/docs/home/">Docs</a></li>
+<!--                <li ><a href="">Blog</a></li>-->
+            </ul>
+            <div class="navbar-right">
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="form-group has-feedback">-->
+<!--                        <input id="search-box" type="search" class="form-control" placeholder="Search...">-->
+<!--                        <i class="fa fa-search form-control-feedback"></i>-->
+<!--                    </div>-->
+<!--                </form>-->
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/sjohannsen1/pp-voiceassistant"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+            Willkommen
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-1" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/home/">Willkommen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+            Installation
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-2" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/hardware/">Hardware Liste</a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/Zigbee2MQTT/">Installation Zigbee2MQTT</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+            Skills
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-3" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+            Fazit
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/conclusion/conclusion/">Fazit</a>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+
+        <div class="col-md-8">
+            <h1>Evaluation des Skillverwaltungssystems von Finn Wehn im Hinblick auf die Umsetzung der ermittelten Anforderungen</h1>
+            <div id="markdown-content-container"><p>Es wurde die Version des Skillverwaltungssystems vom 8. April 2022 evaluiert und für den Rest des Projekts verwendet. <br /></p>
+
+<h2 id="rhasspy-instanz">Rhasspy Instanz</h2>
+
+<p>Bis auf die Verwendung von externem MQTT sind keine Einstellungen für Rhasspy vorgegeben. Für die Evaluation sind die von Rhasspy für die Sprache Deutsch empfohlenen Einstellungen verwendet worden.</p>
+
+<h2 id="sprachunabhängigkeit">Sprachunabhängigkeit</h2>
+
+<p>Jeder Skill der von diesem System verwaltet wird besteht aus einer oder mehreren <code class="language-plaintext highlighter-rouge">locales</code> Dateien, einer <code class="language-plaintext highlighter-rouge">Manifest</code> Datei und dem eigentlichen Code. In jeder locales Datei werden alle Intents, Antworten und Slots einer Sprache festgelegt. Außerdem werden dort die Funktionen mit den Intents verknüpft. Die Funktionen werden in der Quellcode Datei implementiert. In den Funktionen wird keine Sprache verarbeitet. Eingaben über Slots können von Rhasspy nach festgelegtem Schema ersetzt werden. So können beispielsweise die Zustände “an” und “aus” von Smarten Geräten in die Werte “0” und “1” übersetzt werden. Die Antworten des Sprachassistenten werden mithilfe der definierten Sätze in den <code class="language-plaintext highlighter-rouge">locales</code> Dateien generiert. Falls variablen in der Antwort mit ausgegeben werden sollen, werden diese von der CustomSDK in die Antwort eingefügt. In der Manifest Datei befinden sich die NodeJS Module die ein Skill verwendet, Optionen welche von Nutzenden ausgefüllt werden müssen und die Version des Skills. Die Optionen sind Eingaben, welche vom Skill benötigt werden um zu funktionieren. Ein API-Key oder die Stadt für die das Wetter abgefragt werden soll sind Beispiele für Optionen.</p>
+
+<h2 id="nodejs-module">NodeJS Module</h2>
+
+<p>NodeJS Module sind Bibliotheken an Funktionen welche Programmen durch das Framework NodeJS zur Verfügung gestellt werden. Falls Skills davon welche verwenden, müssen sie bei der Installation mitinstalliert werden. Dies muss einzeln für jeden Skill durchgeführt werden. Dazu ist ein Zugriff auf das Terminal des Geräts auf welchem der Sprachassistent läuft nötig. Wird das nicht vor Installation des Skills gemacht, bricht das Programm ab und lässt sich nicht wieder neu starten bis entweder die Module installiert wurden oder die Skilldateien gelöscht und der Skill aus der Liste mit verfügbaren Skills gelöscht wurde. Die benötigten Module sind in der <code class="language-plaintext highlighter-rouge">Manifest</code> Datei der einzelnen Skills festgehalten.</p>
+
+<h2 id="umgebungsvariablen">Umgebungsvariablen</h2>
+
+<p>Umgebungsvariablen sind Variablen welche nur innerhalb einer bestimmten Umgebung zur Verfügung stehen. Außenstehende Programme können diese nicht verwenden. Sie sind auch nützlich falls der Quellcode veröffentlicht werden soll, es aber geheime Daten gibt welche nicht mit veröffentlicht werden sollen. Beispielsweise Passwörter können so geheimgehalten werden. In den Programmen wird dann die Umgebungsvariable referenziert und diese in einer eigenen Datei, welche nicht mit veröffentlicht wird, eingetragen. Nach Installation nach Anleitung waren die Umgebungsvariablen nicht erreichbar. Dies führte zwar zunächst zu keinen Problemen, da es zu diesen Variablen im Quellcode je alternative Werte gab. Als diese jedoch geändert werden sollten, ist dieses Problem aufgefallen.</p>
+
+<h2 id="fehlerbehandlung">Fehlerbehandlung</h2>
+
+<p>Falls bei einer Funktion eines Skills ein Fehler auftreten sollte, biete die CustomSDK eine Funktion die diesen Fehler auffängt. Dadurch bricht nicht das gesamte Programm, sondern nur die fehlerhafte Funktion ab. Der Fehler wird in der Console ausgegeben und der Sprachassistent gibt eine generische Fehlermeldung aus. Diese Fehlermeldung gibt keinerlei Aufschluss über die Ursache des Fehlers, sondern merkt nur an das der aufgerufene Skill momentan Probleme bereitet.</p>
+
+<h2 id="statische-slots">Statische Slots</h2>
+
+<p>Das Skillverwaltungssystem verwendet fast ausschließlich statische Slots. Dies bedeutet das alle möglichen Slotwerte bereits bei Aktivierung des Skills festgelegt sein müssen. Wenn ein Skill entwickelt wird, in dem auf Nutzende zugeschnittene Slots verwendet werden, muss dieser die <code class="language-plaintext highlighter-rouge">locales</code> Datei verändern. In dieser Datei werden alle Intents, Antworten und Slots festgelegt. Außerdem werden dort die Intents mit den Funktionen verknüpft. Passiert bei dem Eintragen der personalisierten Slots nun ein Fehler, besteht das Risiko das Intents oder sogar der gesamte Skill nicht mehr funktionieren. <br /></p>
+
+<p>Die einzige Ausnahme bildet der Slot <code class="language-plaintext highlighter-rouge">zigbeeDevices</code>. Dieser wird mit den Namen aller Zigbee2MQTT bekannten Geräte und Gruppen gefüllt. Die Einträge in diesem Slot werden jedem Skill zugänglich in dem Konfigurationsobjekt gespeichert. <br /></p>
+
+<p>Des Weiteren ist es auch nicht möglich freie Eingaben zu tätigen. Wenn Rhasspy ein Wort nicht kennt, kann es dies auch nicht erkennen. Somit ist das freie Benennen von Dingen nicht möglich.</p>
+
+<h2 id="statische-intents">Statische Intents</h2>
+
+<p>Es können zwar in den Intents optionale Wörter, Satzteile oder Alternativen angegeben werden, aber nicht angegebene Änderungen kann Rhasspy nicht korrekt erkennen.</p>
+
+<h2 id="detailseite">Detailseite</h2>
+
+<p>Das System verfügt über eine Weboberfläche. Dort können Skills verwaltet werden. Des Weiteren kann dort von jedem Skill eine Übersichtsseite mit allen Intents, Slots und Slotwerten und einer kurzen Beschreibung eingesehen werden. Dort können auch die Optionen eingetragen werden.
+Alle Einträge des Slots <code class="language-plaintext highlighter-rouge">zigbeeDevices</code> werden auf der Detailseite jedes Skills ausgegeben. Dies kann zu Verwirrung führen, da nicht jeder Skill auf diese reagiert.</p>
+
+</div>
+            <div style="clear:both;">
+              <p class="text-center">
+                <br />
+                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/method/evaluation/eval.md" class="btn btn-default" role="button">
+                  <i class="fa fa-pencil fa-lg"></i> Improve this page
+                </a>
+              </p>
+            </div>
+            <hr>
+            
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            Praxisprojekt Sprachassistent 2023 |
+            Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
+
+    <script>
+  var baseurl = '/pp-voiceassistant'
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/pp-voiceassistant/assets/js/bootstrap.min.js "></script>
+<script src="/pp-voiceassistant/assets/js/typeahead.bundle.min.js "></script>
+
+<script src="/pp-voiceassistant/assets/js/main.js "></script>
+
+</body>
+
+</html>

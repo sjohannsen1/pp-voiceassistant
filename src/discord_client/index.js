@@ -63,7 +63,7 @@ bot.on('messageCreate', message => {
 
         //unsubscribe
         if (message.content.toLowerCase().includes("deabonnieren" || "unsubscribe" || "benachrichtigungen aus")) {
-            message.author.send("Ok ich höre auf dich zu benachrichtigen")
+            message.author.send("Ok, ich höre auf dich zu benachrichtigen")
             unregisterUser(message.author)
         }
         //info to add new radiostation
@@ -116,22 +116,6 @@ bot.on('messageCreate', message => {
             })
 
         }
-
-        /*
-        //info to change city
-        if(message.content.includes("Wetterdienst Stadt ändern")){
-            message.author.send("sende die Daten der Stadt in folgendem Format:")
-            message.author.send("Postleitzahl: plz Lankreis: name")
-        }
-
-        //changes city
-        if(message.content.includes("Postleitzahl" && message.content.includes("Landkreis"))){
-            let substr = message.content.split("Postleitzahl: ")[1].split(" Lankreis: ")
-            let postcode = substr[0]
-            let region= substr[1]
-            customSdk.setVariable("stadt", postcode ) //TODO
-            customSdk.setVariable("region", region)
-        } */
 
         //if user is subscribed, they can access rhasspy via bot
         if (registerNewUser(message.author))
