@@ -1,6 +1,6 @@
 ---
 title: Zwischenfazit
-permalink: /docs/evaluation/conclusion/
+permalink: /docs/method/evaluation/conclusion/
 ---
 
 Mittels [Iteration](./iteration) sind fast alle [identifizierten Probleme](./index) des Skillverwaltungssystems gelöst wurden. <br>

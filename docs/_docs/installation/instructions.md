@@ -6,13 +6,14 @@ permalink: /docs/installation/instructions.md
 ## Einrichtung des Raspberry Pis
 
 Zunächst kann der Installationsanleitung von [Finn Wehn](https://fwehn.github.io/pp-voiceassistant/docs/installation/) gefolgt werden. Allerdings müssen dabei ein paar Dinge beachtet werden. 
-Es wird mit einer SD-Karte mit der 32 Bit version des Raspberry Pi OS gestartet. Falls bei der Installation des Betriebsystems der Standarduser "pi" geändert wurde, müssen bei der weitergehenden Installation ein paar Dinge angepasst werden. Diese sind markiert.
+Es wird mit einer SD-Karte mit der 32 Bit version des Raspberry Pi OS gestartet. Falls bei der Installation des Betriebsystems der Standardnutzer `pi` geändert wurde, müssen bei der weitergehenden Installation ein paar Dinge angepasst werden. Diese sind markiert.
 Diese wird in den Raspberry Pi gesteckt und dieser dann gestartet. Ist dieser mit einem Netzwerk verbunden, kann sich nun mit einem Computer per SSH verbunden werden. [SSH](https://www.ssh.com/academy/ssh#the-ssh-protocol), oder auch Secure Shell, ist ein Netzwerkprotokoll, mit welchem auf das Terminal des Pis zugegriffen werden kann. Alternativ kann auch ein Bildschirm, eine Maus und eine Tastatur angeschlossen werden und ein Terminal direkt auf dem Pi geöffnet werden. <br>
 Darüber müssen auf dem Pi ein MQTT-Broker, in diesem Fall [Mosquitto](https://mosquitto.org/), eine Rhasspy-Instanz, die Laufzeit-Umgebung [NodeJS](https://nodejs.org/de/) und [Git](https://git-scm.com/download/linux) installiert werden. 
 
 ## Rhasspy
 
-Bei der Installation der [Rhasspy-Instanz](https://rhasspy.readthedocs.io/en/latest/installation/) muss beachtet werden, dass diese in der richtigen Sprache, in diesem Fall deutsch, vorgenommen wird. Außerdem muss Zugriff auf den MQTT-Broker gewährleistet werden. [Von Rhasspy wird empfohlen](https://rhasspy.readthedocs.io/en/latest/tutorials/#simple-skill), dafür den Docker-Container im Host-Networking-Modus laufen zu lassen. Dadurch teilt sich der Docker-Container einen Namensraum mit dem restlichen System und kann so ohne weitere Konfiguration auf den MQTT-Broker via dessen Port zugreifen. Das Kommando zum Starten des Rhasspy Docker Images lautet somit:
+Falls der Standardnutzer des Raspberry Pi geändert wurde, muss der Nutzer zur "audio" Gruppe hinzugefügt werden. Dazu kann dieser Befehl in einem Terminal eingegeben werden: `sudo usermod -a -G audio NUTZERNAME` <br>
+Bei der Installation der [Rhasspy-Instanz](https://rhasspy.readthedocs.io/en/latest/installation/) muss beachtet werden, dass diese in der richtigen Sprache, in diesem Fall deutsch, vorgenommen wird. Außerdem muss Zugriff auf den MQTT-Broker gewährleistet werden. [Von Rhasspy wird empfohlen](https://rhasspy.readthedocs.io/en/latest/tutorials/#simple-skill), dafür den Docker-Container im Host-Networking-Modus laufen zu lassen. Dadurch teilt sich der Docker-Container einen Namensraum mit dem restlichen System und kann so ohne weitere Konfiguration auf den MQTT-Broker via dessen Port zugreifen. Der Befehl zum Starten des Rhasspy Docker Images lautet somit:
 
 ````
  $ docker run -d -p 12101:12101 \

@@ -3,6 +3,7 @@ title:
 permalink: /docs/method/bot/index/
 ---
 
+Wenn der Sprachassistent in einer Umgebung mit vielen Geräusch eingesetzt werden soll, leidet die Genauigkeit der Spracherkennung. Dies führt beispielsweise bei der Audiowiedergabe durch Playmusic zu Problemen. 
 Um eine alternative Kommunikationsmöglichkeit mit dem Assistenten zu schaffen, wurde ein Chatbot erstellt. Dieser läuft über die Anwendung Discord. Das Konzept dieses Chatbots kann durch kleine Änderungen auch auf andere Plattformen angewandt werden. Dafür müssen lediglich die plattformspezifischen Ereignisse und Eigenschaften angepasst werden. <br>
 
 ## Funktionen

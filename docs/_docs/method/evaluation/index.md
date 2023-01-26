@@ -14,7 +14,7 @@ Bei Sprachassistenten handelt es sich um natürlichsprachliche Dialogsysteme. Si
 7. `Audio Ausgabe:` Die zu Sprache umgewandelte Antwort wird abgespielt. 
 
 Das Skillverwaltungssystem von Finn Wehn übernimmt dabei den fünften Schritt. Dazu bekommt es von Rhasspy über das Protokoll MQTT den erkannten Sprachbefehl (Intent) und die zugehörigen Slots. Das System leitet dies an den zugehörigen Skill weiter. Dieser verarbeitet dies und sendet, falls es eine Antwort gibt, eine Nachricht per MQTT zurück an Rhasspy. Dort kann diese Nachricht dann in Schritt sechs weiterverarbeitet werden.
-
+<br>
 Des Weiteren bietet das System eine Weboberfläche und eine Befehlszeilenschnittstelle über welche neue Skills hochgeladen, gelöscht, aktiviert und deaktiviert werden können. Dort können auch Details über Skills eingesehen und Optionen festgelegt werden.
-
+<br>
 Die dort hochgeladen und aktiviert werden von System verarbeitet. Die Intents und Slots der neuen Skills werden dann an Rhasspy gesendet und dort registriert. Werden Skills im System deaktiviert und gelöscht, werden diese auch aus Rhasspy entfernt. 
