@@ -199,7 +199,7 @@ function getMinTemp(hours, limit) {
         let forecastTime = parseInt(it["dt_txt"].split(" ")[1].split(":")[0])
         if ((forecastTime <= (now + hours) % 24)) {
             if (it.main.temp_min < limit) {
-                answer = customSdk.generateAnswer([hours, limit.toString()], index = 0)
+                answer = customSdk.generateAnswer([hours, limit], index = 0)
                 return true
             }
             else return false
@@ -211,11 +211,11 @@ function getMinTemp(hours, limit) {
         if (now + hours > 24)
             getAllDataForOneDay(1).then(res => {
                 res.some(colder)
-                if (!answer) answer = customSdk.generateAnswer([hours, limit.toString()], index = 0)
+                if (!answer) answer = customSdk.generateAnswer([hours, limit], index = 0)
                 customSdk.say(answer)
             })
         else {
-            if (!answer) answer = customSdk.generateAnswer([hours, limit.toString()], index = 1)
+            if (!answer) answer = customSdk.generateAnswer([hours, limit], index = 1)
             customSdk.say(answer)
         }
     })

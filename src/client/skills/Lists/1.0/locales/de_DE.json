@@ -17,7 +17,7 @@
       "fail": ["Die Liste # existiert nicht"]
     },
     {
-      "sentences": ["[ Entferne | Streiche | Lösche } ($slots/list_items){list_items}  von [ Liste ]  ($slots/list_names){list_names} "],
+      "sentences": ["[ Entferne | Streiche | Lösche ] ($slots/list_items){list_items}  von [ Liste ]  ($slots/list_names){list_names} "],
       "function": "removeItem",
       "args": ["list_names", "list_items"],
       "answer": ["Ok # von # gelöscht"],

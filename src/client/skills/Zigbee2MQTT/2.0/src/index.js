@@ -79,7 +79,7 @@ function setColorTemperature(zigbeeName, temperature) {
 function changeLightColor(zigbeeName, colorhex) {
     getZigbeeTopic().then(zigbeeTopic => {
             customSdk.say(customSdk.generateAnswer([]));
-            customSdk.publishMQTT(`${zigbeeTopic}/${zigbeeName}/set`, { "color": { hex: colorhex } })
+            customSdk.publishMQTT(`${zigbeeTopic}/${zigbeeName}/set`, { "color": { "hex": colorhex } })
     }).catch(customSdk.fail);
 }
 

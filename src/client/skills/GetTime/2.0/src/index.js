@@ -207,7 +207,8 @@ function snooze(interval=5){
 
 function getAlarm(){
     fs.readFile(stateAlarm, (err, data)=>{
-        let alarms= JSON.parse(data).map(it => { if(it.repeat) return  it.repeat + it.hours.toString() + it.minutes.toString();  else return it.hours.toString() + it.minutes.toString() })
+        let parsedData= JSON.parse(data).alarms
+        let alarms=parsedData.map(it => { if(it.repeat) return  it.repeat + it.hour.toString() +":"+ it.minutes.toString();  else return it.hour.toString() +":"+ it.minutes.toString() })
         customSdk.say(customSdk.generateAnswer([customSdk.generateEnum(alarms)]))
     })
 }

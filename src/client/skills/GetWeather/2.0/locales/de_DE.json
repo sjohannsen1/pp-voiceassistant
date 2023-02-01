@@ -45,7 +45,7 @@
       "fail": ["Fehler bei Wetterdienstservice"]
     },
     {
-      "sentences": ["ob es in den nächsten (0..24){hours} stunden kälter als (0..25){temp_limit} Grad wird"],
+      "sentences": ["ob es in den nächsten (0..24){hours} stunden kälter als (0..25){temp_limit!int} Grad wird"],
       "function": "getMinTemp",
       "args": ["hours", "temp_limit"],
       "answer": ["Es wird in den nächsten # Stunden kälter als # Grad","Es wird in den nächsten # Stunden wärmer als # Grad"],

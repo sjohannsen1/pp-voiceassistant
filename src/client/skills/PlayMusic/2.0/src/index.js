@@ -58,7 +58,7 @@ function play(station) {
   decoder= new Lame.Decoder()
   if(!isPlayingBool()){
   if (station) {
-    customSdk.say(customSdk.generateAnswer([station.name]))
+    //customSdk.say(customSdk.generateAnswer([station.name]))
     currentStation = station
     controller = new AbortController()
     return Axios.get(station.url, {
@@ -286,6 +286,7 @@ function playSong(song){
 
 
 init()
+
 
 module.exports = {
   getNames,
