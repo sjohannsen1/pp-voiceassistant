@@ -11,7 +11,7 @@ E-1 | Wäsche wird in der Waschmaschine vergessen                  | Protokoll 1
 E-2 | Licht kann Nachts nicht angeschaltet werden, da zu hell     | Protokoll 1.1              |
 E-3 | Aufgaben werden Vergessen (Putzen)                          | Protokoll 1.2              |
 E-4 | Es wird vergessen in den Briefkasten zu schauen             | Protokoll 1.2              |
-E-5 | Es wird vergessen ob das Licht ausgeschalten wurde          | Protokoll 1.2              |
+E-5 | Es wird vergessen ob das Licht ausgeschaltet wurde          | Protokoll 1.2              |
 E-6 | Liste (Aufgaben/Einkaufen) wird vergessen oder verlegt      | Protokolle 2.1, 2.2 und 3.2 |
 E-7 | Klingel wird überhört                                       | Protokolle 3.1 und 4        |
 E-8 | Gefrierschrank wird offen gelassen                          | Protokoll 4                |
@@ -22,7 +22,7 @@ E-10 | Durch schlechte Sicht muss Lichtschalter gesucht werden     | Protokoll 4
 
 | Identifikator| Beschreibung                                 | Quelle               |
 --------|----------------------------------------------|----------------------|
-E-11 | Wecker (einfach und mit wiederholung)        | Protokolle 1 - 4     |
+E-11 | Wecker (einfach und mit Wiederholung)        | Protokolle 1 - 4     |
 E-12 | Timer                                        | Protokolle 1 - 3     |
 E-13 | Listen schreiben und verwalten               | Protokolle 1 - 4     |
 E-13-1 | Listen zur Mitnahme ausgeben                 | Protokolle 1 - 4     |

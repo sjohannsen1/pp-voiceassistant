@@ -3,7 +3,7 @@ title: GetTime - Anforderungen
 permalink: /docs/method/skills/GetTime/requirements/
 ---
 
-Der GetTime Skill muss den vorher festgelegten Anforderungen genügen. Hier sind diese sortiert ausgeführt. Falls diese nicht implementiert wurden, ist dies mit einem Kreuz markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden aber noch verbessert werden könnten. 
+Der GetTime Skill muss den vorher festgelegten Anforderungen genügen. Hier sind diese sortiert ausgeführt. Falls diese nicht implementiert wurden, ist dies mit einem Kreuz markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden, aber noch verbessert werden könnten. 
 
 ## Nichtfunktionale Anforderungen
 

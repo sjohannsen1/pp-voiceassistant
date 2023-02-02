@@ -3,7 +3,7 @@ title: PlayMusic - Anforderungen
 permalink: /docs/method/skills/PlayMusic/requirements/
 ---
 
-Der Skill PlayMusic muss den vorher festgelegten Anforderungen genügen. Aufgrund sowohl ihrer inhaltlichen als auch funktionalen Ähnlichkeit wurden F-04 und F-05 zu einem Skill zusammengefasst. Hier sind diese sortiert ausgeführt. Falls diese nicht implementiert wurden, ist dies mit einem Kreuz markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden aber noch verbessert werden könnten. 
+Der Skill PlayMusic muss den vorher festgelegten Anforderungen genügen. Aufgrund sowohl ihrer inhaltlichen als auch funktionalen Ähnlichkeit wurden F-04 und F-05 zu einem Skill zusammengefasst. Hier sind diese sortiert ausgeführt. Falls diese nicht implementiert wurden, ist dies mit einem Kreuz markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden, aber noch verbessert werden könnten. 
 
 ## Nichtfunktionale Anforderungen
 
@@ -13,7 +13,7 @@ Der Skill PlayMusic muss den vorher festgelegten Anforderungen genügen. Aufgrun
 | NF-004 | Die Skills müssen sprachunabhängig entwickelt werden                   | ➖ |
 | NF-005 | Die Skills müssen unabhängig von einander Funktionieren                | ✔ |
 
-Die Anforderung NF-004 ist bedingt durch die sprachabhängigkeit der Sender nur teilweise erfüllt. Diese publizieren Informationen zum aktuell gesendeten nur auf der Sprache des Programms. Das Parsen dieser Informationen lässt sich deshalb leider nicht sprachunabhängig umsetzen. Alle restlichen Sprachbefehle erfüllen NF-004.
+Die Anforderung NF-004 ist bedingt durch die Sprachabhängigkeit der Sender nur teilweise erfüllt. Diese publizieren Informationen zum aktuell gesendeten nur auf der Sprache des Programms. Das Parsen dieser Informationen lässt sich deshalb leider nicht sprachunabhängig umsetzen. Alle restlichen Sprachbefehle erfüllen NF-004.
 
 
 ## Funktionale Anforderungen für Musik

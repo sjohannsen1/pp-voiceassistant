@@ -3,7 +3,7 @@ title: Lists - Anforderungen
 permalink: /docs/method/skills/Lists/requirements/
 ---
 
-Der Listenskill muss den vorher festgelegten Anforderungen genügen. Hier sind diese sortiert ausgeführt. Falls diese nicht implementiert wurden, ist dies mit einem Kreuz markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden aber noch verbessert werden könnten. 
+Der Listenskill muss den vorher festgelegten Anforderungen genügen. Hier sind diese sortiert ausgeführt. Falls diese nicht implementiert wurden, ist dies mit einem Kreuz markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden, aber noch verbessert werden könnten. 
 
 ## Nichtfunktionale Anforderungen
 
@@ -29,6 +29,6 @@ Der Listenskill muss den vorher festgelegten Anforderungen genügen. Hier sind d
 | F-068-1 | Das System kann Nutzenden die Möglichkeit bieten für Produkte ein Nutzungsintervall einzustellen und sie so automatisch hinzufügen zu lassen | ❌ |
 | F-068-2 | Das System kann Nutzenden die Möglichkeit bieten Zutaten für ein ausgewähltes Rezept automatisch zu einer Liste hinzufügen zu lassen          | ❌ |
 
-Funktion F-062 und F-066 sind Verbesserungswürdig. Da Rhasspy nur bekannte Wörter und Phrasen verstehen kann, ist es in F-062 nicht möglich den Listen eigene Namen zu geben. Deshalb werden sie automatisch fortlaufend nummeriert benannt. Sie werden also als "Liste #" gespeichert. Ähnlich ist es bei F-066. Dort müssen vor Benutzung des Skills alle möglichen Einträge in einer Konfigurationsdatei aufgelistet werden. <br>
+Funktion F-062 und F-066 sind verbesserungswürdig. Da Rhasspy nur bekannte Wörter und Phrasen verstehen kann, ist es in F-062 nicht möglich den Listen eigene Namen zu geben. Deshalb werden sie automatisch fortlaufend nummeriert benannt. Sie werden also als "Liste #" gespeichert. Ähnlich ist es bei F-066. Dort müssen vor Benutzung des Skills alle möglichen Einträge in einer Konfigurationsdatei aufgelistet werden. <br>
 
-Funktion F-068 und beide Unterfunktionen wurden nicht implementiert, da sie niedrig priorisiert waren und der Entwicklungsaufwand so nicht gerechtfertigt war. Aufgrund mangelnder Existenz einer deutschsprachigen Rezept API hätten bei F-068-2 vor Inbetriebnahme alle Rezepte eingerichtet werden müssen. 
+Funktion F-068 und beide Unterfunktionen wurden nicht implementiert, da sie niedrig priorisiert waren und der Entwicklungsaufwand so nicht gerechtfertigt war. Aufgrund mangelnder Existenz einer deutschsprachigen Rezept-API hätten bei F-068-2 vor Inbetriebnahme alle Rezepte eingerichtet werden müssen. 

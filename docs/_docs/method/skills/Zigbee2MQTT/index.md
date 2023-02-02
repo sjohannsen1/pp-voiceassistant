@@ -54,16 +54,16 @@ Wenn das alles installiert und verbunden wurde, kann der Skill installiert und a
 ### Slots
 
 Dieser Skill verwendet neben mehreren statischen Slots auch drei dynamische. Diese sind `zigbee_devices`, `zigbee_groups` und `zigbee_scenes`. Die Zigbee Geräte und Gruppen werden von Zigbee2MQTT über MQTT mitgeteilt und dann an Rhasspy gesendet. Dazu abonniert das Skillsystem das Topic "Zigbee2MQTT/Bridge". Hier werden bei Änderungen oder Starten von Zigbee2MQTT alle verbundenen Geräte und alle bekannten Gruppen veröffentlicht. Wenn eine Nachricht ankommt, werden die Namen der Geräte und Gruppen extrahiert und als Slots an Rhasspy gesendet. Auch das "Config" Objekt erhält eine Liste mit Gruppen und eine mit Geräten. <br>
-Anders ist es bei `zigbee_scenes`. Szenen sind gespeicherte Konfigurationen von Geräten, welche mit einem Namen und einer Identifikationsnummer (ID) versehen werden und so wieder aufgerufen werden können. Zigbee2MQTT speichert dieses Szenen zwar, bietet aber keine Schnittstelle um die gespeicherten Szenen auszugeben. Deshalb muss der Skill gespeicherte Szenen eigens speichern und verwalten. Wird nun also eine Szene neu erstellt, werden Name und ID generiert und an Zigbee2MQTT gesendet. Der Skill speichert dieses Daten in einer Datei und sendet den Namen der Szene an Rhasspy, wo sie zu diesem Slot hinzugefügt wird. Wird eine Szene aufgerufen, erkennt Rhasspy den Namen und der Skill kann anhand der Datei die zugehörige ID ermitteln. Wenn diese nun an Zigbee2MQTT gesendet wird, kann die Szene aufgerufen werden. <br>
+Anders ist es bei `zigbee_scenes`. Szenen sind gespeicherte Konfigurationen von Geräten, welche mit einem Namen und einer Identifikationsnummer (ID) versehen werden und so wieder aufgerufen werden können. Zigbee2MQTT speichert diese Szenen zwar, bietet aber keine Schnittstelle um die gespeicherten Szenen auszugeben. Deshalb muss der Skill gespeicherte Szenen eigens speichern und verwalten. Wird nun also eine Szene neu erstellt, werden Name und ID generiert und an Zigbee2MQTT gesendet. Der Skill speichert diese Daten in einer Datei und sendet den Namen der Szene an Rhasspy, wo sie zu diesem Slot hinzugefügt wird. Wird eine Szene aufgerufen, erkennt Rhasspy den Namen und der Skill kann anhand der Datei die zugehörige ID ermitteln. Wenn diese dann an Zigbee2MQTT gesendet wird, kann die Szene aufgerufen werden. <br>
 
-Die restlichen Slots nutzen Substitutionen um sprachabhängige Eingaben als sprachunabhängigen Parameter an den Skill weiter zu geben. Beispielsweise werden die Farbnamen in `light_color` mit der zugehörigen Hexadezimal Representation im RGB-Farbraum ersetzt. <br>
+Die restlichen Slots nutzen Substitutionen, um sprachabhängige Eingaben als sprachunabhängigen Parameter an den Skill weiter zu geben. Beispielsweise werden die Farbnamen in `light_color` mit der zugehörigen Hexadezimal Representation im RGB-Farbraum ersetzt. <br>
 
 `zigbee_devices` kann die Namen aller Zigbee2MQTT bekannten Geräte annehmen. <br>
 `zigbee_groups`  kann die Namen aller Zigbee2MQTT bekannten Gruppen annehmen. <br>
 `zigbee_scenes`  kann die Namen aller Zigbee2MQTT bekannten Szenen annehmen. <br>
 `state` kann "ein", "an", "aus" sein und beschreibt den Zustand des Geräts. <br>
 
-`brightness` kann Werte von 0 nis 100 annehmen und beschreibt die Helligkeit einer Lampe in Prozent. <br>
+`brightness` kann Werte von 0 bis 100 annehmen und beschreibt die Helligkeit einer Lampe in Prozent. <br>
 `brightness_change` kann entweder "heller" oder "dunkler" sein und beschreibt die Änderung der Helligkeit einer Lampe. <br> 
 `light_temp` kann entweder "kalt", "warm" oder "neutral" sein und beschreibt die Lichttemperatur einer Lampe. <br>
 `temp_change` kann entweder "kälter", "wärmer", "röter" oder "blauer" sein und beschreibt die Änderung der Lichttemperatur einer Lampe. <br>

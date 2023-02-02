@@ -15,15 +15,15 @@
 <meta name="generator" content="Jekyll v3.8.5" />
 <meta property="og:title" content="Anleitung" />
 <meta property="og:locale" content="de_DE" />
-<meta name="description" content="Zunächst kann der Installationsanleitung von Finn Wehn gefolgt werden. Allerdings müssen dabei ein paar Dinge beachtet werden. Es wird mit einer SD-Karte mit der 32 Bit version des Raspberry Pi OS gestartet. Falls bei der Installation des Betriebsystems der Standarduser “pi” geändert wurde, müssen bei der weitergehenden Installation ein paar Dinge angepasst werden. Diese sind markiert. Diese wird in den Raspberry Pi gesteckt und dieser dann gestartet. Ist dieser mit einem Netzwerk verbunden, kann man sich nun mit einem Computer per SSH verbinden. SSH, oder auch Secure Shell, ist ein Netzwerkprotokoll, mit welchem auf das Terminal des Pis zugegriffen werden kann. Alternativ kann auch ein Bildschirm, eine Maus und eine Tastatur angeschlossen werden und ein Terminal direkt auf dem Pi geöffnet werden. Darüber müssen auf dem Pi ein MQTT-Broker, in diesem Fall Mosquitto, eine Rhasspy-Instanz, die Laufzeit-Umgebung NodeJS und Git installiert werden. Bei der Installation der Rhasspy-Instanz muss beachtet werden, dass diese in der richtigen Sprache, in diesem Fall deutsch, vorgenommen wird. Außerdem muss Zugriff auf den MQTT-Broker gewährleistet werden. Von Rhasspy wird empfohlen, dafür den Docker-Container im Host-Networking-Modus laufen zu lassen. Dadurch teilt sich der Docker-Container einen Namensraum mit dem restlichen System und kann so ohne weitere Konfiguration auf den MQTT-Broker via dessen Port zugreifen. Das Kommando zum Starten des Rhasspy Docker Images lautet somit:" />
-<meta property="og:description" content="Zunächst kann der Installationsanleitung von Finn Wehn gefolgt werden. Allerdings müssen dabei ein paar Dinge beachtet werden. Es wird mit einer SD-Karte mit der 32 Bit version des Raspberry Pi OS gestartet. Falls bei der Installation des Betriebsystems der Standarduser “pi” geändert wurde, müssen bei der weitergehenden Installation ein paar Dinge angepasst werden. Diese sind markiert. Diese wird in den Raspberry Pi gesteckt und dieser dann gestartet. Ist dieser mit einem Netzwerk verbunden, kann man sich nun mit einem Computer per SSH verbinden. SSH, oder auch Secure Shell, ist ein Netzwerkprotokoll, mit welchem auf das Terminal des Pis zugegriffen werden kann. Alternativ kann auch ein Bildschirm, eine Maus und eine Tastatur angeschlossen werden und ein Terminal direkt auf dem Pi geöffnet werden. Darüber müssen auf dem Pi ein MQTT-Broker, in diesem Fall Mosquitto, eine Rhasspy-Instanz, die Laufzeit-Umgebung NodeJS und Git installiert werden. Bei der Installation der Rhasspy-Instanz muss beachtet werden, dass diese in der richtigen Sprache, in diesem Fall deutsch, vorgenommen wird. Außerdem muss Zugriff auf den MQTT-Broker gewährleistet werden. Von Rhasspy wird empfohlen, dafür den Docker-Container im Host-Networking-Modus laufen zu lassen. Dadurch teilt sich der Docker-Container einen Namensraum mit dem restlichen System und kann so ohne weitere Konfiguration auf den MQTT-Broker via dessen Port zugreifen. Das Kommando zum Starten des Rhasspy Docker Images lautet somit:" />
+<meta name="description" content="Einrichtung des Raspberry Pis" />
+<meta property="og:description" content="Einrichtung des Raspberry Pis" />
 <link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/installation/instructions.md" />
 <meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/installation/instructions.md" />
 <meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-01-25T18:08:32+01:00" />
+<meta property="article:published_time" content="2023-02-02T18:00:49+01:00" />
 <script type="application/ld+json">
-{"description":"Zunächst kann der Installationsanleitung von Finn Wehn gefolgt werden. Allerdings müssen dabei ein paar Dinge beachtet werden. Es wird mit einer SD-Karte mit der 32 Bit version des Raspberry Pi OS gestartet. Falls bei der Installation des Betriebsystems der Standarduser “pi” geändert wurde, müssen bei der weitergehenden Installation ein paar Dinge angepasst werden. Diese sind markiert. Diese wird in den Raspberry Pi gesteckt und dieser dann gestartet. Ist dieser mit einem Netzwerk verbunden, kann man sich nun mit einem Computer per SSH verbinden. SSH, oder auch Secure Shell, ist ein Netzwerkprotokoll, mit welchem auf das Terminal des Pis zugegriffen werden kann. Alternativ kann auch ein Bildschirm, eine Maus und eine Tastatur angeschlossen werden und ein Terminal direkt auf dem Pi geöffnet werden. Darüber müssen auf dem Pi ein MQTT-Broker, in diesem Fall Mosquitto, eine Rhasspy-Instanz, die Laufzeit-Umgebung NodeJS und Git installiert werden. Bei der Installation der Rhasspy-Instanz muss beachtet werden, dass diese in der richtigen Sprache, in diesem Fall deutsch, vorgenommen wird. Außerdem muss Zugriff auf den MQTT-Broker gewährleistet werden. Von Rhasspy wird empfohlen, dafür den Docker-Container im Host-Networking-Modus laufen zu lassen. Dadurch teilt sich der Docker-Container einen Namensraum mit dem restlichen System und kann so ohne weitere Konfiguration auf den MQTT-Broker via dessen Port zugreifen. Das Kommando zum Starten des Rhasspy Docker Images lautet somit:","url":"http://localhost:4000/pp-voiceassistant/docs/installation/instructions.md","@type":"WebPage","headline":"Anleitung","dateModified":"2023-01-25T18:08:32+01:00","datePublished":"2023-01-25T18:08:32+01:00","@context":"http://schema.org"}</script>
+{"description":"Einrichtung des Raspberry Pis","url":"http://localhost:4000/pp-voiceassistant/docs/installation/instructions.md","@type":"WebPage","headline":"Anleitung","dateModified":"2023-02-02T18:00:49+01:00","datePublished":"2023-02-02T18:00:49+01:00","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -118,7 +118,7 @@
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/hardware/">Hardware Liste</a>
+            <a class="list-group-item " href=""></a>
           
             
             
@@ -200,11 +200,18 @@
 
         <div class="col-md-8">
             <h1>Anleitung</h1>
-            <div id="markdown-content-container"><p>Zunächst kann der Installationsanleitung von <a href="https://fwehn.github.io/pp-voiceassistant/docs/installation/">Finn Wehn</a> gefolgt werden. Allerdings müssen dabei ein paar Dinge beachtet werden. 
-Es wird mit einer SD-Karte mit der 32 Bit version des Raspberry Pi OS gestartet. Falls bei der Installation des Betriebsystems der Standarduser “pi” geändert wurde, müssen bei der weitergehenden Installation ein paar Dinge angepasst werden. Diese sind markiert.
-Diese wird in den Raspberry Pi gesteckt und dieser dann gestartet. Ist dieser mit einem Netzwerk verbunden, kann man sich nun mit einem Computer per SSH verbinden. <a href="https://www.ssh.com/academy/ssh#the-ssh-protocol">SSH</a>, oder auch Secure Shell, ist ein Netzwerkprotokoll, mit welchem auf das Terminal des Pis zugegriffen werden kann. Alternativ kann auch ein Bildschirm, eine Maus und eine Tastatur angeschlossen werden und ein Terminal direkt auf dem Pi geöffnet werden. 
-Darüber müssen auf dem Pi ein MQTT-Broker, in diesem Fall <a href="https://mosquitto.org/">Mosquitto</a>, eine <a href="https://rhasspy.readthedocs.io/en/latest/installation/">Rhasspy-Instanz</a>, die Laufzeit-Umgebung <a href="https://nodejs.org/de/">NodeJS</a> und <a href="https://git-scm.com/download/linux">Git</a> installiert werden. 
-Bei der Installation der Rhasspy-Instanz muss beachtet werden, dass diese in der richtigen Sprache, in diesem Fall deutsch, vorgenommen wird. Außerdem muss Zugriff auf den MQTT-Broker gewährleistet werden. <a href="https://rhasspy.readthedocs.io/en/latest/tutorials/#simple-skill">Von Rhasspy wird empfohlen</a>, dafür den Docker-Container im Host-Networking-Modus laufen zu lassen. Dadurch teilt sich der Docker-Container einen Namensraum mit dem restlichen System und kann so ohne weitere Konfiguration auf den MQTT-Broker via dessen Port zugreifen. Das Kommando zum Starten des Rhasspy Docker Images lautet somit:</p>
+            <div id="markdown-content-container"><h2 id="einrichtung-des-raspberry-pis">Einrichtung des Raspberry Pis</h2>
+
+<p>Zunächst kann der Installationsanleitung von <a href="https://fwehn.github.io/pp-voiceassistant/docs/installation/">Finn Wehn</a> gefolgt werden. Allerdings müssen dabei ein paar Dinge beachtet werden. 
+Es wird mit einer SD-Karte mit der 32 Bit Version des Raspberry Pi OS gestartet. Falls bei der Installation des Betriebsystems der Standardnutzer <code class="language-plaintext highlighter-rouge">pi</code> geändert wurde, müssen bei der weitergehenden Installation ein paar Dinge angepasst werden. Diese sind markiert.
+Die SD-Karte wird in den Raspberry Pi gesteckt und dieser dann gestartet. Ist dieser mit einem Netzwerk verbunden, kann sich nun mit einem Computer per SSH verbunden werden. <a href="https://www.ssh.com/academy/ssh#the-ssh-protocol">SSH</a>, oder auch Secure Shell, ist ein Netzwerkprotokoll, mit welchem auf das Terminal des Pis zugegriffen werden kann. Alternativ kann auch ein Bildschirm, eine Maus und eine Tastatur angeschlossen und ein Terminal direkt auf dem Pi geöffnet werden. <br />
+Darüber müssen auf dem Pi ein MQTT-Broker, in diesem Fall <a href="https://mosquitto.org/">Mosquitto</a>, eine Rhasspy-Instanz, die Laufzeit-Umgebung <a href="https://nodejs.org/de/">NodeJS</a> und <a href="https://git-scm.com/download/linux">Git</a> installiert werden.</p>
+
+<h2 id="rhasspy">Rhasspy</h2>
+
+<p>Falls der Standardnutzer des Raspberry Pi geändert wurde, muss der Nutzer zur “audio” Gruppe hinzugefügt werden. Dazu kann dieser Befehl in einem Terminal eingegeben werden: <code class="language-plaintext highlighter-rouge">sudo usermod -a -G audio NUTZERNAME</code><br />
+Bei der Installation der <a href="https://rhasspy.readthedocs.io/en/latest/installation/">Rhasspy-Instanz</a> muss beachtet werden, dass diese in der richtigen Sprache vorgenommen wird. In diesem Fall ist das Deutsch. Außerdem muss Zugriff auf den MQTT-Broker gewährleistet werden. <a href="https://rhasspy.readthedocs.io/en/latest/tutorials/#simple-skill">Von Rhasspy wird empfohlen</a>, dafür den Docker-Container im Host-Networking-Modus laufen zu lassen. Dadurch teilt sich der Docker-Container einen Namensraum mit dem restlichen System und kann so ohne weitere Konfiguration auf den MQTT-Broker via dessen Port zugreifen.<br />
+Der Befehl zum Starten des Rhasspy Docker Images lautet somit:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ docker run -d -p 12101:12101 \
       --network host \
@@ -217,21 +224,56 @@ Bei der Installation der Rhasspy-Instanz muss beachtet werden, dass diese in der
       --user-profiles /profiles \
       --profile de 
 </code></pre></div></div>
-<p>Dann muss //Installation des Projektes Die einfachste Methode dafür ist, das Repository zu klonen. Wenn dies geklont ist, muss nur noch in den einzelnen Ordnern, also dem Discord Client, der Custom SDK, dem Client und, falls gewollt, dem Server.   jeweils der Befehlt ‘npm install’ durchgeführt werden.</p>
+<h3 id="einstellungen-von-rhasspy">Einstellungen von Rhasspy</h3>
 
-<p>Um die Skills zu installieren, müssen diese auf dem Pi hochgeladen und aktiviert werden. Dazu kann der Skillmanager entweder über die Webinterface [Link] oder über die Befehlszeilenschnittstelle [Link] verwendet werden. Alternativ kann dies auch manuell direkt auf dem Pi vorgenommen werden. [Link]</p>
+<p>Bei Rhasspy müssen einige Dinge eingestellt werden. Dazu wird die Weboberfläche auf Port 12101 aufgerufen.</p>
 
-<h3 id="installation-des-discord-clients">Installation des Discord Clients</h3>
+<ol>
+  <li>MQTT: External <br /> 
+In den Einstellungen muss dann der Host und der Port des MQTT-Brokers angeben werden. Wenn nichts an dieser Anleitung geändert wurde sind das <code class="language-plaintext highlighter-rouge">localhost</code> und <code class="language-plaintext highlighter-rouge">1883</code>.</li>
+  <li>Audio Recording: PyAudio</li>
+  <li>Wake Word: Porcupine <br />
+Das genaue Wake Word kann frei aus einer Liste gewählt werden</li>
+  <li>Speech to Text: Kaldi</li>
+  <li>Intent Recognition: Fsticuffs <br />
+Die Einstellung “fuzzy” muss hier aktiviert werden.</li>
+  <li>Text to Speech: NanoTTS</li>
+  <li>Audio Playing: aplay</li>
+  <li>Dialogue Management: Rhasspy</li>
+  <li>Intent Handling: Local Command</li>
+</ol>
 
-<p>Zunächst muss eine neue <a href="https://discord.com/developers">Anwendung erstellt</a> werden. Dazu wird ein Discord-Account benötigt. Durch einen Klick auf „New  Application“ öffnet sich ein Menü, in welchem die Applikation benannt wird. Wenn dort alles ausgefüllt ist, kann mit „Create“ bestätigt werden. Daraufhin öffnet sich eine neue Seite, auf der nichts eingegeben werden muss. Nun wird der Bot erstellt. Dafür wird im Menü links die Schaltfläche „Bot“ angeklickt.  Durch Auswahl von „Add Bot“ und anschließendem Bestätigen wird ein neuer Bot erstellt. Diese benötigt nun ein paar Berechtigungen. Diese befinden sich unten auf der Seite unter „Privileged Gateway Intents“. Nötig ist hier „Message Content Intent“. Ohne diese kann der Bot keine Nachrichten lesen. Um mit dem Bot nun interagieren zu können, muss dieser zu einem Server hinzugefügt werden. Zuerst wird der OAuth2 URL Generator genutzt um eine URL (Uniform Resource Locator) zu erzeugen. Hier müssen nun genauere Berechtigungen vergeben werden. Dazu zunächst unter „Scopes“ Bot auswählen. Dann die Berechtigungen „Send Messages“, „Create Private Threads“ und „Send Messages in Threads“  auswählen und die generierte URL kopieren.
-Server erstellen
-Ein Server kann in der <a href="https://discord.com/channels/@me">Browserapplikation</a> von Discord erzeugt werden. Dafür links auf den Kreis mit dem Plus klicken, dem Server einen Namen geben und schon existiert dieser Server. Um den Bot nun dort einzuladen, muss nur die URL aufgerufen werden und der Server ausgewählt und bestätigt werden.</p>
+<h2 id="installation-des-systems">Installation des Systems</h2>
+
+<p>Dann muss dieses Projekt installiert werden. Die einfachste Methode dafür ist, das Repository zu klonen. Wenn dies geklont ist, muss nur noch in den einzelnen Ordnern, also dem Discord Client, der Custom SDK, dem Client und, falls gewollt, dem Server, jeweils der Befehlt ‘npm install’ durchgeführt werden.</p>
+
+<h3 id="einrichtung-des-skillverwaltungssystems">Einrichtung des Skillverwaltungssystems</h3>
+
+<p>Das Skillverwaltungssystem muss vor Inbetriebnahme noch eingerichtet werden. Dazu müssen Umgebungsvariablen festgelegt werden. Für den Client sind es <a href="https://fwehn.github.io/pp-voiceassistant/docs/installation/#Env-Variablen">diese</a> und für den Server <a href="https://fwehn.github.io/pp-voiceassistant/docs/installation/#Env-Variablen">diese</a>.</p>
+
+<p>Um die Skills zu installieren, müssen diese auf dem Pi hochgeladen und aktiviert werden. Dazu kann der Skillmanager entweder über die <a href="https://fwehn.github.io/pp-voiceassistant/docs/client/webinterface/">Weboberfläche</a> oder über die <a href="https://fwehn.github.io/pp-voiceassistant/docs/client/cli/">Befehlszeilenschnittstelle</a> verwendet werden. Alternativ kann dies auch <a href="https://fwehn.github.io/pp-voiceassistant/docs/client/skillmanager/">manuell</a> direkt auf dem Pi vorgenommen werden.</p>
+
+<h3 id="einrichtung-des-discord-clients">Einrichtung des Discord Clients</h3>
+
+<p>Zunächst muss eine neue <a href="https://discord.com/developers">Anwendung erstellt</a> werden. Dazu wird ein Discord-Account benötigt. Durch einen Klick auf „New  Application“ öffnet sich ein Menü, in welchem die Applikation benannt wird. Wenn dort alles ausgefüllt ist, kann mit „Create“ bestätigt werden. Daraufhin öffnet sich eine neue Seite, auf der nichts eingegeben werden muss. Nun wird der Bot erstellt. Dafür wird im Menü links die Schaltfläche „Bot“ angeklickt.  Durch Auswahl von „Add Bot“ und anschließendem Bestätigen wird ein neuer Bot erstellt. Diese benötigt nun ein paar Berechtigungen. Diese befinden sich unten auf der Seite unter „Privileged Gateway Intents“. Nötig ist hier „Message Content Intent“. Ohne diese kann der Bot keine Nachrichten lesen. Um mit dem Bot nun interagieren zu können, muss dieser zu einem Server hinzugefügt werden. Zuerst wird der OAuth2 URL Generator genutzt um eine URL (Uniform Resource Locator) zu erzeugen. Hier müssen nun genauere Berechtigungen vergeben werden. Dazu zunächst unter „Scopes“ Bot auswählen. Dann die Berechtigungen „Send Messages“, „Create Private Threads“ und „Send Messages in Threads“  auswählen und die generierte URL kopieren.</p>
+
+<h4 id="server-erstellen">Server erstellen</h4>
+
+<p>Ein Server kann in der <a href="https://discord.com/channels/@me">Browserapplikation</a> von Discord erzeugt werden. Dafür links auf den Kreis mit dem Plus klicken, dem Server einen Namen geben und schon existiert dieser Server. Um den Bot nun dort einzuladen, muss nur die URL aufgerufen werden und der Server ausgewählt und bestätigt werden.</p>
 
 <h4 id="bot-mit-code-versehen">Bot mit Code versehen</h4>
 
 <p>Auf der Seite des Bots [https://discord.com/developers/applications -&gt; Applikation -&gt; Bot] befindet sich die Schaltfläche „Reset Token“. Wenn auf diese geklickt und bestätigt wird erscheint das Token. Das ist das Passwort des Bots. Dieses nun kopieren und dann als Umgebungsvariable im Ordner des Bots in einer „.env“ Datei speichern.
-Wenn nun mit ‘npm start’ der Bot Client gestartet wird, loggt sich der Bot ein und wartet auf Nachrichten. 
-	Bot in den Autostart</p>
+Wenn nun mit ‘npm start’ der Bot Client gestartet wird, loggt sich der Bot ein und wartet auf Nachrichten.</p>
+
+<h2 id="inbetriebnahme-des-systems">Inbetriebnahme des Systems</h2>
+
+<p>Um das System zu starten, muss nun im Ordner des Clients der Befehl <code class="language-plaintext highlighter-rouge">npm start</code> ausgeführt werden. Bei Verwendung des Servers in dessen Ordner auch. 
+Wird der Discord Bot verwendet muss dort das Gleiche geschehen.</p>
+
+<h3 id="autostart-der-systemteile">Autostart der Systemteile</h3>
+
+<p>Soll das System direkt mit dem Starten des Raspberry Pis starten, //TODO</p>
 </div>
             <div style="clear:both;">
               <p class="text-center">

@@ -3,7 +3,7 @@ title: Anleitung
 permalink: /docs/method/develop-skill/instruction/
 ---
 
-Wie Skills für dieses System erstellt werden hat [Finn Wehn erklärt](https://fwehn.github.io/pp-voiceassistant/docs/create-skills/instruction/). 
+Wie Skills für dieses System erstellt werden, hat [Finn Wehn erklärt](https://fwehn.github.io/pp-voiceassistant/docs/create-skills/instruction/). 
 Da das [System iteriert wurde](../evaluation/iteration) werden die Änderungen erklärt.
 
 ## Konfigurations- oder Speicherdateien

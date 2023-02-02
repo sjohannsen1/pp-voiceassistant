@@ -7,11 +7,11 @@ Bei GetTime handelt es sich um einen Uhr Skill. Dabei wurde der von [Finn Wehn e
 
 ### Installation
 
-Dieser Skill benötigt keine weitere Hardware oder Services. Es kann lediglich die Benachrichtigung festgelegt werden. Falls diese nicht verändert wird ist diese mit "Zeit ist abgelaufen" voreingestellt.
+Dieser Skill benötigt keine weitere Hardware oder Services. Es kann lediglich die Benachrichtigung festgelegt werden. Falls diese nicht verändert wird, ist diese mit "Zeit ist abgelaufen" voreingestellt.
 
 ### Wecker
 
-Mit dem Wecker können Erinnerungen für ausgewählte Uhrzeiten gestellt werden. Wenn ein Wochentag angegeben wird, wird dieser Wecker an diesem jede Woche wiederholt. Es gibt auch die Möglichkeit einen Wecker für jeden Werktag zu stellen. Wenn ein Wecker klingelt, also die Uhrzeit erreicht ist, wird eine Benachrichtigung ausgelöst. Was diese Benachrichtigung ist, kann in den Optionen dieses Skills festgelegt werden. Ist ein Wecker abgelaufen, kann dieser mit Snooze verlängert werden. Dabei kann entweder die Dauer um die verlängert werden soll angegeben werden oder standardmäßig um fünf Minuten verlängert werden. Wenn diese Zeit verstrichen ist, wird erneut eine Benachrichtigung ausgelöst. Es können auch alle Wecker ausgegeben werden und Wecker für eine bestimmte Uhrzeit oder einen bestimmten Tag gelöscht werden. Die Wecker werden in einer Datei gespeichert und automatisch ausgelesen und gestellt. So wird gewährleistet, das auch bei Unterbrechungen im Programm die wiederholenden Wecker gestellt werden. <br>
+Mit dem Wecker können Erinnerungen für ausgewählte Uhrzeiten gestellt werden. Wenn ein Wochentag angegeben wird, wird dieser Wecker an diesem jede Woche wiederholt. Es gibt auch die Möglichkeit, einen Wecker für jeden Werktag zu stellen. Wenn ein Wecker klingelt, also die Uhrzeit erreicht ist, wird eine Benachrichtigung ausgelöst. Was diese Benachrichtigung ist, kann in den Optionen dieses Skills festgelegt werden. Ist ein Wecker abgelaufen, kann dieser mit Snooze verlängert werden. Dabei kann entweder die Dauer um die verlängert werden soll angegeben werden oder standardmäßig um fünf Minuten verlängert werden. Wenn diese Zeit verstrichen ist, wird erneut eine Benachrichtigung ausgelöst. Es können auch alle Wecker ausgegeben werden und Wecker für eine bestimmte Uhrzeit oder einen bestimmten Tag gelöscht werden. Die Wecker werden in einer Datei gespeichert und automatisch ausgelesen und gestellt. So wird gewährleistet, dass auch bei Unterbrechungen im Programm die wiederholenden Wecker gestellt werden. <br>
 
 ### Sprachbefehle
 
@@ -30,12 +30,12 @@ Mit dem Wecker können Erinnerungen für ausgewählte Uhrzeiten gestellt werden.
 Bei dem Wecker werden vier verschiedene Slots genutzt. <br>
 `alarm_hours` kann Werte von 0 bis 23 annehmen und beschreibt die Stundenzahl der Weckuhrzeit.<br>
 `alarm_minutes` kann Werte von 0 bis 59 annehmen und beschreibt die Minutenzahl der Weckuhrzeit.<br>
-`snooze` kann Werte von 1 bis 15 annehmen und beschreibt die Anzahl der Minuten die gesnoozed werden soll.<br>
+`snooze` kann Werte von 1 bis 15 annehmen und beschreibt die Anzahl der Minuten, die gesnoozed werden soll.<br>
 `alarm_repeat` kann entweder den Namen eines Wochentags annehmen oder "Werktags". Dies beschreibt die Tage an denen Wecker wiederholt werden sollen.<br>
 
 ### Timer
 
-Der Timer kann genutzt werden um Zeitschaltuhren zu stellen. Die Dauer dieser wird beim Stellen festgelegt. Wenn die Uhr abläuft, wird eine Benachrichtigung ausgelöst. Auch hier kann Snooze genutzt werden um den Timer zu verlängern. Außerdem kann jederzeit abgefragt werden, wie viel Zeit noch verbleibt. Der Timer kann auch vor Ablauf gestoppt und gelöscht werden.
+Der Timer kann genutzt werden, um Zeitschaltuhren zu stellen. Die Dauer dieser wird beim Stellen festgelegt. Wenn die Uhr abläuft, wird eine Benachrichtigung ausgelöst. Auch hier kann durch Snooze der Timer verlängert werden. Außerdem kann jederzeit abgefragt werden, wie viel Zeit noch verbleibt. Der Timer kann auch vor Ablauf gestoppt und gelöscht werden.
 
 ### Sprachbefehle
 

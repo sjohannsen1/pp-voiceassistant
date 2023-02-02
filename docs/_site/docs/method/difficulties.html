@@ -11,19 +11,19 @@
 
     <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Quellen | Praxisprojekt Sprachassistent</title>
+<title>Herausforderungen bei der Entwicklung | Praxisprojekt Sprachassistent</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Quellen" />
+<meta property="og:title" content="Herausforderungen bei der Entwicklung" />
 <meta property="og:locale" content="de_DE" />
-<meta name="description" content="Dokumentation meines Praxisprojekts." />
-<meta property="og:description" content="Dokumentation meines Praxisprojekts." />
+<meta name="description" content="Im Entwicklungsprozess dieses Projektes gab es einige Schwierigkeiten. Hier werden deren Problematik und wie diese Überwunden wurden erklärt. Es wird auch auf Schlüsse welche für weitere Projekte gezogen wurden eingegangen." />
+<meta property="og:description" content="Im Entwicklungsprozess dieses Projektes gab es einige Schwierigkeiten. Hier werden deren Problematik und wie diese Überwunden wurden erklärt. Es wird auch auf Schlüsse welche für weitere Projekte gezogen wurden eingegangen." />
 <link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/method/difficulties" />
 <meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/method/difficulties" />
 <meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-01-25T18:08:32+01:00" />
+<meta property="article:published_time" content="2023-02-02T18:00:49+01:00" />
 <script type="application/ld+json">
-{"description":"Dokumentation meines Praxisprojekts.","url":"http://localhost:4000/pp-voiceassistant/docs/method/difficulties","@type":"WebPage","headline":"Quellen","dateModified":"2023-01-25T18:08:32+01:00","datePublished":"2023-01-25T18:08:32+01:00","@context":"http://schema.org"}</script>
+{"description":"Im Entwicklungsprozess dieses Projektes gab es einige Schwierigkeiten. Hier werden deren Problematik und wie diese Überwunden wurden erklärt. Es wird auch auf Schlüsse welche für weitere Projekte gezogen wurden eingegangen.","url":"http://localhost:4000/pp-voiceassistant/docs/method/difficulties","@type":"WebPage","headline":"Herausforderungen bei der Entwicklung","dateModified":"2023-02-02T18:00:49+01:00","datePublished":"2023-02-02T18:00:49+01:00","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -118,7 +118,7 @@
           
             
             
-            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/hardware/">Hardware Liste</a>
+            <a class="list-group-item " href=""></a>
           
             
             
@@ -199,13 +199,39 @@
         </div>
 
         <div class="col-md-8">
-            <h1>Quellen</h1>
-            <div id="markdown-content-container">
+            <h1>Herausforderungen bei der Entwicklung</h1>
+            <div id="markdown-content-container"><p>Im Entwicklungsprozess dieses Projektes gab es einige Schwierigkeiten. Hier werden deren Problematik und wie diese Überwunden wurden erklärt. Es wird auch auf Schlüsse welche für weitere Projekte gezogen wurden eingegangen.</p>
+
+<h2 id="ändern-des-standardnutzers-des-raspberry-pis">Ändern des Standardnutzers des Raspberry Pis</h2>
+
+<p>Ganz zu Beginn des Projektes wurde bei der Ersteinrichtung des Pis der Standardnutzer <code class="language-plaintext highlighter-rouge">pi</code> geändert. Dies führte zu eine Reihe an Problemen, welche schwierig zu identifizieren waren. <br />
+Eins der Probleme war, das Zigbee2MQTT bei der Installation Berechtigungen an den Nutzer <code class="language-plaintext highlighter-rouge">pi</code> vergibt. Wird der Nutzer jedoch geändert, muss dies auch angepasst werden. Außerdem startet die dort zur Verfügung gestellte Konfigurationsdatei, welche es ermöglicht Zigbee2MQTT als Hintergrundprogramm auszuführen, das Programm mit dem Nutzer <code class="language-plaintext highlighter-rouge">pi</code>. Wenn dies nicht angepasst wird, kann Zigbee2MQTT nicht starten. Da Hintergrundprogramme jedoch nur nach expliziter Aufforderung Protokolle anzeigen, war dieser Fehler schwierig zu finden. <br />
+Ein weiteres Problem stellte die Audiowiedergabe dar. Selbst wenn der Nutzer <code class="language-plaintext highlighter-rouge">pi</code> auf dem System nicht existiert, erhält dieser die alleinigen Rechte mit <code class="language-plaintext highlighter-rouge">aplay</code> Audio abzuspielen. <code class="language-plaintext highlighter-rouge">aplay</code> ist das vorinstallierte Terminal-Audioausgabeprogramm. Das wird sowohl von Rhasspy als auch von dem PlayMusic-Skill verwendet. Dieses Problem kann zwar mit der Ausführung des Systems als Administrator gelöst werden, das erzeugt allerdings ein Sicherheitsproblem da immer nur so viele Rechte erhalten sollten, wie zwingend notwendig ist. <br />
+Gelöst wurde dieses Problem indem der geänderte Nutzer zur <code class="language-plaintext highlighter-rouge">audio</code> Gruppe hinzugefügt wurde. In der <a href="/pp-voiceassistant/docs/installation/instructions.md#rhasspy">Installationsanleitung</a> ist dies vermerkt. <br />
+Für zukünftige Projekte sollte der Standardnutzer nur geändert werden, wenn es aus Sicherheitsgründen zwingend nötig ist.</p>
+
+<h2 id="probleme-bei-der-entwicklung-und-der-umgang-mit-diesen">Probleme bei der Entwicklung und der Umgang mit diesen</h2>
+
+<p>Bei der Entwicklung sind immer wieder Probleme im Programmcode aufgetaucht. Teilweise waren diese schwer recherchierbar und haben den Entwicklungsprozess sehr ins Stocken geraten lassen. Statt diese Probleme in die Dokumentation mit aufzunehmen und eine Anforderung nicht (vollständig) zu erfüllen, wurden diese über einen langwierigen Versuch und Irrtum Prozess gelöst. 
+Im Nachhinein wurde erkannt, das nicht jedes Problem zwingend lösbar sein muss. In Zukunft sollte für die Lösung jedes Problems eine maximale Zeitspanne festgelegt werden.</p>
+
+<h2 id="iteration-der-installationsanleitung">Iteration der Installationsanleitung</h2>
+
+<p>In der ursprünglichen <a href="https://fwehn.github.io/pp-voiceassistant/docs/installation/">Installationsanleitung</a> von Finn Wehn gab es einige Lücken. Diese mussten zunächst identifiziert und gelöst werden. Mit diesem Mehraufwand wurde nicht gerechnet. Die nötigen Ergänzungen sind in der <a href="/pp-voiceassistant/docs/installation/instructions.md">Installationsanleitung dieses Projektes</a> festgehalten. <br />
+In Zukunft sollte zunächst das Projekt auf welchem aufgebaut werden soll ausführlich getestet werden, bevor sich dafür entschieden wird.</p>
+
+<h2 id="vorgehensreihenfolge">Vorgehensreihenfolge</h2>
+
+<p>Es wurde zunächst das Grundset an Skills konzipiert und danach erst das bestehende System evaluiert. Dies hatte zur Konsequenz, dass die konzipierten Skills nochmal überarbeitet werden mussten. Dies ist besonders ärgerlich, da die nötigen Änderungen in den Skills durch Rhasspy bedingt waren. Diese Arbeitsdopplung hätte durch eine ausführlichere Initialrecherche verhindert werden können. Allerdings wurden so Lösungsansätze für diese Probleme entdeckt.</p>
+
+<h2 id="freie-benennung-von-entitäten">Freie Benennung von Entitäten</h2>
+
+<p>Die freie Benennung von Entitäten wie Weckern, Timern, Listen und Szenen ist mit Rhasspy nicht möglich. Dies wurde in der <a href="/pp-voiceassistant/docs/method/evaluation/eval/#statische-slots">Evaluation</a> erkannt. Wie schon im <a href="/pp-voiceassistant/docs/method/evaluation/conclusion/">Zwischenfazit</a> angemerkt und erklärt, ist es mit dem verwendeten Sprachmodell nicht möglich dieses Problem zu lösen. Deshalb wurde an der Stelle die Entwicklung abgebrochen und die Anforderungen iteriert.</p>
 </div>
             <div style="clear:both;">
               <p class="text-center">
                 <br />
-                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/method/difficulties.md" class="btn btn-default" role="button">
+                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/conclusion/difficulties.md" class="btn btn-default" role="button">
                   <i class="fa fa-pencil fa-lg"></i> Improve this page
                 </a>
               </p>

@@ -3,6 +3,8 @@ title: Chatbot - Anforderungen
 permalink: /docs/method/bot/requirements/
 ---
 
+Der Chatbot muss den vorher festgelegten Anforderungen genügen. Hier sind diese sortiert ausgeführt. Alle voll erfüllten Anforderungen sind mit einem Haken markiert. Mit einem Strich sind Anforderungen markiert, welche zwar erfüllt werden, aber noch verbessert werden könnten. 
+
 ## Nichtfunktionale Anforderungen
 
 | Identifikator | Beschreibung                                                                     | Umgesetzt |
@@ -26,4 +28,4 @@ permalink: /docs/method/bot/requirements/
 | F-005         | Das System muss allen Nutzenden diese Schnittstelle gleichzeitig zur Verfügung stellen                  | ✔         |
 
 
-Die Funktion F-002 wurde zwar umgesetzt, allerdings sollte eine Überprüfung der Daten vorgenommen werden bevor diese in den Dateien gespeichert werden. <br>
+Die Funktion F-002 wurde zwar umgesetzt, allerdings sollte eine Überprüfung der Daten vorgenommen werden, bevor diese in den Dateien gespeichert werden. <br>

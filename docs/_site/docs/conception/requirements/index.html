@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/main.css">
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Anforderungen | Praxisprojekt Sprachassistent</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Anforderungen" />
+<meta property="og:locale" content="de_DE" />
+<meta name="description" content="Basierend auf den Erkenntnissen der Protokolle und der Zielgruppe wurden Anforderungen an den Sprachassistenten erarbeitet. Diese sind in funktionale und nichtfunktionale aufgeteilt. E-18 bis E-20 wurden nicht beachtet. Bei diesen ist die visuelle Komponente sehr wichtig. Somit müsste ein bestehendes Programm eingebunden und durch den Sprachassistenten unterstützt werden, dies wurde mit einer niedrigen Priorität bewertet. Des Weiteren lässt sich E-20 auch über einen Wecker oder Timer abbilden." />
+<meta property="og:description" content="Basierend auf den Erkenntnissen der Protokolle und der Zielgruppe wurden Anforderungen an den Sprachassistenten erarbeitet. Diese sind in funktionale und nichtfunktionale aufgeteilt. E-18 bis E-20 wurden nicht beachtet. Bei diesen ist die visuelle Komponente sehr wichtig. Somit müsste ein bestehendes Programm eingebunden und durch den Sprachassistenten unterstützt werden, dies wurde mit einer niedrigen Priorität bewertet. Des Weiteren lässt sich E-20 auch über einen Wecker oder Timer abbilden." />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/conception/requirements/" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/conception/requirements/" />
+<meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-02T18:00:49+01:00" />
+<script type="application/ld+json">
+{"description":"Basierend auf den Erkenntnissen der Protokolle und der Zielgruppe wurden Anforderungen an den Sprachassistenten erarbeitet. Diese sind in funktionale und nichtfunktionale aufgeteilt. E-18 bis E-20 wurden nicht beachtet. Bei diesen ist die visuelle Komponente sehr wichtig. Somit müsste ein bestehendes Programm eingebunden und durch den Sprachassistenten unterstützt werden, dies wurde mit einer niedrigen Priorität bewertet. Des Weiteren lässt sich E-20 auch über einen Wecker oder Timer abbilden.","url":"http://localhost:4000/pp-voiceassistant/docs/conception/requirements/","@type":"WebPage","headline":"Anforderungen","dateModified":"2023-02-02T18:00:49+01:00","datePublished":"2023-02-02T18:00:49+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="alternate" type="application/rss+xml" title="Praxisprojekt Sprachassistent" href="http://localhost:4000/pp-voiceassistant/feed.xml" />
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="/pp-voiceassistant/">
+                <span><img src="/pp-voiceassistant/assets/img/logonav.png" alt="Logo"></span> Praxisprojekt Sprachassistent
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li  class="active" ><a href="/pp-voiceassistant/docs/home/">Docs</a></li>
+<!--                <li ><a href="">Blog</a></li>-->
+            </ul>
+            <div class="navbar-right">
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="form-group has-feedback">-->
+<!--                        <input id="search-box" type="search" class="form-control" placeholder="Search...">-->
+<!--                        <i class="fa fa-search form-control-feedback"></i>-->
+<!--                    </div>-->
+<!--                </form>-->
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/sjohannsen1/pp-voiceassistant"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+            Willkommen
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-1" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/home/">Willkommen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+            Installation
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-2" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/Zigbee2MQTT/">Installation Zigbee2MQTT</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+            Skills
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-3" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+            Fazit
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/conclusion/conclusion/">Fazit</a>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+
+        <div class="col-md-8">
+            <h1>Anforderungen</h1>
+            <div id="markdown-content-container"><p>Basierend auf den Erkenntnissen der Protokolle und der Zielgruppe wurden Anforderungen an den Sprachassistenten erarbeitet. Diese sind in funktionale und nichtfunktionale aufgeteilt. <br />
+E-18 bis E-20 wurden nicht beachtet. Bei diesen ist die visuelle Komponente sehr wichtig. Somit müsste ein bestehendes Programm eingebunden und durch den Sprachassistenten unterstützt werden, dies wurde mit einer niedrigen Priorität bewertet. Des Weiteren lässt sich E-20 auch über einen Wecker oder Timer abbilden. <br /></p>
+
+<p>Die ermittelten Anforderungen wurden mithilfe des muss/soll/kann - Schemas priorisiert.</p>
+
+<h2 id="nichtfunktionale-anforderungen">Nichtfunktionale Anforderungen</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifikator</th>
+      <th>Beschreibung</th>
+      <th>Quelle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NF-001</td>
+      <td>Das System muss das Skillverwaltungssystem von Finn Wehn benutzen</td>
+      <td>Vorraussetzung</td>
+    </tr>
+    <tr>
+      <td>NF-002</td>
+      <td>Das System muss Smart-Home Geräte steuern können</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>NF-003</td>
+      <td>Die Sprach-zu-Text Komponente muss auf deutsche Sprache ausgelegt sein</td>
+      <td>Zielgruppe</td>
+    </tr>
+    <tr>
+      <td>NF-004</td>
+      <td>Das System muss auch bei schlechten Geräuschverhältnissen funktionstüchtig sein</td>
+      <td>E-15 und E-16</td>
+    </tr>
+    <tr>
+      <td>NF-005</td>
+      <td>Das System muss eine alternative Interaktionsmöglichkeit bereitstellen</td>
+      <td>E-15 und E-16</td>
+    </tr>
+    <tr>
+      <td>NF-006</td>
+      <td>Das System muss personalisierbar sein</td>
+      <td>Vorraussetzung</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="funktionale-anforderungen">Funktionale Anforderungen</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifikator</th>
+      <th>Beschreibung</th>
+      <th>Quelle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>F-001</td>
+      <td>Das System muss eine Schnittstelle zur nonverbalen Kommunikation bieten</td>
+      <td>NF-004 und NF-005</td>
+    </tr>
+    <tr>
+      <td>F-001-1</td>
+      <td>Das System muss eine Schnittstelle zur schriftlichen Interaktion bieten</td>
+      <td>F-001 und E-13-1</td>
+    </tr>
+    <tr>
+      <td>F-001-2</td>
+      <td>Das System muss alle Ausgaben auch schriftlich tätigen können</td>
+      <td>E-13-1</td>
+    </tr>
+    <tr>
+      <td>F-001-3</td>
+      <td>Das System muss eine Möglichkeit bieten rein schriftliche Ausgaben zu tätigen</td>
+      <td>E-13-1</td>
+    </tr>
+    <tr>
+      <td>F-002</td>
+      <td>Das System muss eine Schnittstelle zum Hinzufügen von Einträgen in Konfigurationsdateien bieten</td>
+      <td>E-15-16, NF-006</td>
+    </tr>
+    <tr>
+      <td>F-003</td>
+      <td>Das System muss eine Schnittstelle bieten um Ausgaben zeitverzögert sehen zu können</td>
+      <td>E-3-7 und E-13</td>
+    </tr>
+    <tr>
+      <td>F-004</td>
+      <td>Das System muss Nutzenden diese Schnittstelle optional zur Verfügung stellen</td>
+      <td>NF-006</td>
+    </tr>
+    <tr>
+      <td>F-005</td>
+      <td>Das System muss allen Nutzenden diese Schnittstelle gleichzeitig zur Verfügung stellen</td>
+      <td>Zielgruppe</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-010</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten einen Wecker zu stellen</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-011</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten den Wecker an eigens Festgelegten Zeitpunkten zu wiederholen</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-012</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Wecker zu benennen</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-013</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten gespeicherte Wecker anzuzeigen</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-014</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten gestellte Wecker anzuzeigen</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-015</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Wecker zu aktivieren</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-016</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Wecker zu deaktivieren</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-017</td>
+      <td>Das System muss zur ausgewählten Uhrzeit den Nutzenden durch ein Tonsignal wecken</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-017-1</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten das Tonsignal auszuwählen</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-017-2</td>
+      <td>Das System kann Nutzenden die Möglichkeit bieten die Lautstärke des Tonsignal festzulegen</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-017-3</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten das Tonsignal für ein bestimmtes Zeitintervall auszuschalten</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td>F-017-4</td>
+      <td>Das System muss nach Ablauf des Zeitintervalls das Tonsignal erneut abspielen</td>
+      <td>E-11</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-020</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten eine Zeitschaltuhr zu stellen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-020-1</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten gestellte Zeitschaltuhren abzufragen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-020-2</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten eine gestellte Zeitschaltuhr zu verlängern</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-023</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich die verbleibende Zeit ausgeben zu lassen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-024</td>
+      <td>Das System muss Nutzenden bei Ablauf der Zeitschaltuhr durch ein Tonsignal benachrichtigen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-024-1</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten bei Ablauf der Zeitschaltuhr diese zu Verlängern</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-024-2</td>
+      <td>Das System kann Nutzenden die Möglichkeit bieten die seit Ablauf der Zeitschaltuhr verstrichene Zeit auszugeben</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-024-3</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Zeitschaltuhr nach Ablauf zu löschen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-025</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Zeitschaltuhr vor Ablauf zu löschen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-026</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Zeitschaltuhr vor Ablauf anzuhalten</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-026-1</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten eine angehaltene Zeitschaltuhr neu zu starten</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-026-2</td>
+      <td>Das System kann Nutzenden die Möglichkeit bieten eine angehaltene Zeitschaltuhr weiterlaufen zu lassen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-027</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten Zeitschaltuhren zu speichern</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-027-1</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten gespeicherte Zeitschaltuhren zu verwalten</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-027-2</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten sich gespeicherte Zeitschaltuhren ausgeben zu lassen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-027-3</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten gespeicherte Zeitschaltuhren zu löschen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-027-4</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten gespeicherte Zeitschaltuhren zu benennen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td>F-027-5</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten gespeicherte Zeitschaltuhren durch ihren Namen zu stellen</td>
+      <td>E-12</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-030</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Smarte Geräte zu steuern</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-031</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Smarte Geräte einzuschalten</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-032</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Smarte Geräte auszuschalten</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-033</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich den Zustand Smarter Geräte ausgeben zu lassen</td>
+      <td>E-14-3 und E-5</td>
+    </tr>
+    <tr>
+      <td>F-034</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Einstellung von Smarten Geräten in Szenen zu speichern</td>
+      <td>E-14-3</td>
+    </tr>
+    <tr>
+      <td>F-034-1</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die gespeicherten Szenen zu verwalten</td>
+      <td>E-14-3</td>
+    </tr>
+    <tr>
+      <td>F-034-2</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich die Szenen ausgeben zu lassen</td>
+      <td>E-14-3</td>
+    </tr>
+    <tr>
+      <td>F-034-3</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Szenen zu benennen</td>
+      <td>E-14-3</td>
+    </tr>
+    <tr>
+      <td>F-034-4</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Szenen zu löschen</td>
+      <td>E-14-3</td>
+    </tr>
+    <tr>
+      <td>F-034-5</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Szenen durch ihren Namen auszuwählen</td>
+      <td>E-14-3</td>
+    </tr>
+    <tr>
+      <td>F-034-6</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Szenen zu bearbeiten</td>
+      <td>E-14-3</td>
+    </tr>
+    <tr>
+      <td>F-035</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Smarte Geräte in Gruppen zu speichern</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-035-1</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich gespeicherte Gruppen ausgeben zu lassen</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-035-2</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Smarte Geräte aus Gruppen zu Löschen</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-035-3</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Gruppen zu steuern</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-035-4</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Gruppen einzuschalten</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-035-5</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Gruppen auszuschalten</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-035-6</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Einstellung von Gruppen in Szenen zu speichern</td>
+      <td>E-14-3</td>
+    </tr>
+    <tr>
+      <td>F-036</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Smarte Leuchten zu steuern</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-036-1</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Helligkeit von Smarten Leuchten einzustellen</td>
+      <td>E-14-2</td>
+    </tr>
+    <tr>
+      <td>F-036-2</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Farbtemperatur von Smarten Leuchten einzustellen</td>
+      <td>E-14-1</td>
+    </tr>
+    <tr>
+      <td>F-036-3</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Lichtfarbe von Smarten Leuchten einzustellen</td>
+      <td>E-14-1</td>
+    </tr>
+    <tr>
+      <td>F-036-4</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich die Helligkeit Smarter Leuchten ausgeben zu lassen</td>
+      <td>E-14-2</td>
+    </tr>
+    <tr>
+      <td>F-037</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Gruppen von Smarte Leuchten zu steuern</td>
+      <td>E-14</td>
+    </tr>
+    <tr>
+      <td>F-037-1</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Helligkeit von Gruppen von Smarten Leuchten einzustellen</td>
+      <td>E-14-2</td>
+    </tr>
+    <tr>
+      <td>F-037-2</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Farbtemperatur von Gruppen von Smarten Leuchten einzustellen</td>
+      <td>E-14-1</td>
+    </tr>
+    <tr>
+      <td>F-037-3</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten die Lichtfarbe von Gruppen von Smarten Leuchten einzustellen</td>
+      <td>E-14-1</td>
+    </tr>
+    <tr>
+      <td>F-037-4</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich die Helligkeit von Gruppen von Smarten Leuchten ausgeben zu lassen</td>
+      <td>E-14-2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-040</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Musik einzuschalten</td>
+      <td>E-16</td>
+    </tr>
+    <tr>
+      <td>F-041</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Musik auszuschalten</td>
+      <td>E-16</td>
+    </tr>
+    <tr>
+      <td>F-042</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten einzelne Lieder auszuwählen</td>
+      <td>E-16</td>
+    </tr>
+    <tr>
+      <td>F-043</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Lieder zur Abspielung zur Verfügung zu stellen</td>
+      <td>E-16</td>
+    </tr>
+    <tr>
+      <td>F-044</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich alle abspielbaren Lieder auszugeben</td>
+      <td>E-16</td>
+    </tr>
+    <tr>
+      <td>F-045</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich ausgeben zu lassen was gerade abgespielt wird</td>
+      <td>E-16</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-050</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Radio einzuschalten</td>
+      <td>E-17</td>
+    </tr>
+    <tr>
+      <td>F-051</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Radio auszuschalten</td>
+      <td>E-17</td>
+    </tr>
+    <tr>
+      <td>F-052</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Radiosender zu wechseln</td>
+      <td>E-17</td>
+    </tr>
+    <tr>
+      <td>F-053</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten ein Radiosender auszuwählen</td>
+      <td>E-17</td>
+    </tr>
+    <tr>
+      <td>F-054</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten ein Radiosender hinzuzufügen</td>
+      <td>E-17</td>
+    </tr>
+    <tr>
+      <td>F-055</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich verfügbare Radiosender anzeigen zu lassen</td>
+      <td>E-17</td>
+    </tr>
+    <tr>
+      <td>F-056</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich ausgeben zu lassen was gerade abgespielt wird</td>
+      <td>E-17</td>
+    </tr>
+    <tr>
+      <td>F-057</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich ausgeben zu lassen welcher Sender gerade abgespielt wird</td>
+      <td>E-17</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-060</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten eine Liste zu erstellen</td>
+      <td>E-3, E-6 und E-13</td>
+    </tr>
+    <tr>
+      <td>F-061</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Listen zu verwalten</td>
+      <td>E-3, E-6 und E-13</td>
+    </tr>
+    <tr>
+      <td>F-062</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Listen zu benennen</td>
+      <td>E-3, E-6 und E-13</td>
+    </tr>
+    <tr>
+      <td>F-063</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Listen zu bearbeiten</td>
+      <td>E-3, E-6 und E-13</td>
+    </tr>
+    <tr>
+      <td>F-064</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Listen zu löschen</td>
+      <td>E-3, E-6 und E-13</td>
+    </tr>
+    <tr>
+      <td>F-065</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Listen an ein Gerät zu senden</td>
+      <td>E-6 und E-13-1</td>
+    </tr>
+    <tr>
+      <td>F-066</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Artikel zu Listen hinzuzufügen</td>
+      <td>E-3, E-6 und E-13</td>
+    </tr>
+    <tr>
+      <td>F-067</td>
+      <td>Das System kann Nutzenden die Möglichkeit bieten Artikel von Listen zu löschen</td>
+      <td>E-3, E-6 und E-13</td>
+    </tr>
+    <tr>
+      <td>F-068</td>
+      <td>Das System kann Nutzenden die Möglichkeit bieten Artikel automatisch zu Listen hinzuzufügen</td>
+      <td>E-3, E-6 und E-13</td>
+    </tr>
+    <tr>
+      <td>F-068-1</td>
+      <td>Das System kann Nutzenden die Möglichkeit  bieten für Produkte ein Nutzungsintervall einzustellen und sie so automatisch hinzufügen zu lassen</td>
+      <td>E-3, E-6 und E-13</td>
+    </tr>
+    <tr>
+      <td>F-068-2</td>
+      <td>Das System kann Nutzenden die Möglichkeit bieten Zutaten für ein ausgewähltes Rezept automatisch zu einer Liste hinzufügen zu lassen</td>
+      <td>E-3, E-6 und E-13</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-070</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich das aktuelle Wetter ausgeben zu lassen</td>
+      <td>E-15</td>
+    </tr>
+    <tr>
+      <td>F-071</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich das aktuelle Wetterwarnungen ausgeben zu lassen</td>
+      <td>E-15-2</td>
+    </tr>
+    <tr>
+      <td>F-072</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten sich Wettervorhersagen für einen eigens bestimmten Tag ausgeben zu lassen</td>
+      <td>E-15-3</td>
+    </tr>
+    <tr>
+      <td>F-073</td>
+      <td>Das System muss Nutzenden die Möglichketi bieten sich auf markantes Wetter für einen eigens bestimmten Tag hinweisen zu lassen</td>
+      <td>E-15</td>
+    </tr>
+    <tr>
+      <td>F-074</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten sich auf Niederschlag in einem eigens festgelegten Zeitraum hinweisen zu lassen</td>
+      <td>E-15</td>
+    </tr>
+    <tr>
+      <td>F-074-1</td>
+      <td>Das System kann Nutzenden die Möglichkeit bieten sich auf Regen in einem eigens festgelegten Zeitraum hinweisen zu lassen</td>
+      <td>E-15</td>
+    </tr>
+    <tr>
+      <td>F-074-2</td>
+      <td>Das System kann Nutzenden die Möglichkeit bieten sich auf Schnee in einem eigens festgelegten Zeitraum hinweisen zu lassen</td>
+      <td>E-15</td>
+    </tr>
+    <tr>
+      <td>F-076</td>
+      <td>Das System soll Nutzenden die Möglichkeit bieten sich auf Unterschreitung einer gewählten Grenztemperatur in einem eigens festgelegtem Zeitraum hinweisen zu lassen</td>
+      <td>E-15</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-080</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Automatisierungen einzurichten, welche ohne weitere Interaktion mit dem Sprachassistenten kontinuierlich eine Aufgabe ausüben</td>
+      <td>aus E-1 bis E-10 geschlussfolgert</td>
+    </tr>
+    <tr>
+      <td>F-081</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Automatisierungen einzurichten, welche eine Interaktion des Sprachassistenten auslösen</td>
+      <td>aus E-1 bis E-10 geschlussfolgert</td>
+    </tr>
+    <tr>
+      <td>F-082</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Automatisierungen einzurichten, welche keine Interaktion des Sprachassistenten auslösen</td>
+      <td>aus E-1 bis E-10 geschlussfolgert</td>
+    </tr>
+    <tr>
+      <td>F-083</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Automatisierungen zu starten</td>
+      <td>aus E-1 bis E-10 geschlussfolgert</td>
+    </tr>
+    <tr>
+      <td>F-084</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten Automatisierungen zu stoppen</td>
+      <td>aus E-1 bis E-10 geschlussfolgert</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-090</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten ein Licht bei Dunkelheit und Bewegung automatisch angehen zu lassen</td>
+      <td>E-2 und E-10</td>
+    </tr>
+    <tr>
+      <td>F-091</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten ein Licht bei Dunkelheit automatisch angehen zu lassen</td>
+      <td>E-2 und E-10</td>
+    </tr>
+    <tr>
+      <td>F-092</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten ein Licht bei Bewegung automatisch angehen zu lassen</td>
+      <td>E-2 und E-10</td>
+    </tr>
+    <tr>
+      <td>F-093</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten ein Licht bei Inaktivität automatisch ausgehen zu lassen</td>
+      <td>E-2 und E-10</td>
+    </tr>
+    <tr>
+      <td>F-094</td>
+      <td>Das System muss ermitteln können wann Inaktivität herrscht</td>
+      <td>E-2 und E-10</td>
+    </tr>
+    <tr>
+      <td>F-095</td>
+      <td>Das System muss ermitteln können wann es dunkel ist</td>
+      <td>E-2 und E-10</td>
+    </tr>
+    <tr>
+      <td>F-096</td>
+      <td>Das System muss für jeden Tag ermitteln können wann die Sonne untergeht</td>
+      <td>E-2 und E-10</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-100</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten über den Status der Waschmaschine Benachrichtigungen zu erhalten</td>
+      <td>E-1</td>
+    </tr>
+    <tr>
+      <td>F-101</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten über den Beginn eines Waschprogrammes eine Benachrichtigung zu erhalten</td>
+      <td>E-1</td>
+    </tr>
+    <tr>
+      <td>F-102</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten über das Ende eines Waschprogrammes eine Benachrichtigung zu erhalten</td>
+      <td>E-1</td>
+    </tr>
+    <tr>
+      <td>F-103</td>
+      <td>Das System muss ermitteln können wenn sich der Status der Waschmaschine ändert</td>
+      <td>E-1</td>
+    </tr>
+    <tr>
+      <td>F-104</td>
+      <td>Das System muss ermitteln können wann ein Waschprogramm startet</td>
+      <td>E-1</td>
+    </tr>
+    <tr>
+      <td>F-105</td>
+      <td>Das System muss ermitteln können wann ein Waschprogramm endet</td>
+      <td>E-1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-110</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten bei offenstehender Gefrierschranktür Benachrichtigungen zu erhalten</td>
+      <td>E-8</td>
+    </tr>
+    <tr>
+      <td>F-111</td>
+      <td>Das System muss ermitteln können wie lange die Gefrierschranktür offen steht</td>
+      <td>E-8</td>
+    </tr>
+    <tr>
+      <td>F-112</td>
+      <td>Das System muss ermitteln können ob die Gefrierschranktür geöffnet wurde</td>
+      <td>E-8</td>
+    </tr>
+    <tr>
+      <td>F-113</td>
+      <td>Das System muss ermitteln können ob die Gefrierschranktür geschlossen wurde</td>
+      <td>E-8</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-120</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten eine Benachrichtigung bei Betätigung einer Klingel zu erhalten</td>
+      <td>E-7</td>
+    </tr>
+    <tr>
+      <td>F-121</td>
+      <td>Das System muss ermitteln können ob geklingelt wurde</td>
+      <td>E-7</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F-130</td>
+      <td>Das System muss Nutzenden die Möglichkeit bieten eine Benachrichtigung zu erhalten wenn der Briefkasten geöffnet wurde</td>
+      <td>E-4 und E-9</td>
+    </tr>
+    <tr>
+      <td>F-131</td>
+      <td>Das System muss ermitteln können ob der Briefkasten geöffnet wurde</td>
+      <td>E-4 und E-9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+            <div style="clear:both;">
+              <p class="text-center">
+                <br />
+                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/conception/requirements.md" class="btn btn-default" role="button">
+                  <i class="fa fa-pencil fa-lg"></i> Improve this page
+                </a>
+              </p>
+            </div>
+            <hr>
+            
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            Praxisprojekt Sprachassistent 2023 |
+            Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
+
+    <script>
+  var baseurl = '/pp-voiceassistant'
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/pp-voiceassistant/assets/js/bootstrap.min.js "></script>
+<script src="/pp-voiceassistant/assets/js/typeahead.bundle.min.js "></script>
+
+<script src="/pp-voiceassistant/assets/js/main.js "></script>
+
+</body>
+
+</html>

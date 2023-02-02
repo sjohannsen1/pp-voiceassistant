@@ -16,7 +16,7 @@ Der Aufbau einer locale Datei hat sich geändert. Wie genau diese erstellt werde
       "sentences": ["Exportiere [ die Liste ] ($slots/list_names){list_names}", "schicke  [ die liste ] ($slots/list_names){list_names} an ( mein Handy | meinen Bot | meinen Rechner | meinen Computer )"],
       "function": "exportList",
       "args": ["list_names"],
-      "answer": ["Ok exportiert", "# Inhalt: #", "# Noch kein Inhalt vorhanden"],
+      "answer": ["Ok exportiert", "# Inhalt: #", "#: Noch kein Inhalt vorhanden"],
       "fail": ["Die Liste # existiert nicht"]
     },
   ],
@@ -32,15 +32,15 @@ Der Aufbau einer locale Datei hat sich geändert. Wie genau diese erstellt werde
 
 ### Answer
 
-Wenn Funktionen eine Antwort zurückgeben soll, sollten alle Antwortmöglichkeiten hier definiert werden. Falls Daten aus der Funktion in die Antwort eingefügt werden sollen, werden diese Stellen mit Platzhaltern (hier: #) markiert. So wird die Sprachneutralität gewährleistet. <br> 
-Bei diesem Beispiel existieren drei Antwortmöglichkeiten. Die erste wird bei Erfolg der Funktion ausgegeben. Mit der zweiten wird die Antwort an den Bot definiert. Diese wird mit dem Listennamen und dem Inhalt gefüllt. Die dritte wird ausgegeben falls die Liste noch leer ist und enthält den Namen der Liste. 
+Wenn Funktionen eine Antwort zurückgeben, sollten alle Antwortmöglichkeiten hier definiert werden. Falls Daten aus der Funktion in die Antwort eingefügt werden sollen, werden diese Stellen mit Platzhaltern (hier: #) markiert. So wird die Sprachneutralität gewährleistet. <br> 
+Bei diesem Beispiel existieren drei Antwortmöglichkeiten. Die Erste wird bei Erfolg der Funktion ausgegeben. Mit der Zweiten wird die Antwort an den Bot definiert. Diese wird mit dem Listennamen und dem Inhalt gefüllt. Die Dritte wird ausgegeben, falls die Liste noch leer ist und enthält den Namen der Liste. 
 
 ### Fail
 
 Hier muss eine Liste an Fehlermeldungen angegeben werden. Diese können genauso wie die Antworten mit Daten aus der Funktion befüllt werden. <br>
-Die Fehlermeldung wird hier ausgegeben falls die erforderte Liste nicht existiert. Dabei wird der Name der Liste mit ausgegeben.
+Die Fehlermeldung wird hier ausgegeben, falls die erforderte Liste nicht existiert. Dabei wird der Name der Liste mit ausgegeben.
 
 ### Slots
 
 Dort werden alle Slots, welche von einem Skill benötigt werden, definiert. Die Slots können dabei [Substitutionen](https://rhasspy.readthedocs.io/en/latest/training/#substitutions) enthalten. <br>
-In diesem Beispiel werden zwei dynamische Slots verwendet. Diese müssen hier initialisiert werden, da Rhasspy sonst abbricht. Die Initialwerte sind dabei egal, denn bei Aktivierung des Skills oder des Systems werden die Konfigurationsdateien ausgelesen und die Slots mit werten gefüllt.
+In diesem Beispiel werden zwei dynamische Slots verwendet. Diese müssen hier initialisiert werden, da Rhasspy sonst abbricht. Die Initialwerte sind dabei egal, denn bei Aktivierung des Skills oder des Systems werden die Konfigurationsdateien ausgelesen und die Slots mit diesen Werten gefüllt.

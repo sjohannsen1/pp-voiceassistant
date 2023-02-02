@@ -3,7 +3,7 @@ title: Manifest
 permalink: /docs/method/develop-skill/manifest/
 ---
 
-Der Aufbau einer Manifest Datei hat sich geändert. Wie erstellt werden, ist [hier von Finn Wehn erklärt](https://fwehn.github.io/pp-voiceassistant/docs/create-skills/manifest/). Hier werden lediglich die Änderungen festgehalten. <br>
+Der Aufbau einer Manifest Datei hat sich geändert. Wie diese erstellt werden, ist [hier von Finn Wehn erklärt](https://fwehn.github.io/pp-voiceassistant/docs/create-skills/manifest/). Hier werden lediglich die Änderungen festgehalten. <br>
 
 ## Beispiel: Zigbee2MQTT
 

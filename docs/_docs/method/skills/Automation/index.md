@@ -3,7 +3,7 @@ title: Automatisierungsskill
 permalink: /docs/method/skills/Automation/index/
 ---
 
-Mit diesem Skill können Smart Home Automatisierungen genutzt werden. Die Besonderheit hierbei ist, das Intents nicht nur eine direkte Antwort auslösen, sondern auch einen automatiserten Ablauf starten. Zigbee2MQTT ist verantwortlich für die Kommunikation zwischen diesem Skill und den Geräten.
+Mit diesem Skill können Smart Home Automatisierungen genutzt werden. Die Besonderheit hierbei ist, das Intents nicht nur eine direkte Antwort auslösen, sondern auch einen automatisierten Ablauf starten. Zigbee2MQTT ist verantwortlich für die Kommunikation zwischen diesem Skill und den Geräten.
 
 ### Zusätzliche Hardware
 
@@ -22,11 +22,11 @@ Ein Tastsensor, hier wurde ein Aqara Wireless Mini Switch verwendet <br>
 
 ### Einrichtung
 
-Bevor der Skill aktiviert werden kann müssen einige Optionen ausgefüllt werden. Es müssen die Postleitzahl, Sprache und Land von dem Ort in dem der Skill genutz werden eingetragen werden. Außerdem müssen die Namen der Zigbeegeräte und dem MQTT-Topic von Zigbee2MQTT entweder an die Standardeinstellungen angepasst oder die neuen Namen eingetragen werden. Es wird auch ein API-Key für OpenWeatherMap benötigt.
+Bevor der Skill aktiviert werden kann, müssen einige Optionen ausgefüllt werden. Es müssen die Postleitzahl, Sprache und Land von dem Ort in dem der Skill genutz werden eingetragen werden. Außerdem müssen die Namen der Zigbeegeräte und dem MQTT-Topic von Zigbee2MQTT entweder an die Standardeinstellungen angepasst oder die neuen Namen eingetragen werden. Es wird auch ein API-Key für OpenWeatherMap benötigt.
 
 ### Nachtlicht
 
-Das Nachtlicht ist ein Zusammenspiel eines Bewegungsmelders, einer Lampe und einer API. Durch eine Anfrage an die API werden die tagesaktuellen Sonnenauf- und Sonnenuntergangszeiten ermittelt. Wenn nun der Bewegungsmelder ausgelöst wird, wird überprüft ob es vor Sonnenauf- oder nach Sonnenuntergang ist. Ist dem so, wird die Lampe angeschaltet. Dieser Ablauf kann durch den Sprachassistenten gestartet oder gestoppt werden.
+Das Nachtlicht ist ein Zusammenspiel eines Bewegungsmelders, einer Lampe und einer API. Durch eine Anfrage an die API werden die tagesaktuellen Sonnenauf- und Sonnenuntergangszeiten ermittelt. Wenn nun der Bewegungsmelder ausgelöst wird, wird überprüft, ob es vor Sonnenauf- oder nach Sonnenuntergang ist. Ist dem so, wird die Lampe angeschaltet. Dieser Ablauf kann durch den Sprachassistenten gestartet oder gestoppt werden.
 
 ### Sprachbefehl
 
@@ -42,7 +42,7 @@ Der Stromverbrauch einer Waschmaschine wird mit einer Steckdose überwacht. Durc
 
 ### Gefrierschrankbenachrichtigungen
 
-An die Tür eines Gefrierschranks wird ein Kontakt-Sensor angebracht. Wenn die Tür geöffnet wird, startet ein Timer für 60 Sekunden. Wenn dann nach Ablauf des Timers die Tür immer noch offen steht, kann das festgestellt werden. Wenn die Beobachtung durch den Sprachassistenten gestartet wurde, durch offenstehen eine Benachrichtigung ausgelöst.
+An die Tür eines Gefrierschranks wird ein Kontakt-Sensor angebracht. Wenn die Tür geöffnet wird, startet ein Timer für 60 Sekunden. Steht nach Ablauf des Timers die Tür immer noch offen, kann das festgestellt werden. Ist Beobachtung durch den Sprachassistenten gestartet, wird durch offenstehen eine Benachrichtigung ausgelöst.
 
 ### Sprachbefehl
 
@@ -50,7 +50,7 @@ An die Tür eines Gefrierschranks wird ein Kontakt-Sensor angebracht. Wenn die T
 
 ### Stumme Türklingel
 
-An die Tür wird ein Tastsensor angebracht. Wenn dieser gedrückt wird und die Klingel aktiviert ist, wird eine Benachrichtigung an den Bot gesendet
+An die Tür wird ein Tastsensor angebracht. Wenn dieser gedrückt wird und die Klingel aktiviert ist, wird eine Benachrichtigung an den Bot gesendet.
 
 ### Sprachbefehl
 
@@ -67,4 +67,4 @@ An den Briefkasten wird ein Kontakt-Sensor angebracht. Wird der Kontakt unterbro
 
 ### Slots
 
-`state` kann die Werte "an" oder "aus" annehmen und beschreibt den Zustand der Automatisierung. Dieser Slot wird mittels Substitition in boolsche Werte umgewandelt, so kann  die sprachunabhängige Implementierung des Skills gewährleistet werden. 
+`state` kann die Werte "an" oder "aus" annehmen und beschreibt den Zustand der Automatisierung. Dieser Slot wird mittels Substitution in boolesche Werte umgewandelt, so kann  die sprachunabhängige Implementierung des Skills gewährleistet werden. 

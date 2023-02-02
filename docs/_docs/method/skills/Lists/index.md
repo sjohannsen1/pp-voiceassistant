@@ -3,7 +3,7 @@ title: Listen Skill
 permalink: /docs/method/skills/Lists/index/
 ---
 
-Lists in ein Skill mit welchem Listen erstellt und verwaltet werden können. Diese werden automatisch fortlaufend nummeriert benannt und können auch gespeichert und an den Bot gesendet werden. 
+Lists in ein Skill, mit welchem Listen erstellt und verwaltet werden können. Diese werden automatisch fortlaufend nummeriert benannt und können auch gespeichert und an den Bot gesendet werden. 
 
 ### Installation 
 
@@ -22,7 +22,7 @@ Da Rhasspy nur bekannte Eingaben verstehen kann, müssen mögliche Listeneinträ
 
 ### Slots
 
-Lists verwendet zwei verschiedene dynamische Slots. `list_names` enthält die Namen aller erstellten Listen. Wird eine neue erstellt, wird dieser aktualisiert in dem es an Rhasspy gesendet wird. 
+Lists verwendet zwei verschiedene dynamische Slots. `list_names` enthält die Namen aller erstellten Listen. Wird eine neue erstellt, wird dieser aktualisiert, indem es an Rhasspy gesendet wird. 
 
 `list_items` enthält alle möglichen Listeneintrage
 `list_names` enthält die Namen aller erstellten Listen

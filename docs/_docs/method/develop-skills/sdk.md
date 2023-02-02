@@ -23,8 +23,8 @@ let configObject = {
 *[sdk/index.js](../../../../src/sdk/index.js)* <br>
 
 Die Eigenschaften `zigbeeDevices` und `zigbeeGroups` enthalten alle Zigbee Devices und alle in Zigbee2MQTT eingerichteten Gruppen. <br>
-Die Eigenschaft `postSlots` erhält eine Funktion zum registrieren von neuen Sloteinträgen an Rhasspy. Dabei muss der Slotname, die neuen Einträge und optional ob die existierenden Einträge mit den neuen Überschrieben werden sollen übergeben werden. <br>
-Die Eigenschaft `customSlots` ist eine Liste mit allen dynamischen Slots. Diese sind nach Skills sortiert. Diese Eigenschaft wird ausschließlich von der Detailseite genutzt.
+Die Eigenschaft `postSlots` erhält eine Funktion zum Registrieren von neuen Sloteinträgen an Rhasspy. Dabei muss der Slotname und die neuen Einträge übergeben werden. Außerdem kann optional festgelegt werden, ob die existierenden Einträge mit den neuen Überschrieben werden sollen. <br>
+Die Eigenschaft `customSlots` ist eine Liste mit allen dynamischen Slots. Diese ist nach Skills sortiert. Ausschließlich die Detailseite nutzt diese Eigenschaft.
 
 ## Sessiondata
 
@@ -39,7 +39,7 @@ let sessionData = {
 ```
 *[sdk/index.js](../../../../src/sdk/index.js)* <br>
 
-Die `sessionData` erhält zusätzlich noch eine Eigenschaft `fail`. Dort werden die Fehlermeldungen `fail` aus den Manifest Dateien der Skills festgehalten.
+Die `sessionData` erhält zusätzlich noch eine Eigenschaft `fail`. Dort werden die Fehlermeldungen `fail` aus den Manifest Dateien der Skills zur Laufzeit festgehalten.
 
 ## Antwort und Fehler generieren
 

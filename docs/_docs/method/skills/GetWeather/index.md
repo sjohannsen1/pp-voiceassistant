@@ -7,11 +7,11 @@ Bei GetWeather handelt es sich um einen Wetterdienst Skill. Dabei wurde der von 
 
 ### Installation
 
-Vor der Aktivierung dieses Skills müssen einige Optionen festgelegt werden. Die Postleitzahl, Region, Sprache und Land des Orts für den der Wetterdienst genutzt werden soll müssen eingetragen werden. Außerdem wird eine API-Key für OpenWeatherMap benötigt um die Wetterdaten abzufragen.
+Vor der Aktivierung dieses Skills müssen einige Optionen festgelegt werden. Die Postleitzahl, Region, Sprache und Land des Orts, für den der Wetterdienst genutzt werden soll, müssen eingetragen werden. Außerdem wird eine API-Key für OpenWeatherMap benötigt, um die Wetterdaten abzufragen.
 
 ### Wettervorhersagen
 
-GetWeather kann Informationen zum Wetterbericht für bis zu fünf Tage in der Zukunft abfragen. Wenn das Wetter für den aktuellen Tag abgefragt wird, werden zusätzlich aktive amtliche Wetterwarnungen ausgegeben. Falls Wetterwarnungen vorliegen, wird bei aktiven Bot die genaue Beschreibung der Warnung übermittelt. Der Sprachassistent benachrichtigt lediglich über den Titel der Warnung. Zusätzlich ist es auch möglich sich über bestimmte Wetterphänomene in einem Zeitraum zu informieren. Abfragbar sind markante Wetterbedingungen der nächsten fünf Tage, die Regenwahrscheinlichkeit der nächsten 1 bis 24 Stunden so wie ob die Temperatur in den nächsten 1 bis 24 Stunden unter einen Grenzwert fällt.
+GetWeather kann Informationen zum Wetterbericht für bis zu fünf Tage in der Zukunft abfragen. Wenn das Wetter für den aktuellen Tag abgefragt wird, werden zusätzlich aktive amtliche Wetterwarnungen ausgegeben. Falls Wetterwarnungen vorliegen, wird bei aktivem Bot die genaue Beschreibung der Warnung übermittelt. Der Sprachassistent benachrichtigt lediglich über den Titel der Warnung. Zusätzlich ist es auch möglich, sich über bestimmte Wetterphänomene in einem Zeitraum zu informieren. Abfragbar sind markante Wetterbedingungen der nächsten fünf Tage, die Regenwahrscheinlichkeit der nächsten 1 bis 24 Stunden so wie ob die Temperatur in den nächsten 1 bis 24 Stunden unter einen Grenzwert fällt.
 
 ### Sprachbefehle
 
@@ -26,8 +26,8 @@ GetWeather kann Informationen zum Wetterbericht für bis zu fünf Tage in der Zu
 
 ### Slots
 
-`day` kann Werte eins bis fünf annehmen und beschreibt die Anzahl die der Tag für den abgefragt wird in der Zukunft liegt <br>
-`day_names` kann "heute", "morgen" oder "übermorgen" annehmen und beschreibt den Tag für den die Wettervorhersage abgefragt wird. Wird in eine Zahl umgewandelt an den Skill weitergeleitet <br>
+`day` kann Werte eins bis fünf annehmen und beschreibt die Anzahl der Tage, die der Tag für den abgefragt wird, in der Zukunft liegt <br>
+`day_names` kann "heute", "morgen" oder "übermorgen" annehmen und beschreibt den Tag, für den die Wettervorhersage abgefragt wird. Wird in eine Zahl umgewandelt an den Skill weitergeleitet <br>
 `hours` kann Werte zwischen null und 24 annehmen und beschreibt die Anzahl an Stunden, welche ein Wetterereignis in der Zukunft liegen soll <br>
 `temp_limit` kann Werte zwischen null und 25 annehmen und beschreibt die Grenztemperatur ab welcher benachrichtigt werden soll <br>
 

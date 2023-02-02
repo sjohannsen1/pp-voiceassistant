@@ -3,7 +3,7 @@ title: Quellen
 permalink: /docs/method/evaluation/sources/
 ---
 
-Um die Lösbarkeit der Rhasspyseitigen Probleme zu bewerten wurden einige Quellen genutzt.
+Um die Lösbarkeit der Rhasspy-seitigen Probleme zu bewerten, wurden einige Quellen genutzt.
 
 [EN] [Rhasspys Dokumentation zu Language Model Mixing](https://rhasspy.readthedocs.io/en/latest/training/#language-model-mixing)
 [EN] [Rhasspy Dokumentation zu Intentrecognition](https://rhasspy.readthedocs.io/en/latest/intent-recognition/)

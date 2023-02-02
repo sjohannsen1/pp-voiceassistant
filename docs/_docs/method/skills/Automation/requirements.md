@@ -40,8 +40,8 @@ NF-002 |	Das System muss Smart-Home Geräte steuern können | ✔ |
 | Identifikator | Beschreibung     | Umgesetzt                                                                                                        |
 |---|---|:---:|
 | F-100 | Das System muss Nutzenden die Möglichkeit bieten über den Status der Waschmaschine Benachrichtigungen zu erhalten | ✔ |
-| F-101 | Das System muss Nutzenden die Möglichkeit bieten über den Beginn eines Waschprogrammes eine Benachrichtigung zu erhalten | ✔ |
-| F-102 | Das System muss Nutzenden die Möglichkeit bieten über das Ende eines Waschprogrammes eine Benachrichtigung zu erhalten | ✔ |
+| F-101 | Das System muss Nutzenden die Möglichkeit bieten über den Beginn eines Waschprogramms eine Benachrichtigung zu erhalten | ✔ |
+| F-102 | Das System muss Nutzenden die Möglichkeit bieten über das Ende eines Waschprogramms eine Benachrichtigung zu erhalten | ✔ |
 | F-103 | Das System muss ermitteln können wenn sich der Status der Waschmaschine ändert | ✔ |
 | F-104 | Das System muss ermitteln können wann ein Waschprogramm startet | ✔ |
 | F-105 | Das System muss ermitteln können wann ein Waschprogramm endet | ✔ |

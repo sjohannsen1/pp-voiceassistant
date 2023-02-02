@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/main.css">
+    <link rel="stylesheet" href="/pp-voiceassistant/assets/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="/pp-voiceassistant/favicon.ico?1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Erkenntnisse aus den Protokollen | Praxisprojekt Sprachassistent</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Erkenntnisse aus den Protokollen" />
+<meta property="og:locale" content="de_DE" />
+<meta name="description" content="Schwierigkeiten im Alltag" />
+<meta property="og:description" content="Schwierigkeiten im Alltag" />
+<link rel="canonical" href="http://localhost:4000/pp-voiceassistant/docs/conception/findings/" />
+<meta property="og:url" content="http://localhost:4000/pp-voiceassistant/docs/conception/findings/" />
+<meta property="og:site_name" content="Praxisprojekt Sprachassistent" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-02-02T18:00:49+01:00" />
+<script type="application/ld+json">
+{"description":"Schwierigkeiten im Alltag","url":"http://localhost:4000/pp-voiceassistant/docs/conception/findings/","@type":"WebPage","headline":"Erkenntnisse aus den Protokollen","dateModified":"2023-02-02T18:00:49+01:00","datePublished":"2023-02-02T18:00:49+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="alternate" type="application/rss+xml" title="Praxisprojekt Sprachassistent" href="http://localhost:4000/pp-voiceassistant/feed.xml" />
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="/pp-voiceassistant/">
+                <span><img src="/pp-voiceassistant/assets/img/logonav.png" alt="Logo"></span> Praxisprojekt Sprachassistent
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li  class="active" ><a href="/pp-voiceassistant/docs/home/">Docs</a></li>
+<!--                <li ><a href="">Blog</a></li>-->
+            </ul>
+            <div class="navbar-right">
+<!--                <form class="navbar-form navbar-left">-->
+<!--                    <div class="form-group has-feedback">-->
+<!--                        <input id="search-box" type="search" class="form-control" placeholder="Search...">-->
+<!--                        <i class="fa fa-search form-control-feedback"></i>-->
+<!--                    </div>-->
+<!--                </form>-->
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/sjohannsen1/pp-voiceassistant"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+            Willkommen
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-1" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/home/">Willkommen</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+            Installation
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-2" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/installation/Zigbee2MQTT/">Installation Zigbee2MQTT</a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+            Skills
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-3" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+            
+            
+            <a class="list-group-item " href=""></a>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+            Fazit
+          </a>
+        </h4>
+      </div>
+      
+      
+      <div class="panel-collapse collapse" id="collapse-4" role="tabpanel" aria-label="Side Navigation">
+        <div class="list-group">
+          
+            
+            
+            <a class="list-group-item " href="/pp-voiceassistant/docs/conclusion/conclusion/">Fazit</a>
+          
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+
+        <div class="col-md-8">
+            <h1>Erkenntnisse aus den Protokollen</h1>
+            <div id="markdown-content-container"><h2 id="schwierigkeiten-im-alltag">Schwierigkeiten im Alltag</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifikator</th>
+      <th>Beschreibung</th>
+      <th>Quelle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>E-1</td>
+      <td>Wäsche wird in der Waschmaschine vergessen</td>
+      <td>Protokoll 1.1</td>
+    </tr>
+    <tr>
+      <td>E-2</td>
+      <td>Licht kann Nachts nicht angeschaltet werden, da zu hell</td>
+      <td>Protokoll 1.1</td>
+    </tr>
+    <tr>
+      <td>E-3</td>
+      <td>Aufgaben werden Vergessen (Putzen)</td>
+      <td>Protokoll 1.2</td>
+    </tr>
+    <tr>
+      <td>E-4</td>
+      <td>Es wird vergessen in den Briefkasten zu schauen</td>
+      <td>Protokoll 1.2</td>
+    </tr>
+    <tr>
+      <td>E-5</td>
+      <td>Es wird vergessen ob das Licht ausgeschaltet wurde</td>
+      <td>Protokoll 1.2</td>
+    </tr>
+    <tr>
+      <td>E-6</td>
+      <td>Liste (Aufgaben/Einkaufen) wird vergessen oder verlegt</td>
+      <td>Protokolle 2.1, 2.2 und 3.2</td>
+    </tr>
+    <tr>
+      <td>E-7</td>
+      <td>Klingel wird überhört</td>
+      <td>Protokolle 3.1 und 4</td>
+    </tr>
+    <tr>
+      <td>E-8</td>
+      <td>Gefrierschrank wird offen gelassen</td>
+      <td>Protokoll 4</td>
+    </tr>
+    <tr>
+      <td>E-9</td>
+      <td>Unnötiger Weg zum Briefkasten falls keine Post gekommen ist</td>
+      <td>Protokoll 4</td>
+    </tr>
+    <tr>
+      <td>E-10</td>
+      <td>Durch schlechte Sicht muss Lichtschalter gesucht werden</td>
+      <td>Protokoll 4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="abläufe-welche-unterstützbar-durch-assistenten-sind">Abläufe, welche unterstützbar durch Assistenten sind</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifikator</th>
+      <th>Beschreibung</th>
+      <th>Quelle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>E-11</td>
+      <td>Wecker (einfach und mit Wiederholung)</td>
+      <td>Protokolle 1 - 4</td>
+    </tr>
+    <tr>
+      <td>E-12</td>
+      <td>Timer</td>
+      <td>Protokolle 1 - 3</td>
+    </tr>
+    <tr>
+      <td>E-13</td>
+      <td>Listen schreiben und verwalten</td>
+      <td>Protokolle 1 - 4</td>
+    </tr>
+    <tr>
+      <td>E-13-1</td>
+      <td>Listen zur Mitnahme ausgeben</td>
+      <td>Protokolle 1 - 4</td>
+    </tr>
+    <tr>
+      <td>E-14</td>
+      <td>Lichtsteuerung (Einzelne Lampen und Gruppen)</td>
+      <td>Protokolle 1 - 4</td>
+    </tr>
+    <tr>
+      <td>E-14-1</td>
+      <td>Lichtfarbsteuerung (Temperatur und Farbe)</td>
+      <td>Protokoll 1</td>
+    </tr>
+    <tr>
+      <td>E-14-2</td>
+      <td>Lichthelligkeitssteuerung</td>
+      <td>Protokolle 1 - 3</td>
+    </tr>
+    <tr>
+      <td>E-14-3</td>
+      <td>Lichtprofile</td>
+      <td>Protokolle 1 - 3</td>
+    </tr>
+    <tr>
+      <td>E-15</td>
+      <td>Wetterberichte</td>
+      <td>Protokolle 1 - 4</td>
+    </tr>
+    <tr>
+      <td>E-15-1</td>
+      <td>Informationen über Niederschlag</td>
+      <td>Protokolle 1 - 4</td>
+    </tr>
+    <tr>
+      <td>E-15-2</td>
+      <td>Informationen über Wetterwarnungen</td>
+      <td>Protokolle 2 und 4</td>
+    </tr>
+    <tr>
+      <td>E-15-3</td>
+      <td>Informationen über markantes Wetter</td>
+      <td>Protokolle 1, 2 und 4</td>
+    </tr>
+    <tr>
+      <td>E-15-4</td>
+      <td>Informationen über Temperaturverlauf</td>
+      <td>Protokolle 1 und 2</td>
+    </tr>
+    <tr>
+      <td>E-16</td>
+      <td>Musiksteuerung</td>
+      <td>Protokolle 1 - 3</td>
+    </tr>
+    <tr>
+      <td>E-17</td>
+      <td>Radiosteuerung</td>
+      <td>Protokolle 2 - 4</td>
+    </tr>
+    <tr>
+      <td>E-18</td>
+      <td>Bahnstrecken</td>
+      <td>Protokolle 1 und 2</td>
+    </tr>
+    <tr>
+      <td>E-19</td>
+      <td>Kalender</td>
+      <td>Protokolle 1 - 4</td>
+    </tr>
+    <tr>
+      <td>E-20</td>
+      <td>Erinnerungen</td>
+      <td>Protokolle 1 - 4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+            <div style="clear:both;">
+              <p class="text-center">
+                <br />
+                <a target="_blank" href="https://github.com/sjohannsen1/pp-voiceassistant/tree/main/docs/_docs/conception/findings.md" class="btn btn-default" role="button">
+                  <i class="fa fa-pencil fa-lg"></i> Improve this page
+                </a>
+              </p>
+            </div>
+            <hr>
+            
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            Praxisprojekt Sprachassistent 2023 |
+            Powered by <a href="https://github.com/aksakalli/jekyll-doc-theme">Jekyll Doc Theme</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
+
+    <script>
+  var baseurl = '/pp-voiceassistant'
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/pp-voiceassistant/assets/js/bootstrap.min.js "></script>
+<script src="/pp-voiceassistant/assets/js/typeahead.bundle.min.js "></script>
+
+<script src="/pp-voiceassistant/assets/js/main.js "></script>
+
+</body>
+
+</html>

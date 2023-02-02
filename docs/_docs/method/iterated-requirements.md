@@ -5,7 +5,7 @@ permalink: /docs/method/iterated-requirements
 
 Basierend auf den Erkenntnissen der Evaluation des Systems von Finn Wehn wurden einige Anforderungen hinzugefügt und einige entfernt. 
 Die entfernten Anforderungen umfassen alle eine freie Benennung von Entitäten und sind mit einem ❌ markiert. Die Speicherfunktion für Wecker und Zeitschaltuhren ist auch entfernt worden, da ohne Benennung diese keinen Mehrwert gegenüber eines neuen Weckers oder einer neuen Zeitschaltuhr bietet. <br>
-Falls solche Funktionen unabdingbar sind, sind die zugehörigen Anforderungen worden und mit einem ➖ markiert. Neu hinzugefügte Anforderungen werden kurz Beschrieben. 
+Falls solche Funktionen unabdingbar sind, sind die zugehörigen Anforderungen worden und mit einem ➖ markiert. Neu hinzugefügte Anforderungen werden kurz beschrieben. 
 
 ## Nichtfunktionale Anforderungen
 
