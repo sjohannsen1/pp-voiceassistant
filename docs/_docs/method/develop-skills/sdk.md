@@ -1,6 +1,6 @@
 ---
 title: SDK
-permalink: /docs/method/develop-skill/sdk
+permalink: /docs/method/develop-skills/sdk/
 ---
 
 Die CustomSDK von Finn Wehn wurde iteriert. [Die ursprüngliche SDK ist hier dokumentiert.](https://fwehn.github.io/pp-voiceassistant/docs/create-skills/sdk/) Die Änderungen werden hier beschrieben. <br>

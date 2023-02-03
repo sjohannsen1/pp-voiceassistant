@@ -8,6 +8,20 @@
       "url": "/pp-voiceassistant/docs/home/"
     },
   
+    
+    
+    {
+      "title": "Was ist ein Sprachassistent?",
+      "url": "/pp-voiceassistant/docs/relevancy/"
+    },
+  
+    
+    
+    {
+      "title": "Glossar",
+      "url": "/pp-voiceassistant/docs/glossary/"
+    },
+  
 
   
     
@@ -43,15 +57,15 @@
     
     
     {
-      "title": "",
-      "url": ""
+      "title": "Protokoll 1",
+      "url": "/pp-voiceassistant/docs/conception/protocols/1/"
     },
   
     
     
     {
-      "title": "",
-      "url": ""
+      "title": "Protokoll 2",
+      "url": "/pp-voiceassistant/docs/conception/protocols/2/"
     },
   
     
@@ -101,8 +115,8 @@
     
     
     {
-      "title": "",
-      "url": ""
+      "title": "Änderungen am Skillverwaltungssystem",
+      "url": "/pp-voiceassistant/docs/method/evaluation/iteration/"
     },
   
     
@@ -119,11 +133,41 @@
       "url": "/pp-voiceassistant/docs/method/evaluation/sources/"
     },
   
+
+  
     
     
     {
-      "title": "",
-      "url": ""
+      "title": "Anleitung",
+      "url": "/pp-voiceassistant/docs/method/develop-skills/instruction/"
+    },
+  
+    
+    
+    {
+      "title": "Locales",
+      "url": "/pp-voiceassistant/docs/method/develop-skills/locales/"
+    },
+  
+    
+    
+    {
+      "title": "Manifest",
+      "url": "/pp-voiceassistant/docs/method/develop-skills/manifest/"
+    },
+  
+    
+    
+    {
+      "title": "SDK",
+      "url": "/pp-voiceassistant/docs/method/develop-skills/sdk/"
+    },
+  
+    
+    
+    {
+      "title": "Konfigurationsdateien",
+      "url": "/pp-voiceassistant/docs/method/develop-skills/configs/"
     },
   
 
@@ -131,7 +175,30 @@
     
     
     {
-      "title": "Uhr-Skill",
+      "title": "Iterierte Anforderungen",
+      "url": "/pp-voiceassistant/docs/method/iterated-requirements/"
+    },
+  
+    
+    
+    {
+      "title": "Grundset an Skills",
+      "url": "/pp-voiceassistant/docs/method/skills/index/"
+    },
+  
+    
+    
+    {
+      "title": "Erkenntnisse zur Entwicklung von Skills",
+      "url": "/pp-voiceassistant/docs/method/skills/findings-develop-skills/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "GetTime",
       "url": "/pp-voiceassistant/docs/method/skills/GetTime/index/"
     },
   
@@ -154,14 +221,14 @@
     
     
     {
-      "title": "GetWeather Skill",
+      "title": "GetWeather",
       "url": "/pp-voiceassistant/docs/method/skills/GetWeather/index/"
     },
   
     
     
     {
-      "title": "GetWeather - Anforderungen",
+      "title": "Anforderungen",
       "url": "/pp-voiceassistant/docs/method/skills/GetWeather/requirements/"
     },
   
@@ -177,14 +244,14 @@
     
     
     {
-      "title": "Listen Skill",
+      "title": "Listen",
       "url": "/pp-voiceassistant/docs/method/skills/Lists/index/"
     },
   
     
     
     {
-      "title": "Lists - Anforderungen",
+      "title": "Anforderungen",
       "url": "/pp-voiceassistant/docs/method/skills/Lists/requirements/"
     },
   
@@ -200,7 +267,7 @@
     
     
     {
-      "title": "PlayMusic Skill",
+      "title": "PlayMusic",
       "url": "/pp-voiceassistant/docs/method/skills/PlayMusic/index/"
     },
   
@@ -223,14 +290,14 @@
     
     
     {
-      "title": "Zigbee2MQTT Skill",
+      "title": "Zigbee2MQTT",
       "url": "/pp-voiceassistant/docs/method/skills/Zigbee2MQTT/index/"
     },
   
     
     
     {
-      "title": "Zigbee2MQTT - Anforderungen",
+      "title": "Anforderungen",
       "url": "/pp-voiceassistant/docs/method/skills/Zigbee2MQTT/requirements/"
     },
   
@@ -246,7 +313,7 @@
     
     
     {
-      "title": "Automatisierungs-Skill",
+      "title": "Automatisierung",
       "url": "/pp-voiceassistant/docs/method/skills/Automation/index/"
     },
   
@@ -285,45 +352,8 @@
     
     
     {
-      "title": "",
-      "url": ""
-    },
-  
-    
-    
-    {
-      "title": "",
-      "url": ""
-    },
-  
-    
-    
-    {
-      "title": "",
-      "url": ""
-    },
-  
-    
-    
-    {
-      "title": "",
-      "url": ""
-    },
-  
-    
-    
-    {
-      "title": "",
-      "url": ""
-    },
-  
-
-  
-    
-    
-    {
-      "title": "",
-      "url": ""
+      "title": "Herausforderungen bei der Entwicklung",
+      "url": "/pp-voiceassistant/docs/conclusion/difficulties/"
     },
   
     

@@ -4,7 +4,7 @@ permalink: /docs/conception/requirements/
 ---
 
 Basierend auf den Erkenntnissen der Protokolle und der Zielgruppe wurden Anforderungen an den Sprachassistenten erarbeitet. Diese sind in funktionale und nichtfunktionale aufgeteilt. <br>
-E-18 bis E-20 wurden nicht beachtet. Bei diesen ist die visuelle Komponente sehr wichtig. Somit müsste ein bestehendes Programm eingebunden und durch den Sprachassistenten unterstützt werden, dies wurde mit einer niedrigen Priorität bewertet. Des Weiteren lässt sich E-20 auch über einen Wecker oder Timer abbilden. <br>
+E-18 bis E-20 wurden nicht beachtet. Da diesen die visuelle Komponente sehr wichtig ist, müsste ein bestehendes Programm eingebunden und durch den Sprachassistenten unterstützt werden. Das wurde mit einer niedrigen Priorität bewertet. Des Weiteren lässt sich E-20 auch über einen Wecker oder Timer abbilden. <br>
 
 Die ermittelten Anforderungen wurden mithilfe des muss/soll/kann - Schemas priorisiert. 
 

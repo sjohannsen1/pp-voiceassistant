@@ -2,9 +2,9 @@
 title: Evaluation des Skillverwaltungssystems
 permalink: /docs/method/evaluation/eval/
 ---
-## Evaluation des Skillverwaltungssystems von Finn Wehn im Hinblick auf die Umsetzung der ermittelten Anforderungen
 
-Es wurde die Version des Skillverwaltungssystems vom 8. April 2022 evaluiert und für den Rest des Projekts verwendet. <br>
+Das Skillverwaltungssystem von Finn Wehn wurde im Hinblick auf die Umsetzung der ermittelten Anforderungen evaluiert. 
+Dazu wurde die Version vom 8. April 2022 verwendet. <br>
 
 ## Rhasspy Instanz
 
@@ -12,11 +12,11 @@ Bis auf die Verwendung von externem MQTT sind keine Einstellungen für Rhasspy v
 
 ## Sprachunabhängigkeit
 
-Jeder Skill der von diesem System verwaltet wird, besteht aus einer oder mehreren `locale`-Dateien, einer `Manifest`-Datei und dem eigentlichen Code. In jeder locale-Datei werden alle Intents, Antworten und Slots einer Sprache festgelegt. Außerdem werden dort die Funktionen mit den Intents verknüpft. Die Funktionen werden in der Quellcode-Datei implementiert. In den Funktionen wird keine Sprache verarbeitet. Eingaben über Slots können von Rhasspy nach festgelegtem Schema ersetzt werden. So können beispielsweise die Zustände "an" und "aus" von Smarten Geräten in die Werte "0" und "1" übersetzt werden. Die Antworten des Sprachassistenten werden mithilfe der definierten Sätze in den locale-Dateien generiert. Falls Variablen in der Antwort mit ausgegeben werden sollen, werden diese von der CustomSDK in die Antwort eingefügt. In der Manifest-Datei befinden sich die NodeJS-Module, die ein Skill verwendet, Optionen, welche von Nutzenden ausgefüllt werden müssen und die Version des Skills. Die Optionen sind Eingaben, welche vom Skill benötigt werden um zu funktionieren. Ein API-Key oder die Stadt, für die das Wetter abgefragt werden soll, sind Beispiele für Optionen.
+Jeder Skill der von diesem System verwaltet wird, besteht aus einer oder mehreren locale-Dateien, einer Manifest-Datei und dem eigentlichen Code. In jeder locale-Datei werden alle Intents, Antworten und Slots einer Sprache festgelegt. Außerdem werden dort die Funktionen mit den Intents verknüpft. Die Funktionen werden in der Quellcode-Datei implementiert. In den Funktionen wird keine Sprache verarbeitet. Eingaben über Slots können von Rhasspy nach festgelegtem Schema ersetzt werden. So können beispielsweise die Zustände "an" und "aus" von Smarten Geräten in die Werte "0" und "1" übersetzt werden. Die Antworten des Sprachassistenten werden mithilfe der definierten Sätze in den locale-Dateien generiert. Falls Variablen in der Antwort mit ausgegeben werden sollen, werden diese von der CustomSDK in die Antwort eingefügt. In der Manifest-Datei befinden sich die NodeJS-Module, die ein Skill verwendet, Optionen, welche von Nutzenden ausgefüllt werden müssen und die Version des Skills. Die Optionen sind Eingaben, welche vom Skill benötigt werden um zu funktionieren. Ein API-Key oder die Stadt, für die das Wetter abgefragt werden soll, sind Beispiele für Optionen.
 
 ## NodeJS-Module
 
-NodeJS-Module sind Bibliotheken an Funktionen, welche Programmen durch das Framework NodeJS zur Verfügung gestellt werden. Falls Skills davon welche verwenden, müssen sie bei der Installation mitinstalliert werden. Dies muss einzeln für jeden Skill durchgeführt werden. Dazu ist ein Zugriff auf das Terminal des Geräts, auf welchem der Sprachassistent läuft nötig. Wird das nicht vor Installation des Skills gemacht, bricht das Programm ab und lässt sich nicht wieder neu starten. Erst wenn entweder die Module installiert wurden oder die Skilldateien gelöscht und der Skill aus der Liste mit verfügbaren Skills gelöscht wurde, lässt sich das Programm wieder verwenden. Die benötigten Module sind in der `Manifest` Datei der einzelnen Skills festgehalten.
+NodeJS-Module sind Bibliotheken an Funktionen, welche Programmen durch das Framework NodeJS zur Verfügung gestellt werden. Falls Skills davon welche verwenden, müssen sie bei der Installation mitinstalliert werden. Dies muss einzeln für jeden Skill durchgeführt werden. Dazu ist ein Zugriff auf das Terminal des Geräts, auf welchem der Sprachassistent läuft nötig. Wird das nicht vor Installation des Skills gemacht, bricht das Programm ab und lässt sich nicht wieder neu starten. Erst wenn, entweder die Module installiert wurden oder die Skilldateien gelöscht und der Skill aus der Liste mit verfügbaren Skills gelöscht wurde, lässt sich das Programm wieder verwenden. Die benötigten Module sind in der Manifest-Datei der einzelnen Skills festgehalten.
 
 ## Umgebungsvariablen
 

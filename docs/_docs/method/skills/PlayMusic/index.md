@@ -1,5 +1,5 @@
 ---
-title: Start
+title: PlayMusic
 permalink: /docs/method/skills/PlayMusic/index/
 ---
 

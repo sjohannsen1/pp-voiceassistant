@@ -1,6 +1,8 @@
 - title: Willkommen
   docs:
     - home
+    - relevancy
+    - glossary
 
 - title: Installation
   docs:
@@ -25,7 +27,21 @@
     - method/evaluation/iteration
     - method/evaluation/conclusion
     - method/evaluation/sources
+
+- title: >
+    Iterierte Entwicklungsanleitung
+  docs:
+    - method/develop-skills/instruction
+    - method/develop-skills/locales
+    - method/develop-skills/manifest
+    - method/develop-skills/sdk
+    - method/develop-skills/configs
+
+- title: Skills
+  docs: 
     - method/iterated-requirements
+    - method/skills/index
+    - method/skills/findings-develop-skills
 
 - title: >
     Skills: GetTime
@@ -74,16 +90,6 @@
   docs:
     - method/bot/index
     - method/bot/requirements
-
-- title: >
-    Skills entwickeln
-  docs:
-    - method/develop-skills/instruction
-    - method/develop-skills/locales
-    - method/develop-skills/manifest
-    - method/develop-skills/sdk
-    - method/develop-skills/configs
-
 
 - title: Fazit
   docs:

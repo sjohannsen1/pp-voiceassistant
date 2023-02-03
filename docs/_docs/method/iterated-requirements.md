@@ -1,15 +1,15 @@
 ---
-title: Quellen
-permalink: /docs/method/iterated-requirements
+title: Iterierte Anforderungen
+permalink: /docs/method/iterated-requirements/
 ---
 
 Basierend auf den Erkenntnissen der Evaluation des Systems von Finn Wehn wurden einige Anforderungen hinzugefügt und einige entfernt. 
 Die entfernten Anforderungen umfassen alle eine freie Benennung von Entitäten und sind mit einem ❌ markiert. Die Speicherfunktion für Wecker und Zeitschaltuhren ist auch entfernt worden, da ohne Benennung diese keinen Mehrwert gegenüber eines neuen Weckers oder einer neuen Zeitschaltuhr bietet. <br>
-Falls solche Funktionen unabdingbar sind, sind die zugehörigen Anforderungen worden und mit einem ➖ markiert. Neu hinzugefügte Anforderungen werden kurz beschrieben. 
+Falls solche Funktionen unabdingbar sind, sind die zugehörigen Anforderungen angepasst worden und mit einem ➖ markiert. Neu hinzugefügte Anforderungen werden kurz beschrieben. 
 
 ## Nichtfunktionale Anforderungen
 
-Die Nichtfunktionalen Anforderungen wurden um zwei Erweitert. Bei der Evaluation ist die Wichtigkeit einer sprachunabhängigen Entwicklung der Skills und die Unabhängigkeit untereinander der Skills aufgefallen.
+Die Nichtfunktionalen Anforderungen wurden um zwei erweitert. Bei der Evaluation ist die Wichtigkeit einer sprachunabhängigen Entwicklung der Skills und die Unabhängigkeit der Skills untereinander aufgefallen.
 
 | Identifikator | Beschreibung                                                                    | Quelle         | Möglich |
 |---------------|---------------------------------------------------------------------------------|----------------|:---------:|

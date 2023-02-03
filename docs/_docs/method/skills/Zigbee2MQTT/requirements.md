@@ -1,5 +1,5 @@
 ---
-title: Zigbee2MQTT - Anforderungen
+title: Anforderungen
 permalink: /docs/method/skills/Zigbee2MQTT/requirements/
 ---
 

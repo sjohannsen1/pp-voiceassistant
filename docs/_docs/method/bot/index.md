@@ -25,11 +25,11 @@ Es ist auch möglich einzeln mit dem Bot zu interagieren. Falls dem Bot einer se
 
 ### Interaktion mit Rhasspy
 
-Der Bot reagiert auf die gleichen Sätze wie Rhasspy und leitet diese über MQTT daran weiter. Dort werden die wie ein Sprachbefehl verarbeitet. Auch Antworten des Assistenten empfängt der Bot und leitet sie an seine Abonnenten weiter.<br>
+Der Bot reagiert auf die gleichen Sätze wie Rhasspy und leitet diese über MQTT daran weiter. Dort werden diese wie ein Sprachbefehl verarbeitet. Auch Antworten des Assistenten empfängt der Bot und leitet sie an seine Abonnenten weiter.<br>
 
 ### Hinzufügen neuer Sloteinträge
 
-Außerdem kann der Bot neue Radiosender und Lieder zu dem Skill "PlayMusic" hinzufügen. Dazu fordert er den Interaktionspartner dazu auf, alle für die Konfiguration nötigen Daten zu senden. Antwortet der Interaktionspartner mit den Daten darauf, werden diese in die Konfigurationsdatei gespeichert. Die Daten werden dabei nicht kontrolliert, also ist es wichtig das dem Bot nur korrekte Daten gesendet werden. Falls doch Fehler geschehen, müssen diese manuell aus der Konfigurationsdatei gelöscht werden. Die erhaltenen Radiosender und Lieder werden auch an die zugehörigen Slots bei Rhasspy gesendet <br>
+Außerdem kann der Bot neue Radiosender und Lieder zu dem Skill "PlayMusic" hinzufügen. Dazu fordert er den Interaktionspartner dazu auf, alle für die Konfiguration nötigen Daten zu senden. Antwortet der Interaktionspartner mit den Daten darauf, werden diese in die zugehörige Konfigurationsdatei gespeichert. Die Daten werden dabei nicht kontrolliert, also ist es wichtig, dass dem Bot nur korrekte Daten gesendet werden. Falls doch Fehler geschehen, müssen diese manuell aus der Konfigurationsdatei gelöscht werden. Die erhaltenen Radiosender und Lieder werden auch an die zugehörigen Slots bei Rhasspy gesendet. <br>
 Ist der Skill nicht installiert, antwortet der Bot mit einer Fehlermeldung.
 
 #### Nachrichten an den Bot
@@ -40,5 +40,5 @@ Neuen Radiosender einspeichern: `name: sendername url: url.de` <br>
 Informationen über das Format für neue Radiosender erhalten: Nachricht muss `neuer Song` oder `neues Lied` enthalten <br>
 Neues Lied einspeichern: `name: sendername artist: name path: pfad_zu_datei` <br>
 
-Außerdem alle Sätze auf die Rhasspy reagiert.
+Außerdem können alle Sätze auf die Rhasspy reagiert an den Bot gesendet werden.
 

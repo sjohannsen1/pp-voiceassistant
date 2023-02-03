@@ -1,6 +1,6 @@
 ---
 title: Locales
-permalink: /docs/method/develop-skill/locales/
+permalink: /docs/method/develop-skills/locales/
 ---
 
 Der Aufbau einer locale Datei hat sich geändert. Wie genau diese erstellt werden, ist [hier von Finn Wehn erklärt](https://fwehn.github.io/pp-voiceassistant/docs/create-skills/locales/). Hier werden lediglich die Änderungen festgehalten. <br>

@@ -1,5 +1,5 @@
 ---
-title: Zigbee2MQTT Skill
+title: Zigbee2MQTT
 permalink: /docs/method/skills/Zigbee2MQTT/index/
 ---
 

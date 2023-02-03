@@ -36,7 +36,7 @@ Bei Rhasspy müssen einige Dinge eingestellt werden. Dazu wird die Weboberfläch
 In den Einstellungen muss dann der Host und der Port des MQTT-Brokers angeben werden. Wenn nichts an dieser Anleitung geändert wurde sind das `localhost` und `1883`.  
 2. Audio Recording: PyAudio
 3. Wake Word: Porcupine <br>
-Das genaue Wake Word kann frei aus einer Liste gewählt werden
+Das genaue Wake Word kann frei aus einer Liste gewählt werden.
 4. Speech to Text: Kaldi
 5. Intent Recognition: Fsticuffs <br>
 Die Einstellung "fuzzy" muss hier aktiviert werden.
@@ -66,11 +66,11 @@ Ein Server kann in der [Browserapplikation](https://discord.com/channels/@me) vo
 
 #### Bot mit Code versehen
 
-Auf der Seite des Bots [https://discord.com/developers/applications -> Applikation -> Bot] befindet sich die Schaltfläche „Reset Token“. Wenn auf diese geklickt und bestätigt wird erscheint das Token. Das ist das Passwort des Bots. Dieses nun kopieren und dann als Umgebungsvariable im Ordner des Bots in einer „.env“ Datei speichern.
+Auf der [Seite des Bots](https://discord.com/developers/applications) [-> Applikation -> Bot] befindet sich die Schaltfläche „Reset Token“. Wenn auf diese geklickt und bestätigt wird erscheint das Token. Das ist das Passwort des Bots. Dieses nun kopieren und dann als Umgebungsvariable im Ordner des Bots in einer „.env“ Datei speichern.
 Wenn nun mit 'npm start' der Bot Client gestartet wird, loggt sich der Bot ein und wartet auf Nachrichten. 
 
 ## Inbetriebnahme des Systems
 
 Um das System zu starten, müssen nun mit dem Befehl `bash start.sh` alle erwünschten Systemteile gestartet werden. 
 Alternativ kann im Ordner des Clients der Befehl `npm start` ausgeführt werden. Bei Verwendung des Servers in dessen Ordner auch. 
-Wird der Discord Bot verwendet kann dann dort das Gleiche geschehen. 
+Wird der Discord Bot verwendet, kann dann dort das Gleiche geschehen. 

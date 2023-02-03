@@ -1,5 +1,5 @@
 ---
-title: Listen Skill
+title: Listen
 permalink: /docs/method/skills/Lists/index/
 ---
 
