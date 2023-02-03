@@ -1,5 +1,5 @@
 ---
-title: PlayMusic Skill
+title: Start
 permalink: /docs/method/skills/PlayMusic/index/
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Lists - Anforderungen
+title: Anforderungen
 permalink: /docs/method/skills/Lists/requirements/
 ---
 

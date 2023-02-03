@@ -1,5 +1,5 @@
 ---
-title: GetWeather - Anforderungen
+title: Anforderungen
 permalink: /docs/method/skills/GetWeather/requirements/
 ---
 
