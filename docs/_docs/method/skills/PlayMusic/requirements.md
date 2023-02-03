@@ -13,7 +13,7 @@ Der Skill PlayMusic muss den vorher festgelegten Anforderungen genügen. Aufgrun
 | NF-004 | Die Skills müssen sprachunabhängig entwickelt werden                   | ➖ |
 | NF-005 | Die Skills müssen unabhängig von einander Funktionieren                | ✔ |
 
-Die Anforderung NF-004 ist bedingt durch die Sprachabhängigkeit der Sender nur teilweise erfüllt. Diese publizieren Informationen zum aktuell gesendeten nur auf der Sprache des Programms. Das Parsen dieser Informationen lässt sich deshalb leider nicht sprachunabhängig umsetzen. Alle restlichen Sprachbefehle erfüllen NF-004.
+Die Anforderung NF-004 ist bedingt durch die Sprachabhängigkeit der Sender nur teilweise erfüllt. Diese publizieren Informationen zum aktuell gesendeten nur auf der Sprache des Programms. Es könnte zwar in der locale-Datei ein regulärer Ausdruck zur Auswertung dieser Informationen festgelegt werden, dies wurde hier aber aus Aufwandgründen nicht umgesetzt.  Alle restlichen Sprachbefehle erfüllen NF-004.
 
 
 ## Funktionale Anforderungen für Musik

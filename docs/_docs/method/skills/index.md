@@ -7,9 +7,9 @@ Das entwickelte Grundset an Skills umfasst sechs verschiedene Skills. In diesem 
 
 Die Skills sind: <br>
 
-[Automatisierung](./Automation/index.md)
 [GetTime](./GetTime/index.md)
 [GetWeather](./GetWeather/index.md)
 [Lists](./Lists/index.md)
 [PlayMusic](./PlayMusic/index.md)
 [Zigbee2MQTT](./GetTime/index.md)
+[Automatisierung](./Automation/index.md)

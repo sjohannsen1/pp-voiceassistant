@@ -7,6 +7,7 @@
     - installation/index
     - installation/instructions
     - installation/Zigbee2MQTT
+
 - title: Konzeption
   docs: 
     - conception/index
@@ -18,6 +19,7 @@
       - conception/protocols/4
     - conception/findings
     - conception/requirements
+    
 - title: Umsetzung
   docs: 
     - title: Evaluation
