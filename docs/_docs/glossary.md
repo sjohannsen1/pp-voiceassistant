@@ -9,11 +9,11 @@ In dieser Dokumentation kommen domänenspezifische Begriffe vor. Diese sind hier
 
 [MQTT](https://mqtt.org/faq/) ist ein Nachrichtenübermittlungsprotokoll zwischen zwei Maschinen, welches das Publish/Subscribe Pattern (Publizieren/Abonnieren Entwurfsmuster) verwendet.  <br>
 Das Protokoll verwendet einen Broker. Das ist ein Server welcher für die Vermittlung der publizierten Nachrichten verantwortlich ist. <br>
-Als Topics werden die Betreffe genannt, unter denen Nachrichten veröffentlicht werden.
+Die Betreffe unter denen Nachrichten veröffentlicht werden, werden als Topics bezeichnet.
 
 ## Zigbee
 
-Zigbee ist ein Kommunikationsprotokoll. Es ist auf die übertragung von geringen Datenmengen und minimalem Energieverbrauch ausgelegt. Das Protokoll wird besonders für Heimautomatik verwendet
+Zigbee ist ein Kommunikationsprotokoll. Es ist auf die Übertragung von geringen Datenmengen und minimalem Energieverbrauch ausgelegt. Das Protokoll wird besonders für Heimautomatik verwendet
 
 ## Zigbee2MQTT
 
@@ -22,6 +22,10 @@ Ein Service, welcher eine Brücke zwischen den Kommunikationsprotokollen Zigbee 
 ## Skill
 
 Als Skill werden hier Funktionen eines Sprachassistents bezeichnet. Diese Bezeichnung ist von Amazon Alexa übernommen worden.
+
+## Sentence
+
+Der Satz, den Nutzende an den Sprachassistenten richten. Aus diesem werden Intent und Slots extrahiert.
 
 ## Intents
 
