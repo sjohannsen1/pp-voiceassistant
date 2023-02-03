@@ -1,5 +1,5 @@
 ---
-title: Automatisierungsskill - Anforderungen
+title: Anforderungen
 permalink: /docs/method/skills/Automation/requirements/
 ---
 

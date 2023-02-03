@@ -29,6 +29,8 @@ Als Intents wird die Absicht eines Satzes bezeichnet. Intents sind die Sprachbef
 
 ## Slots
 
-Als Slot wird eine variable Entität in einem Intent bezechnet. Ein Slot besteht aus einem Namen und mehreren möglichen Einträgen.
+Als Slot wird eine variable Entität in einem Intent bezeichnet. Ein Slot besteht aus einem Namen und mehreren möglichen Einträgen.
 
 ## Training
+
+Als Training wird die Generierung von Sprachmodell und Intentbäumen durch den Sprachassistenten genannt. Außerdem erlernt dieser dabei das Sprachmodell. 

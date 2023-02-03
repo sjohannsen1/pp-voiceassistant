@@ -1,7 +1,8 @@
 ---
-title: Evaluation des Skillverwaltungssystems von Finn Wehn im Hinblick auf die Umsetzung der ermittelten Anforderungen
+title: Evaluation des Skillverwaltungssystems
 permalink: /docs/method/evaluation/eval/
 ---
+## Evaluation des Skillverwaltungssystems von Finn Wehn im Hinblick auf die Umsetzung der ermittelten Anforderungen
 
 Es wurde die Version des Skillverwaltungssystems vom 8. April 2022 evaluiert und für den Rest des Projekts verwendet. <br>
 

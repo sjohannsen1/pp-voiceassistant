@@ -13,22 +13,15 @@
     
     
     {
-      "title": "",
-      "url": ""
+      "title": "Installation",
+      "url": "/pp-voiceassistant/docs/installation/index/"
     },
   
     
     
     {
-      "title": "",
-      "url": ""
-    },
-  
-    
-    
-    {
-      "title": "",
-      "url": ""
+      "title": "Anleitung",
+      "url": "/pp-voiceassistant/docs/installation/instructions/"
     },
   
     
@@ -43,6 +36,13 @@
     
     
     {
+      "title": "Konzeption",
+      "url": "/pp-voiceassistant/docs/conception/index/"
+    },
+  
+    
+    
+    {
       "title": "",
       "url": ""
     },
@@ -53,6 +53,234 @@
       "title": "",
       "url": ""
     },
+  
+    
+    
+    {
+      "title": "Protokoll 3",
+      "url": "/pp-voiceassistant/docs/conception/protocols/3/"
+    },
+  
+    
+    
+    {
+      "title": "Protokoll 4",
+      "url": "/pp-voiceassistant/docs/conception/protocols/4/"
+    },
+  
+    
+    
+    {
+      "title": "Erkenntnisse aus den Protokollen",
+      "url": "/pp-voiceassistant/docs/conception/findings/"
+    },
+  
+    
+    
+    {
+      "title": "Anforderungen",
+      "url": "/pp-voiceassistant/docs/conception/requirements/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "Was ist das Skillverwaltungssystem?",
+      "url": "/pp-voiceassistant/docs/method/evaluation/index/"
+    },
+  
+    
+    
+    {
+      "title": "Evaluation des Skillverwaltungssystems",
+      "url": "/pp-voiceassistant/docs/method/evaluation/eval/"
+    },
+  
+    
+    
+    {
+      "title": "",
+      "url": ""
+    },
+  
+    
+    
+    {
+      "title": "Zwischenfazit",
+      "url": "/pp-voiceassistant/docs/method/evaluation/conclusion/"
+    },
+  
+    
+    
+    {
+      "title": "Quellen",
+      "url": "/pp-voiceassistant/docs/method/evaluation/sources/"
+    },
+  
+    
+    
+    {
+      "title": "",
+      "url": ""
+    },
+  
+
+  
+    
+    
+    {
+      "title": "Uhr-Skill",
+      "url": "/pp-voiceassistant/docs/method/skills/GetTime/index/"
+    },
+  
+    
+    
+    {
+      "title": "Anforderungen",
+      "url": "/pp-voiceassistant/docs/method/skills/GetTime/requirements/"
+    },
+  
+    
+    
+    {
+      "title": "Komplexität",
+      "url": "/pp-voiceassistant/docs/method/skills/GetTime/complexity/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "GetWeather Skill",
+      "url": "/pp-voiceassistant/docs/method/skills/GetWeather/index/"
+    },
+  
+    
+    
+    {
+      "title": "GetWeather - Anforderungen",
+      "url": "/pp-voiceassistant/docs/method/skills/GetWeather/requirements/"
+    },
+  
+    
+    
+    {
+      "title": "Komplexität",
+      "url": "/pp-voiceassistant/docs/method/skills/GetWeather/complexity/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "Listen Skill",
+      "url": "/pp-voiceassistant/docs/method/skills/Lists/index/"
+    },
+  
+    
+    
+    {
+      "title": "Lists - Anforderungen",
+      "url": "/pp-voiceassistant/docs/method/skills/Lists/requirements/"
+    },
+  
+    
+    
+    {
+      "title": "Komplexität",
+      "url": "/pp-voiceassistant/docs/method/skills/Lists/complexity/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "PlayMusic Skill",
+      "url": "/pp-voiceassistant/docs/method/skills/PlayMusic/index/"
+    },
+  
+    
+    
+    {
+      "title": "Anforderungen",
+      "url": "/pp-voiceassistant/docs/method/skills/PlayMusic/requirements/"
+    },
+  
+    
+    
+    {
+      "title": "Komplexität",
+      "url": "/pp-voiceassistant/docs/method/skills/PlayMusic/complexity/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "Zigbee2MQTT Skill",
+      "url": "/pp-voiceassistant/docs/method/skills/Zigbee2MQTT/index/"
+    },
+  
+    
+    
+    {
+      "title": "Zigbee2MQTT - Anforderungen",
+      "url": "/pp-voiceassistant/docs/method/skills/Zigbee2MQTT/requirements/"
+    },
+  
+    
+    
+    {
+      "title": "Komplexität",
+      "url": "/pp-voiceassistant/docs/method/skills/Zigbee2MQTT/complexity/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "Automatisierungs-Skill",
+      "url": "/pp-voiceassistant/docs/method/skills/Automation/index/"
+    },
+  
+    
+    
+    {
+      "title": "Anforderungen",
+      "url": "/pp-voiceassistant/docs/method/skills/Automation/requirements/"
+    },
+  
+    
+    
+    {
+      "title": "Komplexität",
+      "url": "/pp-voiceassistant/docs/method/skills/Automation/complexity/"
+    },
+  
+
+  
+    
+    
+    {
+      "title": "Index",
+      "url": "/pp-voiceassistant/docs/method/bot/index/"
+    },
+  
+    
+    
+    {
+      "title": "Anforderungen",
+      "url": "/pp-voiceassistant/docs/method/bot/requirements/"
+    },
+  
+
   
     
     
@@ -94,7 +322,14 @@
     
     
     {
-      "title": "Fazit",
+      "title": "",
+      "url": ""
+    },
+  
+    
+    
+    {
+      "title": "Fazit und Ausblick",
       "url": "/pp-voiceassistant/docs/conclusion/conclusion/"
     },
   

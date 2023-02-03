@@ -1,5 +1,5 @@
 ---
-title: Chatbot - Anforderungen
+title: Anforderungen
 permalink: /docs/method/bot/requirements/
 ---
 

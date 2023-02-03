@@ -1,5 +1,5 @@
 ---
-title: PlayMusic - Anforderungen
+title: Anforderungen
 permalink: /docs/method/skills/PlayMusic/requirements/
 ---
 

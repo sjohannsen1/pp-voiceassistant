@@ -1,5 +1,5 @@
 ---
-title: GetTime - Anforderungen
+title: Anforderungen
 permalink: /docs/method/skills/GetTime/requirements/
 ---
 

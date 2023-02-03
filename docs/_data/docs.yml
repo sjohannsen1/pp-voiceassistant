@@ -11,45 +11,81 @@
 - title: Konzeption
   docs: 
     - conception/index
-    - title: Protokolle
-      docs:
-      - conception/protocols/1
-      - conception/protocols/2
-      - conception/protocols/3
-      - conception/protocols/4
+    - conception/protocols/1
+    - conception/protocols/2
+    - conception/protocols/3
+    - conception/protocols/4
     - conception/findings
     - conception/requirements
-    
-- title: Umsetzung
-  docs: 
-    - title: Evaluation
-      docs:
-      - method/evaluation/index.md
-      - method/evaluation/eval.md
-      - method/evaluation/iteration.md
-      - method/evaluation/conclusion.md
-      - method/evaluation/sources.md
-    - method/iterated-requirements.md
-    - title: Skills
-      docs:
-      - skills/Automation
-      - skills/GetTime
-      - skills/GetWeather
-      - skills/Lists
-      - skills/PlayMusic
-      - skills/Zigbee2MQTT
-    - title: Chatbot
-      docs:
-      - method/bot/index.md
-      - method/bot/requirements.md
-    - title: Skills entwickeln
-      docs:
-      - method/develop-skills/instruction.md
-      - method/develop-skills/locales.md
-      - method/develop-skills/manifest.md
-      - method/develop-skills/sdk.md
+
+- title: Evaluation
+  docs:
+    - method/evaluation/index
+    - method/evaluation/eval
+    - method/evaluation/iteration
+    - method/evaluation/conclusion
+    - method/evaluation/sources
+    - method/iterated-requirements
+
+- title: >
+    Skills: GetTime
+  docs:
+    - method/skills/GetTime/index
+    - method/skills/GetTime/requirements
+    - method/skills/GetTime/complexity
+
+- title: >
+    Skills: GetWeather
+  docs:
+    - method/skills/GetWeather/index
+    - method/skills/GetWeather/requirements
+    - method/skills/GetWeather/complexity
+
+- title: >
+    Skills: Lists
+  docs:
+    - method/skills/Lists/index
+    - method/skills/Lists/requirements
+    - method/skills/Lists/complexity
+
+- title: >
+    Skills: PlayMusic
+  docs:
+    - method/skills/PlayMusic/index
+    - method/skills/PlayMusic/requirements
+    - method/skills/PlayMusic/complexity
+
+- title: >
+    Skills: Zigbee2MQTT
+  docs:
+    - method/skills/Zigbee2MQTT/index
+    - method/skills/Zigbee2MQTT/requirements
+    - method/skills/Zigbee2MQTT/complexity
+
+- title: >
+    Skills: Automatisierung
+  docs:
+    - method/skills/Automation/index
+    - method/skills/Automation/requirements
+    - method/skills/Automation/complexity
+
+- title: >
+    Chatbot
+  docs:
+    - method/bot/index
+    - method/bot/requirements
+
+- title: >
+    Skills entwickeln
+  docs:
+    - method/develop-skills/instruction
+    - method/develop-skills/locales
+    - method/develop-skills/manifest
+    - method/develop-skills/sdk
+    - method/develop-skills/configs
 
 
 - title: Fazit
   docs:
+    - conclusion/difficulties
     - conclusion/conclusion

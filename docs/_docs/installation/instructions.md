@@ -1,6 +1,6 @@
 ---
 title: Anleitung
-permalink: /docs/installation/instructions.md
+permalink: /docs/installation/instructions/
 ---
 
 ## Einrichtung des Raspberry Pis
@@ -47,7 +47,8 @@ Die Einstellung "fuzzy" muss hier aktiviert werden.
 
 ## Installation des Systems 
 
-Dann muss dieses Projekt installiert werden. Die einfachste Methode dafür ist, das Repository zu klonen. Wenn dies geklont ist, muss nur noch in den einzelnen Ordnern, also dem Discord Client, der Custom SDK, dem Client und, falls gewollt, dem Server, jeweils der Befehlt 'npm install' durchgeführt werden.   
+Dann muss dieses Projekt installiert werden. Die einfachste Methode dafür ist, das Repository zu klonen. Wenn dies geklont ist, muss nur noch das Installationsskript mit dem Befehl `bash install.sh` ausgeführt werden. Bei der Ausführung lässt das Skript eine Auswahl der zu installierenden Systemteile zu.  
+Alternativ kann in den einzelnen Ordnern, also dem Discord Client, der Custom SDK, dem Client und dem Server, jeweils der Befehlt `npm install` durchgeführt werden.   
 
 ### Einrichtung des Skillverwaltungssystems
 
@@ -70,9 +71,6 @@ Wenn nun mit 'npm start' der Bot Client gestartet wird, loggt sich der Bot ein u
 
 ## Inbetriebnahme des Systems
 
-Um das System zu starten, muss nun im Ordner des Clients der Befehl `npm start` ausgeführt werden. Bei Verwendung des Servers in dessen Ordner auch. 
-Wird der Discord Bot verwendet muss dort das Gleiche geschehen. 
-
-### Autostart der Systemteile
-
-Soll das System direkt mit dem Starten des Raspberry Pis starten, //TODO
+Um das System zu starten, müssen nun mit dem Befehl `bash start.sh` alle erwünschten Systemteile gestartet werden. 
+Alternativ kann im Ordner des Clients der Befehl `npm start` ausgeführt werden. Bei Verwendung des Servers in dessen Ordner auch. 
+Wird der Discord Bot verwendet kann dann dort das Gleiche geschehen. 
