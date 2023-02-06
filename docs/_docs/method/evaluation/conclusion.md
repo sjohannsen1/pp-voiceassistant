@@ -3,7 +3,7 @@ title: Zwischenfazit
 permalink: /docs/method/evaluation/conclusion/
 ---
 
-Mittels [Iteration](./iteration) sind fast alle [identifizierten Probleme](./index) des Skillverwaltungssystems gelöst wurden. <br>
+Mittels [Iteration](iteration.md) sind fast alle [identifizierten Probleme](eval.md) des Skillverwaltungssystems gelöst wurden. <br>
 
 Das Problem der fehlenden Flexibilität in der Sprach- und Befehlserkennung könnte durch die Verwendung eines "Mixed Language Models" und einer flexibleren Sprachbefehlserkennung (Intentrecognition) gelöst werden. Dabei wird das individuell generierte Sprachmodell von Rhasspy mit einem größeren, vorgegebenen Sprachmodell nach einem definierten Verhältnis gemischt.  <br>
 Das von Rhasspy individuelle generierte Sprachmodell ist ein statistisches Sprachmodell. Dabei generiert Rhasspy einen Intentgraph. Dies ist ein Groph aller möglichen Sätze jedes Intents mit allen unterschiedlichen Einträgen für die Slots. Basierend darauf kann nun für jede Wortabfolge eine Wahrscheinlichkeit errechnet werden. Mithilfe dieser Wahrscheinlichkeiten kann Rhasspy ähnlich klingende Wörter richtig interpretieren. 
