@@ -4,7 +4,7 @@ permalink: /docs/method/develop-skills/instruction/
 ---
 
 Wie Skills für dieses System erstellt werden, hat [Finn Wehn erklärt](https://fwehn.github.io/pp-voiceassistant/docs/create-skills/instruction/). 
-Da das [System iteriert wurde](../evaluation/iteration) werden die Änderungen hier erklärt.
+Da das [System iteriert wurde](../../evaluation/iteration) werden die Änderungen hier erklärt.
 
 ## Konfigurations- oder Speicherdateien
 
